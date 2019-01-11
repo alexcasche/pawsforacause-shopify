@@ -14,10 +14,35 @@
 }
 
 .c-collection__grid {
-  @mixin flex row, flex-start, center;
+  @mixin flex row, flex-start, center, wrap;
   width: 100%;
+  margin: 30px auto;
 }
 
 .c-collection__item {
   @mixin lost-column;
+  @mixin flex column, center, center;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.c-collection__itemImage {
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+.c-collection__itemTitle {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.c-collection__itemPrice {
+  color: $color-blue;
+  font-family: $font-raleway;
+  font-weight: 600;
+}
+
+.c-collection__button {
+  @mixin button;
+  @mixin button-blue;
 }

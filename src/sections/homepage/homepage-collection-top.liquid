@@ -3,15 +3,24 @@
     <h2 class="c-collection__heading">
       {{ section.settings.heading }}
     </h2>
-    <div class="c-collection__grid">
-      <div class="c-collection__item">
-        Item 1
-      </div>
-      <div class="c-collection__item">
-        Item 2
-      </div>
+    <div class="c-collection__grid u-no-javascript">
+      {% for product in collections[section.settings.collection].products limit:8 %}
+        <a class="c-collection__item">
+          <img class="c-collection__itemImage" src="{{ product.images[0] | img_url: '500x' }}" alt="{{ product.images[0].alt }}" />
+          <h5 class="c-collection__itemTitle">
+            {{ product.title }}
+          </h5>
+          <span class="c-collection__itemPrice">
+            {% if product.price_varies %}
+              {{ product.price_min | money }} - {{ product.price_max | money }}
+            {% else %}
+              {{ product.price | money }}
+            {% endif %}
+          </span>
+        </a>
+      {% endfor %}
     </div>
-    <a class="c-collection__button">
+    <a class="c-collection__button" href="{{ collections[section.settings.collection].url }}">
       {{ section.settings.button_text }}
     </a>
   </div>

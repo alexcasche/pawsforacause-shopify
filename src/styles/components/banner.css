@@ -15,6 +15,10 @@
   }
 }
 
+.c-banner--hero {
+  margin-bottom: 20px;
+}
+
 .c-banner__inner {
   @mixin container;
   @media (--desktop) {

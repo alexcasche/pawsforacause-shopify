@@ -15,3 +15,8 @@
 
 /*========== Components ==========*/
 @import "components/index";
+
+/*========== Development ==========*/
+#preview-bar-iframe {
+  display: none !important;
+}
