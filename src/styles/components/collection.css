@@ -16,7 +16,7 @@
 .c-collection__grid {
   @mixin flex row, center, center, wrap;
   width: 100%;
-  margin: 30px auto;
+  margin: 30px auto 0;
 }
 
 .c-collection__item {
@@ -24,11 +24,18 @@
   @mixin flex column, center, center;
   margin-bottom: 80px;
   text-align: center;
+  &:hover {
+    opacity: 1;
+    .c-collection__itemPrice {
+      color: $color-blue;
+    }
+  }
 }
 
 .c-collection__itemImage {
   width: 250px;
   margin-bottom: 20px;
+  transition: inherit;
 }
 
 .c-collection__itemTitle {
@@ -38,7 +45,7 @@
 
 .c-collection__itemPrice {
   margin-bottom: 0;
-  color: $color-blue;
+  color: $color-black;
 }
 
 .c-collection__button {

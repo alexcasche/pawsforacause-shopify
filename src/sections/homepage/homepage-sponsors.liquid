@@ -1,0 +1,60 @@
+<section class="c-banner c-banner--hero">
+	<div class="c-banner__inner">
+		<div class="c-banner__top c-banner__left">
+			<img class="c-banner__image" src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.main_image.alt }}" />
+			<img class="c-banner__image-wide" src="{{ section.settings.image_wide | img_url: 'master' }}" alt="{{ section.settings.main_image_wide.alt }}" />
+		</div>
+		<div class="c-banner__bottom c-banner__right">
+			<h2 class="c-banner__heading">
+				{{ section.settings.heading }}
+			</h2>
+			<div class="c-banner__text">
+				{{ section.settings.text }}
+			</div>
+			<a class="c-banner__actionButton" href="{{ section.settings.button_url }}">
+				{{ section.settings.button_text }}
+			</a>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Sponsors",
+	"settings": [
+		{
+			"id": "image",
+			"type": "image_picker",
+			"label": "Image"
+		},
+		{
+			"id": "image_wide",
+			"type": "image_picker",
+			"label": "Image Wide"
+		},
+		{
+			"id": "heading",
+			"type": "text",
+			"label": "Heading",
+			"default": "Want to have an even bigger impact in the lives of rescue dogs?"
+		},
+		{
+			"id": "text",
+			"type": "richtext",
+			"label": "Text",
+			"default": "<p>Check out our sponsorship program, where you can give a gift to a local shelter or rescue dog!</p>"
+		},
+		{
+			"id": "button_text",
+			"type": "text",
+			"label": "Button Text",
+			"default": "Become A Sponsor"
+		},
+		{
+			"id": "button_url",
+			"type": "url",
+			"label": "Button Url"
+		}
+  ]
+}
+{% endschema %}
