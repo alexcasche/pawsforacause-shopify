@@ -1,0 +1,23 @@
+/*========== Collection ==========*/
+
+.c-collection {
+  @mixin padding-section;
+}
+
+.c-collection__inner {
+  @mixin flex column, center, center;
+  @mixin container-large;
+}
+
+.c-collection__heading {
+  text-align: center;
+}
+
+.c-collection__grid {
+  @mixin flex row, flex-start, center;
+  width: 100%;
+}
+
+.c-collection__item {
+  @mixin lost-column;
+}

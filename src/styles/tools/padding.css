@@ -1,0 +1,8 @@
+/*========== Padding ==========*/
+
+@define-mixin padding-section {
+  padding: 80px 0 100px;
+  @media (--tablet) {
+    padding: 60px 0 80px;
+  }
+}

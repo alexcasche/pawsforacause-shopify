@@ -1,0 +1,5 @@
+/*========== Lost ==========*/
+
+.o-lost {
+  @mixin lost-column;
+}

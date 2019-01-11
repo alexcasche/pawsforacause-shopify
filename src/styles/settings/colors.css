@@ -1,21 +1,21 @@
 /*========== Colors ==========*/
 
-$bg-gray-light: #FCFCFC;
-$bg-gray: #F7F7F7;
+$bg-gray-light: #fcfcfc;
+$bg-gray: #f7f7f7;
 
 $color-black-light: #444444;
 $color-black: #333333;
 $color-black-dark: #222222;
 
-$color-blue-lightest: #8FD2F3;
-$color-blue-light: #60BEEC;
+$color-blue-lightest: #8fd2f3;
+$color-blue-light: #60beec;
 $color-blue: #3aace5;
-$color-blue-dark: #0585C3;
-$color-blue-darker: #04618E;
+$color-blue-dark: #0585c3;
+$color-blue-darker: #04618e;
 
-$color-red-light: #FF9489;
-$color-red: #E14536;
+$color-red-light: #ff9489;
+$color-red: #e14536;
 $color-red-dark: #971204;
 
-$hr-gray-light: #EEE;
-$hr-gray: #E2E2E2;
+$hr-gray-light: #eee;
+$hr-gray: #e2e2e2;

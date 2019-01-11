@@ -1,0 +1,11 @@
+/*========== Lost ==========*/
+
+@define-mixin lost-column $mobile: 1/2, $tablet: 1/3, $desktop: 1/4 {
+  lost-column: $mobile;
+  @media (--tablet) {
+    lost-column: $tablet;
+  }
+  @media (--desktop) {
+    lost-column: $desktop;
+  }
+}
