@@ -10,13 +10,13 @@
           <h5 class="c-collection__itemTitle">
             {{ product.title }}
           </h5>
-          <span class="c-collection__itemPrice">
+          <h5 class="c-collection__itemPrice">
             {% if product.price_varies %}
               {{ product.price_min | money }} - {{ product.price_max | money }}
             {% else %}
               {{ product.price | money }}
             {% endif %}
-          </span>
+          </h5>
         </a>
       {% endfor %}
     </div>

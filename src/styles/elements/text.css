@@ -21,29 +21,44 @@ h6 {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 26px;
   margin: 0 0 24px;
+  @media (--tablet) {
+    font-size: 30px;
+  }
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 24px;
   margin: 0 0 20px;
+  @media (--tablet) {
+    font-size: 26px;
+  }
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   margin: 0 0 16px;
+  @media (--tablet) {
+    font-size: 22px;
+  }
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 16px;
   margin: 0 0 14px;
+  @media (--tablet) {
+    font-size: 18px;
+  }
 }
 
 h5 {
-  font-size: 16px;
+  font-size: 14px;
   margin: 0 0 12px;
+  @media (--tablet) {
+    font-size: 16px;
+  }
 }
 
 h6 {
@@ -55,6 +70,9 @@ a {
   text-decoration: none;
   color: $color-blue;
   @mixin transition-opacity;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 p {

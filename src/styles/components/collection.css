@@ -14,7 +14,7 @@
 }
 
 .c-collection__grid {
-  @mixin flex row, flex-start, center, wrap;
+  @mixin flex row, center, center, wrap;
   width: 100%;
   margin: 30px auto;
 }
@@ -37,9 +37,8 @@
 }
 
 .c-collection__itemPrice {
+  margin-bottom: 0;
   color: $color-blue;
-  font-family: $font-raleway;
-  font-weight: 600;
 }
 
 .c-collection__button {
