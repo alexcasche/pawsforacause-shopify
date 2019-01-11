@@ -1,0 +1,25 @@
+/*========== Visibility ==========*/
+
+@define-mixin hide-tablet {
+  @media (--tablet) {
+    display: none;
+  }
+}
+
+@define-mixin show-tablet {
+  @media (--mobile-max) {
+    display: none;
+  }
+}
+
+@define-mixin hide-desktop {
+  @media (--desktop) {
+    display: none;
+  }
+}
+
+@define-mixin show-desktop {
+  @media (--tablet-max) {
+    display: none;
+  }
+}

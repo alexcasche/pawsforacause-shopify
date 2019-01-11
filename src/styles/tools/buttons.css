@@ -1,0 +1,42 @@
+/*========== Buttons ==========*/
+
+@define-mixin button {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 15px 40px;
+  color: white;
+  font-family: $font-raleway;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  user-select: none;
+  @media (--tablet) {
+    padding: 10px 40px;
+    border-radius: 50px;
+    width: auto;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@define-mixin button-small {
+  padding: 10px 30px;
+  font-family: $font-openSans;
+  font-size: 13px;
+}
+
+@define-mixin button-blue {
+  @mixin transition-bg-darken $color-blue;
+}
+
+@define-mixin button-blue-dark {
+  @mixin transition-bg-darken $color-blue-dark;
+}
+
+@define-mixin button-red {
+  @mixin transition-bg-darken $color-red;
+}

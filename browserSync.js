@@ -1,5 +1,5 @@
 const browserSync = require("browser-sync");
-const BASE_URL = "https://pawsforacause.myshopify.com.myshopify.com";
+const BASE_URL = "https://pawsforacause.com";
 const PREVIEW_QUERY = "?preview_theme_id=44007161954";
 
 browserSync({

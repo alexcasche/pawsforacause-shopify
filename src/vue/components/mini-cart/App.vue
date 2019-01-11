@@ -1,6 +1,11 @@
 <template lang="html">
   <div class="c-miniCart">
-    <Trigger />
+    <portal target-el="#mini-cart-trigger">
+      <Trigger />
+    </portal>
+    <portal target-el="#mini-cart-trigger-mobile">
+      <Trigger />
+    </portal>
     <Overlay />
     <Drawer />
   </div>

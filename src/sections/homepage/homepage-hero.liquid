@@ -1,0 +1,89 @@
+<section class="c-banner">
+	<div class="c-banner__inner">
+		<div class="c-banner__top c-banner__right">
+			<img class="c-banner__image" src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.main_image.alt }}" />
+			<img class="c-banner__image-wide" src="{{ section.settings.image_wide | img_url: 'master' }}" alt="{{ section.settings.main_image_wide.alt }}" />
+		</div>
+		<div class="c-banner__bottom c-banner__left">
+			<h1 class="c-banner__heading">
+				{{ section.settings.heading }}
+			</h1>
+			<div class="c-banner__text">
+				{{ section.settings.text }}
+			</div>
+			<div class="c-banner__highlight">
+				<img class="c-banner__highlightImage" src="{{ section.settings.heart | img_url: 'master' }}" alt="{{ section.settings.main_image.alt }}" />
+				<h4 class="c-banner__highlightText">
+					{{ section.settings.heart_text }}
+				</h4>
+			</div>
+			<div class="c-banner__action c-banner__action--homepage">
+				<h4 class="c-banner__actionText">
+					{{ section.settings.action_text }}
+				</h4>
+				<a class="c-banner__actionButton" href="{{ section.settings.button_url }}">
+					{{ section.settings.button_text }}
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Section Hero",
+	"settings": [
+		{
+			"id": "image",
+			"type": "image_picker",
+			"label": "Image"
+		},
+		{
+			"id": "image_wide",
+			"type": "image_picker",
+			"label": "Image Wide"
+		},
+		{
+			"id": "heading",
+			"type": "text",
+			"label": "Heading",
+			"default": "We're on a mission to save rescue dogs."
+		},
+		{
+			"id": "text",
+			"type": "richtext",
+			"label": "Text",
+			"default": "<p>Every year millions of dogs in the USA enter animal shelters. Almost 700,000 of these innocent dogs are euthanized. Without more funding, shelters cannot keep up with demand. We want to change that..</p>"
+		},
+		{
+			"id": "heart",
+			"type": "image_picker",
+			"label": "Heart"
+		},
+		{
+			"id": "heart_text",
+			"type": "text",
+			"label": "Heart Text",
+			"default": "When you buy one of our products, we donate 100% of profits to help rescue dogs in need."
+		},
+		{
+			"id": "action_text",
+			"type": "text",
+			"label": "Action Text",
+			"default": "Ready to make a difference?"
+		},
+		{
+			"id": "button_text",
+			"type": "text",
+			"label": "Button Text",
+			"default": "Shop Now"
+		},
+		{
+			"id": "button_url",
+			"type": "text",
+			"label": "Button Url",
+			"default": "/collections/all-products"
+		}
+  ]
+}
+{% endschema %}

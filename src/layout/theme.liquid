@@ -7,22 +7,20 @@
   <meta name="theme-color" content="">
   <link rel="canonical" href="{{ canonical_url }}">
   <title>{{ shop.name }}</title>
-
+  <meta name="description" content="">
+  {{ content_for_header }}
   <!--------- Global Styles --------->
   {{ 'index.css' | asset_url | stylesheet_tag }}
   <!--------- Global Fonts --------->
   {{ 'fonts.css' | asset_url | stylesheet_tag }}
-
-  <meta name="description" content="">
-
-  {{ content_for_header }}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 
 <body>
-
+  {% section 'layout-header' %}
   <vue-mini-cart></vue-mini-cart>
   {{ content_for_layout }}
-
+  {% section 'layout-footer' %}
   <!--------- Global Scripts --------->
   {{ 'index.js' | asset_url | script_tag }}
 </body>

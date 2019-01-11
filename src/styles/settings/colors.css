@@ -1,0 +1,21 @@
+/*========== Colors ==========*/
+
+$bg-gray-light: #FCFCFC;
+$bg-gray: #F7F7F7;
+
+$color-black-light: #444444;
+$color-black: #333333;
+$color-black-dark: #222222;
+
+$color-blue-lightest: #8FD2F3;
+$color-blue-light: #60BEEC;
+$color-blue: #3aace5;
+$color-blue-dark: #0585C3;
+$color-blue-darker: #04618E;
+
+$color-red-light: #FF9489;
+$color-red: #E14536;
+$color-red-dark: #971204;
+
+$hr-gray-light: #EEE;
+$hr-gray: #E2E2E2;
