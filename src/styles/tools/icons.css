@@ -1,0 +1,31 @@
+/*========== Icons ==========*/
+
+@define-mixin icon-hamburger $color: $color-black {
+  position: relative;
+  top: 0;
+  right: 0;
+  will-change: opacity;
+  &,
+  &::before,
+  &::after {
+    pointer-events: none;
+    display: block;
+    height: 2px;
+    width: 20px;
+    background: $color;
+    border-radius: 1px;
+    content: "";
+  }
+  &::before,
+  &::after {
+    position: absolute;
+  }
+  &::before {
+    margin: 0;
+    top: -6px;
+  }
+  &::after {
+    margin: 0;
+    bottom: -6px;
+  }
+}

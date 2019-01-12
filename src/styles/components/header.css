@@ -145,4 +145,35 @@
 
 .c-headerMobile {
   @mixin hide-tablet;
+  width: 100%;
+  padding: 20px 15px;
+}
+
+.c-headerMobile__inner {
+  @mixin flex row, space-between, center;
+}
+
+.c-headerMobile__menu {
+  @mixin flex row, center, center;
+  @mixin transition-opacity;
+  width: 30px;
+  height: 30px;
+}
+
+.c-headerMobile__menuIcon {
+  @mixin icon-hamburger;
+}
+
+.c-headerMobile__logo {
+  height: 48px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.c-headerMobile__logoIcon {
+  width: 140px;
+  min-width: 140px;
+}
+
+.c-headerMobile__cart {
 }
