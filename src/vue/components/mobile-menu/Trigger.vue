@@ -1,17 +1,11 @@
 <template>
-  <button class="c-trigger" @click="setDrawer('open')">
+  <button class="c-trigger" @click="$emit('toggleMenu')">
     <span class="c-trigger__icon"></span>
   </button>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-
-export default {
-  methods: {
-    ...mapMutations('mobileMenu', ['setDrawer']),
-  },
-}
+export default {}
 </script>
 
 <style scoped>

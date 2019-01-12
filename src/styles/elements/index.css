@@ -1,5 +1,4 @@
 /*========== Elements ==========*/
 
-@import "blocks.css";
-@import "buttons.css";
-@import "text.css";
+@import 'buttons.css';
+@import 'text.css';

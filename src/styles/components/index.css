@@ -1,6 +1,7 @@
 /*========== Components ==========*/
 
-@import "banner";
-@import "collection";
-@import "footer";
-@import "header";
+@import 'banner';
+@import 'collection';
+@import 'footer';
+@import 'header';
+@import 'page';

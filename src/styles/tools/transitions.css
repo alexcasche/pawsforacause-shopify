@@ -1,7 +1,7 @@
 /*========== Transitions ==========*/
 
-@define-mixin transition-opacity $opacity: 0.8, $speed: 0.15s,
-  $ease: ease-in-out {
+@define-mixin transition-opacity $opacity: 0.8,
+  $speed: 0.15s, $ease: ease-in-out {
   transition: opacity $speed $ease;
   &:hover {
     opacity: $opacity;
@@ -16,10 +16,16 @@
   }
 }
 
-@define-mixin transition-bg-darken $color, $speed: 0.15s, $ease: ease-in-out {
+@define-mixin transition-bg-darken $color,
+  $speed: 0.15s, $ease: ease-in-out {
   @mixin transition-bg $speed, $ease;
   background-color: $color;
   &:hover {
     background-color: color($color shade(20%));
   }
+}
+
+@define-mixin drawer-slide $speed: 0.35s,
+  $ease: ease {
+  transition: transform $speed $ease;
 }

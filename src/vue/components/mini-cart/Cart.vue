@@ -1,30 +1,29 @@
 <template>
   <transition name="slide">
     <div v-if="isOpen" class="c-drawer">
-      <button class="c-drawer__close" @click="setDrawer('close')">Close Cart</button>
+      <button class="c-drawer__close" @click="$emit('toggleCart')">Close Cart</button>
       <h1 class="c-drawer__heading">Shopping Cart</h1>
     </div>
   </transition>
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
-  computed: {
-    ...mapGetters('miniCart', ['isOpen']),
-  },
-  methods: {
-    ...mapMutations('miniCart', ['setDrawer']),
-    ...mapActions('miniCart', ['setCart']),
-  },
-  mounted() {
-    this.setCart()
+  props: {
+    isOpen: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
 
 <style scoped>
+@import 'settings/index.css';
+@import 'tools/index.css';
+
 .slide-enter,
 .slide-leave-to {
   transform: translateX(100%);
@@ -44,7 +43,7 @@ export default {
   background-color: white;
   text-align: center;
   overflow-y: scroll;
-  transition: transform 0.35s ease;
+  @mixin drawer-slide;
 }
 </style>
 

@@ -1,30 +1,45 @@
 <template lang="html">
   <div class="c-miniCart">
     <portal to="mini-cart-trigger-header">
-      <Trigger trigger="headerMain"/>
+      <Trigger @toggleCart="toggleCart" trigger="headerMain" :cartCount="cartCount"/>
     </portal>
     <portal to="mini-cart-trigger-header-mobile">
-      <Trigger trigger="headerMobile"/>
+      <Trigger @toggleCart="toggleCart" trigger="headerMobile" :cartCount="cartCount"/>
     </portal>
-    <Overlay />
-    <Drawer />
+    <Overlay @toggleCart="toggleCart" :isOpen="isOpen" />
+    <Cart @toggleCart="toggleCart" :isOpen="isOpen" :cartCount="cartCount"/>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 import Trigger from './Trigger.vue'
 import Overlay from './Overlay.vue'
-import Drawer from './Drawer.vue'
+import Cart from './Cart.vue'
 
 export default {
   components: {
     Trigger,
     Overlay,
-    Drawer,
+    Cart,
+  },
+  computed: {
+    ...mapGetters('miniCart', ['isOpen', 'cartCount']),
   },
   methods: {
+    ...mapMutations('miniCart', ['toggleCart']),
     ...mapActions('miniCart', ['setCart']),
+  },
+  watch: {
+    isOpen(val) {
+      const page = document.getElementById('page')
+      if (val === true) {
+        page.classList.add('c-page--miniCartOpen')
+        this.setCart()
+      } else {
+        page.classList.remove('c-page--miniCartOpen')
+      }
+    },
   },
   mounted() {
     this.setCart()

@@ -1,5 +1,5 @@
 <template>
-  <button :class="triggerClass" @click="setDrawer('open')">
+  <button :class="triggerClass" @click="$emit('toggleCart')">
     <i v-if="trigger !== 'footer'" class="c-triggerHeader__icon fas fa-shopping-cart"></i>
     <span
       v-if="trigger === 'headerMain'"
@@ -12,17 +12,18 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
-
 export default {
   props: {
     trigger: {
-      type: 'String',
-      default: 'headerMain',
+      type: String,
+      default: '',
+    },
+    cartCount: {
+      type: Number,
+      default: 0,
     },
   },
   computed: {
-    ...mapGetters('miniCart', ['cartCount']),
     triggerClass() {
       return `c-trigger c-trigger--${this.trigger}`
     },
@@ -33,9 +34,6 @@ export default {
       }
       return message
     },
-  },
-  methods: {
-    ...mapMutations('miniCart', ['setDrawer']),
   },
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <transition name="fade">
-    <div v-if="isOpen" class="c-overlay" @click="$emit('toggleCart')"></div>
+  <transition name="fade-slide">
+    <div v-if="isOpen" class="c-overlay" @click="$emit('toggleMenu')"></div>
   </transition>
 </template>
 
@@ -15,25 +15,26 @@ export default {
 }
 </script>
 
-
 <style scoped>
-.fade-enter,
-.fade-leave-to {
+.fade-slide-enter,
+.fade-slide-leave-to {
   opacity: 0;
+  transform: translateX(-300px);
 }
-.fade-leave,
-.fade-enter-to {
+.fade-slide-leave,
+.fade-slide-enter-to {
   opacity: 1;
+  transform: translateX(0);
 }
 .c-overlay {
   position: fixed;
   top: 0;
-  right: 0;
   bottom: 0;
-  left: 0;
+  left: 300px;
+  width: 100vw;
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.4);
-  transition: opacity 0.35s ease;
+  transition: all 0.35s ease;
 }
 </style>
 

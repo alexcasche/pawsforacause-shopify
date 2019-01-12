@@ -1,6 +1,6 @@
 export default {
-  setDrawer(state, payload) {
-    state.isOpen = payload === "open" ? true : false;
-    return state;
-  }
-};
+  toggleMenu(state, payload) {
+    state.isOpen = !state.isOpen
+    return state
+  },
+}
