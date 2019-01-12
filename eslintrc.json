@@ -1,0 +1,8 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/strongly-recommended",
+    "plugin:prettier/recommended"
+  ]
+}

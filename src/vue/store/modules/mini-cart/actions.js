@@ -7,7 +7,7 @@ export default {
     axios
       .get("/cart.js")
       .then(response => {
-        commit("setCart", normalizeShopifyCart(response.data));
+        commit("setCart", formatCart(response.data));
       })
       .catch(error => {
         return error.message;
@@ -21,7 +21,7 @@ export default {
       axios
         .post("/cart/add.js", qs.stringify(payload))
         .then(response => {
-          commit("addCartItem", normalizeShopifyProduct(response.data));
+          commit("addCartItem", formatProduct(response.data));
           commit("toggleFetching");
           commit("setDrawer", "open");
         })

@@ -24,18 +24,17 @@
           {% endfor %}
         </nav>
       </nav>
-       <div id="mini-cart-trigger" class="c-headerMain__cart"></div>
+       <vue-portal name="mini-cart-trigger-header" class="c-headerMain__cart"></vue-portal>
     </div>
   </div>
   <div class="c-headerMobile">
     <div class="c-headerMobile__inner">
-      <button class="c-headerMobile__menu" id="mobile-nav-trigger">
-        <span class="c-headerMobile__menuIcon"></span>
-      </button>
+      <vue-portal name="mobile-menu-trigger" class="c-headerMobile__cart"></vue-portal>
+      <div id="mobile-menu-trigger" class="c-headerMobile__menu"></div>
       <a class="c-headerMobile__logo" href="/">
         <img class="c-headerMobile__logoIcon" src="{{ 'logo.svg' | asset_url }}"  alt="{{ shop.name }}" itemprop="logo" />
       </a>
-      <div id="mini-cart-trigger-mobile" class="c-headerMobile__cart"></div>
+      <vue-portal name="mini-cart-trigger-header-mobile" class="c-headerMobile__cart"></vue-portal>
     </div>
   </div>
 <header>

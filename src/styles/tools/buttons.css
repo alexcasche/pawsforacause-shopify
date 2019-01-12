@@ -3,6 +3,7 @@
 @define-mixin button {
   width: 100%;
   border-radius: 5px;
+  background-color: transparent;
   border: none;
   outline: none;
   padding: 15px 40px;

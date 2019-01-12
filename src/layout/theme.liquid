@@ -18,9 +18,11 @@
 
 <body>
   {% section 'layout-header' %}
-  <vue-mini-cart></vue-mini-cart>
   {{ content_for_layout }}
   {% section 'layout-footer' %}
+  <!--------- Global Components --------->
+  <vue-mobile-menu></vue-mobile-menu>
+  <vue-mini-cart></vue-mini-cart>
   <!--------- Global Scripts --------->
   {{ 'index.js' | asset_url | script_tag }}
 </body>

@@ -8,16 +8,20 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters("miniCart", ["isOpen"])
+    ...mapGetters('miniCart', ['isOpen']),
   },
   methods: {
-    ...mapMutations("miniCart", ["setDrawer"])
-  }
-};
+    ...mapMutations('miniCart', ['setDrawer']),
+    ...mapActions('miniCart', ['setCart']),
+  },
+  mounted() {
+    this.setCart()
+  },
+}
 </script>
 
 <style scoped>
