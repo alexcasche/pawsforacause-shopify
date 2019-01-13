@@ -4,7 +4,9 @@
       <Trigger @toggleMenu="toggleMenu" />
     </portal>
     <Overlay :isOpen="isOpen" @toggleMenu="toggleMenu" />
-    <Menu @toggleMenu="toggleMenu" />
+    <Menu @toggleMenu="toggleMenu">
+      <slot />
+    </Menu>
   </div>
 </template>
 
@@ -16,6 +18,12 @@ import Overlay from './Overlay.vue'
 import Menu from './Menu.vue'
 
 export default {
+  props: {
+    menu: {
+      type: Array,
+      default: () => [],
+    },
+  },
   components: {
     Trigger,
     Overlay,

@@ -18,14 +18,16 @@
 
 <body>
   <div id="vue" class="c-vue">
-    {% section 'layout-header' %}
+    {% section 'header' %}
     <div id="page" class="c-page">
       {{ content_for_layout }}
     </div>
-    {% section 'layout-footer' %}
+    {% section 'footer' %}
   </div>
   <!--------- Global Components --------->
-  <vue-mobile-menu></vue-mobile-menu>
+  <vue-mobile-menu>
+    {% include 'mobile-nav' %}
+  </vue-mobile-menu>
   <vue-mini-cart></vue-mini-cart>
   <!--------- Global Scripts --------->
   {{ 'index.js' | asset_url | script_tag }}
