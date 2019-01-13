@@ -7,7 +7,10 @@
     >{{ cartCount }} {{ cartMessage }}</span>
     <span v-if="trigger === 'headerMobile'" class="c-triggerHeader__badge">{{ cartCount }}</span>
     <span v-if="trigger === 'footer'" class="c-triggerFooter__heading">Shopping Cart</span>
-    <span v-if="trigger === 'footer'" class="c-triggerFooter__text">{{ cartMessage }}</span>
+    <span
+      v-if="trigger === 'footer'"
+      class="c-triggerFooter__text"
+    >{{ cartCount }} {{ cartMessage }}</span>
   </button>
 </template>
 
@@ -29,7 +32,7 @@ export default {
     },
     cartMessage() {
       let message = this.cartCount === 1 ? 'Item' : 'Items'
-      if ((this.trigger = 'headerMain')) {
+      if (this.trigger === 'headerMain') {
         return `${message} In Cart`
       }
       return message
@@ -64,7 +67,7 @@ export default {
   position: relative;
   height: 38px;
   width: 38px;
-  padding: 0;
+  padding: 0 !important;
   .c-triggerHeader__icon {
     margin-right: 10px;
     color: $color-black;
@@ -83,6 +86,27 @@ export default {
     font-size: 8px;
     font-weight: 700;
   }
+}
+
+.c-trigger--footer {
+  @mixin button;
+  @mixin flex row, space-between, center;
+  width: 100%;
+  text-transform: capitalize;
+  padding: 0 !important;
+  @media (--mobile) {
+    @mixin flex row, flex-start, center;
+  }
+}
+
+.c-triggerFooter__heading {
+  margin-right: 30px;
+  font-weight: 600;
+}
+
+.c-triggerFooter__text {
+  opacity: 0.85;
+  font-weight: 500;
 }
 </style>
 

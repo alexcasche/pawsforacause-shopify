@@ -6,6 +6,9 @@
     <portal to="mini-cart-trigger-header-mobile">
       <Trigger @toggleCart="toggleCart" trigger="headerMobile" :cartCount="cartCount"/>
     </portal>
+    <portal to="mini-cart-trigger-footer">
+      <Trigger @toggleCart="toggleCart" trigger="footer" :cartCount="cartCount" />
+    </portal>
     <Overlay @toggleCart="toggleCart" :isOpen="isOpen" />
     <Cart @toggleCart="toggleCart" :isOpen="isOpen" :cartCount="cartCount"/>
   </div>

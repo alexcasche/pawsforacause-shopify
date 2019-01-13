@@ -18,21 +18,12 @@
 .c-footerCart__inner {
   @mixin container-large;
   @mixin flex row, space-between, center;
+  z-index: $z-index-layout;
   font-size: 15px;
   color: white;
   @media (--tablet) {
     justify-content: flex-start;
   }
-}
-
-.c-footerCart__heading {
-  margin-right: 30px;
-  font-weight: 600;
-}
-
-.c-footerCart__count {
-  opacity: 0.85;
-  font-weight: 500;
 }
 
 .c-footerMain {
