@@ -1,8 +1,8 @@
 <template>
   <transition name="slide">
-    <div v-if="isOpen" class="c-drawer">
-      <button class="c-drawer__close" @click="$emit('toggleCart')">Close Cart</button>
-      <h1 class="c-drawer__heading">Shopping Cart</h1>
+    <div v-if="isOpen" class="c-cart">
+      <button class="c-cart__close" @click="$emit('toggleCart')">Close Cart</button>
+      <h1 class="c-cart__heading">Shopping Cart</h1>
     </div>
   </transition>
 </template>
@@ -32,7 +32,7 @@ export default {
 .slide-enter-to {
   transform: translateX(0);
 }
-.c-drawer {
+.c-cart {
   position: fixed;
   top: 0;
   right: 0;
@@ -43,7 +43,8 @@ export default {
   background-color: white;
   text-align: center;
   overflow-y: scroll;
-  @mixin drawer-slide;
+  z-index: $z-index-cart;
+  @mixin transition-slide;
 }
 </style>
 

@@ -17,9 +17,11 @@
 </head>
 
 <body>
-  <div id="page" class="c-page">
+  <div id="vue" class="c-vue">
     {% section 'layout-header' %}
-    {{ content_for_layout }}
+    <div id="page" class="c-page">
+      {{ content_for_layout }}
+    </div>
     {% section 'layout-footer' %}
   </div>
   <!--------- Global Components --------->

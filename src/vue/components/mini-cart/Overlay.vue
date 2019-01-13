@@ -17,6 +17,8 @@ export default {
 
 
 <style scoped>
+@import 'settings/index.css';
+
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
@@ -31,9 +33,9 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 100;
   background-color: rgba(0, 0, 0, 0.4);
   transition: opacity 0.35s ease;
+  z-index: $z-index-overlay;
 }
 </style>
 

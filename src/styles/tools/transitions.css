@@ -25,7 +25,7 @@
   }
 }
 
-@define-mixin drawer-slide $speed: 0.35s,
+@define-mixin transition-slide $speed: 0.35s,
   $ease: ease {
   transition: transform $speed $ease;
 }

@@ -29,11 +29,11 @@ export default {
   },
   watch: {
     isOpen(val) {
-      const page = document.getElementById('page')
+      const page = document.getElementById('vue')
       if (val === true) {
-        page.classList.add('c-page--mobileMenuOpen')
+        page.classList.add('c-vue--mobileMenuOpen')
       } else {
-        page.classList.remove('c-page--mobileMenuOpen')
+        page.classList.remove('c-vue--mobileMenuOpen')
       }
     },
   },

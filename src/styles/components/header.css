@@ -2,6 +2,7 @@
 
 .c-header {
   @mixin flex column, center, center;
+  z-index: $z-index-layout;
   background-color: white;
   box-shadow: $box-shadow-header;
   user-select: none;

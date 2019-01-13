@@ -2,6 +2,7 @@
 
 .c-footer {
   @mixin flex column, center, center;
+  z-index: $z-index-layout;
   user-select: none;
   margin-bottom: 152px;
 }

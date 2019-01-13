@@ -32,12 +32,12 @@ export default {
   },
   watch: {
     isOpen(val) {
-      const page = document.getElementById('page')
+      const page = document.getElementById('vue')
       if (val === true) {
-        page.classList.add('c-page--miniCartOpen')
+        page.classList.add('c-vue--miniCartOpen')
         this.setCart()
       } else {
-        page.classList.remove('c-page--miniCartOpen')
+        page.classList.remove('c-vue--miniCartOpen')
       }
     },
   },

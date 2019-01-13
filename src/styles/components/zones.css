@@ -1,0 +1,22 @@
+/*========== Zones ==========*/
+
+.c-vue {
+  max-height: 100vh;
+  overflow-y: scroll;
+  background-color: $bg-gray-light;
+  @mixin transition-slide;
+}
+
+.c-vue--miniCartOpen,
+.c-vue--mobileMenuOpen {
+  position: absolute;
+  overflow-y: hidden;
+}
+
+.c-vue--mobileMenuOpen {
+  transform: translateX(300px);
+}
+
+.c-page {
+  z-index: $z-index-page;
+}

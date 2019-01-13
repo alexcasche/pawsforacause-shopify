@@ -1,5 +1,8 @@
 /*========== Z Index ==========*/
 
-$z-index-header: 1000;
-$z-index-drawer: 2000;
-$z-index-modal: 9000;
+$z-index-behind: -100;
+$z-index-page: 0;
+$z-index-layout: 100;
+$z-index-overlay: 300;
+$z-index-cart: 400;
+$z-index-modal: 500;

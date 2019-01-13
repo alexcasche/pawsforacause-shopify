@@ -14,7 +14,7 @@
     width: 20px;
     background: $color;
     border-radius: 1px;
-    content: "";
+    content: '';
   }
   &::before,
   &::after {
@@ -27,5 +27,20 @@
   &::after {
     margin: 0;
     bottom: -6px;
+  }
+}
+
+@define-mixin icon-close $color: $color-black {
+  @mixin icon-hamburger $color;
+  & {
+    background-color: transparent;
+  }
+  &::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  &::after {
+    top: 0;
+    transform: rotate(-45deg);
   }
 }

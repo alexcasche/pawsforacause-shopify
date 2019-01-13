@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style scoped>
+@import 'settings/index.css';
+
 .fade-slide-enter,
 .fade-slide-leave-to {
   opacity: 0;
@@ -32,9 +34,9 @@ export default {
   bottom: 0;
   left: 300px;
   width: 100vw;
-  z-index: 100;
   background-color: rgba(0, 0, 0, 0.4);
   transition: all 0.35s ease;
+  z-index: $z-index-overlay;
 }
 </style>
 
