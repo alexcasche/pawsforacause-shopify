@@ -39,6 +39,7 @@ export default {
 .c-menu__header {
   padding: 8px 15px;
   background-color: $color-blue-dark;
+  box-shadow: $box-shadow-drawer;
 }
 .c-menu__close {
   @mixin button;

@@ -1,6 +1,7 @@
 /*========== Header ==========*/
 
 .c-header {
+  position: relative;
   @mixin flex column, center, center;
   z-index: $z-index-layout;
   background-color: white;
@@ -85,7 +86,7 @@
   line-height: 24px;
   @media (--desktop) {
     font-size: 16px;
-    line-height: 48px;
+    line-height: 50px;
   }
   &:after {
     display: block;

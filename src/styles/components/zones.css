@@ -1,9 +1,7 @@
 /*========== Zones ==========*/
 
 .c-vue {
-  max-height: 100vh;
   min-width: 100vw;
-  overflow-y: scroll;
   background-color: $bg-gray-light;
   @mixin transition-slide;
 }

@@ -32,12 +32,15 @@ export default {
   },
   watch: {
     isOpen(val) {
-      const page = document.getElementById('vue')
+      const vue = document.getElementById('vue')
+      const body = document.body
       if (val === true) {
-        page.classList.add('c-vue--miniCartOpen')
+        vue.classList.add('c-vue--miniCartOpen')
+        body.style.overflowY = 'hidden'
         this.setCart()
       } else {
-        page.classList.remove('c-vue--miniCartOpen')
+        vue.classList.remove('c-vue--miniCartOpen')
+        body.style.overflowY = 'scroll'
       }
     },
   },

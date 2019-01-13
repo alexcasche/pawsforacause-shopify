@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="c-mobileMenu">
+  <div :class="menuClass">
     <portal to="mobile-menu-trigger">
       <Trigger @toggleMenu="toggleMenu" />
     </portal>
@@ -31,19 +31,35 @@ export default {
   },
   computed: {
     ...mapGetters('mobileMenu', ['isOpen']),
+    menuClass() {
+      const openClass = this.isOpen ? ' c-mobileMenu--open' : ''
+      return `c-mobileMenu${openClass}`
+    },
   },
   methods: {
     ...mapMutations('mobileMenu', ['toggleMenu']),
   },
   watch: {
     isOpen(val) {
-      const page = document.getElementById('vue')
+      const vue = document.getElementById('vue')
+      const body = document.body
       if (val === true) {
-        page.classList.add('c-vue--mobileMenuOpen')
+        vue.classList.add('c-vue--mobileMenuOpen')
+        body.style.overflowY = 'hidden'
       } else {
-        page.classList.remove('c-vue--mobileMenuOpen')
+        vue.classList.remove('c-vue--mobileMenuOpen')
+        body.style.overflowY = 'scroll'
       }
     },
   },
 }
 </script>
+
+<style>
+.c-mobileMenu {
+  opacity: 0;
+}
+.c-mobileMenu--open {
+  opacity: 1;
+}
+</style>
