@@ -5,6 +5,18 @@
         <span class="c-menu__closeIcon"></span>
       </button>
     </div>
+    <div class="c-menu__inner">
+      <nav class="c-menu__nav">
+        <a class="c-menu__navHeading">Our Products</a>
+        <a class="c-menu__navLink">New Arrivals</a>
+        <a class="c-menu__navLink">Best Sellers</a>
+      </nav>
+      <nav class="c-menu__nav">
+        <a class="c-menu__navHeading">About Us</a>
+        <a class="c-menu__navLink">Who We Are</a>
+        <a class="c-menu__navLink">How We Give Back</a>
+      </nav>
+    </div>
   </div>
 </template>
 
@@ -34,7 +46,7 @@ export default {
   z-index: $z-index-behind;
 }
 .c-menu__header {
-  padding: 10px 15px;
+  padding: 8px 15px;
   background-color: $color-blue-dark;
 }
 .c-menu__close {
@@ -47,5 +59,25 @@ export default {
 }
 .c-menu__closeIcon {
   @mixin icon-close $color-blue;
+}
+.c-menu__inner {
+  padding: 40px 40px 60px;
+}
+.c-menu__nav {
+  @mixin flex column, space-between, flex-start;
+  font-family: $font-raleway;
+  margin-bottom: 30px;
+}
+.c-menu__navHeading {
+  margin-bottom: 20px;
+  color: $color-black;
+  font-size: 17px;
+  font-weight: 600;
+}
+.c-menu__navLink {
+  margin-bottom: 15px;
+  color: $color-blue-dark;
+  font-size: 15px;
+  font-weight: 500;
 }
 </style>
