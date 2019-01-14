@@ -2,6 +2,7 @@
 
 .c-footerNav {
   @mixin flex row, space-between, flex-start, wrap;
+  margin-bottom: 20px;
 }
 
 .c-footerNav__group {
@@ -23,9 +24,40 @@
   }
 }
 
+.c-footerNav__logo {
+  margin-bottom: 20px;
+}
+
 .c-footerNav__logoIcon {
   width: 150px;
   max-height: 50px;
+}
+
+.c-footerNav__social {
+  width: 150px;
+  @mixin flex row, center, center;
+}
+
+.c-footerNav__socialLink {
+  @mixin flex row, center, center;
+  margin-left: 8px;
+  height: 26px;
+  width: 26px;
+  background-color: $color-blue;
+  border-radius: 50%;
+  text-align: center;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.c-footerNav__socialIcon {
+  color: white;
+  font-size: 14px;
+}
+
+.c-footerNav__socialIcon--instagram {
+  font-size: 16px;
 }
 
 .c-footerNav__heading {

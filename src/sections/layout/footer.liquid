@@ -5,11 +5,49 @@
   <div class="c-footerMain">
     <div class="c-footerMain__inner">
       {% include 'footer-nav' %}
+        <div class="c-footerMain__middle">
+          {% unless shop.enabled_payment_types == empty %}
+            <div class="c-footerMain__payment">
+              <h5 class="c-footerMain__paymentHeading">
+                Secure Payments by
+                <img class="c-footerMain__paymentShopify" src="{{ 'logo-shopify.png' | asset_url }}"  alt="{{ shop.name }} Shopify"/>
+              </h5>
+              <ul class="c-footerMain__paymentList">
+                {% for type in shop.enabled_payment_types %}
+                  <li class="c-footerMain__paymentItem">
+                    <img class="c-footerMain__paymentIcon" src="{{ type | payment_type_img_url }}" />
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endunless %}
+          <div class="c-footerMain__paws">
+            <h5 class="c-footerMain__pawsHeading">
+              Looking For An Assistance Dog?
+            </h5>
+            <span class="c-footerMain__pawsText">
+              Check out our friends
+              <a class="c-footerMain__pawsLink" href="https://pawswithacause.org" target="_blank">
+                <img class="c-footerMain__pawsLogo" src="{{ 'logo-pwac.png' | asset_url }}"  alt="Paws With A Cause Assistance Dogs"/>
+              </a>
+            </span>
+          </div>
+        </div>
     </div>
   </div>
-  <div class="c-footerBar">
-    <div class="c-footerBar__inner">
-      <div class="mini-cart-trigger"></div>
-    </div>
+  <div class="c-footerLegal">
+    <span class="c-footerLegal__copyright">
+      Copyright © 2017 Paws For A Cause
+    </span>
+    <nav class="c-footerLegal__nav">
+      {% for link in linklists.legal-menu.links %}
+        {% if forloop.index0 != 0 %}
+        <span class="c-footerLegal__break">|</span>
+        {% endif %}
+        <a class="c-footerLegal__link" href= "{{ link.url }}">
+          {{link.title}}
+        </a>
+      {% endfor %}
+    </nav>
   </div>
 </footer>

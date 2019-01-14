@@ -51,8 +51,8 @@
 .c-mainNav__socialLink {
   @mixin flex row, center, center;
   margin-left: 8px;
-  height: 24px;
-  width: 24px;
+  height: 26px;
+  width: 26px;
   background-color: $color-blue;
   border-radius: 50%;
   text-align: center;
@@ -64,15 +64,9 @@
 
 .c-mainNav__socialIcon {
   color: white;
-  font-size: 12px;
-  @media (--desktop) {
-    font-size: 14px;
-  }
+  font-size: 14px;
 }
 
 .c-mainNav__socialIcon--instagram {
-  font-size: 14px;
-  @media (--desktop) {
-    font-size: 16px;
-  }
+  font-size: 16px;
 }

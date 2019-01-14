@@ -4,7 +4,7 @@
   {% endfor %}
   <nav class="c-mainNav__social">
     {% assign socialIcons = 'facebook-f,twitter,instagram' | split:',' %}
-    {% for link in linklists.social-menu-dev.links %}
+    {% for link in linklists.social-menu.links %}
       <a class="c-mainNav__socialLink" href= "{{ link.url }}" target="_blank">
         <i class="c-mainNav__socialIcon c-mainNav__socialIcon--{{ link.title | downcase }} fab fa-{{ socialIcons[forloop.index0] }}"></i>
       </a>

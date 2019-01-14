@@ -1,6 +1,17 @@
 <div class="c-footerNav">
-  <a class="c-footerNav__group c-footerNav__group--social" href="/">
-    <img class="c-footerNav__logoIcon" src="{{ 'logo.svg' | asset_url }}"  alt="{{ shop.name }}" itemprop="logo" />
+  <nav class="c-footerNav__group c-footerNav__group--social">
+    <a class="c-footerNav__logo" href="/">
+      <img class="c-footerNav__logoIcon" src="{{ 'logo.svg' | asset_url }}"  alt="{{ shop.name }}" />
+    </a>
+    <nav class="c-footerNav__social">
+      {% assign socialIcons = 'facebook-f,twitter,instagram' | split:',' %}
+      {% for link in linklists.social-menu.links %}
+        <a class="c-footerNav__socialLink" href= "{{ link.url }}" target="_blank">
+          <i class="c-footerNav__socialIcon c-footerNav__socialIcon--{{ link.title | downcase }} fab fa-{{ socialIcons[forloop.index0] }}"></i>
+        </a>
+      {% endfor %}
+    </nav>
+  </nav>
   </a>
   {% for link in linklists.footer-menu.links %}
     <nav class="c-footerNav__group">
