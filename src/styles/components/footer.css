@@ -1,6 +1,7 @@
 /*========== Footer ==========*/
 
 .c-footer {
+  position: relative;
   @mixin flex column, center, center;
   z-index: $z-index-layout;
   user-select: none;
@@ -35,12 +36,4 @@
 
 .c-footerMain__inner {
   @mixin container-large;
-}
-
-.c-footerMain__nav {
-  @mixin flex row, space-between, flex-start;
-}
-
-.c-footerMain__navGroup {
-  width: 25%;
 }

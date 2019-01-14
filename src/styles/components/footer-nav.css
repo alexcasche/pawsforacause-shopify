@@ -1,0 +1,45 @@
+/*========== Footer Nav ==========*/
+
+.c-footerNav {
+  @mixin flex row, space-between, flex-start, wrap;
+}
+
+.c-footerNav__group {
+  @mixin flex column, space-between, flex-start;
+  width: 100%;
+  margin-bottom: 60px;
+  @media (--mobile) {
+    width: calc(50% - 20px);
+  }
+  @media (--desktop) {
+    width: calc(20% - 20px);
+  }
+}
+
+.c-footerNav__group--social {
+  display: none;
+  @media (--desktop) {
+    display: flex;
+  }
+}
+
+.c-footerNav__logoIcon {
+  width: 150px;
+  max-height: 50px;
+}
+
+.c-footerNav__heading {
+  color: $color-black;
+  font-family: $font-raleway;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.c-footerNav__link {
+  color: $color-blue-dark;
+  font-family: $font-raleway;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}

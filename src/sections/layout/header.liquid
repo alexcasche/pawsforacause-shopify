@@ -11,19 +11,7 @@
       <a class="c-headerMain__logo" href="/">
         <img class="c-headerMain__logoIcon" src="{{ 'logo.svg' | asset_url }}"  alt="{{ shop.name }}" itemprop="logo" />
       </a>
-      <nav class="c-headerMain__nav">
-        {% for link in linklists.main-menu-dev.links %}
-          <a class="c-headerMain__link{% if link.active %} c-headerMain__link--active{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
-        {% endfor %}
-        <nav class="c-headerMain__social">
-          {% assign socialIcons = 'facebook-f,twitter,instagram' | split:',' %}
-          {% for link in linklists.social-menu-dev.links %}
-            <a class="c-headerMain__socialLink" href= "{{ link.url }}" target="_blank">
-              <i class="c-headerMain__socialIcon c-headerMain__socialIcon--{{ link.title | downcase }} fab fa-{{ socialIcons[forloop.index0] }}"></i>
-            </a>
-          {% endfor %}
-        </nav>
-      </nav>
+      {% include 'main-nav' %}
        <vue-portal name="mini-cart-trigger-header" class="c-headerMain__cart"></vue-portal>
     </div>
   </div>

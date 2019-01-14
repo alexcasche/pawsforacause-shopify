@@ -3,7 +3,9 @@
 @import 'banner';
 @import 'collection';
 @import 'footer';
+@import 'footer-nav';
 @import 'header';
+@import 'main-nav';
 @import 'mobile-nav';
 @import 'portal';
 @import 'zones';

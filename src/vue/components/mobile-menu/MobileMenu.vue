@@ -41,13 +41,13 @@ export default {
   },
   watch: {
     isOpen(val) {
-      const vue = document.getElementById('vue')
+      const view = document.getElementById('view')
       const body = document.body
       if (val === true) {
-        vue.classList.add('c-vue--mobileMenuOpen')
+        view.classList.add('c-view--mobileMenuOpen')
         body.style.overflowY = 'hidden'
       } else {
-        vue.classList.remove('c-vue--mobileMenuOpen')
+        view.classList.remove('c-view--mobileMenuOpen')
         body.style.overflowY = 'scroll'
       }
     },
@@ -55,11 +55,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .c-mobileMenu {
   opacity: 0;
+  transition: opacity;
+  transition-delay: 0.35s;
 }
 .c-mobileMenu--open {
   opacity: 1;
+  transition-delay: 0s;
 }
 </style>

@@ -4,25 +4,7 @@
   </div>
   <div class="c-footerMain">
     <div class="c-footerMain__inner">
-      <div class="c-footerMain__nav">
-        <div class="c-footerMain__navGroup">
-          <h4 class="c-footerMain__navHeader">
-            Join The Pack!
-          </h4>
-        </div>
-        <nav class="c-footerMain__navGroup">
-          {% for link in linklists.main-menu-dev.links %}
-          {% endfor %}
-        </nav>
-        <div class="c-footerMain__navGroup">
-          <h4 class="c-footerMain__navHeader">
-            Bark At Us!
-          </h4>
-          <a class="c-footerMain__navLink" href="mailto:bark@pawsforacausecom">
-            bark@pawsforacause.com
-          </a>
-        </div>
-      </div>
+      {% include 'footer-nav' %}
     </div>
   </div>
   <div class="c-footerBar">

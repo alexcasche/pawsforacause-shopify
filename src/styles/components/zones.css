@@ -1,21 +1,24 @@
 /*========== Zones ==========*/
 
-.c-vue {
+.c-view {
   min-width: 100vw;
+  position: relative;
+  z-index: $z-index-view;
   background-color: $bg-gray-light;
   @mixin transition-slide;
 }
 
-.c-vue--miniCartOpen,
-.c-vue--mobileMenuOpen {
+.c-view--miniCartOpen,
+.c-view--mobileMenuOpen {
   position: absolute;
   overflow-y: hidden;
 }
 
-.c-vue--mobileMenuOpen {
+.c-view--mobileMenuOpen {
   transform: translateX(300px);
 }
 
 .c-page {
+  position: relative;
   z-index: $z-index-page;
 }
