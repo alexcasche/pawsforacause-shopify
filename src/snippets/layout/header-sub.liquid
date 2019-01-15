@@ -1,16 +1,14 @@
 <header class="c-headerSub">
   <div class="c-headerSub__inner">
-    {% assign layout = "" %}
+    {% comment %} {% assign layout = "" %}
     {% assign dropdown = "" %}
-    {% if template.suffix contains "" %}
-      {% assign layout = 'not index' %}
+    {% if contains "who-we-are,how-we-give-back,our-community" contains template.suffix %}
+      {% assign layout = 'about-us' %}
     {% else %}
       {% assign layout = 'theme' %}
-    {% endif %}
-
-
-
-      {% comment %} <form class="c-headerSub__search" action="/search">
+    {% endif %} {% endcomment %}
+    
+      <form class="c-headerSub__search" action="/search">
         <i class="c-headerSub__searchIcon fas fa-search"></i>
         <input class="c-headerSub__searchInput" type="text" placeholder="Search..." name="q" value="{{ search.terms | escape }}"  />
       </form>
@@ -32,6 +30,6 @@
           <a class="c-headerSub__navLink c-headerSub__navLink--contact" href="/contact-us">
             Contact Us
         </a>
-      </nav> {% endcomment %}
+      </nav>
   </div>
 </header>
