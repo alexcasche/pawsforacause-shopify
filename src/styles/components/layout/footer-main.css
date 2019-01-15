@@ -1,33 +1,6 @@
-/*========== Footer ==========*/
+/*========== Footer Main ==========*/
 
-.c-footer {
-  position: relative;
-  @mixin flex column, center, center;
-  z-index: $z-index-layout;
-  user-select: none;
-  margin-bottom: 152px;
-}
-
-.c-footerTop {
-  @mixin flex row, space-between, center;
-  width: 100%;
-  padding: 25px 0;
-  background-color: $color-blue-dark;
-  color: white;
-}
-
-.c-footerTop__inner {
-  @mixin container-large;
-  @mixin flex row, space-between, center;
-  z-index: $z-index-layout;
-  font-size: 15px;
-  color: white;
-  @media (--tablet) {
-    justify-content: flex-start;
-  }
-}
-
-.c-footerMiddle {
+.c-footerMain {
   @mixin flex column, center, center;
   width: 100%;
   padding: 60px 0 20px;
@@ -35,16 +8,16 @@
   border-bottom: 1px solid $hr-gray-light;
 }
 
-.c-footerMiddle__inner {
+.c-footerMain__inner {
   @mixin container-large;
 }
 
-.c-footerMiddle__top {
+.c-footerMain__top {
   @mixin flex row, space-between, flex-start, wrap;
   margin-bottom: 20px;
 }
 
-.c-footerMiddle__navGroup {
+.c-footerMain__navGroup {
   @mixin flex column, space-between, flex-start;
   width: 100%;
   margin-bottom: 60px;
@@ -56,28 +29,28 @@
   }
 }
 
-.c-footerMiddle__navGroup--social {
+.c-footerMain__navGroup--social {
   display: none;
   @media (--desktop) {
     display: flex;
   }
 }
 
-.c-footerMiddle__logo {
+.c-footerMain__logo {
   margin-bottom: 20px;
 }
 
-.c-footerMiddle__logoIcon {
+.c-footerMain__logoIcon {
   width: 150px;
   max-height: 50px;
 }
 
-.c-footerMiddle__social {
+.c-footerMain__social {
   width: 150px;
   @mixin flex row, center, center;
 }
 
-.c-footerMiddle__socialLink {
+.c-footerMain__socialLink {
   @mixin flex row, center, center;
   margin-left: 8px;
   height: 26px;
@@ -90,16 +63,16 @@
   }
 }
 
-.c-footerMiddle__socialIcon {
+.c-footerMain__socialIcon {
   color: white;
   font-size: 14px;
 }
 
-.c-footerMiddle__socialIcon--instagram {
+.c-footerMain__socialIcon--instagram {
   font-size: 16px;
 }
 
-.c-footerMiddle__navHeading {
+.c-footerMain__navHeading {
   color: $color-black;
   font-family: $font-raleway;
   font-size: 18px;
@@ -107,7 +80,7 @@
   margin-bottom: 20px;
 }
 
-.c-footerMiddle__navLink {
+.c-footerMain__navLink {
   color: $color-blue-dark;
   font-family: $font-raleway;
   font-size: 16px;
@@ -115,7 +88,7 @@
   margin-bottom: 10px;
 }
 
-.c-footerMiddle__bottom {
+.c-footerMain__bottom {
   @mixin flex column;
   padding-top: 70px;
   border-top: 1px solid $hr-gray-light;
@@ -124,8 +97,8 @@
   }
 }
 
-.c-footerMiddle__payment,
-.c-footerMiddle__paws {
+.c-footerMain__payment,
+.c-footerMain__paws {
   width: 100%;
   margin-bottom: 70px;
   @media (--desktop) {
@@ -133,8 +106,8 @@
   }
 }
 
-.c-footerMiddle__paymentHeading,
-.c-footerMiddle__pawsHeading {
+.c-footerMain__paymentHeading,
+.c-footerMain__pawsHeading {
   @mixin flex row, flex-start, center;
   color: $color-blue-dark;
   font-family: $font-raleway;
@@ -143,24 +116,24 @@
   margin-bottom: 20px;
 }
 
-.c-footerMiddle__paymentShopify {
+.c-footerMain__paymentShopify {
   height: 20px;
   margin-left: 8px;
 }
 
-.c-footerMiddle__paymentList {
+.c-footerMain__paymentList {
   @mixin flex row, flex-start, center, wrap;
 }
 
-.c-footerMiddle__paymentItem {
+.c-footerMain__paymentItem {
   margin: 0 10px 10px 0;
 }
 
-.c-footerMiddle__pawsHeading {
+.c-footerMain__pawsHeading {
   margin-bottom: 10px;
 }
 
-.c-footerMiddle__pawsText {
+.c-footerMain__pawsText {
   @mixin flex row, flex-start, center;
   color: $color-black-light;
   font-family: $font-raleway;
@@ -168,43 +141,10 @@
   font-weight: 600;
 }
 
-.c-footerMiddle__pawsLink {
+.c-footerMain__pawsLink {
   margin-left: 10px;
 }
 
-.c-footerMiddle__pawsLogo {
+.c-footerMain__pawsLogo {
   height: 40px;
-}
-
-.c-footerBottom {
-  @mixin flex column, center, flex-start;
-  @mixin container-large;
-  background-color: $bg-gray-light;
-  color: $color-blue-dark;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  @media (--tablet) {
-    @mixin flex row;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-}
-
-.c-footerBottom__copyright,
-.c-footerBottom__link {
-  font-size: 14px;
-  line-height: 30px;
-  margin-bottom: 10px;
-  @media (--tablet) {
-    margin-bottom: 0;
-  }
-}
-
-.c-footerBottom__link {
-  color: $color-blue-dark;
-}
-
-.c-footerBottom__break {
-  font-size: 14px;
-  opacity: 0.75;
 }

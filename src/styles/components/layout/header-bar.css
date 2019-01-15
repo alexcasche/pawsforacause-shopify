@@ -1,0 +1,24 @@
+/*========== Header Bar ==========*/
+
+.c-headerBar {
+  width: 100%;
+  background-color: $color-blue;
+  padding: 10px 0;
+}
+
+.c-headerBar__inner {
+  @mixin container-large;
+  height: 100%;
+  overflow-y: visible;
+  color: white;
+  font-family: $font-raleway;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.c-headerBar__icon {
+  font-size: 12px;
+  margin: 0 4px;
+}

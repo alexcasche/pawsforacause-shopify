@@ -1,9 +1,5 @@
 /*========== Components ==========*/
 
-@import 'banner';
-@import 'collection';
-@import 'footer';
-@import 'header';
-@import 'mobile-menu';
-@import 'portal';
-@import 'zones';
+@import 'layout/index';
+@import 'sections/index';
+@import 'vendors/index';

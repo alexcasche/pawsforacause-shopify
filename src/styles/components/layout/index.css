@@ -1,0 +1,11 @@
+/*========== Snippets ==========*/
+
+@import 'header-bar';
+@import 'header-main';
+@import 'header-mobile';
+@import 'header-sub';
+@import 'footer-cart';
+@import 'footer-main';
+@import 'footer-legal';
+@import 'mobile-menu';
+@import 'zones';

@@ -1,5 +1,11 @@
 /*========== Zones ==========*/
 
+.c-header {
+  position: relative;
+  box-shadow: $box-shadow-header;
+  z-index: $z-index-layout;
+}
+
 .c-view {
   min-width: 100vw;
   position: relative;
@@ -21,4 +27,9 @@
 .c-page {
   position: relative;
   z-index: $z-index-page;
+}
+
+.c-footer {
+  position: relative;
+  z-index: $z-index-layout;
 }

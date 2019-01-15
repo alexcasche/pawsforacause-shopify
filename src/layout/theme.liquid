@@ -1,35 +1,30 @@
 <!doctype html>
 <html lang="{{ shop.locale }}">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="">
-  <link rel="canonical" href="{{ canonical_url }}">
-  <title>{{ shop.name }}</title>
-  <meta name="description" content="">
-  {{ content_for_header }}
-  <!--------- Global Styles --------->
-  {{ 'index.css' | asset_url | stylesheet_tag }}
-  <!--------- Global Fonts --------->
-  {{ 'fonts.css' | asset_url | stylesheet_tag }}
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+{% include 'head-tags' %}
+{{ content_for_header }}
 </head>
-
 <body>
   <div id="view" class="c-view">
-    {% section 'header' %}
+    <header id="header" class="c-header">
+      {% include 'header-bar' %}
+      {% include 'header-main' %}
+      {% include 'header-mobile' %}
+      {% include 'header-sub' %}
+    </header>
     <div id="page" class="c-page">
       {{ content_for_layout }}
     </div>
-    {% section 'footer' %}
+    <footer id="footer" class="c-footer">
+      {% include 'footer-cart' %}
+      {% include 'footer-main' %}
+      {% include 'footer-legal' %}
+    </footer>
   </div>
-  <!--------- Global Components --------->
   <vue-mobile-menu>
-    {% section 'mobile-menu' %}
+    {% include 'mobile-menu' %}
   </vue-mobile-menu>
   <vue-mini-cart></vue-mini-cart>
-  <!--------- Global Scripts --------->
-  {{ 'index.js' | asset_url | script_tag }}
+  {% include 'script-tags' %}
 </body>
 </html>
