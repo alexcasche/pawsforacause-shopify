@@ -1,6 +1,6 @@
 <template>
-  <button class="c-trigger" @click="$emit('toggleMenu')">
-    <span class="c-trigger__icon"></span>
+  <button class="v-trigger" @click="$emit('toggleMenu')">
+    <span class="v-trigger__icon"></span>
   </button>
 </template>
 
@@ -12,7 +12,7 @@ export default {}
 @import 'settings/index.css';
 @import 'tools/index.css';
 
-.c-trigger {
+.v-trigger {
   @mixin button;
   @mixin flex row, center, center;
   @mixin transition-opacity;
@@ -20,7 +20,7 @@ export default {}
   width: 38px;
   padding: 0;
 }
-.c-trigger__icon {
+.v-trigger__icon {
   @mixin icon-hamburger;
 }
 </style>

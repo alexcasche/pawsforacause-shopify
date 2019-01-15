@@ -1,6 +1,6 @@
 <template>
   <transition name="fade-slide">
-    <div v-if="isOpen" class="c-overlay" @click="$emit('toggleMenu')"></div>
+    <div v-if="isOpen" class="v-overlay" @click="$emit('toggleMenu')"></div>
   </transition>
 </template>
 
@@ -28,7 +28,7 @@ export default {
   opacity: 1;
   transform: translateX(0);
 }
-.c-overlay {
+.v-overlay {
   position: fixed;
   top: 0;
   bottom: 0;

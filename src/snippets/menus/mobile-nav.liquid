@@ -1,8 +1,0 @@
-{% for link in linklists.mobile-menu.links %}
-  <nav class="c-mobileNav">
-    <a class="c-mobileNav__heading" href="{{ link.url }}">{{ link.title }}</a>
-    {% for link in link.links %}
-      <a class="c-mobileNav__link" href="{{ link.url }}">{{ link.title }}</a>
-    {% endfor %}
-  </nav>
-{% endfor %}

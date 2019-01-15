@@ -1,15 +1,15 @@
 <template>
   <button :class="triggerClass" @click="$emit('toggleCart')">
-    <i v-if="trigger !== 'footer'" class="c-triggerHeader__icon fas fa-shopping-cart"></i>
+    <i v-if="trigger !== 'footer'" class="v-triggerHeader__icon fas fa-shopping-cart"></i>
     <span
       v-if="trigger === 'headerMain'"
-      class="c-triggerHeader__text"
+      class="v-triggerHeader__text"
     >{{ cartCount }} {{ cartMessage }}</span>
-    <span v-if="trigger === 'headerMobile'" class="c-triggerHeader__badge">{{ cartCount }}</span>
-    <span v-if="trigger === 'footer'" class="c-triggerFooter__heading">Shopping Cart</span>
+    <span v-if="trigger === 'headerMobile'" class="v-triggerHeader__badge">{{ cartCount }}</span>
+    <span v-if="trigger === 'footer'" class="v-triggerFooter__heading">Shopping Cart</span>
     <span
       v-if="trigger === 'footer'"
-      class="c-triggerFooter__text"
+      class="v-triggerFooter__text"
     >{{ cartCount }} {{ cartMessage }}</span>
   </button>
 </template>
@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     triggerClass() {
-      return `c-trigger c-trigger--${this.trigger}`
+      return `v-trigger v-trigger--${this.trigger}`
     },
     cartMessage() {
       let message = this.cartCount === 1 ? 'Item' : 'Items'
@@ -45,7 +45,7 @@ export default {
 @import 'settings/index.css';
 @import 'tools/index.css';
 
-.c-trigger--headerMain {
+.v-trigger--headerMain {
   display: block;
   @mixin button;
   @mixin button-small;
@@ -55,25 +55,25 @@ export default {
     padding: 12px 20px;
     border-radius: 5px;
   }
-  .c-triggerHeader__icon {
+  .v-triggerHeader__icon {
     margin-right: 8px;
   }
 }
 
-.c-trigger--headerMobile {
+.v-trigger--headerMobile {
   @mixin button;
-  @mixin flex row, center, center;
+  @mixin flex row, venter, center;
   @mixin transition-opacity;
   position: relative;
   height: 38px;
   width: 38px;
   padding: 0 !important;
-  .c-triggerHeader__icon {
+  .v-triggerHeader__icon {
     margin-right: 10px;
     color: $color-black;
     font-size: 18px;
   }
-  .c-triggerHeader__badge {
+  .v-triggerHeader__badge {
     @mixin flex row, center, center;
     position: absolute;
     top: 2px;
@@ -88,7 +88,7 @@ export default {
   }
 }
 
-.c-trigger--footer {
+.v-trigger--footer {
   @mixin button;
   @mixin flex row, space-between, center;
   width: 100%;
@@ -99,12 +99,12 @@ export default {
   }
 }
 
-.c-triggerFooter__heading {
+.v-triggerFooter__heading {
   margin-right: 30px;
   font-weight: 600;
 }
 
-.c-triggerFooter__text {
+.v-triggerFooter__text {
   opacity: 0.85;
   font-weight: 500;
 }

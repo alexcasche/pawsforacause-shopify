@@ -1,11 +1,11 @@
 <template>
-  <div class="c-menu">
-    <div class="c-menu__header">
-      <button class="c-menu__close" @click="$emit('toggleMenu')">
-        <span class="c-menu__closeIcon"></span>
+  <div class="v-menu">
+    <div class="v-menu__header">
+      <button class="v-menu__close" @click="$emit('toggleMenu')">
+        <span class="v-menu__closeIcon"></span>
       </button>
     </div>
-    <div class="c-menu__inner">
+    <div class="v-menu__inner">
       <slot/>
     </div>
   </div>
@@ -26,7 +26,7 @@ export default {
 @import 'settings/index.css';
 @import 'tools/index.css';
 
-.c-menu {
+.v-menu {
   position: fixed;
   top: 0;
   left: 0;
@@ -36,12 +36,12 @@ export default {
   overflow-y: scroll;
   z-index: $z-index-behind;
 }
-.c-menu__header {
+.v-menu__header {
   padding: 8px 15px;
   background-color: $color-blue-dark;
   box-shadow: $box-shadow-drawer;
 }
-.c-menu__close {
+.v-menu__close {
   @mixin button;
   @mixin flex row, center, center;
   @mixin transition-opacity;
@@ -49,10 +49,10 @@ export default {
   width: 38px;
   padding: 0;
 }
-.c-menu__closeIcon {
+.v-menu__closeIcon {
   @mixin icon-close $color-blue;
 }
-.c-menu__inner {
+.v-menu__inner {
   padding: 40px 40px 60px;
 }
 </style>

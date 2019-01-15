@@ -27,7 +27,7 @@
 
 @define-mixin button-small {
   padding: 10px 30px;
-  font-family: $font-openSans;
+  font-family: $font-open-sans;
   font-size: 13px;
 }
 

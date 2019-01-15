@@ -1,17 +1,17 @@
-/*========== Mobile Nav ==========*/
+/*========== Mobile Menu ==========*/
 
-.c-mobileNav {
+.c-mobileMenu {
   @mixin flex column, space-between, flex-start;
   font-family: $font-raleway;
   margin-bottom: 30px;
 }
-.c-mobileNav__heading {
+.c-mobileMenu__heading {
   margin-bottom: 20px;
   color: $color-black;
   font-size: 17px;
   font-weight: 600;
 }
-.c-mobileNav__link {
+.c-mobileMenu__link {
   margin-bottom: 15px;
   color: $color-blue-dark;
   font-size: 15px;

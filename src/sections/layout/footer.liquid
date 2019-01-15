@@ -1,50 +1,73 @@
 <footer class="c-footer">
-  <div class="c-footerCart">
-    <vue-portal name="mini-cart-trigger-footer" class="c-footerCart__inner"></vue-portal>
+  <div class="c-footerTop">
+    <vue-portal name="mini-cart-trigger-footer" class="c-footerTop__inner"></vue-portal>
   </div>
-  <div class="c-footerMain">
-    <div class="c-footerMain__inner">
-      {% include 'footer-nav' %}
-        <div class="c-footerMain__middle">
-          {% unless shop.enabled_payment_types == empty %}
-            <div class="c-footerMain__payment">
-              <h5 class="c-footerMain__paymentHeading">
-                Secure Payments by
-                <img class="c-footerMain__paymentShopify" src="{{ 'logo-shopify.png' | asset_url }}"  alt="{{ shop.name }} Shopify"/>
-              </h5>
-              <ul class="c-footerMain__paymentList">
-                {% for type in shop.enabled_payment_types %}
-                  <li class="c-footerMain__paymentItem">
-                    <img class="c-footerMain__paymentIcon" src="{{ type | payment_type_img_url }}" />
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          {% endunless %}
-          <div class="c-footerMain__paws">
-            <h5 class="c-footerMain__pawsHeading">
-              Looking For An Assistance Dog?
-            </h5>
-            <span class="c-footerMain__pawsText">
-              Check out our friends
-              <a class="c-footerMain__pawsLink" href="https://pawswithacause.org" target="_blank">
-                <img class="c-footerMain__pawsLogo" src="{{ 'logo-pwac.png' | asset_url }}"  alt="Paws With A Cause Assistance Dogs"/>
+  <div class="c-footerMiddle">
+    <div class="c-footerMiddle__inner">
+      <div class="c-footerMiddle__top">
+        <nav class="c-footerMiddle__navGroup c-footerMiddle__navGroup--social">
+          <a class="c-footerMiddle__logo" href="/">
+            <img class="c-footerMiddle__logoIcon" src="{{ 'logo.svg' | asset_url }}"  alt="{{ shop.name }}" />
+          </a>
+          <nav class="c-footerMiddle__social">
+            {% assign socialIcons = 'facebook-f,twitter,instagram' | split:',' %}
+            {% for link in linklists.social-menu.links %}
+              <a class="c-footerMiddle__socialLink" href= "{{ link.url }}" target="_blank">
+                <i class="c-footerMiddle__socialIcon c-footerMiddle__socialIcon--{{ link.title | downcase }} fab fa-{{ socialIcons[forloop.index0] }}"></i>
               </a>
-            </span>
-          </div>
+            {% endfor %}
+          </nav>
+        </nav>
+        </a>
+        {% for link in linklists.footer-menu.links %}
+          <nav class="c-footerMiddle__navGroup">
+            <a class="c-footerMiddle__navHeading" href="{{ link.url }}">{{ link.title }}</a>
+            {% for link in link.links %}
+              <a class="c-footerMiddle__navLink" href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+          </nav>
+        {% endfor %}
+      </div>
+      <div class="c-footerMiddle__bottom">
+        <div class="c-footerMiddle__paws">
+          <h5 class="c-footerMiddle__pawsHeading">
+            Looking For An Assistance Dog?
+          </h5>
+          <span class="c-footerMiddle__pawsText">
+            Check out our friends
+            <a class="c-footerMiddle__pawsLink" href="https://pawswithacause.org" target="_blank">
+              <img class="c-footerMiddle__pawsLogo" src="{{ 'logo-pwac.png' | asset_url }}"  alt="Paws With A Cause Assistance Dogs"/>
+            </a>
+          </span>
         </div>
+        {% unless shop.enabled_payment_types == empty %}
+          <div class="c-footerMiddle__payment">
+            <h5 class="c-footerMiddle__paymentHeading">
+              Secure Payments by
+              <img class="c-footerMiddle__paymentShopify" src="{{ 'logo-shopify.png' | asset_url }}"  alt="{{ shop.name }} Shopify"/>
+            </h5>
+            <ul class="c-footerMiddle__paymentList">
+              {% for type in shop.enabled_payment_types %}
+                <li class="c-footerMiddle__paymentItem">
+                  <img class="c-footerMiddle__paymentIcon" src="{{ type | payment_type_img_url }}" />
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endunless %}
+      </div>
     </div>
   </div>
-  <div class="c-footerLegal">
-    <span class="c-footerLegal__copyright">
-      Copyright © 2017 Paws For A Cause
+  <div class="c-footerBottom">
+    <span class="c-footerBottom__copyright">
+      Copyright © 2019 Paws For A Cause
     </span>
-    <nav class="c-footerLegal__nav">
+    <nav class="c-footerBottom__nav">
       {% for link in linklists.legal-menu.links %}
         {% if forloop.index0 != 0 %}
-        <span class="c-footerLegal__break">|</span>
+        <span class="c-footerBottom__break">|</span>
         {% endif %}
-        <a class="c-footerLegal__link" href= "{{ link.url }}">
+        <a class="c-footerBottom__link" href= "{{ link.url }}">
           {{link.title}}
         </a>
       {% endfor %}

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="c-miniCart">
+  <div class="v-miniCart">
     <portal to="mini-cart-trigger-header">
       <Trigger @toggleCart="toggleCart" trigger="headerMain" :cartCount="cartCount"/>
     </portal>

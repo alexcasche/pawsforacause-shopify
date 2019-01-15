@@ -1,8 +1,8 @@
 <template>
   <transition name="slide">
-    <div v-if="isOpen" class="c-cart">
-      <button class="c-cart__close" @click="$emit('toggleCart')">Close Cart</button>
-      <h1 class="c-cart__heading">Shopping Cart</h1>
+    <div v-if="isOpen" class="v-cart">
+      <button class="v-cart__close" @click="$emit('toggleCart')">Close Cart</button>
+      <h1 class="v-cart__heading">Shopping Cart</h1>
     </div>
   </transition>
 </template>
@@ -32,7 +32,7 @@ export default {
 .slide-enter-to {
   transform: translateX(0);
 }
-.c-cart {
+.v-cart {
   position: fixed;
   top: 0;
   right: 0;

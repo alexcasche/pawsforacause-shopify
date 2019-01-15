@@ -32,8 +32,8 @@ export default {
   computed: {
     ...mapGetters('mobileMenu', ['isOpen']),
     menuClass() {
-      const openClass = this.isOpen ? ' c-mobileMenu--open' : ''
-      return `c-mobileMenu${openClass}`
+      const openClass = this.isOpen ? ' v-mobileMenu--open' : ''
+      return `v-mobileMenu${openClass}`
     },
   },
   methods: {
@@ -56,12 +56,12 @@ export default {
 </script>
 
 <style scoped>
-.c-mobileMenu {
+.v-mobileMenu {
   opacity: 0;
   transition: opacity;
   transition-delay: 0.35s;
 }
-.c-mobileMenu--open {
+.v-mobileMenu--open {
   opacity: 1;
   transition-delay: 0s;
 }

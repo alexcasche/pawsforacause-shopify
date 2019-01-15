@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div v-if="isOpen" class="c-overlay" @click="$emit('toggleCart')"></div>
+    <div v-if="isOpen" class="v-overlay" @click="$emit('toggleCart')"></div>
   </transition>
 </template>
 
@@ -27,7 +27,7 @@ export default {
 .fade-enter-to {
   opacity: 1;
 }
-.c-overlay {
+.v-overlay {
   position: fixed;
   top: 0;
   right: 0;

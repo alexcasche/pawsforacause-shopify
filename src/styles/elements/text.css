@@ -2,7 +2,7 @@
 
 body {
   font-size: 16px;
-  font-family: $font-openSans;
+  font-family: $font-open-sans;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -4,19 +4,19 @@
   position: relative;
   @mixin flex column, center, center;
   z-index: $z-index-layout;
-  background-color: white;
-  box-shadow: $box-shadow-header;
   user-select: none;
+  box-shadow: $box-shadow-header;
 }
 
-.c-headerBar {
+.c-headerTop {
   width: 100%;
-  padding: 10px 0;
   background-color: $color-blue;
+  padding: 10px 0;
 }
 
-.c-headerBar__inner {
+.c-headerTop__inner {
   @mixin container-large;
+  height: 100%;
   overflow-y: visible;
   color: white;
   font-family: $font-raleway;
@@ -26,19 +26,19 @@
   text-transform: uppercase;
 }
 
-.c-headerBar__icon {
+.c-headerTop__icon {
   font-size: 12px;
   margin: 0 4px;
 }
 
-.c-headerMain {
+.c-headerMiddle {
   @mixin show-tablet;
   width: 100%;
   padding: 20px 0;
   background-color: white;
 }
 
-.c-headerMain__inner {
+.c-headerMiddle__inner {
   position: relative;
   @mixin container-large;
   @mixin flex column, center, center;
@@ -47,7 +47,7 @@
   }
 }
 
-.c-headerMain__logo {
+.c-headerMiddle__logo {
   @media (--tablet) {
     margin-bottom: 20px;
   }
@@ -56,15 +56,170 @@
   }
 }
 
-.c-headerMain__logoIcon {
+.c-headerMiddle__logoIcon {
   width: 140px;
   min-width: 140px;
 }
 
-.c-headerMain__cart {
+.c-headerMiddle__nav {
+  @media (--tablet) {
+    width: 100%;
+    @mixin flex row, center, center;
+    border-top: 1px solid $hr-gray-light;
+    padding-top: 20px;
+  }
+  @media (--desktop) {
+    @mixin flex row, flex-end, center;
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+.c-headerMiddle__link {
+  position: relative;
+  margin-right: 30px;
+  color: $color-black-dark;
+  font-family: $font-raleway;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  @media (--desktop) {
+    font-size: 16px;
+    line-height: 50px;
+  }
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    right: 0;
+    border-bottom: 2px solid $color-blue;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+    @media (--desktop) {
+      bottom: -20px;
+    }
+  }
+}
+.c-headerMiddle__link:hover:after {
+  transform: scaleX(1);
+}
+
+.c-headerMiddle__social {
+  @mixin flex row, space-between, center;
+}
+
+.c-headerMiddle__socialLink {
+  @mixin flex row, center, center;
+  margin-left: 8px;
+  height: 26px;
+  width: 26px;
+  background-color: $color-blue;
+  border-radius: 50%;
+  text-align: center;
+  @media (--desktop) {
+    height: 28px;
+    width: 28px;
+  }
+}
+
+.c-headerMiddle__socialIcon {
+  color: white;
+  font-size: 14px;
+}
+
+.c-headerMiddle__socialIcon--instagram {
+  font-size: 16px;
+}
+
+.c-headerMiddle__cart {
   position: absolute;
   top: -50px;
   right: 20px;
+}
+
+.c-headerBottom {
+  background-color: white;
+  border-top: 1px solid $hr-gray-light;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.c-headerBottom__inner {
+  @mixin container-large;
+  @mixin flex row;
+  padding: 0 15px;
+}
+
+.c-headerBottom__search {
+  @mixin flex row, flex-start, center;
+  flex-grow: 1;
+  margin-right: 40px;
+  margin-left: 8px;
+  @media (--tablet) {
+    margin-left: 0;
+  }
+}
+
+.c-headerBottom__searchIcon {
+  color: $color-blue;
+  font-size: 16px;
+  position: relative;
+  top: 1px;
+}
+
+.c-headerBottom__searchInput {
+  flex-grow: 1;
+}
+
+.c-headerBottom__searchInput {
+  border: none;
+  box-shadow: none !important;
+  outline: none !important;
+  color: $color-blue-dark;
+  font-family: $font-raleway;
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 10px;
+  &::placeholder {
+    color: $color-gray;
+  }
+}
+
+.c-headerBottom__nav {
+  font-family: $font-raleway;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.c-headerBottom__navLink {
+  padding: 10px;
+  color: $color-blue-dark;
+  @media (--tablet) {
+    padding: 0;
+  }
+}
+
+.c-headerBottom__navLink--contact {
+  @mixin show-tablet;
+}
+
+.c-headerBottom__navText {
+  @mixin show-tablet;
+}
+
+.c-headerBottom__navIcon {
+  @mixin hide-tablet;
+  margin-right: 8px;
+  color: $color-blue;
+  font-size: 16px;
+}
+
+.c-headerBottom__navBreak {
+  @mixin show-tablet;
+  color: $hr-gray;
+  margin: 0 4px;
 }
 
 .c-headerMobile {

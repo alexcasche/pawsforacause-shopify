@@ -1,0 +1,8 @@
+{% for link in linklists.mobile-menu.links %}
+  <nav class="c-mobileMenu">
+    <a class="c-mobileMenu__heading" href="{{ link.url }}">{{ link.title }}</a>
+    {% for link in link.links %}
+      <a class="c-mobileMenu__link" href="{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
+  </nav>
+{% endfor %}
