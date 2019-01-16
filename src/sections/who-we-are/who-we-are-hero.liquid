@@ -1,0 +1,58 @@
+<section class="c-banner c-banner--hero">
+	<div class="c-banner__inner">
+		<div class="c-banner__top c-banner__right">
+			<img class="c-banner__image" src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.main_image.alt }}" />
+			<img class="c-banner__image-wide" src="{{ section.settings.image_wide | img_url: 'master' }}" alt="{{ section.settings.main_image_wide.alt }}" />
+		</div>
+		<div class="c-banner__bottom c-banner__left">
+			<h1 class="c-banner__heading">
+				{{ section.settings.heading }}
+			</h1>
+			<div class="c-banner__text">
+				{{ section.settings.text }}
+			</div>
+			<div class="c-banner__action c-banner__action--homepage">
+				{{ section.settings.action_text }}
+			</div>
+		</div>
+		<a class="c-banner__scrollButton" data-scroll="#main">
+			<img class="c-banner__scrollIcon" src="{{ 'chevron-blue.svg' | asset_url }}" alt="Chevron Icon" />
+		</a>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Hero",
+	"settings": [
+		{
+			"id": "image",
+			"type": "image_picker",
+			"label": "Image"
+		},
+		{
+			"id": "image_wide",
+			"type": "image_picker",
+			"label": "Image Wide"
+		},
+		{
+			"id": "heading",
+			"type": "text",
+			"label": "Heading",
+			"default": "We believe every dog deserves to be happy and healthy"
+		},
+		{
+			"id": "text",
+			"type": "richtext",
+			"label": "Text",
+			"default": "<p>Tragically millions of dogs are not given that chance.  Every year 3.9 million dogs enter shelters.  48% of these dogs are adopted, 20% are euthanized, and the rest remain in shelters (ASPCA).</p>"
+		},
+		{
+			"id": "action_text",
+			"type": "html",
+			"label": "Action Text",
+			"default": "<h4 class='c-banner__actionText'>We founded <span class='c-banner__actionText--blue'>Paws For-A-Cause</span> to save these dogs.</h4>"
+		}
+  ]
+}
+{% endschema %}

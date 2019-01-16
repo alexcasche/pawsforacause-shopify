@@ -31,16 +31,16 @@
 }
 
 .c-headerMain__nav {
+  width: 700px;
   @media (--tablet) {
-    width: 100%;
     @mixin flex row, center, center;
     border-top: 1px solid $hr-gray-light;
-    padding-top: 20px;
+    padding: 20px 20px 0;
   }
   @media (--desktop) {
     @mixin flex row, flex-end, center;
     border-top: none;
-    padding-top: 0;
+    padding: 0;
   }
 }
 

@@ -91,6 +91,10 @@
   margin-bottom: 0;
 }
 
+.c-banner__actionText--blue {
+  color: $color-blue;
+}
+
 .c-banner__actionButton {
   @mixin button;
   @mixin button-red;

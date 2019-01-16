@@ -10,6 +10,12 @@
 .c-headerSub__inner {
   @mixin container-large;
   @mixin flex row;
+  @media (--tablet) {
+    max-width: 700px;
+  }
+  @media (--desktop) {
+    max-width: 1240px;
+  }
   padding: 0 15px;
 }
 
