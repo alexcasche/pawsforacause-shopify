@@ -54,12 +54,15 @@
     padding-right: 20px;
   }
   @media(--mobile-max) {
+    justify-content: center;
     max-width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
-.c-headerMain__burger {
+.c-headerMain__menuTrigger {
+  position: absolute;
+  left: 15px;
   @mixin hide-tablet;
   @mixin button;
   @mixin flex row, center, center;
@@ -68,8 +71,14 @@
   width: 40px;
   padding: 0 !important;
 }
-.c-headerMain__burgerIcon {
-  @mixin icon-hamburger;
+.c-headerMain__menuIcon {
+  fill: $color-black-dark;
+}
+.c-headerMain__menuIcon--open {
+  width: 20px;
+}
+.c-headerMain__menuIcon--close {
+  width: 18px;
 }
 .c-headerMain__logo {
   @mixin flex row, center, center;
@@ -84,7 +93,6 @@
     height: 50px;
   }
 }
-
 
 /*========== HeaderMenu ==========*/
 
@@ -176,14 +184,16 @@
 
 .c-headerAction {
   @mixin flex row, center, flex-end;
+  @media (--mobile-max) {
+    position: absolute;
+    right: 15px;
+  }
 }
-
 .c-headerAction__item {
-  &:not(:last-child) {
+  &:first-child {
     @mixin show-tablet;
   }
 }
-
 .c-headerAction__link {
   @mixin flex row, center, center;
   height: 30px;

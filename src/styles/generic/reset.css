@@ -57,6 +57,7 @@ svg:not(:root) {
   overflow: hidden;
   width: inherit;
   height: inherit;
+  fill: inherit;
 }
 
 figure {

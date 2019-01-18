@@ -8,8 +8,13 @@
   </div>
   <nav class="c-headerMain">
     <div class="c-headerMain__inner o-container--large">
-      <button class="c-headerMain__burger" data-action="open-sidemenu">
-        <span class="c-headerMain__burgerIcon"></span>
+      <button id="trigger-sidemenu" class="c-headerMain__menuTrigger" onclick="toggleSidemenu()">
+        <span class="c-headerMain__menuIcon c-headerMain__menuIcon--open">
+          {% include 'icon-burger' %}
+        </span>
+        <span class="c-headerMain__menuIcon c-headerMain__menuIcon--close u-hidden">
+          {% include 'icon-close' %}
+        </span>
       </button>
       <div class="c-headerMain__logo">
         <a class="c-headerMain__logoLink" href="/">
@@ -38,7 +43,7 @@
       </ul>
       <ul class="c-headerAction">
         <li class="c-headerAction__item">
-          <a class="c-headerAction__link" data-action="open-search">
+          <a class="c-headerAction__link">
             {% include 'icon-search' %}
           </a>
         </li>
@@ -64,3 +69,11 @@
     </div>
   </nav>
 </header>
+
+<script>
+  function toggleSidemenu() {
+    document.getElementById("sidemenu").classList.toggle("c-sidemenu--open");
+    const menuIcons = document.querySelectorAll(".c-headerMain__menuIcon");
+    menuIcons.forEach(icon => icon.classList.toggle("u-hidden"));
+  }
+</script>

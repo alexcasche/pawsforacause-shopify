@@ -13,6 +13,9 @@
 /*========== Objects ==========*/
 @import "./objects/index";
 
+/*========== Utilities ==========*/
+@import "utilities/index";
+
 /*========== Sections ==========*/
 @import "sections/index";
 

@@ -1,8 +1,7 @@
 /*========== Z Index ==========*/
 
-$z-index-behind: -100;
-$z-index-view: 100;
-$z-index-page: 200;
-$z-index-footer: 300;
+$z-index-page: 100;
+$z-index-footer: 200;
+$z-index-sidemenu: 300;
 $z-index-header: 400;
-$z-index-cart: 500;
+$z-index-cart: 600;
