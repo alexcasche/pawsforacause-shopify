@@ -1,0 +1,28 @@
+/*========== Zones ==========*/
+
+#header {
+  z-index: $z-index-header;
+}
+
+#view {
+  z-index: $z-index-view;
+  min-width: 100vw;
+  position: relative;
+  background-color: $bg-gray-light;
+}
+
+#page {
+  position: relative;
+  z-index: $z-index-page;
+  padding-top: 90px;
+  @media(--tablet) {
+    padding-top: 100px;
+  }
+  @media(--desktop) {
+    padding-top: 110px;
+  }
+}
+
+#footer {
+  z-index: $z-index-footer;
+}

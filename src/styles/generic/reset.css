@@ -55,6 +55,8 @@ embed {
 
 svg:not(:root) {
   overflow: hidden;
+  width: inherit;
+  height: inherit;
 }
 
 figure {

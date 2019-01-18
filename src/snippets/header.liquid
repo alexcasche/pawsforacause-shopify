@@ -1,0 +1,66 @@
+<header id="header" class="c-header">
+  <div class="c-headerBar">
+    <div class="c-headerBar__inner o-container--large">
+      <i class="c-headerBar__icon fas fa-heart"></i>
+      100% profits to shelters
+      <i class="c-headerBar__icon fas fa-heart"></i>
+    </div>
+  </div>
+  <nav class="c-headerMain">
+    <div class="c-headerMain__inner o-container--large">
+      <button class="c-headerMain__burger" data-action="open-sidemenu">
+        <span class="c-headerMain__burgerIcon"></span>
+      </button>
+      <div class="c-headerMain__logo">
+        <a class="c-headerMain__logoLink" href="/">
+          <img class="c-headerMain__logoIcon" src="{{ 'logo.svg' | asset_url }}"  alt="{{ shop.name }}" />
+        </a>
+      </div>
+      <ul class="c-headerMenu">
+        {% for link in linklists.main-menu-dev.links %}
+          <li class="c-headerMenu__item">
+            <a class="c-headerMenu__link" href="{{ link.url }}">
+              {{ link.title }}
+            </a>
+            {% if link.links.size > 0 %}
+              <ul class="c-headerMenu__drop">
+                {% for link in link.links %}
+                  <li class="c-headerMenu__dropItem">
+                    <a class="c-headerMenu__link c-headerMenu__dropLink" href="{{ link.url }}">
+                      {{ link.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      <ul class="c-headerAction">
+        <li class="c-headerAction__item">
+          <a class="c-headerAction__link" data-action="open-search">
+            {% include 'icon-search' %}
+          </a>
+        </li>
+        {% if shop.customer_accounts_enabled %}
+          <li class="c-headerAction__item">
+            {% if customer %}
+              <a class="c-headerAction__link" href="/account">
+                {% include 'icon-account' %}
+              </a>
+            {% else %}
+              <a class="c-headerAction__link" href="/login">
+                {% include 'icon-account' %}
+              </a>
+            {% endif %}
+          </li>
+        {% endif %}
+        <li class="c-headerAction__item">
+          <a class="c-headerAction__link" data-action="open-cart">
+            {% include 'icon-cart' %}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

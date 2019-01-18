@@ -35,7 +35,6 @@ export default {
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
   transition: opacity 0.35s ease;
-  z-index: $z-index-overlay;
 }
 </style>
 

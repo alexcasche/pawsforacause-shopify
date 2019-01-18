@@ -31,3 +31,9 @@
     max-width: 1240px;
   }
 }
+
+@define-mixin container-layout {
+  @mixin container-large;
+  padding-left: 15px;
+  padding-right: 15px;
+}

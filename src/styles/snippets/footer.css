@@ -1,0 +1,203 @@
+/*========== Footer ==========*/
+
+.c-footer {
+  position: relative;
+  background-color: white;
+}
+
+
+/*========== FooterCart ==========*/
+
+.c-footerCart {
+  @mixin flex row, space-between, center;
+  width: 100%;
+  padding: 25px 0;
+  background-color: $color-blue-dark;
+  color: white;
+}
+.c-footerCart__inner {
+  @mixin flex row, space-between, center;
+  font-size: 15px;
+  color: white;
+  @media (--tablet) {
+    justify-content: flex-start;
+  }
+}
+.c-footerCart__link {
+  @mixin button;
+  @mixin flex row, space-between, center;
+  width: 100%;
+  text-transform: capitalize;
+  padding: 0 !important;
+  @media (--mobile) {
+    @mixin flex row, flex-start, center;
+  }
+}
+.c-footerCart__heading {
+  margin-right: 30px;
+  font-weight: 600;
+}
+.c-footerCart__text {
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+
+/*========== FooterMain ==========*/
+
+.c-footerMain {
+  @mixin flex column, center, center;
+  width: 100%;
+  padding: 60px 0 20px;
+  border-bottom: 1px solid $hr-gray-light;
+}
+.c-footerMain__menu {
+  @mixin flex row, space-between, flex-start, wrap;
+  margin-bottom: 20px;
+}
+.c-footerMain__group {
+  @mixin flex column, space-between, flex-start;
+  width: 100%;
+  margin-bottom: 60px;
+  @media (--mobile) {
+    width: calc(50% - 20px);
+  }
+  @media (--desktop) {
+    width: calc(20% - 20px);
+  }
+}
+.c-footerMain__group--social {
+  display: none;
+  @media (--desktop) {
+    display: flex;
+  }
+}
+.c-footerMain__logo {
+  margin-bottom: 20px;
+}
+.c-footerMain__logoIcon {
+  width: 150px;
+  max-height: 50px;
+}
+.c-footerMain__social {
+  width: 150px;
+  @mixin flex row, center, center;
+}
+.c-footerMain__socialLink {
+  @mixin flex row, center, center;
+  margin-left: 8px;
+  height: 26px;
+  width: 26px;
+  background-color: $color-blue;
+  border-radius: 50%;
+  text-align: center;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+.c-footerMain__socialIcon {
+  color: white;
+  font-size: 14px;
+}
+.c-footerMain__socialIcon--instagram {
+  font-size: 16px;
+}
+.c-footerMain__heading {
+  color: $color-black;
+  font-family: $font-raleway;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.c-footerMain__link {
+  color: $color-blue-dark;
+  font-family: $font-raleway;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+
+/*========== FooterSecondary ==========*/
+
+.c-footerSecondary {
+  padding-top: 70px;
+  border-bottom: 1px solid $hr-gray-light;
+}
+.c-footerSecondary__inner {
+  @mixin flex column;
+  @media (--desktop) {
+    @mixin flex row, space-between, flex-start;
+  }
+}
+.c-footerSecondary__side {
+  width: 100%;
+  margin-bottom: 70px;
+  @media (--desktop) {
+    width: calc(((100% / 5) * 2) - 20px);
+  }
+}
+.c-footerSecondary__heading {
+  @mixin flex row, flex-start, center;
+  color: $color-blue-dark;
+  font-family: $font-raleway;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.c-footerSecondary__pawsHeading--payments {
+  margin-bottom: 20px;
+}
+.c-footerSecondary__text {
+  @mixin flex row, flex-start, center;
+  color: $color-black-light;
+  font-family: $font-raleway;
+  font-size: 15px;
+  font-weight: 600;
+}
+.c-footerSecondary__pawsLink {
+  margin-left: 10px;
+}
+.c-footerSecondary__pawsLogo {
+  height: 40px;
+}
+.c-footerSecondary__shopifyLogo {
+  height: 20px;
+  margin-left: 8px;
+}
+.c-footerSecondary__list {
+  @mixin flex row, flex-start, center, wrap;
+}
+.c-footerSecondary__item {
+  margin: 0 10px 10px 0;
+}
+
+
+/*========== Footer Legal ==========*/
+
+.c-footerLegal {
+  @mixin flex column, center, flex-start;
+  @mixin container-large;
+  background-color: $bg-gray-light;
+  color: $color-blue-dark;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @media (--tablet) {
+    @mixin flex row;
+  }
+}
+.c-footerLegal__copyright,
+.c-footerLegal__link {
+  font-size: 13px;
+  line-height: 30px;
+  @media (--tablet) {
+    margin-bottom: 0;
+  }
+}
+.c-footerLegal__link {
+  color: $color-blue-dark;
+}
+.c-footerLegal__break {
+  font-size: 12px;
+  opacity: 0.75;
+}

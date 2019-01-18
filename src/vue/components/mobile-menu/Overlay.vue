@@ -36,7 +36,6 @@ export default {
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.4);
   transition: all 0.35s ease;
-  z-index: $z-index-overlay;
 }
 </style>
 

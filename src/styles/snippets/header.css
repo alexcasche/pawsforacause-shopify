@@ -1,0 +1,207 @@
+/*========== Header ==========*/
+
+.c-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: $box-shadow-header;
+  z-index: $z-index-header;
+}
+
+
+/*========== HeaderBar ==========*/
+
+.c-headerBar {
+  width: 100%;
+  background-color: $color-blue;
+  height: 30px;
+}
+.c-headerBar__inner {
+  height: 100%;
+  color: white;
+  font-family: $font-raleway;
+  font-size: 14px;
+  line-height: 30px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+.c-headerBar__icon {
+  font-size: 12px;
+  margin: 0 4px;
+}
+
+
+/*========== HeaderMain ==========*/
+
+.c-headerMain {
+  width: 100%;
+  background-color: white;
+  height: 60px;
+  @media(--tablet) {
+    height: 70px;
+  }
+  @media(--desktop) {
+    height: 80px;
+  }
+}
+.c-headerMain__inner {
+  height: 100%;
+  @mixin flex row, space-between, center, wrap;
+  @media(--tablet-max) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media(--mobile-max) {
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.c-headerMain__burger {
+  @mixin hide-tablet;
+  @mixin button;
+  @mixin flex row, center, center;
+  @mixin transition-opacity;
+  height: 40px;
+  width: 40px;
+  padding: 0 !important;
+}
+.c-headerMain__burgerIcon {
+  @mixin icon-hamburger;
+}
+.c-headerMain__logo {
+  @mixin flex row, center, center;
+}
+.c-headerMain__logoIcon {
+  display: block;
+  height: 40px;
+  @media(--tablet) {
+    height: 42px;
+  }
+  @media(--desktop) {
+    height: 50px;
+  }
+}
+
+
+/*========== HeaderMenu ==========*/
+
+.c-headerMenu {
+  @mixin show-tablet;
+  @mixin flex row, flex-end, center;
+  border-top: none;
+  padding: 0;
+}
+.c-headerMenu__item {
+  position: relative;
+  margin-left: 20px;
+  @media(--desktop) {
+    margin-left: 30px;
+  }
+  &:first-child {
+    margin-left: 10px;
+  }
+  &:hover {
+    .c-headerMenu__drop {
+      display: block;
+    }
+  }
+}
+.c-headerMenu__link {
+  display: block;
+  color: $color-black-dark;
+  font-family: $font-raleway;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 70px;
+  @media (--desktop) {
+    font-size: 16px;
+    line-height: 80px;
+  }
+  &:hover {
+    color: $color-blue;
+    opacity: 1;
+  }
+}
+.c-headerMenu__drop {
+  display: none;
+  position: absolute;
+  margin-top: -8px;
+  width: auto;
+  min-width: 180px;
+  background-color: white;
+  padding: 15px 0;
+  border-radius: 5px;
+  box-shadow: $box-shadow-header-drop;
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: #fff;
+  }
+  &:before {
+    top: -7px;
+    left: 20px;
+    transform: rotate(45deg);
+    width: 17px;
+    height: 17px;
+    border-radius: 3px;
+    box-shadow: $box-shadow-header-drop;
+  }
+  &:after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+  }
+}
+.c-headerMenu__dropLink {
+  padding: 0 24px;
+  font-size: 14px;
+  line-height: 32px;
+  white-space: nowrap;
+  &:hover {
+    background-color: $bg-gray;
+  }
+  @media(--desktop) {
+    font-size: 15px;
+  }
+}
+
+
+/*========== HeaderAction ==========*/
+
+.c-headerAction {
+  @mixin flex row, center, flex-end;
+}
+
+.c-headerAction__item {
+  &:not(:last-child) {
+    @mixin show-tablet;
+  }
+}
+
+.c-headerAction__link {
+  @mixin flex row, center, center;
+  height: 30px;
+  width: 30px;
+  svg {
+    height: 18px;
+    width: 18px;
+    fill: $color-black-dark;
+  }
+  &:hover svg {
+    fill: $color-blue;
+  }
+  @media(--desktop) {
+    height: 40px;
+    width: 40px;
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}

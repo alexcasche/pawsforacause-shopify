@@ -1,5 +1,5 @@
 /*========== Components ==========*/
 
-@import 'layout/index';
 @import 'sections/index';
+@import 'snippets/index';
 @import 'vendors/index';

@@ -3,7 +3,6 @@
 $z-index-behind: -100;
 $z-index-view: 100;
 $z-index-page: 200;
-$z-index-layout: 300;
-$z-index-overlay: 400;
+$z-index-footer: 300;
+$z-index-header: 400;
 $z-index-cart: 500;
-$z-index-modal: 600;
