@@ -54,7 +54,7 @@
                 {% include 'icon-account' %}
               </a>
             {% else %}
-              <a class="c-headerAction__link" href="/login">
+              <a class="c-headerAction__link" href="/account/login">
                 {% include 'icon-account' %}
               </a>
             {% endif %}
@@ -72,8 +72,10 @@
 
 <script>
   function toggleSidemenu() {
-    document.getElementById("sidemenu").classList.toggle("c-sidemenu--open");
+    document.getElementById("sidemenu").classList.toggle("is-open");
     const menuIcons = document.querySelectorAll(".c-headerMain__menuIcon");
     menuIcons.forEach(icon => icon.classList.toggle("u-hidden"));
+    const secondaryMenus = document.querySelectorAll(".c-sidemenu__secondary");
+    secondaryMenus.forEach(menu => menu.classList.remove("is-open"));
   }
 </script>

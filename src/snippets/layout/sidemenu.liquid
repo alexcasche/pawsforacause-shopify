@@ -1,0 +1,60 @@
+<nav id="sidemenu" class="c-sidemenu">
+  <form class="c-sidemenu__search" action="search" autocomplete="off">
+    <span class="c-sidemenu__searchIcon">
+      {% include 'icon-search' %}
+    </span>
+    <input class="c-sidemenu__searchInput" type="text" placeholder="Search..." name="q" />
+  </form>
+  <ul class="c-sidemenu__list c-sidemenu__primary">
+    {% for link in linklists.mobile-menu.links %}
+      <li class="c-sidemenu__item">
+        {% if link.links.size <= 0 %}
+          <a class="c-sidemenu__link" href="{{ link.url }}">
+            {{ link.title }}
+          </a>
+        {% else %}
+          <a class="c-sidemenu__link" onclick="toggleSecondary(event, '{{ forloop.index0 }}')">
+            {{ link.title }}
+            <span class="c-sidemenu__linkIcon">
+              {% include 'icon-chevron' %}
+            </span>
+          </a>
+          <ul class="c-sidemenu__list c-sidemenu__secondary">
+            <li class="c-sidemenu__item">
+              <a class="c-sidemenu__link c-sidemenu__back" onclick="toggleSecondary(event, '{{ forloop.index0 }}')">
+                <span class="c-sidemenu__linkIcon c-sidemenu__backIcon">
+                  {% include 'icon-chevron' %}
+                </span>
+                Back
+              </a>
+            </li>
+            {% for link in link.links %}
+              <li class="c-sidemenu__item">
+                <a class="c-sidemenu__link" href="{{ link.url }}">
+                  {{ link.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+      </li>
+    {% endfor %}
+    <li class="c-sidemenu__shipping">
+      Free Shipping On Orders Over $100
+    </li>
+  </ul>
+</nav>
+
+<script>
+window.addEventListener('resize', () => {
+  if(window.innerWidth > 767) {
+    const sidemenu = document.getElementById('sidemenu');
+    if(sidemenu.classList.contains('is-open')) {
+      document.getElementById('trigger-sidemenu').click();
+    }
+  }
+});
+function toggleSecondary(event, index) {
+  document.querySelectorAll('.c-sidemenu__secondary')[index].classList.toggle('is-open');
+}
+</script>

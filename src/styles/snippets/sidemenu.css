@@ -6,18 +6,17 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: $bg-gray;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100vw;
   transform: translateX(-100%);
+  background-color: $bg-gray;
+  @mixin flex column, flex-start, stretch;
   @mixin transition-slide;
   @mixin hide-tablet;
-  &.c-sidemenu--open {
+  &.is-open {
     transform: translateX(0);
   }
-}
-.c-sidemenu__inner {
-  width: 100vw;
-  overflow-y: scroll;
-  @mixin flex column, center, stretch;
 }
 .c-sidemenu__search {
   @mixin flex;
@@ -47,6 +46,28 @@
     color: $color-gray;
   }
 }
+.c-sidemenu__list {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  min-height: 100%;
+  background-color: $bg-gray;
+}
+.c-sidemenu__primary {
+  top: 60px;
+}
+.c-sidemenu__secondary {
+  top: 0;
+  z-index: 1;
+  @mixin transition-slide;
+  transform: translateX(-100%);
+  &.is-open {
+    transform: translateX(0%);
+  }
+}
+.c-sidemenu__item {
+  border-top: 1px solid $hr-gray-light;
+}
 .c-sidemenu__link {
   display: block;
   position: relative;
@@ -56,16 +77,30 @@
   line-height: 60px;
   font-size: 17px;
   font-weight: 500;
-  border-bottom: 1px solid $hr-gray-light;
+  &:not(:first-child) {
+    
+  }
 }
 .c-sidemenu__linkIcon {
   position: absolute;
+  top: 0;
   right: 30px;
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
+  @mixin flex row, center, center;
+  height: 60px;
+  width: 12px;
+  fill: $color-blue;
   svg {
-    width: 12px;
-    fill: $color-blue;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+}
+.c-sidemenu__back {
+  padding-left: 56px;
+}
+.c-sidemenu__backIcon {
+  left: 30px;
+  svg {
+    transform: rotate(90deg);
   }
 }
 .c-sidemenu__shipping {
@@ -77,9 +112,6 @@
   font-family: $font-raleway;
   font-size: 15px;
   font-weight: 600;
-}
-.c-sidemenu__secondary {
-  display: none;
 }
 
 .c-sidemenu__inner {
