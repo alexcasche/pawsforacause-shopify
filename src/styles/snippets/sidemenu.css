@@ -72,14 +72,11 @@
   display: block;
   position: relative;
   padding: 0 30px;
-  color: $color-blue;
+  color: $color-black-light;
   font-family: $font-raleway;
   line-height: 60px;
   font-size: 17px;
   font-weight: 500;
-  &:not(:first-child) {
-    
-  }
 }
 .c-sidemenu__linkIcon {
   position: absolute;
@@ -88,7 +85,7 @@
   @mixin flex row, center, center;
   height: 60px;
   width: 12px;
-  fill: $color-blue;
+  fill: $color-black-light;
   svg {
     transform: rotate(-90deg);
     transform-origin: 50% 50%;

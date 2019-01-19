@@ -13,7 +13,7 @@
             {{ link.title }}
           </a>
         {% else %}
-          <a class="c-sidemenu__link" onclick="toggleSecondary(event, '{{ forloop.index0 }}')">
+          <a class="c-sidemenu__link trigger-sidemenu-secondary" data-index="{{ forloop.index0 }}">
             {{ link.title }}
             <span class="c-sidemenu__linkIcon">
               {% include 'icon-chevron' %}
@@ -21,7 +21,7 @@
           </a>
           <ul class="c-sidemenu__list c-sidemenu__secondary">
             <li class="c-sidemenu__item">
-              <a class="c-sidemenu__link c-sidemenu__back" onclick="toggleSecondary(event, '{{ forloop.index0 }}')">
+              <a class="c-sidemenu__link c-sidemenu__back trigger-sidemenu-secondary" data-index="{{ forloop.index0 }}">
                 <span class="c-sidemenu__linkIcon c-sidemenu__backIcon">
                   {% include 'icon-chevron' %}
                 </span>
@@ -45,16 +45,4 @@
   </ul>
 </nav>
 
-<script>
-window.addEventListener('resize', () => {
-  if(window.innerWidth > 767) {
-    const sidemenu = document.getElementById('sidemenu');
-    if(sidemenu.classList.contains('is-open')) {
-      document.getElementById('trigger-sidemenu').click();
-    }
-  }
-});
-function toggleSecondary(event, index) {
-  document.querySelectorAll('.c-sidemenu__secondary')[index].classList.toggle('is-open');
-}
-</script>
+{{ 'sidemenu.js' | asset_url | script_tag }}

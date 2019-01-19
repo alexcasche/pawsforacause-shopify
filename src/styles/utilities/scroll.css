@@ -1,0 +1,6 @@
+/*========== Scroll ==========*/
+
+.u-noScroll {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}

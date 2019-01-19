@@ -134,7 +134,10 @@
   width: 100%;
   margin-bottom: 70px;
   @media (--desktop) {
-    width: calc(((100% / 5) * 2) - 20px);
+    width: calc(((100% / 5) * 3) - 20px);
+    &:last-child {
+      width: calc(((100% / 5) * 2) - 20px);
+    }
   }
 }
 .c-footerSecondary__heading {

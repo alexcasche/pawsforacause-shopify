@@ -1,9 +1,7 @@
-import miniCart from './modules/mini-cart'
-import mobileMenu from './modules/mobile-menu'
+import cart from './cart'
 
 export default {
   modules: {
-    miniCart,
-    mobileMenu,
+    cart
   },
 }

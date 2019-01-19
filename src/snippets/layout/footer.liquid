@@ -1,12 +1,17 @@
 <footer id="footer" class="c-footer">
   <div class="c-footerCart">
     <div class="c-footerCart__inner o-container--large">
-      <a class="c-footerCart__link" data-action="open-cart">
+      <a class="c-footerCart__link trigger-cart">
         <span class="c-footerCart__heading">
           Shopping Cart
         </span>
         <span class="c-footerCart__count">
-          {{ cart.item_count }} Item{% if cart.item_count != 1 %}s{% endif %}
+          <span class="vue-cart-count">
+            {{ cart.item_count }}
+          </span>
+          <span class="vue-cart-items">
+            Item{% if cart.item_count != 1 %}s{% endif %}
+          </span>
         </span>
       </a>
     </div>
@@ -41,32 +46,31 @@
   </div>
   <div class="c-footerSecondary">
     <div class='c-footerSecondary__inner o-container--large'>
+      {% unless shop.enabled_payment_types == empty %}
         <div class="c-footerSecondary__side">
-          <h5 class="c-footerSecondary__heading">
-            Looking For An Assistance Dog?
+          <h5 class="c-footerSecondary__heading c-footerSecondary__heading--payments">
+            Secure Payments by
+            <img class="c-footerSecondary__shopifyLogo" src="{{ 'logo-shopify.png' | asset_url }}"  alt="{{ shop.name }} Shopify"/>
           </h5>
-          <span class="c-footerSecondary__text">
-            Check out our friends
-            <a class="c-footerSecondary__pawsLink" href="https://pawswithacause.org" target="_blank">
-              <img class="c-footerSecondary__pawsLogo" src="{{ 'logo-pwac.png' | asset_url }}"  alt="Paws With A Cause Assistance Dogs"/>
-            </a>
-          </span>
+          <ul class="c-footerSecondary__list">
+            {% for type in shop.enabled_payment_types %}
+              <li class="c-footerSecondary__item">
+                <img class="c-footerSecondary__icon" src="{{ type | payment_type_img_url }}" />
+              </li>
+            {% endfor %}
+          </ul>
         </div>
-        {% unless shop.enabled_payment_types == empty %}
-          <div class="c-footerSecondary__side">
-            <h5 class="c-footerSecondary__heading c-footerSecondary__heading--payments">
-              Secure Payments by
-              <img class="c-footerSecondary__shopifyLogo" src="{{ 'logo-shopify.png' | asset_url }}"  alt="{{ shop.name }} Shopify"/>
-            </h5>
-            <ul class="c-footerSecondary__list">
-              {% for type in shop.enabled_payment_types %}
-                <li class="c-footerSecondary__item">
-                  <img class="c-footerSecondary__icon" src="{{ type | payment_type_img_url }}" />
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% endunless %}
+      {% endunless %}
+      <div class="c-footerSecondary__side">
+        <h5 class="c-footerSecondary__heading">
+          Looking For An Assistance Dog?
+        </h5>
+        <span class="c-footerSecondary__text">
+          Check out our friends
+          <a class="c-footerSecondary__pawsLink" href="https://pawswithacause.org" target="_blank">
+            <img class="c-footerSecondary__pawsLogo" src="{{ 'logo-pwac.png' | asset_url }}"  alt="Paws With A Cause Assistance Dogs"/>
+          </a>
+        </span>
       </div>
     </div>
   </div>

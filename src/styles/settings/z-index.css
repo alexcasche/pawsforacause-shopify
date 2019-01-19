@@ -4,4 +4,5 @@ $z-index-page: 100;
 $z-index-footer: 200;
 $z-index-sidemenu: 300;
 $z-index-header: 400;
-$z-index-cart: 600;
+$z-index-cart: 500;
+$z-index-modal: 600;

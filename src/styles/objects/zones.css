@@ -1,7 +1,12 @@
 /*========== Zones ==========*/
 
 #body {
-  
+  &.sidemenu-open, 
+  &.cart-open, 
+  &.modal-open {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
 }
 
 #header {
@@ -18,13 +23,6 @@
   position: relative;
   z-index: $z-index-page;
   background-color: $bg-gray-light;
-  padding-top: 90px;
-  @media(--tablet) {
-    padding-top: 100px;
-  }
-  @media(--desktop) {
-    padding-top: 110px;
-  }
 }
 
 #footer {
@@ -35,4 +33,9 @@
 #sidemenu {
   z-index: $z-index-sidemenu;
   user-select: none;
+}
+
+#cart {
+  position: relative;
+  z-index: $z-index-cart;
 }

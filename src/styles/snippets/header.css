@@ -1,10 +1,8 @@
 /*========== Header ==========*/
 
 .c-header {
-  position: fixed;
-  top: 0;
   width: 100%;
-  box-shadow: $box-shadow-header;
+  position: relative;
   z-index: $z-index-header;
 }
 
@@ -12,12 +10,11 @@
 /*========== HeaderBar ==========*/
 
 .c-headerBar {
+  position: fixed;
+  top: 0;
   width: 100%;
   background-color: $color-blue;
-  height: 30px;
-}
-.c-headerBar__inner {
-  height: 100%;
+  padding: 0 15px;
   color: white;
   font-family: $font-raleway;
   font-size: 14px;
@@ -25,7 +22,7 @@
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-
+  z-index: 1;
 }
 .c-headerBar__icon {
   font-size: 12px;
@@ -33,19 +30,166 @@
 }
 
 
-/*========== HeaderMain ==========*/
+/*========== HeaderTop ==========*/
 
-.c-headerMain {
+.c-headerTop {
   width: 100%;
+  @mixin flex row, center, center;
   background-color: white;
-  height: 60px;
-  @media(--tablet) {
-    height: 70px;
+  @media(--mobile-max) {
+    box-shadow: $box-shadow-header;
   }
-  @media(--desktop) {
+  @media(--tablet) {
+    position: absolute;
+    top: 30px;
     height: 80px;
+    background-color: white;
+    border-bottom: 1px solid $hr-gray-light;
   }
 }
+.c-headerTop__logo {
+  height: 48px;
+  &:hover {
+    opacity: 1;
+  }
+}
+.c-headerTop__logoIcon {
+  display: block;
+  height: 100%;
+}
+
+
+/*========== HeaderBottom ==========*/
+
+.c-headerBottom {
+  @mixin show-tablet;
+  position: absolute;
+  top: 110px;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  box-shadow: $box-shadow-header;
+}
+.c-headerBottom__nav {
+  height: 100%;
+  @mixin flex row, space-between, center;
+}
+.c-headerBottom__burger {
+  height: 50px;
+  width: 50px;
+  @mixin flex row, center, center;
+  fill: $color-black;
+  &:hover {
+    fill: $color-blue;
+  }
+  svg {
+    height: 14px;
+  }
+}
+.c-headerBottom__list {
+  @mixin flex row, center, center;
+}
+.c-headerBottom__item {
+  margin-left: 30px;
+  &:hover {
+    .c-headerBottom__drop {
+      display: block;
+    }
+  }
+}
+.c-headerBottom__link {
+  display: block;
+  color: $color-black-dark;
+  font-family: $font-raleway;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 50px;
+  &:hover {
+    color: $color-blue;
+    opacity: 1;
+  }
+}
+.c-headerBottom__drop {
+  display: none;
+  position: absolute;
+  margin-top: -2px;
+  width: auto;
+  min-width: 180px;
+  background-color: white;
+  padding: 15px 0;
+  border-radius: 5px;
+  box-shadow: $box-shadow-header-drop;
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: #fff;
+  }
+  &:before {
+    top: -6px;
+    left: 20px;
+    transform: rotate(45deg);
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    box-shadow: $box-shadow-header-drop;
+  }
+  &:after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+  }
+}
+.c-headerBottom__dropLink {
+  display: block;
+  padding: 0 24px;
+  color: $color-black-dark;
+  font-family: $font-raleway;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 32px;
+  white-space: nowrap;
+  &:hover {
+    background-color: $bg-gray;
+    color: $color-blue;
+    opacity: 1;
+  }
+}
+.c-headerBottom__cart {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  @mixin flex row, center, center;
+  fill: $color-black;
+  &:hover {
+    opacity: 1;
+    fill: $color-blue;
+  }
+  svg {
+    position: relative;
+    bottom: 2px;
+    height: 20px;
+  }
+}
+.c-headerBottom__cartCount {
+  @mixin flex row, center, center;
+  position: absolute;
+  background-color: #f94331;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  right: 8px;
+  bottom: 8px;
+  width: 16px;
+  height: 16px;
+}
+
+/*********************************************************** */
+
+/* 
 .c-headerMain__inner {
   height: 100%;
   @mixin flex row, space-between, center, wrap;
@@ -82,141 +226,4 @@
 }
 .c-headerMain__menuIcon--close {
   width: 16px;
-}
-.c-headerMain__logo {
-  @mixin flex row, center, center;
-}
-.c-headerMain__logoIcon {
-  display: block;
-  height: 40px;
-  @media(--tablet) {
-    height: 42px;
-  }
-  @media(--desktop) {
-    height: 50px;
-  }
-}
-
-/*========== HeaderMenu ==========*/
-
-.c-headerMenu {
-  @mixin show-tablet;
-  @mixin flex row, flex-end, center;
-  border-top: none;
-  padding: 0;
-}
-.c-headerMenu__item {
-  position: relative;
-  margin-left: 20px;
-  @media(--desktop) {
-    margin-left: 30px;
-  }
-  &:first-child {
-    margin-left: 10px;
-  }
-  &:hover {
-    .c-headerMenu__drop {
-      display: block;
-    }
-  }
-}
-.c-headerMenu__link {
-  display: block;
-  color: $color-black-dark;
-  font-family: $font-raleway;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 70px;
-  @media (--desktop) {
-    font-size: 16px;
-    line-height: 80px;
-  }
-  &:hover {
-    color: $color-blue;
-    opacity: 1;
-  }
-}
-.c-headerMenu__drop {
-  display: none;
-  position: absolute;
-  margin-top: -8px;
-  width: auto;
-  min-width: 180px;
-  background-color: white;
-  padding: 15px 0;
-  border-radius: 5px;
-  box-shadow: $box-shadow-header-drop;
-  &:before, &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    background-color: #fff;
-  }
-  &:before {
-    top: -7px;
-    left: 20px;
-    transform: rotate(45deg);
-    width: 17px;
-    height: 17px;
-    border-radius: 3px;
-    box-shadow: $box-shadow-header-drop;
-  }
-  &:after {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 15px;
-    border-radius: 5px;
-  }
-}
-.c-headerMenu__dropLink {
-  padding: 0 24px;
-  font-size: 14px;
-  line-height: 32px;
-  white-space: nowrap;
-  &:hover {
-    background-color: $bg-gray;
-  }
-  @media(--desktop) {
-    font-size: 15px;
-  }
-}
-
-
-/*========== HeaderAction ==========*/
-
-.c-headerAction {
-  @mixin flex row, center, flex-end;
-  @media (--mobile-max) {
-    position: absolute;
-    right: 15px;
-  }
-}
-.c-headerAction__item {
-  &:first-child {
-    @mixin show-tablet;
-  }
-}
-.c-headerAction__link {
-  @mixin flex row, center, center;
-  height: 30px;
-  width: 30px;
-  svg {
-    display: block;
-    height: 18px;
-    width: 18px;
-    fill: $color-black-dark;
-  }
-  &:hover svg {
-    fill: $color-blue;
-  }
-  @media(--desktop) {
-    height: 40px;
-    width: 40px;
-    svg {
-      display: block;
-      height: 20px;
-      width: 20px;
-    }
-  }
-}
+} */

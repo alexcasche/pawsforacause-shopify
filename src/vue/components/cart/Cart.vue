@@ -1,53 +1,45 @@
 <template lang="html">
-  <div class="v-miniCart">
-    <portal to="mini-cart-trigger-header">
-      <Trigger @toggleCart="toggleCart" trigger="headerMain" :cartCount="cartCount"/>
-    </portal>
-    <portal to="mini-cart-trigger-header-mobile">
-      <Trigger @toggleCart="toggleCart" trigger="headerMobile" :cartCount="cartCount"/>
-    </portal>
-    <portal to="mini-cart-trigger-footer">
-      <Trigger @toggleCart="toggleCart" trigger="footer" :cartCount="cartCount" />
-    </portal>
+  <div class="v-cart" id="cart">
     <Overlay @toggleCart="toggleCart" :isOpen="isOpen" />
-    <Cart @toggleCart="toggleCart" :isOpen="isOpen" :cartCount="cartCount"/>
+    <Drawer @toggleCart="toggleCart" :isOpen="isOpen" :cartCount="cartCount"/>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex'
-import Trigger from './Trigger.vue'
 import Overlay from './Overlay.vue'
-import Cart from './Cart.vue'
+import Drawer from './Drawer.vue'
 
 export default {
   components: {
-    Trigger,
     Overlay,
-    Cart,
+    Drawer,
   },
   computed: {
-    ...mapGetters('miniCart', ['isOpen', 'cartCount']),
+    ...mapGetters('cart', ['isOpen', 'cartCount']),
   },
   methods: {
-    ...mapMutations('miniCart', ['toggleCart']),
-    ...mapActions('miniCart', ['setCart']),
+    ...mapMutations('cart', ['toggleCart']),
+    ...mapActions('cart', ['setCart']),
   },
   watch: {
     isOpen(val) {
-      const view = document.getElementById('view')
-      const body = document.body
+      document.body.classList.toggle("cart-open");
       if (val === true) {
-        view.classList.add('c-view--miniCartOpen')
-        body.style.overflowY = 'hidden'
         this.setCart()
-      } else {
-        view.classList.remove('c-view--miniCartOpen')
-        body.style.overflowY = 'scroll'
       }
     },
+    cartCount(val) {
+      const cartCountEls = document.querySelectorAll(".vue-cart-count");
+      cartCountEls.forEach(el => el.textContent = val);
+      const cartText = val === 1 ? "Item" : "Items"
+      const cartTextEls = document.querySelectorAll(".vue-cart-text");
+      cartTextEls.forEach(el => el.textContent = cartText);
+    }
   },
   mounted() {
+    const cartTriggers = document.querySelectorAll(".trigger-cart");
+    cartTriggers.forEach(trigger => trigger.addEventListener("click", this.toggleCart))
     this.setCart()
   },
 }
