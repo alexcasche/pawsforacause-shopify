@@ -24,3 +24,14 @@ window.addEventListener("resize", () => {
     menuAccount.classList.remove("u-visible")
   }
 });
+
+window.addEventListener("scroll", () => {
+  const doc = document.documentElement;
+  const offsetTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+  const headerBottom = document.getElementById("headerBottom");
+  if(offsetTop >= 80) {
+    headerBottom.classList.add("is-fixed");
+  } else {
+    headerBottom.classList.remove("is-fixed")
+  }
+});

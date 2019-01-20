@@ -69,6 +69,10 @@
   height: 50px;
   background-color: white;
   box-shadow: $box-shadow-header;
+  &.is-fixed {
+    position: fixed;
+    top: 30px;
+  }
 }
 .c-headerBottom__nav {
   height: 100%;
