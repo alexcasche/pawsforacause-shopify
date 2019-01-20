@@ -1,0 +1,10 @@
+<section class="c-productMain">
+  {% include 'breadcrumbs' %}
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | img_url: '1024x1024' }}">
+  <div class="c-productMain__wrapper o-container--large">
+    <div class="c-productMain__crumbs">
+    </div>
+  </div>
+
+</section>

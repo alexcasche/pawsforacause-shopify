@@ -1,7 +1,7 @@
-<footer id="footer" class="c-footer">
+<footer id="footer" class="c-footer" aria-label="Footer">
   <div class="c-footerTop">
     <div class="c-footerTop__wrapper o-container--large">
-      <nav class="c-footerTop__nav">
+      <nav role="navigation" aria-label="Footer Navigation" class="c-footerTop__nav">
         {% for link in linklists.footer-menu.links %}
           <div class="c-footerTop__group">
             <h4 class="c-footerTop__heading">
@@ -10,7 +10,7 @@
             <ul class="c-footerTop__list">
               {% for link in link.links %}
                 <li class="c-footerTop__item">
-                  <a class="c-footerTop__link" href="{{ link.url }}">
+                  <a class="c-footerTop__link" href="{{ link.url }}" title="{{ link.title }}"">
                     {{ link.title }}
                   </a>
                 </li>
@@ -49,7 +49,7 @@
           {% for link in linklists.legal-menu.links %}
             <li clas="c-footerTop__legalItem">
               <span class="c-footerTop__legalPipe c-footerTop__legalPipe--{{ forloop.index0 }}">&nbsp;|&nbsp;</span>
-              <a class="c-footerTop__legalLink" href="{{ link.url }}">
+              <a class="c-footerTop__legalLink" href="{{ link.url }}" title="{{ link.title }}">
                 {{ link.title }}
               </a>
             </li>

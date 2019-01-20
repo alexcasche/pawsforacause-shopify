@@ -1,4 +1,4 @@
-<header id="header" class="c-header">
+<header id="header" class="c-header" aria-label="Header">
   <div id="headerBar" class="c-headerBar">
     <div class="headerBar__wrapper o-container--large">
       <i class="c-headerBar__icon fas fa-heart"></i>
@@ -8,7 +8,7 @@
   </div>
   <div id="headerTop" class="c-headerTop">
     <div class="c-headerTop__wrapper o-container--large">
-      <button class="c-headerTop__menu trigger-sidemenu">
+      <button class="c-headerTop__menu trigger-sidemenu" aria-label="Toggle Menu">
         <span class="c-headerTop__burger trigger-sidemenu-icon">
           {% include 'icon-burger' %}
         </span>
@@ -16,10 +16,10 @@
           {% include 'icon-close' %}
         </span>
       </button>
-      <a class="c-headerTop__logo" href="/">
+      <a class="c-headerTop__logo" href="/" title="Home">
         <img class="c-headerTop__logoIcon" src="{{ 'logo.svg' | asset_url }}"  alt="{{ shop.name }}" />
       </a>
-      <button class="c-headerTop__cart trigger-cart">
+      <button class="c-headerTop__cart trigger-cart" aria-label="Toggle Cart">
         {% include 'icon-cart' %}
         <span class="c-headerTop__cartCount vue-cart-count">
           {{ cart.item_count }}
@@ -29,31 +29,31 @@
   </div>
   <div id="headerBottom" class="c-headerBottom">
     <div class="headerBottom__wrapper o-container--large">
-      <nav class="c-headerBottom__nav">
+      <nav class="c-headerBottom__nav" role="navigation" aria-label="Main Navigation">
         <div class="c-headerBottom__account trigger-menu-account">
-          <button class="c-headerBottom__burger">
+          <button class="c-headerBottom__burger" aria-label="Toggle Menu">
             {% include 'icon-burger' %}
           </button>
           <ul class="c-headerBottom__drop" id="menu-account">
             {% if customer %}
               <li class="c-headerBottom__dropItem">
-                <a class="c-headerBottom__dropLink" href="/account">
+                <a class="c-headerBottom__dropLink" href="/account" title="Account">
                   Account
                 </a>
               </li>
               <li class="c-headerBottom__dropItem">
-                <a class="c-headerBottom__dropLink" href="/logout">
+                <a class="c-headerBottom__dropLink" href="/logout" title="Logout">
                   Logout
                 </a>
               </li>
             {% else %}
               <li class="c-headerBottom__dropItem">
-                <a class="c-headerBottom__dropLink" href="/account/login">
+                <a class="c-headerBottom__dropLink" href="/account/login" title="Login">
                   Sign In
                 </a>
               </li>
               <li class="c-headerBottom__dropItem">
-                <a class="c-headerBottom__dropLink" href="/account/register">
+                <a class="c-headerBottom__dropLink" href="/account/register" title="Register">
                   Create Account
                 </a>
               </li>
@@ -63,14 +63,18 @@
         <ul class="c-headerBottom__list">
           {% for link in linklists.main-menu-dev.links %}
             <li class="c-headerBottom__item">
-              <a class="c-headerBottom__link" href="{{ link.url }}">
-                {{ link.title }}
-              </a>
-              {% if link.links.size > 0 %}
+              {% if link.links.size <= 0 %}
+                <a class="c-headerBottom__link" href="{{ link.url }}" title="{{ link.title }}">
+                  {{ link.title }}
+                </a>
+              {% else %}
+                <span class="c-headerBottom__link" aria-label="{{ link.title }} Dropdown">
+                  {{ link.title }}
+                </span>
                 <ul class="c-headerBottom__drop">
                   {% for link in link.links %}
                     <li class="c-headerBottom__dropItem">
-                      <a class="c-headerBottom__dropLink" href="{{ link.url }}">
+                      <a class="c-headerBottom__dropLink" href="{{ link.url }}" title="{{ link.title }}">
                         {{ link.title }}
                       </a>
                     </li>

@@ -1,0 +1,18 @@
+<nav class="c-breadcrumbs" role="navigation" aria-label="Breadcrumbs">
+  {% if template contains 'product' %}
+    <a class="c-breacrumb__link" href="/collections/all-products" title="Shop">
+      Shop
+    </a>
+    <span class="c-breadcrumb__chevron" aria-hidden="true">&rsaquo;</span>
+    {% if collection.handle %}
+      {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+      <a class="c-breacrumb__link" href="{{ url }}" title="{{ collection.title }}">
+        {{ collection.title }}
+      </a>
+      <span class="c-breadcrumb__chevron" aria-hidden="true">&rsaquo;</span>
+    {% endif %}
+    <span class="c-breadcrumb__current" title="{{ product.title }}">
+      {{ product.title }}
+    </span>
+  {% endif %}
+</nav>

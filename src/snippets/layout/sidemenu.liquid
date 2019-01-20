@@ -1,5 +1,5 @@
-<nav id="sidemenu" class="c-sidemenu">
-  <form class="c-sidemenu__search" action="search" autocomplete="off">
+<nav id="sidemenu" class="c-sidemenu" role="navigation" aria-label="Main Navigation">
+  <form class="c-sidemenu__search" action="search" autocomplete="off" aria-role="form" arial-label="Search">
     <span class="c-sidemenu__searchIcon">
       {% include 'icon-search' %}
     </span>
@@ -9,16 +9,16 @@
     {% for link in linklists.mobile-menu.links %}
       <li class="c-sidemenu__item">
         {% if link.links.size <= 0 %}
-          <a class="c-sidemenu__link" href="{{ link.url }}">
+          <a class="c-sidemenu__link" href="{{ link.url }}" title="{{ link.title }}">
             {{ link.title }}
           </a>
         {% else %}
-          <a class="c-sidemenu__link trigger-sidemenu-secondary" data-index="{{ forloop.index0 }}">
+          <span class="c-sidemenu__link trigger-sidemenu-secondary" aria-label="{{ link.title}} Dropdown" data-index="{{ forloop.index0 }}">
             {{ link.title }}
             <span class="c-sidemenu__linkIcon">
               {% include 'icon-chevron' %}
             </span>
-          </a>
+          </span>
           <ul class="c-sidemenu__list c-sidemenu__secondary">
             <li class="c-sidemenu__item">
               <a class="c-sidemenu__link c-sidemenu__back trigger-sidemenu-secondary" data-index="{{ forloop.index0 }}">

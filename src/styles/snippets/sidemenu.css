@@ -77,6 +77,10 @@
   line-height: 60px;
   font-size: 16px;
   font-weight: 500;
+  &:hover {
+    cursor: pointer;
+    color: $color-blue;
+  }
 }
 .c-sidemenu__linkIcon {
   position: absolute;
@@ -121,4 +125,7 @@
   margin-right: 30px;
   font-size: 16px;
   line-height: 40px;
+  &:hover {
+    color; $color-blue-dark;
+  }
 }
