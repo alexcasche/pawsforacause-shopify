@@ -4,6 +4,10 @@
   width: 100%;
   position: relative;
   z-index: $z-index-header;
+  height: 90px;
+  @media(--tablet) {
+    height: 160px;
+  }
 }
 
 
@@ -36,26 +40,74 @@
   width: 100%;
   @mixin flex row, center, center;
   background-color: white;
+  position: fixed;
+  top: 30px;
+  height: 60px;
   @media(--mobile-max) {
     box-shadow: $box-shadow-header;
   }
   @media(--tablet) {
     position: absolute;
-    top: 30px;
     height: 80px;
     background-color: white;
     border-bottom: 1px solid $hr-gray-light;
   }
 }
+.c-headerTop__wrapper {
+  height: 100%;
+  @mixin flex row, center, center;
+}
 .c-headerTop__logo {
-  height: 48px;
-  &:hover {
-    opacity: 1;
+  display: block;
+  height: 40px;
+  @media(--tablet) {
+    height: 48px; 
   }
 }
 .c-headerTop__logoIcon {
   display: block;
   height: 100%;
+}
+.c-headerTop__menu, .c-headerTop__cart {
+  @mixin hide-tablet;
+  position: fixed;
+  padding: 0;
+  height: 60px;
+  width: 60px;
+  @mixin flex row, center, center;
+  svg {
+    width: 24px;
+    fill: $color-black-dark;
+  }
+  &:hover svg {
+    fill: $color-blue;
+  }
+}
+.c-headerTop__menu {
+  left: 0;
+}
+.c-headerTop__cart {
+  right: 0;
+  margin-top: -2px;
+}
+.c-headerTop__cartCount {
+  @mixin flex row, center, center;
+  position: absolute;
+  background-color: #f94331;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  right: 14px;
+  bottom: 10px;
+  width: 16px;
+  height: 16px;
+}
+.c-headerTop__burger svg {
+  width: 22px;
+}
+.c-headerTop__close svg {
+  width: 18px;
 }
 
 
@@ -73,6 +125,9 @@
     position: fixed;
     top: 30px;
   }
+}
+.c-headerBottom__wrapper {
+  height: 100%;
 }
 .c-headerBottom__nav {
   height: 100%;
@@ -110,7 +165,6 @@
   line-height: 50px;
   &:hover {
     color: $color-blue;
-    opacity: 1;
   }
 }
 .c-headerBottom__drop {
@@ -158,7 +212,6 @@
   &:hover {
     background-color: $bg-gray;
     color: $color-blue;
-    opacity: 1;
   }
 }
 .c-headerBottom__cart {
@@ -168,7 +221,6 @@
   @mixin flex row, center, center;
   fill: $color-black;
   &:hover {
-    opacity: 1;
     fill: $color-blue;
   }
   svg {

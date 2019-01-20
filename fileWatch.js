@@ -13,6 +13,7 @@ const folders = [
 watch("src", { recursive: true }, function(evt, name) {
   let path = name.replace("src/", "");
   let folder = path.substr(0, path.indexOf("/"));
+  console.log(name);
   if (folders.indexOf(folder) >= 0) {
     if (path.indexOf("templates/customers") >= 0) {
       copyfiles([name, `dist/${folder}/customers`], { up: true }, () =>

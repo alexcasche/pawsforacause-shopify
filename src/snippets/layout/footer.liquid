@@ -1,92 +1,63 @@
 <footer id="footer" class="c-footer">
-  <div class="c-footerCart">
-    <div class="c-footerCart__inner o-container--large">
-      <a class="c-footerCart__link trigger-cart">
-        <span class="c-footerCart__heading">
-          Shopping Cart
-        </span>
-        <span class="c-footerCart__count">
-          <span class="vue-cart-count">
-            {{ cart.item_count }}
-          </span>
-          <span class="vue-cart-items">
-            Item{% if cart.item_count != 1 %}s{% endif %}
-          </span>
-        </span>
-      </a>
-    </div>
-  </div>
-  <div class="c-footerMain">
-    <div class="c-footerMain__inner o-container--large">
-      <div class="c-footerMain__menu">
-        <nav class="c-footerMain__group c-footerMain__group--social">
-          <a class="c-footerMain__logo" href="/">
-            <img class="c-footerMain__logoIcon" src="{{ 'logo.svg' | asset_url }}"  alt="{{ shop.name }}" />
-          </a>
-          <nav class="c-footerMain__social">
+  <div class="c-footerTop">
+    <div class="c-footerTop__wrapper o-container--large">
+      <nav class="c-footerTop__nav">
+        {% for link in linklists.footer-menu.links %}
+          <div class="c-footerTop__group">
+            <h4 class="c-footerTop__heading">
+              {{ link.title }}
+            </h4>
+            <ul class="c-footerTop__list">
+              {% for link in link.links %}
+                <li class="c-footerTop__item">
+                  <a class="c-footerTop__link" href="{{ link.url }}">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+        <div class="c-footerTop__group c-footerTop__group--social">
+          <h4 class="c-footerTop__heading">
+            Community
+          </h4>
+          <ul class="c-footerTop__socialList">
             {% assign socialIcons = 'facebook-f,twitter,instagram' | split:',' %}
             {% for link in linklists.social-menu.links %}
-              <a class="c-footerMain__socialLink" href= "{{ link.url }}" target="_blank">
-                <i class="c-footerMain__socialIcon c-footerMain__socialIcon--{{ link.title | downcase }} fab fa-{{ socialIcons[forloop.index0] }}"></i>
-              </a>
-            {% endfor %}
-          </nav>
-        </nav>
-        </a>
-        {% for link in linklists.footer-menu.links %}
-          <nav class="c-footerMain__group">
-            <a class="c-footerMain__heading" href="{{ link.url }}">{{ link.title }}</a>
-            {% for link in link.links %}
-              <a class="c-footerMain__link" href="{{ link.url }}">{{ link.title }}</a>
-            {% endfor %}
-          </nav>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-  <div class="c-footerSecondary">
-    <div class='c-footerSecondary__inner o-container--large'>
-      {% unless shop.enabled_payment_types == empty %}
-        <div class="c-footerSecondary__side">
-          <h5 class="c-footerSecondary__heading c-footerSecondary__heading--payments">
-            Secure Payments by
-            <img class="c-footerSecondary__shopifyLogo" src="{{ 'logo-shopify.png' | asset_url }}"  alt="{{ shop.name }} Shopify"/>
-          </h5>
-          <ul class="c-footerSecondary__list">
-            {% for type in shop.enabled_payment_types %}
-              <li class="c-footerSecondary__item">
-                <img class="c-footerSecondary__icon" src="{{ type | payment_type_img_url }}" />
+              <li class="c-footerTop__socialItem">
+                <a class="c-footerTop__socialLink" href= "{{ link.url }}" target="_blank">
+                  <i class="c-footerTop__socialIcon c-footerTop__socialIcon--{{ link.title | downcase }} fab fa-{{ socialIcons[forloop.index0] }}"></i>
+                </a>
               </li>
             {% endfor %}
           </ul>
         </div>
-      {% endunless %}
-      <div class="c-footerSecondary__side">
-        <h5 class="c-footerSecondary__heading">
-          Looking For An Assistance Dog?
-        </h5>
-        <span class="c-footerSecondary__text">
-          Check out our friends
-          <a class="c-footerSecondary__pawsLink" href="https://pawswithacause.org" target="_blank">
-            <img class="c-footerSecondary__pawsLogo" src="{{ 'logo-pwac.png' | asset_url }}"  alt="Paws With A Cause Assistance Dogs"/>
-          </a>
-        </span>
+      </nav>
+      <div class="c-footerTop__legal">
+        Looking for an assistance dog? &nbsp;Check out our friends 
+        <a class="c-footerTop__legalLink" href="https://pawswithacause.org" target="_blank">
+          Paws With A Cause
+        </a>
+      </div>
+      <div class="c-footerTop__legal">
+        © 2019 Paws For A Cause
+        <ul class="c-footerTop__legalList">
+          {% for link in linklists.legal-menu.links %}
+            <li clas="c-footerTop__legalItem">
+              <span class="c-footerTop__legalBreak">&nbsp;|&nbsp;</span>
+              <a class="c-footerTop__legalLink" href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
       </div>
     </div>
   </div>
-  <div class="c-footerLegal">
-    <span class="c-footerLegal__copyright">
-      Copyright © 2019 Paws For A Cause
-    </span>
-    <nav class="c-footerLegal__nav">
-      {% for link in linklists.legal-menu.links %}
-        {% if forloop.index0 != 0 %}
-        <span class="c-footerLegal__break">|</span>
-        {% endif %}
-        <a class="c-footerLegal__link" href= "{{ link.url }}">
-          {{ link.title }}
-        </a>
-      {% endfor %}
-    </nav>
+  <div class="c-footerBottom">
+    <a class="c-footerBottom__logo" href="/">
+      <img class="c-footerBottom__logoIcon" src="{{ 'logo-white.svg' | asset_url }}"  alt="{{ shop.name }}" />
+    </a>
   </div>
 </footer>

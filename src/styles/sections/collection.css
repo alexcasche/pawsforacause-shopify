@@ -25,7 +25,6 @@
   margin-bottom: 80px;
   text-align: center;
   &:hover {
-    opacity: 1;
     .c-collection__itemPrice {
       color: $color-blue;
     }

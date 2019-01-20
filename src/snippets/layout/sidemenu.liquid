@@ -42,6 +42,15 @@
     <li class="c-sidemenu__shipping">
       Free Shipping On Orders Over $100
     </li>
+    <li class="c-sidemenu__account">
+      {% if customer %}
+        <a class="c-sidemenu__accountLink" href="/account">Account</a>
+        <a class="c-sidemenu__accountLink" href="/logout">Logout</a>
+      {% else %}
+        <a class="c-sidemenu__accountLink" href="/account/login">Sign In</a>
+        <a class="c-sidemenu__accountLink" href="/account/register">Create Account</a>
+      {% endif %}
+    </li>
   </ul>
 </nav>
 

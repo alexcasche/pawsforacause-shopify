@@ -69,7 +69,6 @@ h6 {
 a {
   text-decoration: none;
   color: $color-blue;
-  @mixin transition-opacity;
   &:hover {
     cursor: pointer;
   }

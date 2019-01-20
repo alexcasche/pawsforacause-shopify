@@ -5,6 +5,7 @@ button {
   border-radius: 5px;
   border: none;
   outline: none;
+  background-color: transparent;
   color: white;
   text-transform: uppercase;
   user-select: none;

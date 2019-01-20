@@ -72,10 +72,10 @@
   display: block;
   position: relative;
   padding: 0 30px;
-  color: $color-black-light;
+  color: $color-black;
   font-family: $font-raleway;
   line-height: 60px;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
 }
 .c-sidemenu__linkIcon {
@@ -110,24 +110,15 @@
   font-size: 15px;
   font-weight: 600;
 }
-
-.c-sidemenu__inner {
-  
+.c-sidemenu__account {
+  padding: 10px 30px 20px;
+  margin-top: 40px;
+  text-align: center;
+  border-top: 1px solid $hr-gray;
 }
-.c-sidemenu__search {
-
-}
-.c-sidemenu__searchIcon {
-
-}
-.c-sidemenu__searchInput {
-
-}
-.c-sidemenu__nav {
-  width: 100vw;
-  height: 100%;
-  background-color: $bg-gray-light;
-}
-.c-sidemenu__nav {
-
+.c-sidemenu__accountLink {
+  display: inline-block;
+  margin-right: 30px;
+  font-size: 16px;
+  line-height: 40px;
 }
