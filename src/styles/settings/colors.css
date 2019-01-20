@@ -3,7 +3,9 @@
 $bg-gray-light: #fcfcfc;
 $bg-gray: #f7f7f7;
 
-$color-gray: #888;
+$color-gray-light: #aaaaaa;
+$color-gray: #888888;
+$color-gray-dark: #666666;
 
 $color-black-light: #444444;
 $color-black: #333333;

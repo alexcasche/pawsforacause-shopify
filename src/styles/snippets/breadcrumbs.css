@@ -1,0 +1,16 @@
+/*========== Breadcrumbs ==========*/
+
+.c-breadcrumbs {
+  position: absolute;
+  top: 20px;
+  color: $color-gray-light;
+  font-size: 12px;
+  font-weight: 700;
+}
+.c-breadcrumbs__link {
+  color: $color-gray-light;
+}
+.c-breadcrumbs__chevron {
+  font-size: 13px;
+  margin: 0 1px;
+}

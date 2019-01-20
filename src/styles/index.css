@@ -22,7 +22,8 @@
 /*========== Snippets ==========*/
 @import "snippets/index";
 
-
+/*========== Snippets ==========*/
+@import "templates/index";
 
 /*========== Development ==========*/
 #preview-bar-iframe {

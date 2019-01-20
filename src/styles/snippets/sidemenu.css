@@ -35,7 +35,6 @@
   flex-grow: 1;
   background-color: transparent;
   color: $color-blue;
-  font-family: $font-raleway;
   line-height: 60px;
   font-size: 17px;
   font-weight: 500;
@@ -73,7 +72,6 @@
   position: relative;
   padding: 0 30px;
   color: $color-black;
-  font-family: $font-raleway;
   line-height: 60px;
   font-size: 16px;
   font-weight: 500;
@@ -110,7 +108,6 @@
   background-color: $color-blue;
   text-align: center;
   color: white;
-  font-family: $font-raleway;
   font-size: 15px;
   font-weight: 600;
 }
@@ -126,6 +123,6 @@
   font-size: 16px;
   line-height: 40px;
   &:hover {
-    color; $color-blue-dark;
+    color: $color-blue-dark;
   }
 }

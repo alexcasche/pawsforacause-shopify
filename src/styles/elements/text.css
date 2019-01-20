@@ -1,8 +1,10 @@
 /*========== Text ==========*/
 
 body {
-  font-size: 16px;
-  font-family: $font-open-sans;
+  color: #666;
+  font-family: Raleway,sans-serif;
+  font-size: 18px;
+  font-weight: 600;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

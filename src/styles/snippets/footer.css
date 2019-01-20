@@ -64,7 +64,6 @@
 }
 .c-footerTop__link {
   color: #ddd;
-  font-family: $font-raleway;
   font-size: 13px;
   font-weight: 600;
   line-height: 1.88;
@@ -105,7 +104,6 @@
   margin-bottom: 20px;
   text-align: center;
   color: #aaa;
-  font-family: $font-raleway;
   font-size: 12px;
   font-weight: 600;
   line-height: 1.88;

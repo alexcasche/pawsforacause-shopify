@@ -1,8 +1,8 @@
 <section class="c-banner c-banner--hero">
 	<div class="c-banner__inner">
 		<div class="c-banner__top c-banner__right">
-			<img class="c-banner__image" src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.main_image.alt }}" />
-			<img class="c-banner__image-wide" src="{{ section.settings.image_wide | img_url: 'master' }}" alt="{{ section.settings.main_image_wide.alt }}" />
+			<img class="c-banner__image" src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.main_image.alt | escape }}" />
+			<img class="c-banner__image-wide" src="{{ section.settings.image_wide | img_url: 'master' }}" alt="{{ section.settings.main_image_wide.alt | escape }}" />
 		</div>
 		<div class="c-banner__bottom c-banner__left">
 			<h1 class="c-banner__heading">
