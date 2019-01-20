@@ -35,17 +35,20 @@
         </div>
       </nav>
       <div class="c-footerTop__legal">
-        Looking for an assistance dog? &nbsp;Check out our friends 
+        Looking for an assistance dog? &nbsp; 
+        <br class="c-footerTop__legalBreak" /> 
+        Check out our friends 
         <a class="c-footerTop__legalLink" href="https://pawswithacause.org" target="_blank">
           Paws With A Cause
         </a>
       </div>
       <div class="c-footerTop__legal">
         © 2019 Paws For A Cause
+        <br class="c-footerTop__legalBreak" />
         <ul class="c-footerTop__legalList">
           {% for link in linklists.legal-menu.links %}
             <li clas="c-footerTop__legalItem">
-              <span class="c-footerTop__legalBreak">&nbsp;|&nbsp;</span>
+              <span class="c-footerTop__legalPipe c-footerTop__legalPipe--{{ forloop.index0 }}">&nbsp;|&nbsp;</span>
               <a class="c-footerTop__legalLink" href="{{ link.url }}">
                 {{ link.title }}
               </a>
