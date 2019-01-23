@@ -19,58 +19,66 @@
   position: relative;
   min-height: 100vh;
   @mixin flex column, flex-start, center;
-  padding-top: 20px;
-  padding-bottom: 40px;
-  @media(--mobile) {
-    padding-top: 40px;
-    padding-bottom: 80px;
-  }
+  padding-top: 40px;
+  padding-bottom: 80px;
 }
 .c-auth__back {
-  width: 100%;
-  text-align: left;
+  position: absolute;
+  padding: 0 40px;
+  width: 100vw;
+  text-align: center;
+  @media(--mobile) {
+    text-align: left;
+  }
 }
 .c-auth__backLink {
   font-size: 15px;
   margin-right: 2px;
   color: $color-blue-lighter;
-    &:hover {
-      color: white;
-    }
+  &:hover {
+    color: $color-blue-lightest;
+  }
 }
 .c-auth__backChevron {
   font-size: 18px;
   margin-right: 5px;
 }
 .c-auth__inner {
+  width: 100%;
+  max-width: 450px;
   margin-top: 80px;
-  @media(--mobile) {
-    margin-top: 50px;
-  }
 }
 .c-auth__heading {
   @mixin flex row, center, center;
   text-align: center;
   color: white;
 }
-.c-auth__headingIcon {
-  font-size: 16px;
-  line-height: 40px;
-  &:first-child {
-    margin-right: 12px;
-  }
-  &:last-child {
-    margin-left: 12px;
-  }
-}
 .c-auth__form {
   @mixin flex column, flex-start, center;
-  max-width: 450px;
   border-radius: 5px;
   @media(--mobile) {
     background-color: $bg-gray-light;
   }
 }
-.c-auth__text {
-
+.c-auth__links {
+  @mixin flex column, flex-start, center;
+  margin-top: 20px;
+  color: $color-blue-lighter;
+  font-size: 15px;
+  @media(--mobile) {
+    @mixin flex row;
+  }
+}
+.c-auth__linksLeft, .c-auth__linkRight {
+  margin-bottom: 10px;
+}
+.c-auth__link {
+  color: $color-blue-lighter;
+  font-size: 15px;
+  &:hover {
+    color: $color-blue-lightest;
+  }
+}
+.c-auth__links--cancel {
+  justify-content: center !important;
 }

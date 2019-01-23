@@ -1,18 +1,39 @@
 {% layout 'auth' %}
-<h2 class="c-auth__heading">
-  <span class="c-auth__headingIcon">
-    <i class="fas fa-paw"></i>
-  </span>
-  Welcome Back
-  <span class="c-auth__headingIcon">
-    <i class="fas fa-paw"></i>
-  </span>
+<h2 class="c-auth__heading" id="loginHeading">
+  Welcome Back!
 </h2>
-<div class="c-auth__form c-modal">
+<div id="loginForm">
   {% form 'customer_login' %}
-    {{ form.errors | default_errors }}
-    <input class="c-modal__field" type="email" name="customer[email]" placeholder="Email Address" />
-    <input class="c-modal__field" type="password" name="customer[password]" placeholder="Password" />
-    <button class="c-modal__button" type="submit">Sign In</button>
+    <div class="c-auth__errors">
+      {{ form.errors | default_errors }}
+    </div>
+    <div class="c-auth__form c-modal">
+      <input id="CustomerEmail" class="c-modal__field" type="email" name="customer[email]" placeholder="Email Address" autocorrect="off" autocapitalize="off" autofocus/>
+      <input id="CustomerPassword" class="c-modal__field" type="password" name="customer[password]" placeholder="Password" />
+      <button class="c-modal__button" type="submit">Sign In</button>
+    </div>
+    <div class="c-auth__links">
+      <span class='c-auth__linksLeft'>
+        Not a member? &nbsp;
+        <a class="c-auth__link" href="account/register">Register now!</a>
+      </span>
+      <span class="c-auth__linksRight">
+        <a class="c-auth__link trigger-recover-form" href="#recover">Forgot password?</a>
+      </span>
+    </div>
+  {% endform %}
+</div>
+<div id="recoverForm" class="u-hidden">
+  {% form 'recover_customer_password' %}
+    <div class="c-auth__errors">
+      {{ form.errors | default_errors }}
+    </div>
+    <div class="c-auth__form c-modal">
+      <input id="RecoverEmail" class="c-modal__field" type="email" value="" name="email" placeholder="Email Address" autocorrect="off" autocapitalize="off">
+      <button class="c-modal__button" type="submit">Sign In</button>
+    </div>
+    <div class="c-auth__links c-auth__links--cancel">
+      <a class="c-auth__link trigger-login-form" href="#">Cancel</a>
+    </div>
   {% endform %}
 </div>

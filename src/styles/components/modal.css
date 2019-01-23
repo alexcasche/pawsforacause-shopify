@@ -4,7 +4,8 @@
   z-index: $z-index-modal;
   @media(--mobile) {
     padding: 40px;
-    border-radius: 5px;
+    border-radius: 3px;
+    border: 1px solid #d3d3d3;
     background-color: $bg-gray-light;
     box-shadow: $box-shadow-modal;
   }

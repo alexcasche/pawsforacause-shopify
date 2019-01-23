@@ -1,0 +1,27 @@
+/*========== Challenge Page ==========*/
+
+.shopify-challenge__message {
+  color: white;
+  margin-bottom: 30px;
+}
+.shopify-challenge__button {
+  @mixin button;
+  @mixin button-blue-light;
+  width: 100% !important;
+  max-width: 300px;
+  margin-top: 20px !important;
+  padding: 15px 0 !important;
+  border-radius: 3px !important;
+  line-height: 22px;
+}
+.shopify-challenge__error {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto 20px;
+  padding: 15px;
+  background-color: $color-red-lightest;
+  border: 1px solid $color-red;
+  border-radius: 3px;
+  color: $color-red-dark;
+  font-size: 14px;
+}

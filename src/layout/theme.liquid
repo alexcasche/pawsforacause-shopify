@@ -4,16 +4,33 @@
 {% include 'head-tags' %}
 {{ content_for_header }}
 </head>
-<body id="body">
-  <div id="view">
-    {% include 'header' %}
-    <div id="page">
-      {{ content_for_layout }}
+{% assign handle = canonical_url | split: "/" | last %}
+{% if handle != "challenge" %}
+  <body id="body">
+    <div id="view">
+      {% include 'header' %}
+      <div id="page">
+        {{ content_for_layout }}
+      </div>
+      {% include "footer" %}
     </div>
-    {% include "footer" %}
-  </div>
-  {% include "sidemenu" %}
-  <vue-cart></vue-cart>
-  {% include 'script-tags' %}
-</body>
+    {% include "sidemenu" %}
+    <vue-cart></vue-cart>
+    {% include 'script-tags' %}
+  </body>
+{% else %}
+  <body id="body" class="c-auth" style="background-image:url({{ 'background-paws.svg' | asset_url }});">
+    <div class="c-auth__wrapper o-container--large">
+      <div class="c-auth__back">
+        <a class="c-auth__backLink" href="/">
+          <span class="c-auth__backChevron" aria-hidden="true">&lsaquo;</span>
+          Back to Paws For A Cause
+        </a>
+      </div>
+      <div class="c-auth__inner">
+        {{ content_for_layout }}
+      </div>
+    </div>
+  </body>
+{% endif %}
 </html>
