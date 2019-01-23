@@ -1,0 +1,76 @@
+/*========== Auth ==========*/
+
+.c-auth {
+  background-color: transparent;
+  background-size: 350px;
+  background-repeat: repeat;
+  &:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $color-blue-dark;
+    opacity: .99;
+  }
+}
+.c-auth__wrapper {
+  position: relative;
+  min-height: 100vh;
+  @mixin flex column, flex-start, center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  @media(--mobile) {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+}
+.c-auth__back {
+  width: 100%;
+  text-align: left;
+}
+.c-auth__backLink {
+  font-size: 15px;
+  margin-right: 2px;
+  color: $color-blue-lighter;
+    &:hover {
+      color: white;
+    }
+}
+.c-auth__backChevron {
+  font-size: 18px;
+  margin-right: 5px;
+}
+.c-auth__inner {
+  margin-top: 80px;
+  @media(--mobile) {
+    margin-top: 50px;
+  }
+}
+.c-auth__heading {
+  @mixin flex row, center, center;
+  text-align: center;
+  color: white;
+}
+.c-auth__headingIcon {
+  font-size: 16px;
+  line-height: 40px;
+  &:first-child {
+    margin-right: 12px;
+  }
+  &:last-child {
+    margin-left: 12px;
+  }
+}
+.c-auth__form {
+  @mixin flex column, flex-start, center;
+  max-width: 450px;
+  border-radius: 5px;
+  @media(--mobile) {
+    background-color: $bg-gray-light;
+  }
+}
+.c-auth__text {
+
+}

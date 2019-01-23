@@ -2,7 +2,7 @@
 
 @define-mixin button {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 0;
   background-color: transparent;
   border: none;
   outline: none;
@@ -43,6 +43,10 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+@define-mixin button-blue-light {
+  @mixin transition-bg-darken $color-blue-light;
 }
 
 @define-mixin button-blue {

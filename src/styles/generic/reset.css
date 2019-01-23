@@ -4,6 +4,8 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
 /* HTML5 display-role reset for older browsers */

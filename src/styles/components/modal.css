@@ -1,0 +1,23 @@
+/*================ Modal ================*/
+
+.c-modal {
+  z-index: $z-index-modal;
+  @media(--mobile) {
+    padding: 40px;
+    border-radius: 5px;
+    background-color: $bg-gray-light;
+    box-shadow: $box-shadow-modal;
+  }
+}
+
+.c-modal__field {
+  width: 100%;
+  background-color: white;
+}
+.c-modal__button {
+  @mixin button;
+  @mixin button-blue-light;
+  width: 100% !important;
+  padding: 15px 0 !important;
+  border-radius: 0 !important;
+}

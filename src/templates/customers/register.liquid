@@ -1,0 +1,18 @@
+{% layout 'auth' %}
+<h2 class="c-auth__heading">
+  <span class="c-auth__headingIcon">
+    <i class="fas fa-paw"></i>
+  </span>
+  Welcome Aboard
+  <span class="c-auth__headingIcon">
+    <i class="fas fa-paw"></i>
+  </span>
+</h2>
+<div class="c-auth__form c-modal">
+  {% form 'customer_login' %}
+    {{ form.errors | default_errors }}
+    <input class="c-modal__field" type="email" name="customer[email]" placeholder="Email Address" />
+    <input class="c-modal__field" type="password" name="customer[password]" placeholder="Password" />
+    <button class="c-modal__button" type="submit">Sign In</button>
+  {% endform %}
+</div>

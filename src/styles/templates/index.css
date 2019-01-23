@@ -1,3 +1,4 @@
-/*========== Tools ==========*/
+/*========== Templates ==========*/
 
-@import "product"
+@import "auth";
+@import "product";
