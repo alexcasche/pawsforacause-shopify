@@ -20,5 +20,5 @@
   @mixin button-blue-light;
   width: 100% !important;
   padding: 15px 0 !important;
-  border-radius: 0 !important;
+  border-radius: 3px !important;
 }

@@ -7,7 +7,3 @@
 .o-container--large {
   @mixin container-large;
 }
-
-.o-container--layout {
-  @mixin container-layout;
-}

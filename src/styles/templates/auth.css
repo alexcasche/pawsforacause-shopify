@@ -53,6 +53,20 @@
   text-align: center;
   color: white;
 }
+.c-auth__errors > .errors {
+  width: 100%;
+  margin: 0 auto 20px;
+  padding: 15px;
+  background-color: $color-red-lightest;
+  border: 1px solid $color-red;
+  border-radius: 3px;
+  color: $color-red-dark;
+  font-size: 14px;
+  li {
+    display: inline-block;
+    margin-right: 8px;
+  }
+}
 .c-auth__form {
   @mixin flex column, flex-start, center;
   border-radius: 5px;
@@ -69,7 +83,7 @@
     @mixin flex row;
   }
 }
-.c-auth__linksLeft, .c-auth__linkRight {
+.c-auth__linksSide {
   margin-bottom: 10px;
 }
 .c-auth__link {
@@ -79,6 +93,6 @@
     color: $color-blue-lightest;
   }
 }
-.c-auth__links--cancel {
+.c-auth__links--center {
   justify-content: center !important;
 }
