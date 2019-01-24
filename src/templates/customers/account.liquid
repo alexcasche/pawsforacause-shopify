@@ -2,33 +2,49 @@
   <div class="c-account__wrapper o-container">
     <div class="c-account__side">
       <h2 class="c-account__heading">
-        Alex Asche
+        {{ customer.first_name }} {{ customer.last_name }}
       </h2>
       <div class="c-account__group">
-        <h3 class="c-account__subheading">
+        <h4 class="c-account__subheading">
           Contact Info
-        </h3>
+        </h4>
         <span class="c-account__text">
-          alexander.asche@gmail.com
+          {{ customer.email }}
         </span>
-        <span class="c-account__text">
-          413.427.1375
-        </span>
+        {% if customer.default_address.phone %}
+          <span class="c-account__text">
+            {{ customer.default_address.phone }}
+          </span>
+        {% endif %}
       </div>
       <div class="c-account__group">
-        <h3 class="c-account__subheading">
+        <h4 class="c-account__subheading">
           Primary Address
-        </h3>
-        <span class="c-account__text">
-          186 Marsh Island Drive
-        </span>
-         <span class="c-account__text">
-          Kiawah Island SC, 29455
-        </span>
+        </h4>
+        {% if customer.default_address.address1 == '1' %}
+          <span class="c-account__text">
+            {{ customer.default_address.address1 }}
+          </span>
+          {% if customer.default_address.address2 != '' %}
+            <span class="c-account__text">
+              {{ customer.default_address.address2 }}
+            </span>
+          {% endif %}
+          <span class="c-account__text">
+            {{ customer.default_address.city}}, {% if address.province_code %}{{ customer.default_address.province_code }}, {% endif %} {{ customer.default_address.zip }}
+          </span>
+        {% else %}
+          <span class="c-account__text">
+            You don't have any addresses on file.
+          </span>
+          <a class="c-account__button c-account__button--add" href="/account/addresses">
+            Add Address
+          </a>
+        {% endif %}
       </div>
     </div>
     <div class="c-account__side">
-      Vue Account Cart
+      <vue-account></vue-account>
     </div>
   </div>
 </div>

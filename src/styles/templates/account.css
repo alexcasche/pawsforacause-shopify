@@ -1,0 +1,49 @@
+/*========== Account ==========*/
+
+.c-account__wrapper {
+  @mixin flex row, center, flex-start, wrap;
+  @media(--tablet) {
+    justify-content: space-between;
+  }
+}
+.c-account__side {
+  width: 100%;
+  @mixin flex column, flex-start, center;
+  @media(--tablet) {
+    width: calc(50% - 20px);
+    align-items: flex-start;
+  }
+}
+.c-account__heading {
+  text-align: center;
+  margin-bottom: 15px;
+  @media(--tablet) {
+    text-align: left;
+  }
+}
+.c-account__group {
+  width: 100%;
+  @mixin flex column, flex-start, center;
+  margin-bottom: 20px;
+  @media(--tablet) {
+    align-items: flex-start;
+  }
+}
+.c-account__subheading {
+  margin-bottom: 10px;
+  color: $color-blue-dark;
+}
+.c-account__text {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.c-account__button {
+  @mixin button;
+  @mixin button-small;
+  margin-top: 10px;
+  width: auto !important;
+  padding: 10px 30px !important;
+}
+.c-account__button--add {
+  @mixin button $color-blue-dark;
+}

@@ -1,62 +1,52 @@
 /*========== Buttons ==========*/
 
-@define-mixin button {
+@define-mixin button $color: $color-gray {
   width: 100%;
-  border-radius: 0;
-  background-color: transparent;
-  border: none;
-  outline: none;
   padding: 15px 40px;
+  border-radius: 3px;
   color: white;
   font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-weight: 700;
   text-decoration: none;
+  text-transform: capitalize;
   text-align: center;
   user-select: none;
-  @media (--tablet) {
-    padding: 10px 40px;
-    border-radius: 50px;
+  @mixin transition-bg-darken $color;
+  @media(--mobile) {
     width: auto;
+  }
+  @media(--tablet) {
+    padding: 12px 40px;
   }
   &:hover {
     cursor: pointer;
+  }
+}
+
+@define-mixin button-round {
+  @mixin button;
+  @media (--tablet) {
+    border-radius: 50px;
   }
 }
 
 @define-mixin button-small {
-  padding: 10px 30px;
-  font-family: $font-open-sans;
-  font-size: 13px;
+  @mixin button;
+  && {
+    padding: 12px 30px;
+    font-size: 13px;
+    @media(--tablet) {
+      padding: 10px 30px;
+    }
+  }
 }
 
 @define-mixin button-circle {
+  @mixin button;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: none;
-  outline: none;
   padding: 0;
   border-radius: 100%;
-  user-select: none;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-@define-mixin button-blue-light {
-  @mixin transition-bg-darken $color-blue-light;
-}
-
-@define-mixin button-blue {
-  @mixin transition-bg-darken $color-blue;
-}
-
-@define-mixin button-blue-dark {
-  @mixin transition-bg-darken $color-blue-dark;
-}
-
-@define-mixin button-red {
-  @mixin transition-bg-darken $color-red;
 }

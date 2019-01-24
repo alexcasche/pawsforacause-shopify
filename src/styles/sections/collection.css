@@ -48,6 +48,5 @@
 }
 
 .c-collection__button {
-  @mixin button;
-  @mixin button-blue;
+  @mixin button $color-blue;
 }

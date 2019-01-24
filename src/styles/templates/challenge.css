@@ -5,8 +5,7 @@
   margin-bottom: 30px;
 }
 .shopify-challenge__button {
-  @mixin button;
-  @mixin button-blue-light;
+  @mixin button $color-blue-light;
   width: 100% !important;
   max-width: 300px;
   margin-top: 20px !important;

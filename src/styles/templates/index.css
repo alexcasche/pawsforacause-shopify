@@ -1,5 +1,6 @@
 /*========== Templates ==========*/
 
+@import "account";
 @import "auth";
 @import "challenge";
 @import "product";
