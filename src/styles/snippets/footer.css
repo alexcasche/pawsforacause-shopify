@@ -14,7 +14,7 @@
   background-color: $color-black-light;
 }
 .c-footerTop__nav {
-  @mixin flex row, flex-start, flex-start, wrap;
+  @mixin flex row, center, flex-start, wrap;
   margin-bottom: 30px;
   @media(--desktop) {
     justify-content: space-between;
@@ -26,8 +26,6 @@
   @mixin flex column, flex-start, center;
   text-align: center;
   @media (--mobile) {
-    align-items: flex-start;
-    text-align: left;
     width: calc(50% - 20px);
   }
   @media (--tablet) {
@@ -35,12 +33,18 @@
     margin-bottom: 40px;
   }
   @media (--desktop) {
+    align-items: flex-start;
+    text-align: left;
     width: calc(20% - 20px);
     margin-bottom: 20px;
   }
 }
 .c-footerTop__group--social {
-  @media(--tablet) {
+  margin-bottom: 40px;
+  @media(--mobile) {
+    margin-bottom: 30px;
+  }
+  @media(--desktop) {
     width: 100px
   }
 }

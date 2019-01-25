@@ -21,7 +21,7 @@
       </a>
       <button class="c-headerTop__cart trigger-cart" aria-label="Toggle Cart">
         {% include 'icon-cart' %}
-        <span class="c-headerTop__cartCount vue-cart-count">
+        <span class="c-headerTop__cartCount data-cart-count">
           {{ cart.item_count }}
         </span>
       </button>
@@ -86,7 +86,7 @@
         </ul>
         <a class="c-headerBottom__cart trigger-cart">
           {% include 'icon-cart' %}
-          <span class="c-headerBottom__cartCount vue-cart-count">
+          <span class="c-headerBottom__cartCount data-cart-count">
             {{ cart.item_count }}
           </span>
         </a>

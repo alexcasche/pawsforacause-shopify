@@ -30,10 +30,10 @@ export default {
       }
     },
     cartCount(val) {
-      const cartCountEls = document.querySelectorAll(".vue-cart-count");
+      const cartCountEls = document.querySelectorAll(".data-cart-count");
       cartCountEls.forEach(el => el.textContent = val);
       const cartText = val === 1 ? "Item" : "Items"
-      const cartTextEls = document.querySelectorAll(".vue-cart-text");
+      const cartTextEls = document.querySelectorAll(".data-cart-text");
       cartTextEls.forEach(el => el.textContent = cartText);
     }
   },
