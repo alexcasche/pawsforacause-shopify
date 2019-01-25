@@ -15,7 +15,7 @@
 }
 .c-footerTop__nav {
   @mixin flex row, flex-start, flex-start, wrap;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   @media(--desktop) {
     justify-content: space-between;
   }

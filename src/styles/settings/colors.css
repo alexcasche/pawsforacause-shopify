@@ -24,6 +24,10 @@ $color-red-light: #ff8d81;
 $color-red: #f94331;
 $color-red-dark: #e14536;
 
+$color-success: #00d05a;
+$color-warning: #ffb800;
+$color-danger: $color-red-dark;
+
 $color-silver-light: #fcfcfc;
 $color-silver: #f7f7f7;
 $color-silver-dark: #f2f2f2;

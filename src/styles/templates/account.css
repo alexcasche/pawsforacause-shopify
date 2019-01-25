@@ -24,23 +24,23 @@
 .c-account__group {
   width: 100%;
   @mixin flex column, flex-start, center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   @media(--tablet) {
     align-items: flex-start;
   }
 }
 .c-account__subheading {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: $color-blue-dark;
 }
 .c-account__text {
-  margin-bottom: 10px;
   font-size: 16px;
+  line-height: 28px;
 }
 .c-account__button {
   @mixin button;
   @mixin button-small;
-  margin-top: 10px;
+  margin-top: 15px;
   width: auto !important;
   padding: 10px 30px !important;
 }

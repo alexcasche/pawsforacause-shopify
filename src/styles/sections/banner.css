@@ -96,8 +96,7 @@
 }
 
 .c-banner__actionButton {
-  @mixin button;
-  @mixin button-red;
+  @mixin button $color-red;
   margin-top: 20px;
 }
 

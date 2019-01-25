@@ -9,38 +9,30 @@
           Contact Info
         </h4>
         <span class="c-account__text">
-          {{ customer.email }}
-        </span>
-        {% if customer.default_address.phone %}
-          <span class="c-account__text">
+          {{ customer.email }}<br/>
+          {% if customer.default_address.phone %}
             {{ customer.default_address.phone }}
-          </span>
-        {% endif %}
+          {% endif %}
+        </span>
       </div>
       <div class="c-account__group">
         <h4 class="c-account__subheading">
           Primary Address
         </h4>
-        {% if customer.default_address.address1 == '1' %}
-          <span class="c-account__text">
-            {{ customer.default_address.address1 }}
-          </span>
-          {% if customer.default_address.address2 != '' %}
-            <span class="c-account__text">
-              {{ customer.default_address.address2 }}
-            </span>
+        <div class="c-account__text">
+          {% if customer.default_address.address1 == '1' %}
+            {{ customer.default_address.address1 }}<br />
+            {% if customer.default_address.address2 != '' %}
+              {{ customer.default_address.address2 }}<br />
+            {% endif %}
+            {{ customer.default_address.city}}, {% if address.province_code %}{{ customer.default_address.province_code }}, {% endif %} {{ customer.default_address.zip }}<br />
+          {% else %}
+            You don't have any addresses on file.<br />
           {% endif %}
-          <span class="c-account__text">
-            {{ customer.default_address.city}}, {% if address.province_code %}{{ customer.default_address.province_code }}, {% endif %} {{ customer.default_address.zip }}
-          </span>
-        {% else %}
-          <span class="c-account__text">
-            You don't have any addresses on file.
-          </span>
-          <a class="c-account__button c-account__button--add" href="/account/addresses">
-            Add Address
-          </a>
-        {% endif %}
+        </div>
+        <a class="c-account__button c-account__button--add" href="/account/addresses">
+          Add Address
+        </a>
       </div>
     </div>
     <div class="c-account__side">

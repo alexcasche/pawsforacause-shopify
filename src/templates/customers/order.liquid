@@ -1,0 +1,51 @@
+<div class="c-order{% if order.cancelled %} c-order--cancelled{% endif %} o-section">
+  <div class="c-order__wrapper o-container">
+    <div class="c-order__intro">
+      <h2 class="c-order__heading">
+        Order {{ order.name }}
+      </h2>
+      <span class="c-order__status">
+        {% if order.financial_status == "paid" %}
+          <i class="c-order__icon c-order__icon--processed fas fa-check-circle"></i>
+          Processed
+        {% elsif order.cancelled != true %}
+          <i class="c-order__icon c-order__icon--pending fas fa-minus-circle"></i>
+          Pending
+        {% else %}
+          <i class="c-order__icon c-order__icon--cancelled fas fa-times-circle"></i>
+          Cancelled
+        {% endif %}
+      </span>
+      <span class="c-order__date">
+         <i class="c-order__icon c-order__icon--date far fa-calendar-check"></i>
+         {{ order.created_at | date: "%B %e, %Y" }}
+      </span>
+    </div>
+    <div class="c-order__addresses">
+      <div class="c-order__group">
+        <h4 class="c-order__subheading">
+          Billing Address
+        </h4>
+        <div class="c-order__text">
+          {{ order.billing_address.address1 }}<br />
+          {% if order.billing_address.address2 != '' %}
+            {{ order.billing_address.address2 }}<br />
+          {% endif %}
+          {{ order.billing_address.city}}, {% if order.billing_address.province_code %}{{ order.billing_address.province_code }}, {% endif %} {{ order.billing_address.zip }}<br />
+        </div>
+      </div>
+      <div class="c-order__group">
+        <h4 class="c-order__subheading">
+          Shipping Address
+        </h4>
+        <div class="c-order__text">
+          {{ order.shipping_address.address1 }}<br />
+          {% if order.shipping_address.address2 != '' %}
+            {{ order.shipping_address.address2 }}<br />
+          {% endif %}
+            {{ order.shipping_address.city}}, {% if order.shipping_address.province_code %}{{ order.shipping_address.province_code }}, {% endif %} {{ order.shipping_address.zip }}<br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,7 +5,7 @@
     </h2>
     <div class="c-collection__grid u-no-javascript">
       {% for product in collections[section.settings.collection].products limit:8 %}
-        <a class="c-collection__item">
+        <a class="c-collection__item" href="{{ product.url }}">
           <img class="c-collection__itemImage" src="{{ product.images[0] | img_url: '500x' }}" alt="{{ product.images[0].alt | escape }}" />
           <h5 class="c-collection__itemTitle">
             {{ product.title }}
