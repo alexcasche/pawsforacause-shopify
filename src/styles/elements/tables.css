@@ -1,0 +1,9 @@
+/*========== Tables ==========*/
+
+table {
+  width: 100%;
+  background-color: white;
+  box-shadow: $box-shadow-card;
+  border: 1px solid $hr-gray-light;
+  border-radius: $border-radius-card;
+}

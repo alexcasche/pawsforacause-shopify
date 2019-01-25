@@ -3,7 +3,7 @@
 @define-mixin button $color: $color-gray {
   width: 100%;
   padding: 15px 40px;
-  border-radius: 3px;
+  border-radius: $border-radius-input;
   color: white;
   font-size: 16px;
   font-weight: 700;

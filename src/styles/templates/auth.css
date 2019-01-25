@@ -59,7 +59,7 @@
   padding: 15px;
   background-color: $color-red-lightest;
   border: 1px solid $color-red;
-  border-radius: 3px;
+  border-radius: $border-radius-card;
   color: $color-red-dark;
   font-size: 14px;
   li {

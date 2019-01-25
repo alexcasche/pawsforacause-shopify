@@ -4,7 +4,7 @@
   z-index: $z-index-modal;
   @media(--mobile) {
     padding: 40px;
-    border-radius: 3px;
+    border-radius: $border-radius-card;
     border: 1px solid #d3d3d3;
     background-color: $bg-gray-light;
     box-shadow: $box-shadow-modal;
@@ -19,5 +19,4 @@
   @mixin button $color-blue-light;
   width: 100% !important;
   padding: 15px 0 !important;
-  border-radius: 3px !important;
 }

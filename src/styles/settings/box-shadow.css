@@ -6,3 +6,4 @@ $box-shadow-drawer: 0px 1px 5px
   rgba(0, 0, 0, 0.25);
 $box-shadow-circle: 0 0 3px 0px #e2e2e2;
 $box-shadow-modal: 0 5px 15px rgba(0, 0, 0, 0.25);
+$box-shadow-card: 0 1px 5px rgba(0, 0, 0, 0.05);

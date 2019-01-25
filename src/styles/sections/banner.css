@@ -53,14 +53,14 @@
 
 .c-banner__image {
   @mixin show-desktop;
-  border-radius: $border-radius-large;
+  border-radius: $border-radius-image;
 }
 
 .c-banner__image-wide {
   @mixin hide-desktop;
   @mixin full-width-mobile;
   @media (--mobile) {
-    border-radius: $border-radius-large;
+    border-radius: $border-radius-image;
   }
 }
 

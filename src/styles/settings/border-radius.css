@@ -1,3 +1,5 @@
 /*========== Box Shadow ==========*/
 
-$border-radius-large: 16px;
+$border-radius-card: 3px;
+$border-radius-input: 3px;
+$border-radius-image: 15px;

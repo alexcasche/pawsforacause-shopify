@@ -16,7 +16,7 @@
 }
 .c-account__heading {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 24px;
   @media(--tablet) {
     text-align: left;
   }
@@ -24,7 +24,7 @@
 .c-account__group {
   width: 100%;
   @mixin flex column, flex-start, center;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   @media(--tablet) {
     align-items: flex-start;
   }
@@ -34,8 +34,12 @@
   color: $color-blue-dark;
 }
 .c-account__text {
+  text-align: center;
   font-size: 16px;
   line-height: 28px;
+  @media(--tablet) {
+    text-align: left;
+  }
 }
 .c-account__button {
   @mixin button;

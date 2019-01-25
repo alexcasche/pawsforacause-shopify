@@ -2,10 +2,9 @@
 
 .c-order__intro {
   @mixin flex column, flex-start, center;
-  margin-bottom: 25px;
+  margin-bottom: 24px;
   @media(--tablet) {
     @mixin flex row, flex-start, center;
-    margin-bottom: 15px;
   }
 }
 .c-order__heading {
@@ -51,12 +50,18 @@
   margin-right: 12px;
   color: $color-blue;
 }
+.c-order__addresses {
+  @mixin flex column, flex-start, center;
+  @media(--tablet) {
+    @mixin flex row, flex-start, flex-start;
+  }
+}
 .c-order__group {
-  width: 100%;
   @mixin flex column, flex-start, center;
   margin-bottom: 24px;
   @media(--tablet) {
     align-items: flex-start;
+    margin-right: 100px;
   }
 }
 .c-order__subheading {
@@ -64,7 +69,11 @@
   color: $color-blue-dark;
 }
 .c-order__text {
+  text-align: center;
   margin-bottom: 10px;
   font-size: 16px;
   line-height: 28px;
+  @media(--tablet) {
+    text-align: left;
+  }
 }
