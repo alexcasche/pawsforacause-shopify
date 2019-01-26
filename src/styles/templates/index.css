@@ -1,7 +1,9 @@
 /*========== Templates ==========*/
 
+@import "404";
 @import "account";
 @import "auth";
 @import "challenge";
 @import "order";
+@import "paws";
 @import "product";

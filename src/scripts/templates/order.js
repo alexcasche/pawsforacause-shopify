@@ -19,17 +19,3 @@ function addReorder() {
 
 const reorderTrigger = document.querySelector(".trigger-reorder");
 reorderTrigger.addEventListener("click", addReorder);
-
- /*
-function addReorder() {
-  const lineItems = document.querySelectorAll(".data-order-item");
-  let payload = {};
-  lineItems.forEach(lineItem => {
-    const id = lineItem.dataset.variant;
-    const quantity = lineItem.dataset.quantity;
-    payload[id] = quantity;
-  })
-  axios
-    .post("/cart/update.js", { updates: qs.stringify(payload) })
-    .then(response => console.log(response.data));
-}*/

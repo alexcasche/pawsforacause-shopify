@@ -1,51 +1,8 @@
 /*========== Auth ==========*/
 
 .c-auth {
-  background-color: transparent;
-  background-size: 350px;
-  background-repeat: repeat;
-  &:before {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: $color-blue-dark;
-    opacity: .99;
-  }
-}
-.c-auth__wrapper {
-  position: relative;
-  min-height: 100vh;
-  @mixin flex column, flex-start, center;
-  padding-top: 40px;
-  padding-bottom: 80px;
-}
-.c-auth__back {
-  position: absolute;
-  padding: 0 40px;
-  width: 100vw;
-  text-align: center;
-  @media(--mobile) {
-    text-align: left;
-  }
-}
-.c-auth__backLink {
-  font-size: 15px;
-  margin-right: 2px;
-  color: $color-blue-lighter;
-  &:hover {
-    color: $color-blue-lightest;
-  }
-}
-.c-auth__backChevron {
-  font-size: 18px;
-  margin-right: 5px;
-}
-.c-auth__inner {
-  width: 100%;
-  max-width: 450px;
+  width: 450px;
+  max-width: 100%;
   margin-top: 80px;
 }
 .c-auth__heading {

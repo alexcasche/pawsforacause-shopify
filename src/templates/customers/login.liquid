@@ -1,39 +1,41 @@
-{% layout 'auth' %}
-<h2 class="c-auth__heading" id="loginHeading">
-  Welcome Back!
-</h2>
-<div id="loginForm">
-  {% form 'customer_login' %}
-    <div class="c-auth__errors">
-      {{ form.errors | default_errors }}
-    </div>
-    <div class="c-auth__form c-modal">
-      <input class="c-modal__field" type="email" name="customer[email]" placeholder="Email Address" autocorrect="off" autocapitalize="off" autofocus required />
-      <input class="c-modal__field" type="password" name="customer[password]" placeholder="Password" required />
-      <button class="c-modal__button" type="submit">Sign In</button>
-    </div>
-    <div class="c-auth__links">
-      <span class="c-auth__linksSide">
-        Not a member? &nbsp;
-        <a class="c-auth__link" href="/account/register">Register now</a>
-      </span>
-      <span class="c-auth__linksSide">
-        <a class="c-auth__link trigger-recover-form" href="#recover">Forgot password?</a>
-      </span>
-    </div>
-  {% endform %}
-</div>
-<div id="recoverForm" class="u-hidden">
-  {% form 'recover_customer_password' %}
-    <div class="c-auth__errors">
-      {{ form.errors | default_errors }}
-    </div>
-    <div class="c-auth__form c-modal">
-      <input class="c-modal__field" type="email" value="" name="email" placeholder="Email Address" autocorrect="off" autocapitalize="off">
-      <button class="c-modal__button" type="submit">Sign In</button>
-    </div>
-    <div class="c-auth__links c-auth__links--center">
-      <a class="c-auth__link trigger-login-form" href="#">Cancel</a>
-    </div>
-  {% endform %}
+{% layout 'paws' %}
+<div class="c-auth">
+  <h2 class="c-auth__heading" id="loginHeading">
+    Welcome Back!
+  </h2>
+  <div id="loginForm">
+    {% form 'customer_login' %}
+      <div class="c-auth__errors">
+        {{ form.errors | default_errors }}
+      </div>
+      <div class="c-auth__form c-modal">
+        <input class="c-modal__field" type="email" name="customer[email]" placeholder="Email Address" autocorrect="off" autocapitalize="off" autofocus required />
+        <input class="c-modal__field" type="password" name="customer[password]" placeholder="Password" required />
+        <button class="c-modal__button" type="submit">Sign In</button>
+      </div>
+      <div class="c-auth__links">
+        <span class="c-auth__linksSide">
+          Not a member? &nbsp;
+          <a class="c-auth__link" href="/account/register">Register now</a>
+        </span>
+        <span class="c-auth__linksSide">
+          <a class="c-auth__link trigger-recover-form" href="#recover">Forgot password?</a>
+        </span>
+      </div>
+    {% endform %}
+  </div>
+  <div id="recoverForm" class="u-hidden">
+    {% form 'recover_customer_password' %}
+      <div class="c-auth__errors">
+        {{ form.errors | default_errors }}
+      </div>
+      <div class="c-auth__form c-modal">
+        <input class="c-modal__field" type="email" value="" name="email" placeholder="Email Address" autocorrect="off" autocapitalize="off">
+        <button class="c-modal__button" type="submit">Sign In</button>
+      </div>
+      <div class="c-auth__links c-auth__links--center">
+        <a class="c-auth__link trigger-login-form" href="#">Cancel</a>
+      </div>
+    {% endform %}
+  </div>
 </div>
