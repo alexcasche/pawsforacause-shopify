@@ -28,7 +28,8 @@
 .c-order__status {
   @mixin flex row, flex-start, center;
   @media(--mobile-max) {
-    display: none;
+    margin-top: 5px;
+    order: 1;
   }
 }
 .c-order__date {
