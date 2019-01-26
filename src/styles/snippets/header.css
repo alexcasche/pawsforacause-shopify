@@ -138,10 +138,12 @@
   height: 100%;
   @mixin flex row, space-between, center;
 }
+.c-headerBottom__account {
+  margin-left: -15px;
+}
 .c-headerBottom__burger {
   height: 50px;
   width: 50px;
-  margin-left: -15px;
   @mixin flex row, center, center;
   fill: $color-black;
   &:hover {

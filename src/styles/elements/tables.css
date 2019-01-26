@@ -2,8 +2,47 @@
 
 table {
   width: 100%;
-  background-color: white;
-  box-shadow: $box-shadow-card;
-  border: 1px solid $hr-gray-light;
-  border-radius: $border-radius-card;
+  border-collapse: collapse;
+}
+thead {
+  border-bottom: 1px solid $hr-gray-light;
+}
+tfoot {
+  border-top: 1px solid $hr-gray-light; 
+  td {
+    padding-top: 30px;
+  }
+}
+tbody {
+  tr {
+    border-bottom: 1px solid $hr-gray-light;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+th, td {
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: left;
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+    text-align: right;
+  }
+}
+th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: $color-gray;
+  font-size: 14px;
+  font-weight: 600;
+}
+td {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: $color-black;
+  font-size: 16px;
 }

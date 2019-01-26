@@ -1,0 +1,9 @@
+/*========== Cards ==========*/
+
+.c-card {
+  background-color: #fff;
+  box-shadow: 0 1px 5px rgba(0,0,0,.05);
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+  padding: 40px;
+}
