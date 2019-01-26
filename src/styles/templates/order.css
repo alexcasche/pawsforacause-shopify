@@ -1,5 +1,8 @@
 /*========== Order ==========*/
 
+
+/*========== Order Intro ==========*/
+
 .c-order__intro {
   @mixin flex column, flex-start, center;
   margin-bottom: 24px;
@@ -56,6 +59,10 @@
   margin-right: 12px;
   color: $color-blue;
 }
+
+
+/*========== Order Table ==========*/
+
 .c-order__card {
   padding-top: 20px;
   padding-bottom: 40px;
@@ -142,4 +149,16 @@
   .c-order__summaryRight {
     font-size: 20px;
   }
+}
+
+
+/*========== Order Actions ==========*/
+
+.c-order__actions {
+  @mixin flex row, flex-end, center;
+  margin-top: 20px;
+}
+
+.c-order__reorder {
+  @mixin button $color-blue;
 }
