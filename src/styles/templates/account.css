@@ -46,8 +46,4 @@
   @mixin button-small;
   margin-top: 15px;
   width: auto !important;
-  padding: 10px 30px !important;
-}
-.c-account__button--add {
-  @mixin button $color-blue-dark;
 }

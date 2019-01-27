@@ -2,36 +2,39 @@
   <div class="c-account__wrapper o-container">
     <div class="c-account__side">
       <h2 class="c-account__heading">
-        {{ customer.first_name }} {{ customer.last_name }}
+        {{ customer.first_name | capitalize }} {{ customer.last_name | capitalize }}
       </h2>
       <div class="c-account__group">
         <h4 class="c-account__subheading">
           Contact Info
         </h4>
-        <span class="c-account__text">
+        <div class="c-account__text">
           {{ customer.email }}<br/>
-          {% if customer.default_address.phone %}
+          {% if customer.default_address.phone != '' and customer.default_address.phone != nil %}
             {{ customer.default_address.phone }}
           {% endif %}
-        </span>
+        </div>
       </div>
       <div class="c-account__group">
         <h4 class="c-account__subheading">
           Primary Address
         </h4>
         <div class="c-account__text">
-          {% if customer.default_address.address1 == '1' %}
+          {% if customer.default_address %}
+            {% if customer.default_address.company != '' and customer.default_address.company != nil %}
+              {{ customer.default_address.company }}<br />
+            {% endif %}
             {{ customer.default_address.address1 }}<br />
-            {% if customer.default_address.address2 != '' %}
+            {% if customer.default_address.address2 != '' and customer.default_address.address2 != nil %}
               {{ customer.default_address.address2 }}<br />
             {% endif %}
-            {{ customer.default_address.city}}, {% if address.province_code %}{{ customer.default_address.province_code }}, {% endif %} {{ customer.default_address.zip }}<br />
+            {{ customer.default_address.city}}, {% if customer.default_address.province_code %}{{ customer.default_address.province_code }}, {% endif %} {{ customer.default_address.zip }}<br />
           {% else %}
             You don't have any addresses on file.<br />
           {% endif %}
         </div>
         <a class="c-account__button c-account__button--add" href="/account/addresses">
-          Add Address
+          Edit Address
         </a>
       </div>
     </div>

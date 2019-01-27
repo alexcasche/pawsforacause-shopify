@@ -2,6 +2,7 @@
 
 @import "404";
 @import "account";
+@import "addresses";
 @import "auth";
 @import "challenge";
 @import "order";

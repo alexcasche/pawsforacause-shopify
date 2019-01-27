@@ -1,22 +1,53 @@
 /*================ Modal ================*/
 
 .c-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
   z-index: $z-index-modal;
+  background-color: $bg-gray-light;
+  padding: 0 30px 50px;
   @media(--mobile) {
-    padding: 40px;
-    border-radius: $border-radius-card;
-    border: 1px solid #d3d3d3;
-    background-color: $bg-gray-light;
-    box-shadow: $box-shadow-modal;
+    padding: 50px;
+    background-color: rgba(0,0,0,.5);
+  }
+  @media(--tablet) {
+    padding: 100px;
   }
 }
 
-.c-modal__field {
-  width: 100%;
-  background-color: white;
+.c-modal__box {
+  position: relative;
+  max-width: 750px;
+  margin: 0 auto;
+  padding-top: 60px;
+  @media(--mobile) {
+    padding: 60px 40px 40px;
+    background-color: $bg-gray-light;
+    border-radius: $border-radius-card;
+    border: 1px solid #d3d3d3;
+    box-shadow: $box-shadow-modal;
+  }
 }
-.c-modal__button {
+.c-modal__close {
+  @mixin button-circle;
+  color: #444;
+  border: 1px solid #444;
+  position: absolute;
+  top: 30px;
+  width: 30px;
+  height: 30px;
+  &:hover {
+    color: $color-blue-dark;
+    border-color: $color-blue-dark;
+  }
+  @media(--mobile) {
+    right: 40px;
+  }
+}
+.c-modal__button--submit {
   @mixin button $color-blue-light;
-  width: 100% !important;
-  padding: 15px 0 !important;
 }

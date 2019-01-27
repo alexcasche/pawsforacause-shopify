@@ -1,0 +1,43 @@
+/*========== Addresses ==========*/
+
+.c-addresses__wrapper {
+  @mixin flex column, center, center;
+  @media(--tablet) { 
+    @mixin flex row, space-between, flex-start;
+  }
+}
+.c-addresses__side {
+  @media(--tablet) { 
+    width: calc(50% - 20px);
+  }
+}
+.c-addresses__heading {
+  text-align: center;
+  @media(--tablet) {
+    text-align: left;
+  }
+}
+.c-addresses__subheadingIcon {
+  margin-left: 4px;
+  color: $color-blue;
+}
+.c-addresses__group {
+  width: 100%;
+  @mixin flex column, flex-start, center;
+  margin-bottom: 30px;
+  @media(--tablet) {
+    align-items: flex-start;
+  }
+}
+.c-addresses__subheading {
+  margin-bottom: 5px;
+  color: $color-blue-dark;
+}
+.c-addresses__text {
+  text-align: center;
+  font-size: 16px;
+  line-height: 28px;
+  @media(--tablet) {
+    text-align: left;
+  }
+}

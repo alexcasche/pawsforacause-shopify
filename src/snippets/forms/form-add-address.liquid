@@ -1,0 +1,39 @@
+<div class="c-modal" id="addAddress">
+  <div class="c-modal__box">
+    <button class="c-modal__close trigger-modal" data-modal-id="addAddress">
+      <i class="c-modal__closeIcon fa fa-times" aria-hidden="true"></i>
+    </button>
+    <h2 class="c-modal__heading">
+      Add Address
+    </h2>
+    {% form 'customer_address', customer.new_address %}
+      <div class="c-modal__form">
+        {{ form.errors | default_errors }}
+        <div class="c-modal__fieldset">
+          <input class="c-modal__field" type="text" name="address[first_name]" value="{{ form.first_name }}" placeholder="First Name" autocapitalize="words">
+          <input class="c-modal__field" type="text" name="address[last_name]" value="{{ form.last_name }}" placeholder="Last Name" autocapitalize="words">
+        </div>
+        <input class="c-modal__field" type="text" name="address[company]" value="{{ form.company }}" placeholder="Company" autocapitalize="words">
+        <input class="c-modal__field" type="text" name="address[address1]" value="{{ form.address1 }}" placeholder="Address Line 1" autocapitalize="words" />
+        <input class="c-modal__field" type="text" name="address[address2]" value="{{ form.address2 }}" placeholder="Address Line 2" autocapitalize="words" />
+        <div class="c-modal__fieldset">
+          <input class="c-modal__field" type="text" name="address[city]" value="{{ form.city }}" placeholder="City" autocapitalize="words" />
+          <div class="c-modal__field c-modal__select c-select">
+            <select class="c-modal__selectInner data-countries" name="address[country]" data-default="United States">{{ country_option_tags }}</select>
+          </div>
+        </div>
+        <div class="c-modal__field c-modal__select c-select">
+          <select class="c-modal__selectInner data-provinces" name="address[province]" data-default="{{ form.province }}"></select>
+        </div>
+        <input class="c-modal__field" type="text" name="address[zip]" data-default="{{ form.zip }}" autocapitalize="characters" />
+        <input class="c-modal__field" type="tel" name="address[phone]" data-default="{{ form.phone }}" />
+        <div class="c-modal__field c-checkbox">
+          {{ form.set_as_default_checkbox }}
+          <label class="c-modal__checkboxLabel">Set as default address</label>
+        </div>
+        <button class="c-modal__button c-modal__button--cancel trigger-modal" data-modal-id="addAddress">Cancel</button>
+        <button class="c-modal__button c-modal__button--submit" type="submit">Submit<button>
+      </div>
+    {% endform %}
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<script>
+  window.allCountryOptionTags = {{ country_option_tags | json }};
+</script>
+
+<section class="c-addresses">
+  <div class="c-addresses__wrapper o-container">
+    <div class="c-addresses__side">
+      <h2 class="c-addresses__heading">
+        Primary Address
+      </h2>
+      {% if customer.addresses.size == 0 %}
+        <span class="c-addresses__text">
+          You don't have a primary address on file.
+        </span>
+      {% else %}
+        {% for address in customer.addresses %}
+          {% if address == customer.default_address %}
+            <div class="c-addresses__group">
+              <h4 class="c-addresses__subheading">
+                {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
+                <i class="c-addresses__subheadingIcon fas fa-check-circle"></i>
+              </h4>
+              <div class="c-addresses__text">
+                {% if address.company != '' and address.company != nil %}
+                  {{ address.company }}<br />
+                {% endif %}
+                {{ address.address1 }}<br />
+                {% if address.address2 != '' and address.address2 != nil %}
+                  {{ address.address2 }}<br />
+                {% endif %}
+                {{ address.city}}, {% if address.province_code %}{{ address.province_code }}, {% endif %} {{ address.zip }}<br />
+                {% if address.phone != '' and address.phone != nil %}
+                  {{ address.phone }}
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+    {% unless customer.addresses.size < 2 %}
+      <div class="c-addresses__side">
+        <h2 class="c-addresses__heading">
+          Other Addresses
+        </h2>
+        {% for address in customer.addresses %}
+          {% if address != customer.default_address %}
+            <div class="c-addresses__group">
+              <h4 class="c-addresses__subheading">
+                {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
+              </h4>
+              <div class="c-addresses__text">
+                {% if address.company != '' and address.company != nil %}
+                  {{ address.company }}<br />
+                {% endif %}
+                {{ address.address1 }}<br />
+                {% if address.address2 != '' and address.address2 != nil %}
+                  {{ address.address2 }}<br />
+                {% endif %}
+                {{ address.city}}, {% if address.province_code %}{{ address.province_code }}, {% endif %} {{ address.zip }}<br />
+                {% if address.phone != '' and address.phone != nil %}
+                  {{ address.phone }}
+                {% endif %}
+              </div>
+              <a class="c-account__button c-account__button--add" href="/account/addresses">
+                Add Address
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+    {% endunless %}
+  </div>
+  <div class="c-modal u-hidden" id="editAddress">
+    <div class="c-modal__box">
+      <h2 class="c-modal__heading">
+        Edit Address
+      </h2>
+      {% include 'form-edit-address' %}
+    </div>
+  </div>
+  {% include 'form-add-address' %}
+  {% include 'form-edit-address' %}
+</section>
+
+{{ 'addresses.js' | asset_url | script_tag }}

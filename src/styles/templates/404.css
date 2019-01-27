@@ -76,7 +76,7 @@
   max-width: 900px;
   margin: 0 auto;
 }
-.c-404__navLink {
+.c-404__navGroup {
   @media(--xs) {
     margin-bottom: 40px;
   }

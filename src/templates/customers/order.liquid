@@ -79,12 +79,18 @@
                     Billing Address
                   </span>
                   <div class="c-order__addressText">
-                    {{ order.shipping_address.first_name }} {{ order.shipping_address.last_name }}<br />
+                    {{ order.billing_address.first_name | capitalize }} {{ order.billing_address.last_name | capitalize }}<br />
+                    {% if order.billing_address.company != '' and order.billing_address.company != nil %}
+                      {{ order.billing_address.company }}<br />
+                    {% endif %}
                     {{ order.billing_address.address1 }}<br />
                     {% if order.billing_address.address2 != '' and order.billing_address.address2 != nil %}
-                      test{{ order.billing_address.address2 }}<br />
+                      {{ order.billing_address.address2 }}<br />
                     {% endif %}
                     {{ order.billing_address.city}}, {% if order.billing_address.province_code %}{{ order.billing_address.province_code }}, {% endif %} {{ order.billing_address.zip }}<br />
+                    {% if order.billing_address.phone != '' and order.billing_address.phone != nil %}
+                      {{ order.billing_address.phone }}
+                    {% endif %}
                   </div>
                 </div>
                 <div class="c-order__address">
@@ -92,12 +98,18 @@
                     Shipping Address
                   </span>
                   <div class="c-order__addressText">
-                    {{ order.shipping_address.first_name }} {{ order.shipping_address.last_name }}<br />
+                    {{ order.shipping_address.first_name | capitalize }} {{ order.shipping_address.last_name | capitalize }}<br />
+                    {% if order.shipping_address.company != '' and order.shipping_address.company != nil %}
+                      {{ order.shipping_address.company }}<br />
+                    {% endif %}
                     {{ order.shipping_address.address1 }}<br />
                     {% if order.shipping_address.address2 != '' and order.shipping_address.address2 != nil %}
                       {{ order.shipping_address.address2 }}<br />
                     {% endif %}
                       {{ order.shipping_address.city}}, {% if order.shipping_address.province_code %}{{ order.shipping_address.province_code }}, {% endif %} {{ order.shipping_address.zip }}<br />
+                      {% if order.shipping_address.phone != '' and order.shipping_address.phone != nil %}
+                        {{ order.shipping_address.phone }}
+                      {% endif %}
                   </div>
                 </div>
               </td>
