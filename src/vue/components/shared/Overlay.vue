@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div v-if="isOpen" class="v-overlay" @click="$emit('toggleCart')"></div>
+    <div v-if="isOpen" class="v-overlay" @click="$emit('overlayClick')"></div>
   </transition>
 </template>
 

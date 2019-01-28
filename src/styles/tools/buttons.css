@@ -1,42 +1,62 @@
 /*========== Buttons ==========*/
 
-@define-mixin button $color: $color-gray {
+@define-mixin button-base {
   width: 100%;
-  padding: 15px 40px;
+  padding: 14px 35px;
   border-radius: $border-radius-input;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   text-decoration: none;
   text-transform: capitalize;
   text-align: center;
   user-select: none;
-  @mixin transition-bg-darken $color;
   @media(--mobile) {
     width: auto;
   }
   @media(--tablet) {
-    padding: 12px 40px;
+    padding: 12px 35px;
   }
   &:hover {
     cursor: pointer;
   }
 }
 
+@define-mixin button $color: $color-gray {
+  @mixin button-base;
+  @mixin transition-bg-darken $color;
+}
+
+@define-mixin button-hollow $color: $color-gray {
+  @mixin button-base;
+  @mixin transition-text-border-darken $color;
+}
+
 @define-mixin button-round {
-  @mixin button;
+  @mixin button-base;
   @media (--tablet) {
     border-radius: 50px;
   }
 }
 
 @define-mixin button-small {
-  @mixin button;
+  @mixin button-base;
   && {
     padding: 12px 30px;
-    font-size: 13px;
+    font-size: 14px;
     @media(--tablet) {
       padding: 10px 30px;
+    }
+  }
+}
+
+@define-mixin button-large {
+  @mixin button-base;
+  && {
+    padding: 16px 40px;
+    font-size: 16px;
+    @media(--tablet) {
+      padding: 14px 40px;
     }
   }
 }

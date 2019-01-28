@@ -25,6 +25,19 @@
   }
 }
 
+@define-mixin transition-text-border-darken $color,
+  $speed: 0.15s, $ease: ease-in-out {
+  transition: background-color $speed $ease, border-color $speed $ease, color $speed $ease;
+  background-color: $bg-gray-light;
+  color: $color;
+  border: 1px solid $color;
+  &:hover {
+    background-color: white;
+    color: color($color shade(20%));
+    border-color: color($color shade(20%)); 
+  }
+}
+
 @define-mixin transition-slide $speed: 0.35s,
   $ease: ease {
   transition: transform $speed $ease;

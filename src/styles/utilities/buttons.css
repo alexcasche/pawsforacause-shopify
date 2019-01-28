@@ -1,0 +1,50 @@
+/*========== Scroll ==========*/
+
+.u-button {
+  @mixin button $color-gray;
+}
+.u-button--round {
+  @mixin button-round;
+}
+.u-button--small {
+  @mixin button-small;
+}
+.u-button--circle {
+  @mixin button-circle;
+}
+.u-button--primary {
+  @mixin button $color-primary;
+}
+.u-buttonHollow--primary {
+  @mixin button-hollow $color-primary;
+}
+.u-button--secondary {
+  @mixin button $color-secondary;
+}
+.u-buttonHollow--secondary {
+  @mixin button-hollow $color-secondary;
+}
+.u-button--success {
+  @mixin button $color-success;
+}
+.u-buttonHollow--success {
+  @mixin button-hollow $color-success;
+}
+.u-button--danger {
+  @mixin button $color-danger;
+}
+.u-buttonHollow--danger {
+  @mixin button-hollow $color-danger;
+}
+.u-button--buy {
+  @mixin button $color-buy;
+}
+.u-buttonHollow--buy {
+  @mixin button-hollow $color-buy;
+}
+.u-button--submit {
+  @mixin button $color-submit;
+}
+.u-buttonHollow--submit {
+  @mixin button-hollow $color-submit;
+}

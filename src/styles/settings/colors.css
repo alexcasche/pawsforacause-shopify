@@ -24,9 +24,13 @@ $color-red-light: #ff8d81;
 $color-red: #f94331;
 $color-red-dark: #e14536;
 
+$color-primary: $color-blue;
+$color-secondary: $color-blue-dark;
+$color-buy: $color-red;
 $color-success: #00d05a;
 $color-warning: #ffb800;
 $color-danger: $color-red-dark;
+$color-submit: $color-blue-light;
 
 $color-silver-light: #fcfcfc;
 $color-silver: #f7f7f7;

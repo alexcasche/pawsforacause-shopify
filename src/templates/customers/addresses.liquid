@@ -33,6 +33,9 @@
                   {{ address.phone }}
                 {% endif %}
               </div>
+              <a class="c-account__button u-button--secondary u-button--small trigger-modal" data-modal-id="addAddress">
+                Add Address
+              </a>
             </div>
           {% endif %}
         {% endfor %}
@@ -62,9 +65,14 @@
                   {{ address.phone }}
                 {% endif %}
               </div>
-              <a class="c-account__button c-account__button--add" href="/account/addresses">
-                Add Address
-              </a>
+              <div class="c-account__buttonGroup">
+                <a class="c-account__button u-button u-button--small trigger-modal" data-modal-id="editAddress_{{ address.id }}">
+                  Edit
+                </a>
+                <a class="c-account__button u-buttonHollow--danger u-button--small trigger-modal" data-modal-id="deleteAddress_{{ address.id }}">
+                  Delete
+                </a>
+              </div>
             </div>
           {% endif %}
         {% endfor %}
@@ -72,16 +80,11 @@
       </div>
     {% endunless %}
   </div>
-  <div class="c-modal u-hidden" id="editAddress">
-    <div class="c-modal__box">
-      <h2 class="c-modal__heading">
-        Edit Address
-      </h2>
-      {% include 'form-edit-address' %}
-    </div>
-  </div>
-  {% include 'form-add-address' %}
-  {% include 'form-edit-address' %}
+  <vue-modal>
+    {% include 'form-add-address' %}
+    {% include 'form-edit-address' %}
+    {% include 'form-delete-address' %}
+  </vue-modal>
 </section>
 
 {{ 'addresses.js' | asset_url | script_tag }}

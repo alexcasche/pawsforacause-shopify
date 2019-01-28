@@ -1,15 +1,13 @@
 <template>
   <transition name="slide">
-    <div v-if="isOpen" class="v-cart">
-      <button class="v-cart__close" @click="$emit('toggleCart')">Close Cart</button>
-      <h1 class="v-cart__heading">Shopping Cart</h1>
+    <div v-if="isOpen" class="v-drawer">
+      <button class="v-drawer__close" @click="$emit('closeClick')">Close Cart</button>
+      <h1 class="v-drawer__heading">Shopping Cart</h1>
     </div>
   </transition>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-
 export default {
   props: {
     isOpen: {
@@ -32,7 +30,7 @@ export default {
 .slide-enter-to {
   transform: translateX(0);
 }
-.v-cart {
+.v-drawer {
   position: fixed;
   top: 0;
   right: 0;

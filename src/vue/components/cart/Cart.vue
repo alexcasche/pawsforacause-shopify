@@ -1,13 +1,13 @@
 <template lang="html">
   <div class="v-cart" id="cart">
-    <Overlay @toggleCart="toggleCart" :isOpen="isOpen" />
-    <Drawer @toggleCart="toggleCart" :isOpen="isOpen" :cartCount="cartCount"/>
+    <Overlay @overlayClick="toggleCart" v-if="isOpen" :isOpen="isOpen" />
+    <Drawer @closeClick="toggleCart" v-if="isOpen" :isOpen="isOpen" :cartCount="cartCount"/>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
-import Overlay from './Overlay.vue'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
+import Overlay from '../shared/Overlay.vue'
 import Drawer from './Drawer.vue'
 
 export default {
@@ -16,6 +16,7 @@ export default {
     Drawer,
   },
   computed: {
+    ...mapState({ modalOpen: state => state.modal.isOpen }),
     ...mapGetters('cart', ['isOpen', 'cartCount']),
   },
   methods: {
@@ -23,10 +24,14 @@ export default {
     ...mapActions('cart', ['setCart']),
   },
   watch: {
-    isOpen(val) {
-      document.body.classList.toggle("cart-open");
-      if (val === true) {
-        this.setCart()
+    isOpen: {
+      handler(val) {
+        if (val === true) {
+          this.setCart();
+        }
+        if(!this.modalOpen) {
+          document.body.classList.toggle("u-noScroll");
+        }
       }
     },
     cartCount(val) {

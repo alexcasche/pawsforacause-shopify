@@ -1,0 +1,16 @@
+{% for address in customer.addresses %}
+  <div class="u-hidden" id="deleteAddress_{{ address.id }}">
+    <h4 class="c-modal__heading">
+      Are you sure you want to delete this address?
+    </h4>
+    <form method="post" action="/account/addresses/{{ address.id }}">
+      <div class="c-modal__form">
+        <input type="hidden" name="_method" value="delete"/>
+        <div class="c-modal__buttons">
+          <button class="c-modal__button u-button trigger-modal" type="button" data-modal-id="addressModal">Cancel</button>
+          <button class="c-modal__button u-buttonHollow--danger" type="submit">Delete<button>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endfor %}

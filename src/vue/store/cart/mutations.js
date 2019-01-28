@@ -1,10 +1,10 @@
 export default {
-  toggleCart(state, payload) {
+  toggleCart(state) {
     state.isOpen = !state.isOpen
     state.cartError = false
     return state
   },
-  toggleFetching(state, payload) {
+  toggleFetching(state) {
     state.isFetching = !state.isFetching
     return state
   },
