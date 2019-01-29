@@ -30,13 +30,14 @@
   }
 }
 .c-addresses__subheading {
-  margin-bottom: 5px;
+  margin-bottom: 0;
   color: $color-blue-dark;
 }
 .c-addresses__text {
   text-align: center;
   font-size: 16px;
-  line-height: 28px;
+  line-height: 24px;
+  margin: 5px 0 10px;
   @media(--tablet) {
     text-align: left;
   }

@@ -1,6 +1,8 @@
 <template>
   <div class="v-box">
-    <button class="v-box__close" @click="$emit('closeClick')">
+    <button class="v-box__close" 
+      @click="$emit('closeClick')"
+    >
       <i class="v-box__closeIcon fa fa-times" aria-hidden="true"></i>
     </button>
     <div class="v-box__content" id="modalContent">
@@ -16,13 +18,9 @@ export default {
       type: String,
       default: false,
     },
-  },
-  methods: {
-    hideChildren() {
-      
-    },
-    renderContent(id) {
-
+    setClickEvents: {
+      type: Function,
+      default: () => {}
     }
   },
   mounted() {
@@ -30,6 +28,7 @@ export default {
     modalContent.childNodes.forEach(child => child.classList.add("u-hidden"));
     document.getElementById(this.contentId).classList.remove("u-hidden");
     modalContent.classList.remove("u-hidden");
+    this.setClickEvents();
   }
 }
 </script>
@@ -77,17 +76,4 @@ export default {
 .v-box__closeIcon {
   pointer-events: none;
 }
-/* .v-box__buttons {
-  margin-top: 30px;
-  @mixin flex column, flex-start, center;
-  @media(--mobile) {
-    @mixin flex row, flex-end, center;
-  }
-}
-.v-box__button {
-  margin-bottom: 20px;
-  @media(--mobile) {
-    margin-left: 15px;
-  }
-} */
 </style>

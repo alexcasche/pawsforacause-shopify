@@ -1,15 +1,29 @@
 {% for address in customer.addresses %}
-  <div class="u-hidden" id="deleteAddress_{{ address.id }}">
-    <h4 class="c-modal__heading">
+  <div class="c-form u-hidden" id="deleteAddress_{{ address.id }}">
+    <h3 class="c-form__subheading">
       Are you sure you want to delete this address?
+    </h3>
+    <h4 class="c-addresses__subheading">
+      {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
     </h4>
+    <div class="c-addresses__text">
+      {% if address.company != '' and address.company != nil %}
+        {{ address.company }}<br />
+      {% endif %}
+      {{ address.address1 }}<br />
+      {% if address.address2 != '' and address.address2 != nil %}
+        {{ address.address2 }}<br />
+      {% endif %}
+      {{ address.city}}, {% if address.province_code %}{{ address.province_code }}, {% endif %} {{ address.zip }}<br />
+      {% if address.phone != '' and address.phone != nil %}
+        {{ address.phone }}
+      {% endif %}
+    </div>
     <form method="post" action="/account/addresses/{{ address.id }}">
-      <div class="c-modal__form">
-        <input type="hidden" name="_method" value="delete"/>
-        <div class="c-modal__buttons">
-          <button class="c-modal__button u-button trigger-modal" type="button" data-modal-id="addressModal">Cancel</button>
-          <button class="c-modal__button u-buttonHollow--danger" type="submit">Delete<button>
-        </div>
+      <input type="hidden" name="_method" value="delete"/>
+      <div class="c-form__buttonGroup">
+        <button class="c-form__button u-button trigger-modal" type="button" data-modal-id="addressModal">Cancel</button>
+        <button class="c-form__button u-buttonHollow--danger" type="submit">Delete<button>
       </div>
     </form>
   </div>

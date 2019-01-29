@@ -1,35 +1,24 @@
 <template>
-  <transition name="slide">
-    <div v-if="isOpen" class="v-drawer">
-      <button class="v-drawer__close" @click="$emit('closeClick')">Close Cart</button>
-      <h1 class="v-drawer__heading">Shopping Cart</h1>
-    </div>
-  </transition>
+  <div class="v-drawer">
+    <button class="v-drawer__close" 
+      @click="$emit('closeClick')"
+    >
+      Close Cart
+    </button>
+    <h1 class="v-drawer__heading">
+      Shopping Cart
+    </h1>
+  </div>
 </template>
 
 <script>
-export default {
-  props: {
-    isOpen: {
-      type: Boolean,
-      default: false,
-    },
-  },
-}
+export default {}
 </script>
 
 <style scoped>
 @import 'settings/index.css';
 @import 'tools/index.css';
 
-.slide-enter,
-.slide-leave-to {
-  transform: translateX(100%);
-}
-.slide-leave,
-.slide-enter-to {
-  transform: translateX(0);
-}
 .v-drawer {
   position: fixed;
   top: 0;

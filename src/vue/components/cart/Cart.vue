@@ -1,7 +1,16 @@
 <template lang="html">
   <div class="v-cart" id="cart">
-    <Overlay @overlayClick="toggleCart" v-if="isOpen" :isOpen="isOpen" />
-    <Drawer @closeClick="toggleCart" v-if="isOpen" :isOpen="isOpen" :cartCount="cartCount"/>
+    <transition name="overlay-fade">
+      <Overlay v-if="isOpen" 
+        @overlayClick="toggleCart"
+      />
+    </transition>
+    <transition name="cart-slide">
+      <Drawer v-if="isOpen" 
+        @closeClick="toggleCart"
+        :cartCount="cartCount"
+      />
+    </transition>
   </div>
 </template>
 
@@ -49,3 +58,22 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.cart-slide-enter,
+.cart-slide-leave-to {
+  transform: translateX(100%);
+}
+.cart-slide-leave,
+.cart-slide-enter-to {
+  transform: translateX(0);
+}
+.overlay-fade-enter,
+.overlay-fade-leave-to {
+  opacity: 0;
+}
+.overlay-fade-leave,
+.overlay-fade-enter-to {
+  opacity: 1;
+}
+</style>

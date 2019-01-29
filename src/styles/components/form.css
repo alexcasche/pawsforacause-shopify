@@ -1,0 +1,96 @@
+/*========== Form ==========*/
+
+.c-form {
+  @mixin flex column, flex-start, flex-start;
+}
+.c-form__heading {
+  margin-bottom: 20px;
+}
+.c-form__subheading {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.c-form__text {
+  margin-bottom: 10px;
+}
+.c-form__body {
+  width: 100%;
+}
+.c-form__errors {
+  width: 100%;
+  .errors {
+    width: 100%;
+    margin: 0 auto 20px;
+    padding: 15px;
+    background-color: $color-red-lightest;
+    border: 1px solid $color-red;
+    border-radius: $border-radius-card;
+    color: $color-red-dark;
+    font-size: 14px;
+    li {
+      display: inline-block;
+      margin-right: 8px;
+    }
+  }
+}
+.c-form__fieldset {
+  @mixin flex row, space-between, center, wrap;
+  .c-form__field {
+    width: 100%;
+    @media(--mobile) {
+      width: calc(50% - 10px);
+    }
+  }
+}
+.c-form__field {
+  margin-bottom: 20px;
+}
+.c-form__select {
+  @mixin flex row, flex-start, center;
+  position: relative;
+  margin-bottom: 20px;
+  &:after {
+    position: absolute;
+    right: 15px;
+    color: $color-black;
+    font-family: "Font Awesome 5 Free";
+    content: "\f0dc";
+    font-size: 14px;
+  }
+}
+.c-form__checkbox {
+  @mixin flex row, flex-start, center;
+  position: relative;
+  margin-bottom: 20px;
+  background-color: transparent !important;
+  width: auto !important;
+  input {
+    width: 100%;
+  }
+  label {
+    position: absolute;
+    top: 0;
+    left: 30px;
+  }
+  &:hover {
+    label {
+      color: $color-blue-dark;
+    }
+  }
+}
+.c-form__label {
+  color: $color-black-light;
+  font-size: 14px;
+  pointer-events: none;
+}
+.c-form__buttonGroup {
+  @mixin flex row, flex-start, center, wrap;
+  .c-form__button:not(:last-child) {
+    margin: 0 0 20px 0;
+  }
+  @media(--mobile) {
+    .c-form__button:not(:last-child) {
+      margin: 0 15px 0 0;
+    }
+  }
+}

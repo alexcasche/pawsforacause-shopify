@@ -3,15 +3,15 @@
   <h2 class="c-auth__heading" id="loginHeading">
     Welcome Back!
   </h2>
-  <div id="loginForm">
+  <div id="loginForm" class="c-form">
     {% form 'customer_login' %}
-      <div class="c-auth__errors">
+      <div class="c-form__errors">
         {{ form.errors | default_errors }}
       </div>
-      <div class="c-auth__form">
-        <input class="c-auth__field" type="email" name="customer[email]" placeholder="Email Address" autocorrect="off" autocapitalize="off" autofocus required />
-        <input class="c-auth__field" type="password" name="customer[password]" placeholder="Password" required />
-        <button class="c-auth__button" type="submit">Sign In</button>
+      <div class="c-auth__box c-form__body">
+        <input class="c-form__field" type="email" name="customer[email]" placeholder="Email Address" autocorrect="off" autocapitalize="off" autofocus required />
+        <input class="c-form__field" type="password" name="customer[password]" placeholder="Password" required />
+        <button class="c-form__button c-button--large c-button--submit u-fullWidth" type="submit">Sign In</button>
       </div>
       <div class="c-auth__links">
         <span class="c-auth__linksSide">
@@ -24,14 +24,14 @@
       </div>
     {% endform %}
   </div>
-  <div id="recoverForm" class="u-hidden">
+  <div id="recoverForm" class="c-form u-hidden">
     {% form 'recover_customer_password' %}
-      <div class="c-auth__errors">
+      <div class="c-form__errors">
         {{ form.errors | default_errors }}
       </div>
-      <div class="c-auth__form c-modal">
-        <input class="c-modal__field" type="email" value="" name="email" placeholder="Email Address" autocorrect="off" autocapitalize="off">
-        <button class="c-modal__button" type="submit">Sign In</button>
+      <div class="c-auth__box c-form__body">
+        <input class="c-form__field" type="email" value="" name="email" placeholder="Email Address" autocorrect="off" autocapitalize="off">
+        <button class="c-form__button c-button--large c-button--submit u-fullWidth" type="submit">Sign In</button>
       </div>
       <div class="c-auth__links c-auth__links--center">
         <a class="c-auth__link trigger-login-form" href="#">Cancel</a>

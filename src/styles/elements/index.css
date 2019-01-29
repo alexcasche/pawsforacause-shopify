@@ -1,7 +1,7 @@
 /*========== Elements ==========*/
 
 @import "buttons.css";
-@import "inputs.css";
-@import "sections.css";
-@import "tables.css";
+@import "form.css";
+@import "section.css";
+@import "table.css";
 @import "text.css";

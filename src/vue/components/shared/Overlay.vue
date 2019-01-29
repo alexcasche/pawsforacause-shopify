@@ -1,32 +1,15 @@
 <template>
-  <transition name="fade">
-    <div v-if="isOpen" class="v-overlay" @click="$emit('overlayClick')"></div>
-  </transition>
+  <div class="v-overlay" @click="$emit('overlayClick')"></div>
 </template>
 
 <script>
-export default {
-  props: {
-    isOpen: {
-      type: Boolean,
-      default: false,
-    },
-  },
-}
+export default {}
 </script>
 
 
 <style scoped>
 @import 'settings/index.css';
 
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-.fade-leave,
-.fade-enter-to {
-  opacity: 1;
-}
 .v-overlay {
   position: fixed;
   top: 0;

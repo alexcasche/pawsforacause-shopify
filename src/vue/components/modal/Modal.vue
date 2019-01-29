@@ -1,8 +1,14 @@
 <template lang="html">
   <div class="v-modal u-hidden" id="modal">
-    <Overlay @overlayClick="toggleModal" v-if="isOpen" :isOpen="isOpen" />
+    <transition name="overlay-fade">
+      <Overlay v-if="isOpen" />
+    </transition>
     <div class="v-modal__container">
-      <Box @closeClick="toggleModal" v-if="isOpen" :contentId="contentId">
+      <Box v-if="isOpen" 
+        @closeClick="toggleModal" 
+        :contentId="contentId" 
+        :setClickEvents="setClickEvents"
+      >
         <slot />
       </Box>
     </div>
@@ -30,6 +36,10 @@ export default {
       if(this.isOpen) {
         this.setModalContent(event.target.dataset.modalId);
       }
+    },
+    setClickEvents() {
+      const modalTriggers = document.querySelectorAll(".trigger-modal");
+      modalTriggers.forEach(trigger => trigger.addEventListener('click', this.setModal));
     }
   },
   watch: {
@@ -44,8 +54,7 @@ export default {
   },
   mounted() {
     document.body.appendChild(document.getElementById("modal"));
-    const modalTriggers = document.querySelectorAll(".trigger-modal");
-    modalTriggers.forEach(trigger => trigger.addEventListener('click', this.setModal));
+    this.setClickEvents();
   }
 }
 </script>
@@ -54,5 +63,13 @@ export default {
 .v-modal__container {
   position: relative;
   padding: 100px 0;
+}
+.overlay-fade-enter,
+.overlay-fade-leave-to {
+  opacity: 0;
+}
+.overlay-fade-leave,
+.overlay-fade-enter-to {
+  opacity: 1;
 }
 </style>

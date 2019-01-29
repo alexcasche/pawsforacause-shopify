@@ -1,9 +1,13 @@
-/*========== Inputs ==========*/
+/*========== Forms ==========*/
+
+form {
+  @mixin flex column, flex-start, flex-start;
+  width: 100%; 
+}
 
 input, textarea, select {
   width: 100%;
   height: 50px;
-  margin-bottom: 20px;
   padding: 0px 15px;
   background-color: white;
   border: 1px solid #ddd;
@@ -50,45 +54,5 @@ button {
   }
   &:hover {
     cursor: pointer;
-  }
-}
-
-
-/*  Input Wrappers */
-
-.c-select {
-  @mixin flex row, flex-start, center;
-  position: relative;
-  margin-bottom: 20px;
-  &:after {
-    position: absolute;
-    right: 15px;
-    color: $color-black;
-    font-family: "Font Awesome 5 Free";
-    content: "\f0dc";
-    font-size: 14px;
-  }
-}
-.c-checkbox {
-  @mixin flex row, flex-start, center;
-  position: relative;
-  margin-bottom: 20px;
-  background-color: transparent !important;
-  width: auto !important;
-  input {
-    width: 100%;
-  }
-  label {
-    position: absolute;
-    top: 0;
-    left: 30px;
-    color: $color-black-light;
-    font-size: 14px;
-    pointer-events: none;
-  }
-  &:hover {
-    label {
-      color: $color-blue-dark;
-    }
   }
 }

@@ -33,9 +33,14 @@
                   {{ address.phone }}
                 {% endif %}
               </div>
-              <a class="c-account__button u-button--secondary u-button--small trigger-modal" data-modal-id="addAddress">
-                Add Address
-              </a>
+              <div class="c-account__buttonGroup">
+                <a class="c-account__button u-button u-button--small trigger-modal" data-modal-id="editAddress_{{ address.id }}">
+                  Edit
+                </a>
+                <a class="c-account__button u-button--secondary u-button--small trigger-modal" data-modal-id="addAddress">
+                  Add Address
+                </a>
+              </div>
             </div>
           {% endif %}
         {% endfor %}

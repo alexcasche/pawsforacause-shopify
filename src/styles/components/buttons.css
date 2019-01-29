@@ -1,50 +1,53 @@
-/*========== Scroll ==========*/
+/*========== Buttons ==========*/
 
-.u-button {
+.c-button {
   @mixin button $color-gray;
 }
-.u-button--round {
+.c-button--round {
   @mixin button-round;
 }
-.u-button--small {
+.c-button--small {
   @mixin button-small;
 }
-.u-button--circle {
+.c-button--large {
+  @mixin button-large;
+}
+.c-button--circle {
   @mixin button-circle;
 }
-.u-button--primary {
+.c-button--primary {
   @mixin button $color-primary;
 }
-.u-buttonHollow--primary {
+.c-buttonHollow--primary {
   @mixin button-hollow $color-primary;
 }
-.u-button--secondary {
+.c-button--secondary {
   @mixin button $color-secondary;
 }
-.u-buttonHollow--secondary {
+.c-buttonHollow--secondary {
   @mixin button-hollow $color-secondary;
 }
-.u-button--success {
+.c-button--success {
   @mixin button $color-success;
 }
-.u-buttonHollow--success {
+.c-buttonHollow--success {
   @mixin button-hollow $color-success;
 }
-.u-button--danger {
+.c-button--danger {
   @mixin button $color-danger;
 }
-.u-buttonHollow--danger {
+.c-buttonHollow--danger {
   @mixin button-hollow $color-danger;
 }
-.u-button--buy {
+.c-button--buy {
   @mixin button $color-buy;
 }
-.u-buttonHollow--buy {
+.c-buttonHollow--buy {
   @mixin button-hollow $color-buy;
 }
-.u-button--submit {
+.c-button--submit {
   @mixin button $color-submit;
 }
-.u-buttonHollow--submit {
+.c-buttonHollow--submit {
   @mixin button-hollow $color-submit;
 }
