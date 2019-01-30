@@ -4,13 +4,13 @@
       <Overlay v-if="isOpen" />
     </transition>
     <div class="v-modal__container">
-      <Box v-if="isOpen" 
+      <ModalBox v-if="isOpen" 
         @closeClick="toggleModal" 
         :contentId="contentId" 
         :setClickEvents="setClickEvents"
       >
         <slot />
-      </Box>
+      </ModalBox>
     </div>
   </div>
 </template>
@@ -18,12 +18,12 @@
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex'
 import Overlay from '../shared/Overlay.vue'
-import Box from './Box.vue'
+import ModalBox from './ModalBox.vue'
 
 export default {
   components: {
     Overlay,
-    Box,
+    ModalBox,
   },
   computed: {
     ...mapState({ cartOpen: state => state.cart.isOpen }),

@@ -1,6 +1,6 @@
 <section id="account" class="c-account">
   <div class="c-account__wrapper o-container">
-    <div class="c-account__side">
+    <div class="c-account__side o-side-40">
       <h2 class="c-account__heading">
         {{ customer.first_name | capitalize }} {{ customer.last_name | capitalize }}
       </h2>
@@ -21,9 +21,6 @@
         </h4>
         <div class="c-account__text">
           {% if customer.default_address %}
-            {% if customer.default_address.company != '' and customer.default_address.company != nil %}
-              {{ customer.default_address.company }}<br />
-            {% endif %}
             {{ customer.default_address.address1 }}<br />
             {% if customer.default_address.address2 != '' and customer.default_address.address2 != nil %}
               {{ customer.default_address.address2 }}<br />
@@ -33,13 +30,10 @@
             You don't have any addresses on file.<br />
           {% endif %}
         </div>
-        <a class="c-account__button u-button--secondary u-button--small" href="/account/addresses">
-          Manage Addresses
-        </a>
       </div>
     </div>
-    <div class="c-account__side">
-      <vue-account></vue-account>
+    <div class="c-account__side o-side-60">
+      <vue-cart-account></vue-cart-account>
     </div>
   </div>
 </section>

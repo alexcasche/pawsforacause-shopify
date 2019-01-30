@@ -1,11 +1,11 @@
 <template>
-  <div class="v-box">
-    <button class="v-box__close" 
+  <div class="v-modalBox">
+    <button class="v-modalBox__close" 
       @click="$emit('closeClick')"
     >
-      <i class="v-box__closeIcon fa fa-times" aria-hidden="true"></i>
+      <i class="v-modalBox__closeIcon fa fa-times" aria-hidden="true"></i>
     </button>
-    <div class="v-box__content" id="modalContent">
+    <div class="v-modalBox__content" id="modalContent">
       <slot />
     </div>
   </div>
@@ -37,8 +37,8 @@ export default {
 @import "settings/index.css";
 @import "tools/index.css";
 
-.v-box {
-  padding: 60px 40px 40px;
+.v-modalBox {
+  padding: 40px;
   background-color: $bg-gray-light;
   @media(--mobile) {
     position: relative;
@@ -59,21 +59,19 @@ export default {
     overflow-y: scroll;
   }
 }
-.v-box__close {
+.v-modalBox__close {
   @mixin button-circle;
-  color: $color-black-light;
-  border: 1px solid $color-black-light;
+  background-color: #bbb;
   position: absolute;
   top: 30px;
   right: 40px;
   width: 30px;
   height: 30px;
   &:hover {
-    color: $color-blue-dark;
-    border-color: $color-blue-dark;
+    background-color: #aaa;
   }
 }
-.v-box__closeIcon {
+.v-modalBox__closeIcon {
   pointer-events: none;
 }
 </style>

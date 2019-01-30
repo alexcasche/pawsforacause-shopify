@@ -1,0 +1,26 @@
+/*================ Side ================*/
+
+@define-mixin side $width: 50%, $gutter: 20px {
+  width: calc($width - $gutter);
+  @media(--mobile-max) {
+    width: 100%;
+    &:first-child {
+      margin-bottom: 40px;
+    }
+  }
+}
+.o-side-25 {
+  @mixin side 25%;
+}
+.o-side-30 {
+  @mixin side 30%;
+}
+.o-side-40 {
+  @mixin side 40%;
+}
+.o-side-60 {
+  @mixin side 60%;
+}
+.o-side-75 {
+  @mixin side 75%;
+}

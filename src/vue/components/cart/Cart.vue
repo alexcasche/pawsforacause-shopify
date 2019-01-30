@@ -6,7 +6,7 @@
       />
     </transition>
     <transition name="cart-slide">
-      <Drawer v-if="isOpen" 
+      <CartDrawer v-if="isOpen" 
         @closeClick="toggleCart"
         :cartCount="cartCount"
       />
@@ -17,12 +17,12 @@
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 import Overlay from '../shared/Overlay.vue'
-import Drawer from './Drawer.vue'
+import CartDrawer from './CartDrawer.vue'
 
 export default {
   components: {
     Overlay,
-    Drawer,
+    CartDrawer,
   },
   computed: {
     ...mapState({ modalOpen: state => state.modal.isOpen }),

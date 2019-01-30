@@ -1,11 +1,11 @@
 <template>
-  <div class="v-drawer">
-    <button class="v-drawer__close" 
+  <div class="v-cartDrawer">
+    <button class="v-cartDrawer__close" 
       @click="$emit('closeClick')"
     >
       Close Cart
     </button>
-    <h1 class="v-drawer__heading">
+    <h1 class="v-cartDrawer__heading">
       Shopping Cart
     </h1>
   </div>
@@ -19,7 +19,7 @@ export default {}
 @import 'settings/index.css';
 @import 'tools/index.css';
 
-.v-drawer {
+.v-cartDrawer {
   position: fixed;
   top: 0;
   right: 0;
