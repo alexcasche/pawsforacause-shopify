@@ -1,29 +1,34 @@
 <section class="c-addresses">
   <div class="c-addresses__wrapper o-container">
     <div class="c-addresses__top">
-      <div class="c-addresses__map o-side-60 c-card">
+      <div class="c-addresses__map o-side-60 c-card u-fullWidthXs">
         <div id="googleMap" class="c-addresses__mapInner">
-          <img class="c-addresses__mapImage" src="{{ 'map-placeholder.png' | asset_url }}" alt="Map Placeholder" />
-          <div class="c-addresses__mapOverlay c-addresses__mapOverlay--loading"></div>
+          <img class="c-addresses__mapImage" src="{{ 'map-placeholder.png' | asset_img_url: '750x' }}" alt="Map Placeholder" />
+          <div class="c-addresses__mapOverlay"></div>
           <div class="c-addresses__mapMessage">
-            {% if customer.addresses.size > 0 %}
+            {% if customer.addresses.size == 0 %}
               <button class="c-addresses__mapButton c-button--large c-button--submit trigger-modal" data-modal-content-id="addAddress">
                 Add Address
               </button>
             {% else %}
-
+              <span class="c-addresses__mapText">
+                Loading Map
+              </span>
+              <div class="c-addresses__mapLoading c-loadingBlocks">
+                <span></span><span></span><span></span>
+              </div>
             {% endif %}
           </div>
         </div>
       </div>
-      <div class="c-addresses__default o-side-40">
+      <div class="c-addresses__primary o-side-40">
         <h2 class="c-addresses__heading">
           Primary Address
         </h2>
         {% if customer.addresses.size == 0 %}
-          <span class="c-addresses__text">
-            You don't have a primary address on file.
-          </span>
+          <div class="c-addresses__text">
+            You don't have any saved addresses.
+          </div>
         {% else %}
           {% assign address = customer.default_address %}
           {% if address %}
@@ -48,8 +53,9 @@
             </div>
           {% endif %}
         {% endif %}
+      </div>
     </div>
-    {% unless customer.addresses.size > 1 %}
+    {% if customer.addresses.size > 1 %}
       <div class="c-addresses__side">
         <h2 class="c-addresses__heading">
           Other Addresses
@@ -78,7 +84,7 @@
         {% endfor %}
         </div>
       </div>
-    {% endunless %}
+    {% endif %}
   </div>
   <vue-modal>
     {% include 'form-add-address' %}

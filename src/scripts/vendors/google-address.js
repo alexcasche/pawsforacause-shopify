@@ -8,22 +8,21 @@ if(windowAddress) {
   const formattedAddress = windowAddress.replace(/ /g, "+");
   const googleAddress = `?center=${formattedAddress}`;
   const googleMarker = `&markers=color:red%7Clabel:%7C${formattedAddress}`;
-  const map = new Image();
   const mapContainer = document.getElementById("googleMap");
-  const mapLoading = document.getElementById("googleMapLoading");
-  // map.classList.add("c-addresses__mapImage");
-  // map.src = `${googleUrl}${googleAddress}${googleParams}${googleMarker}${googleKey}`;
-  // let loadingComplete = false;
-  // map.onload = () => {
-  //   loadingComplete = true;
-  //   mapLoading.remove();
-  //   mapContainer.appendChild(map);
-  // }
-//   setTimeout(() => {
-//     if(!loadingComplete) {
-//       mapLoading.remove();
-//     }
-//     mapContainer.querySelector()
-// }, 5000);
+  const map = new Image();
+  map.classList.add("c-addresses__mapImage");
+  map.src = `${googleUrl}${googleAddress}${googleParams}${googleMarker}${googleKey}`;
+  let loadingComplete = false;
+  map.onload = () => {
+    loadingComplete = true;
+    mapContainer.innerhHTML = "";
+    mapContainer.appendChild(map);
+  }
+  setTimeout(() => {
+    if(!loadingComplete) {
+      const mapMessage = document.querySelector(".c-addresses__mapMessage");
+      mapMessage.innerHTML = "<span class='c-addresses__mapText'>No Map Found</span>"
+    }
+  }, 5000);
 }
 

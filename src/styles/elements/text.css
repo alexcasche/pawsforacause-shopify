@@ -24,7 +24,7 @@ h6 {
 
 h1 {
   font-size: 26px;
-  margin: 0 0 24px;
+  margin: 0 0 18px;
   @media (--tablet) {
     font-size: 30px;
   }
@@ -32,7 +32,7 @@ h1 {
 
 h2 {
   font-size: 24px;
-  margin: 0 0 20px;
+  margin: 0 0 10px;
   @media (--tablet) {
     font-size: 26px;
   }
@@ -41,7 +41,7 @@ h2 {
 h3 {
   font-size: 20px;
   font-weight: 600;
-  margin: 0 0 16px;
+  margin: 0 0 12px;
   @media (--tablet) {
     font-size: 22px;
   }
@@ -49,14 +49,14 @@ h3 {
 
 h4 {
   font-size: 16px;
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   color: $color-blue-dark;
   @media (--tablet) {
     font-size: 18px;
   }
 }
 
-h5 {
+/* h5 {
   font-size: 14px;
   margin: 0 0 12px;
   @media (--tablet) {
@@ -67,7 +67,7 @@ h5 {
 h6 {
   font-size: 14px;
   margin: 0 0 10px;
-}
+} */
 
 a {
   text-decoration: none;

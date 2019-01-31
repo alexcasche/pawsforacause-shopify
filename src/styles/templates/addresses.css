@@ -1,27 +1,37 @@
 /*========== Addresses ==========*/
 
-.c-addresses__wrapper {
-  @mixin flex column, center, center;
-  @media(--tablet) { 
-    @mixin flex row, space-between, flex-start;
-  }
-}
 .c-addresses__top {
   width: 100%;
   @mixin flex row, space-between, center, wrap;
+  margin-bottom: 20px;
+  @media(--tablet) {
+    margin-bottom: 60px;
+  }
 }
 .c-addresses__map {
   @mixin flex row, center;
-  height: 30vw;
-  max-height: 525px;
+  height: 50vw;
+  max-height: 350px;
   padding: 0;
+  @media(--tablet) {
+    height: 32vw;
+  }
+  @media(--xs) {
+    border: none;
+    margin-top: -50px;
+  }
 }
 .c-addresses__mapInner {
   @mixin flex row, center;
+  background-color: $bg-gray;
   position: relative;
   overflow: hidden;
-  height: calc(100% - 20px);
   width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  @media(--xs) {
+    width: 100%;
+    height: 100%;
+  }
 }
 .c-addresses__mapImage {
   position: absolute;
@@ -33,13 +43,29 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: $bg-gray-light;
-  opacity: .65;
+  background-color: $bg-gray;
+  opacity: .75;
 }
 .c-addresses__mapMessage {
+  @mixin flex row, center, center;
   position: relative;
 }
+.c-addresses__mapText {
+  color: $color-gray-dark;
+  font-size: 18px;
+}
+.c-addresses__mapLoading {
+  margin-left: 10px;
+}
 .c-addresses__heading {
+  text-align: center;
+  @media(--tablet) {
+    text-align: left;
+  }
+}
+.c-addresses__subheading {
+  margin-bottom: 0;
+  color: $color-blue-dark;
   text-align: center;
   @media(--tablet) {
     text-align: left;
@@ -56,10 +82,6 @@
   @media(--tablet) {
     align-items: flex-start;
   }
-}
-.c-addresses__subheading {
-  margin-bottom: 0;
-  color: $color-blue-dark;
 }
 .c-addresses__text {
   text-align: center;
