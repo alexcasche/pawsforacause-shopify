@@ -11,7 +11,7 @@ if(windowAddress) {
   const mapContainer = document.getElementById("googleMap");
   const map = new Image();
   map.classList.add("c-addresses__mapImage");
-  map.src = `${googleUrl}${googleAddress}${googleParams}${googleMarker}${googleKey}`;
+  map.src = `asdasdas${googleUrl}${googleAddress}${googleParams}${googleMarker}${googleKey}`;
   let loadingComplete = false;
   map.onload = () => {
     loadingComplete = true;

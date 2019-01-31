@@ -6,13 +6,13 @@
       </h2>
       <span class="c-order__status">
         {% if order.financial_status == "paid" %}
-          <i class="c-order__icon c-order__icon--processed fas fa-check-circle"></i>
+          <i class="c-order__icon c-order__icon--success fas fa-check-circle"></i>
           Processed
         {% elsif order.cancelled != true %}
-          <i class="c-order__icon c-order__icon--pending fas fa-minus-circle"></i>
+          <i class="c-order__icon c-order__icon--warning fas fa-minus-circle"></i>
           Pending
         {% else %}
-          <i class="c-order__icon c-order__icon--cancelled fas fa-times-circle"></i>
+          <i class="c-order__icon c-order__icon--danger fas fa-times-circle"></i>
           Cancelled
         {% endif %}
       </span>

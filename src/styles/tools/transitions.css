@@ -8,8 +8,8 @@
   }
 }
 
-@define-mixin transition-bg $speed, $ease {
-  transition: background-color $speed $ease;
+@define-mixin transition-color $transition, $speed, $ease {
+  transition: $transition $speed $ease;
   &:hover {
     cursor: pointer;
     opacity: 1;
@@ -18,10 +18,18 @@
 
 @define-mixin transition-bg-darken $color,
   $speed: 0.15s, $ease: ease-in-out {
-  @mixin transition-bg $speed, $ease;
+  @mixin transition-color background-color $speed, $ease;
   background-color: $color;
   &:hover {
     background-color: color($color shade(20%));
+  }
+}
+
+@define-mixin transition-color-darken $color: color-$gray, $speed: 0.15s, $ease: ease-in-out {
+  color: $color;
+  @mixin transition-color color $speed, $ease;
+  &:hover {
+    color: color($color shade(20%));
   }
 }
 

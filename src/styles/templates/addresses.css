@@ -63,6 +63,19 @@
     text-align: left;
   }
 }
+.c-addresses__headingIcon {
+  font-size: 18px;
+  margin-left: 4px;
+}
+.c-addresses__headingIcon--success {
+  color: $color-primary;
+}
+.c-addresses__headingIcon--warning {
+  color: $color-warning;
+}
+.c-addresses__headingIcon--add {
+  @mixin transition-color-darken $color-primary;
+}
 .c-addresses__subheading {
   margin-bottom: 0;
   color: $color-blue-dark;
@@ -72,8 +85,11 @@
   }
 }
 .c-addresses__subheadingIcon {
-  margin-left: 4px;
-  color: $color-blue;
+  font-size: 16px;
+  margin-left: 5px;
+}
+.c-addresses__subheadingIcon--edit {
+  @mixin transition-color-darken $color-gray;
 }
 .c-addresses__group {
   width: 100%;

@@ -46,12 +46,12 @@
   font-size: 18px;
 }
 .c-order__icon--success {
-  color: $color-success;
+  color: $color-primary;
 }
-.c-order__icon--pending {
+.c-order__icon--warning {
   color: $color-warning;
 }
-.c-order__icon--cancelled {
+.c-order__icon--danger {
   color: $color-danger;
 }
 .c-order__icon--date {
