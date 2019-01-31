@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="v-modal u-hidden" id="modal">
     <transition name="overlay-fade">
-      <Overlay v-if="isOpen" />
+      <Overlay v-if="contentId" />
     </transition>
     <div class="v-modal__container">
-      <ModalBox v-if="isOpen" 
-        @closeClick="toggleModal" 
+      <ModalBox v-if="contentId" 
+        @closeClick="setModal" 
         :contentId="contentId" 
         :setClickEvents="setClickEvents"
       >
@@ -27,25 +27,26 @@ export default {
   },
   computed: {
     ...mapState({ cartOpen: state => state.cart.isOpen }),
-    ...mapGetters('modal', ['isOpen', 'contentId'])
+    ...mapGetters('modal', ['contentId'])
   },
   methods: {
-    ...mapMutations('modal', ['toggleModal', 'setModalContent']),
-    setModal(event) {
-      this.toggleModal();
-      if(this.isOpen) {
-        this.setModalContent(event.target.dataset.modalId);
-      }
-    },
+    ...mapMutations('modal', ['setModal']),
     setClickEvents() {
       const modalTriggers = document.querySelectorAll(".trigger-modal");
-      modalTriggers.forEach(trigger => trigger.addEventListener('click', this.setModal));
+      modalTriggers.forEach(trigger => trigger.addEventListener('click', () => {
+        this.setModal(event.target.dataset.modalContentId);
+      }));
     }
   },
   watch: {
-    isOpen: {
+    contentId: {
       handler(val) {
-        document.getElementById("modal").classList.toggle("u-hidden");
+        if(val) {
+          document.getElementById("modal").classList.remove("u-hidden");
+        }
+        if(!val) {
+          document.getElementById("modal").classList.add("u-hidden");
+        }
         if(!this.cartOpen) {
           document.body.classList.toggle("u-noScroll");
         }

@@ -1,4 +1,3 @@
 export default {
-  isOpen: false,
-  contentId: '',
+  contentId: false,
 };

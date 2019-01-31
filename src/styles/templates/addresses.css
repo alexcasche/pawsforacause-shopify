@@ -6,10 +6,38 @@
     @mixin flex row, space-between, flex-start;
   }
 }
-.c-addresses__side {
-  @media(--tablet) { 
-    width: calc(50% - 20px);
-  }
+.c-addresses__top {
+  width: 100%;
+  @mixin flex row, space-between, center, wrap;
+}
+.c-addresses__map {
+  @mixin flex row, center;
+  height: 30vw;
+  max-height: 525px;
+  padding: 0;
+}
+.c-addresses__mapInner {
+  @mixin flex row, center;
+  position: relative;
+  overflow: hidden;
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+}
+.c-addresses__mapImage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.c-addresses__mapOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $bg-gray-light;
+  opacity: .65;
+}
+.c-addresses__mapMessage {
+  position: relative;
 }
 .c-addresses__heading {
   text-align: center;

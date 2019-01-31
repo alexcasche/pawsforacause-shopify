@@ -1,0 +1,15 @@
+<script>
+  window.Site = {};
+  window.Site.allCountryOptionTags = {{ country_option_tags | json }};
+  {% assign address = customer.default_address %};
+  {% if address %}
+    var defaultAddress = "{{ address.address1 }}, ";
+    {% if address.address2 != blank %}
+      defaultAddress += "{{ address.address2}}, "
+    {% endif %}
+    defaultAddress += "{{ address.city }}, {{ address.province }} {{ address.zip }}, {{ address.country }}"
+    window.Site.defaultAddress = defaultAddress;
+  {% else %}
+    window.Site.defaultAddress = false;
+  {% endif %}
+</script>

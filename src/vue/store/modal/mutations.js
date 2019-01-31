@@ -1,8 +1,5 @@
 export default {
-  toggleModal(state) {
-    state.isOpen = !state.isOpen
-  },
-  setModalContent(state, id) {
+  setModal(state, id) {
     state.contentId = id;
   }
 }

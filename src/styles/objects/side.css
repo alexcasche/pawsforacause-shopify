@@ -1,6 +1,6 @@
 /*================ Side ================*/
 
-@define-mixin side $width: 50%, $gutter: 20px {
+@define-mixin side $width: 50%, $gutter: 40px {
   width: calc($width - $gutter);
   @media(--mobile-max) {
     width: 100%;

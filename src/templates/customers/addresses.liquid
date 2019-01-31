@@ -1,20 +1,32 @@
-<script>
-  window.allCountryOptionTags = {{ country_option_tags | json }};
-</script>
-
 <section class="c-addresses">
   <div class="c-addresses__wrapper o-container">
-    <div class="c-addresses__side">
-      <h2 class="c-addresses__heading">
-        Primary Address
-      </h2>
-      {% if customer.addresses.size == 0 %}
-        <span class="c-addresses__text">
-          You don't have a primary address on file.
-        </span>
-      {% else %}
-        {% for address in customer.addresses %}
-          {% if address == customer.default_address %}
+    <div class="c-addresses__top">
+      <div class="c-addresses__map o-side-60 c-card">
+        <div id="googleMap" class="c-addresses__mapInner">
+          <img class="c-addresses__mapImage" src="{{ 'map-placeholder.png' | asset_url }}" alt="Map Placeholder" />
+          <div class="c-addresses__mapOverlay c-addresses__mapOverlay--loading"></div>
+          <div class="c-addresses__mapMessage">
+            {% if customer.addresses.size > 0 %}
+              <button class="c-addresses__mapButton c-button--large c-button--submit trigger-modal" data-modal-content-id="addAddress">
+                Add Address
+              </button>
+            {% else %}
+
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="c-addresses__default o-side-40">
+        <h2 class="c-addresses__heading">
+          Primary Address
+        </h2>
+        {% if customer.addresses.size == 0 %}
+          <span class="c-addresses__text">
+            You don't have a primary address on file.
+          </span>
+        {% else %}
+          {% assign address = customer.default_address %}
+          {% if address %}
             <div class="c-addresses__group">
               <h4 class="c-addresses__subheading">
                 {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
@@ -33,20 +45,11 @@
                   {{ address.phone }}
                 {% endif %}
               </div>
-              <div class="c-account__buttonGroup">
-                <a class="c-account__button c-button c-button--small trigger-modal" data-modal-id="editAddress_{{ address.id }}">
-                  Edit
-                </a>
-                <a class="c-account__button c-button--secondary c-button--small trigger-modal" data-modal-id="addAddress">
-                  Add Address
-                </a>
-              </div>
             </div>
           {% endif %}
-        {% endfor %}
-      {% endif %}
+        {% endif %}
     </div>
-    {% unless customer.addresses.size < 2 %}
+    {% unless customer.addresses.size > 1 %}
       <div class="c-addresses__side">
         <h2 class="c-addresses__heading">
           Other Addresses
@@ -70,14 +73,6 @@
                   {{ address.phone }}
                 {% endif %}
               </div>
-              <div class="c-account__buttonGroup">
-                <a class="c-account__button c-button c-button--small trigger-modal" data-modal-id="editAddress_{{ address.id }}">
-                  Edit
-                </a>
-                <a class="c-account__button c-buttonHollow--danger c-button--small trigger-modal" data-modal-id="deleteAddress_{{ address.id }}">
-                  Delete
-                </a>
-              </div>
             </div>
           {% endif %}
         {% endfor %}
@@ -93,3 +88,4 @@
 </section>
 
 {{ 'addresses.js' | asset_url | script_tag }}
+{{ 'google-address.js' | asset_url | script_tag }}

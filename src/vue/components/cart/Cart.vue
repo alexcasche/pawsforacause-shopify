@@ -25,7 +25,7 @@ export default {
     CartDrawer,
   },
   computed: {
-    ...mapState({ modalOpen: state => state.modal.isOpen }),
+    ...mapState({ modalOpen: state => state.modal.contentId }),
     ...mapGetters('cart', ['isOpen', 'cartCount']),
   },
   methods: {
