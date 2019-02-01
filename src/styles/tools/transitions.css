@@ -8,17 +8,13 @@
   }
 }
 
-@define-mixin transition-color $transition, $speed, $ease {
+@define-mixin transition $transition, $speed, $ease {
   transition: $transition $speed $ease;
-  &:hover {
-    cursor: pointer;
-    opacity: 1;
-  }
 }
 
 @define-mixin transition-bg-darken $color,
   $speed: 0.15s, $ease: ease-in-out {
-  @mixin transition-color background-color $speed, $ease;
+  @mixin transition background-color $speed, $ease;
   background-color: $color;
   &:hover {
     background-color: color($color shade(20%));
@@ -27,22 +23,9 @@
 
 @define-mixin transition-color-darken $color: color-$gray, $speed: 0.15s, $ease: ease-in-out {
   color: $color;
-  @mixin transition-color color $speed, $ease;
+  @mixin transition color $speed, $ease;
   &:hover {
     color: color($color shade(20%));
-  }
-}
-
-@define-mixin transition-text-border-darken $color,
-  $speed: 0.15s, $ease: ease-in-out {
-  transition: background-color $speed $ease, border-color $speed $ease, color $speed $ease;
-  background-color: $bg-gray-light;
-  color: $color;
-  border: 1px solid $color;
-  &:hover {
-    background-color: white;
-    color: color($color shade(20%));
-    border-color: color($color shade(20%)); 
   }
 }
 

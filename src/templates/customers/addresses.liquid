@@ -1,7 +1,7 @@
 <section class="c-addresses">
-  <div class="c-addresses__wrapper o-container">
+  <div class="o-container">
     <div class="c-addresses__top">
-      <div class="c-addresses__map o-side-60 c-card u-fullWidthXs">
+      <div class="c-addresses__map o-side-60 c-card">
         <div id="googleMap" class="c-addresses__mapInner">
           <img class="c-addresses__mapImage" src="{{ 'map-placeholder.png' | asset_img_url: '750x' }}" alt="Map Placeholder" />
           <div class="c-addresses__mapOverlay"></div>
@@ -24,11 +24,6 @@
       <div class="c-addresses__primary o-side-40">
         <h2 class="c-addresses__heading">
           Primary Address
-          {% if customer.addresses.size > 0 %}
-            <i class="c-addresses__headingIcon c-addresses__headingIcon--success fas fa-check-circle"></i>
-          {% else %}
-            <i class="c-addresses__headingIcon c-addresses__headingIcon--warning fas fa-exclamation-circle"></i>
-          {% endif %}
         </h2>
         {% if customer.addresses.size == 0 %}
           <div class="c-addresses__text">
@@ -40,7 +35,9 @@
             <div class="c-addresses__group">
               <h4 class="c-addresses__subheading">
                 {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
-                <i class="c-addresses__subheadingIcon c-addresses__subheadingIcon--edit fas fa-pencil-alt trigger-modal" data-modal-content-id="editAddress_{{ address.id }}"></i>
+                <button class="c-button-icon c-button-icon--edit trigger-modal" data-modal-content-id="editAddress_{{ address.id }}">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
               </h4>
               <div class="c-addresses__text">
                 {% if address.company != '' and address.company != nil %}
@@ -61,17 +58,18 @@
       </div>
     </div>
     {% if customer.addresses.size > 1 %}
-      <div class="c-addresses__side">
+      <div class="c-addresses__bottom">
         <h2 class="c-addresses__heading">
           Other Addresses
-           <i class="c-addresses__headingIcon c-addresses__headingIcon--add fas fa-plus-circle trigger-modal" data-modal-content-id="addAddress"></i>
         </h2>
         {% for address in customer.addresses %}
           {% if address != customer.default_address %}
             <div class="c-addresses__group">
               <h4 class="c-addresses__subheading">
                 {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
-                <i class="c-addresses__subheadingIcon c-addresses__subheadingIcon--edit fas fa-pencil-alt trigger-modal" data-modal-content-id="editAddress_{{ address.id }}"></i>
+                <button class="c-button-icon c-button-icon--edit trigger-modal" data-modal-content-id="editAddress_{{ address.id }}">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
               </h4>
               <div class="c-addresses__text">
                 {% if address.company != '' and address.company != nil %}

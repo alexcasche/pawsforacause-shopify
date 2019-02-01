@@ -1,0 +1,14 @@
+/*========== Colors ==========*/
+
+.u-color--primary {
+  color: $color-primary !important;
+}
+.u-color--secondary {
+  color: $color-primary !important;
+}
+.u-color--warning {
+  color: $color-warning !important;
+}
+.u-color--danger {
+  color: $color-danger !important;
+}

@@ -1,12 +1,7 @@
 /*========== Tools ==========*/
 
-@import "buttons";
-@import "container";
 @import "flex";
-@import "icons";
 @import "lost";
-@import "padding";
 @import "transitions";
-@import "typography";
 @import "visibility";
 @import "widths";

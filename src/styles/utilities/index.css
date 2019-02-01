@@ -1,5 +1,6 @@
 /*========== Hidden ==========*/
 
+@import "colors.css";
 @import "scroll.css";
-@import "sizes.css";
 @import "visibility.css";
+@import "widths.css";

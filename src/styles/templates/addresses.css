@@ -3,16 +3,13 @@
 .c-addresses__top {
   width: 100%;
   @mixin flex row, space-between, center, wrap;
-  margin-bottom: 20px;
-  @media(--tablet) {
-    margin-bottom: 60px;
-  }
 }
 .c-addresses__map {
   @mixin flex row, center;
   height: 50vw;
   max-height: 350px;
   padding: 0;
+  margin-bottom: 40px;
   @media(--tablet) {
     height: 32vw;
   }
@@ -57,23 +54,19 @@
 .c-addresses__mapLoading {
   margin-left: 10px;
 }
+.c-addresses__primary {
+  margin-bottom: 40px;
+  @media(--mobile-max) {
+    order: -1;
+  }
+}
 .c-addresses__heading {
   text-align: center;
   @media(--tablet) {
     text-align: left;
   }
 }
-.c-addresses__headingIcon {
-  font-size: 18px;
-  margin-left: 4px;
-}
-.c-addresses__headingIcon--success {
-  color: $color-primary;
-}
-.c-addresses__headingIcon--warning {
-  color: $color-warning;
-}
-.c-addresses__headingIcon--add {
+.c-addresses__add {
   @mixin transition-color-darken $color-primary;
 }
 .c-addresses__subheading {
@@ -84,11 +77,9 @@
     text-align: left;
   }
 }
-.c-addresses__subheadingIcon {
+.c-addresses__editIcon {
   font-size: 16px;
   margin-left: 5px;
-}
-.c-addresses__subheadingIcon--edit {
   @mixin transition-color-darken $color-gray;
 }
 .c-addresses__group {

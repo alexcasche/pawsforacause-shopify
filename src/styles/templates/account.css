@@ -1,45 +1,22 @@
 /*========== Account ==========*/
 
-.c-account__wrapper {
-  @mixin flex row, center, flex-start, wrap;
-  @media(--tablet) {
-    justify-content: space-between;
-  }
+.c-account__flex {
+  @mixin flex row, space-between, flex-start, wrap;
+
 }
 .c-account__heading {
-  text-align: center;
-  @media(--tablet) {
-    text-align: left;
-  }
-}
-.c-account__group {
-  width: 100%;
-  @mixin flex column, flex-start, center;
-  margin-bottom: 40px;
-  @media(--tablet) {
-    align-items: flex-start;
-  }
-}
-.c-account__subheading {
   margin-bottom: 5px;
+  @media(--mobile-max) {
+    text-align: center;
+  }
+}
+.c-account__block {
+  margin-bottom: 40px;
 }
 .c-account__text {
-  text-align: center;
   font-size: 16px;
-  line-height: 28px;
-  @media(--tablet) {
-    text-align: left;
+  line-height: 1.5;
+  @media(--mobile-max) {
+    text-align: center;
   }
-}
-.c-account__buttonGroup {
-  @mixin flex column, flex-start, center;
-  @media(--mobile) {
-    flex-direction: row;
-    .c-account__button {
-      margin-right: 15px;
-    }
-  }
-}
-.c-account__button {
-  margin-top: 15px;
 }

@@ -1,0 +1,97 @@
+/*========== Button ==========*/
+
+/*========== Sizes ==========*/
+.c-button, 
+.c-button-small, 
+.c-button-large, 
+.c-button-round,
+.c-button-icon {
+  display: inline-block;
+  width: 100%;
+  padding: 14px 35px;
+  border-radius: $border-radius-input;
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: capitalize;
+  text-align: center;
+  user-select: none;
+  @media(--mobile) {
+    width: auto;
+  }
+  @media(--tablet) {
+    padding: 12px 35px;
+  }
+}
+.c-button-small {
+  padding: 12px 30px;
+  font-size: 14px;
+  @media(--tablet) {
+    padding: 10px 30px;
+  }
+}
+.c-button-large {
+  padding: 16px 40px;
+  font-size: 16px;
+  @media(--tablet) {
+    padding: 14px 40px;
+  }
+}
+.c-button-round {
+  @media (--tablet) {
+    border-radius: 50px;
+  }
+}
+.c-button-circle, .c-button-icon {
+  @mixin flex row, center, center;
+  display: inline-flex;
+  border-radius: 50%;
+  padding: unset;
+  width: unset;
+  height: unset;
+}
+
+/*========== Roles ==========*/
+.c-button--primary {
+  @mixin transition-bg-darken $color-primary;
+}
+.c-button--secondary {
+  @mixin transition-bg-darken $color-secondary;
+}
+.c-button--submit {
+  @mixin transition-bg-darken $color-submit;
+}
+.c-button--warning {
+  @mixin transition-bg-darken $color-warning;
+}
+.c-button--danger {
+  @mixin transition-bg-darken $color-danger;
+}
+.c-button--buy {
+  @mixin transition-bg-darken $color-buy;
+}
+.c-button--cancel {
+  background-color: #eee;
+  color: #bbb;
+  &:hover {
+    transition: all .15s ease-in-out;
+    background-color: color(#eee shade(20%));
+    color: color(#bbb shade(20%));
+  }
+}
+.c-button--edit {
+  @mixin transition-bg-darken #ccc;
+}
+
+/*========== Icons ==========*/
+
+.c-button-icon--edit {
+  @mixin transition-color-darken $color-gray;
+  width: 20px;
+  height: 20px;
+}
+.c-button-icon--close {
+  @mixin transition-bg-darken #ccc;
+}

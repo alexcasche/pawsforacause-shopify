@@ -1,9 +1,9 @@
 <template lang="html">
-  <div class="v-modal u-hidden" id="modal">
+  <div class="u-hidden" id="modal">
     <transition name="overlay-fade">
       <Overlay v-if="contentId" />
     </transition>
-    <div class="v-modal__container">
+    <div class="c-modal">
       <ModalBox v-if="contentId" 
         @closeClick="setModal" 
         :contentId="contentId" 
@@ -61,10 +61,6 @@ export default {
 </script>
 
 <style scoped>
-.v-modal__container {
-  position: relative;
-  padding: 100px 0;
-}
 .overlay-fade-enter,
 .overlay-fade-leave-to {
   opacity: 0;

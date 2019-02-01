@@ -20,7 +20,6 @@
 }
 
 .c-banner__inner {
-  @mixin container;
   @media (--desktop) {
     @mixin flex row, space-between, flex-start;
   }
@@ -58,7 +57,7 @@
 
 .c-banner__image-wide {
   @mixin hide-desktop;
-  @mixin full-width-mobile;
+  @mixin full-width-xs;
   @media (--mobile) {
     border-radius: $border-radius-image;
   }
@@ -109,7 +108,6 @@
 }
 
 .c-banner__scrollButton {
-  @mixin button-circle;
   width: 50px;
   height: 50px;
   position: absolute;

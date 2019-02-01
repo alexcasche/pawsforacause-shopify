@@ -1,5 +1,43 @@
 /*========== Modal ==========*/
 
-.c-modal__heading {
-  
+.c-modal {
+  position: relative;
+  padding: 100px 0;
+}
+.c-modal__box {
+  padding: 40px;
+  background-color: $bg-gray-light;
+  @media(--mobile) {
+    position: relative;
+    max-width: 750px;
+    margin: 0 auto;
+    border-radius: $border-radius-card;
+    border: 1px solid #d3d3d3;
+    box-shadow: $box-shadow-modal;
+  }
+  @media(--mobile-max) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 60px 40px 40px;
+    overflow-y: scroll;
+  }
+}
+.c-modal__close {
+  background-color: #eee;
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  width: 30px;
+  height: 30px;
+  &:hover {
+    background-color: #e8e8e8;
+  }
+}
+.c-modal__closeIcon {
+  color: #ccc;
+  pointer-events: none;
 }

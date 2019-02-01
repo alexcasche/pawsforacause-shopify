@@ -1,52 +1,35 @@
 <template>
-  <div v-if="cartCount > 0" class="v-cartAccount v-cartAccount--empty c-card">
-    <div class="v-cartAccount__row">
-      <div class="v-cartAccount__summary">
-        <h3 class="v-cartAccount__heading">
-          Cart
-          <span class="v-cartAccount__count">
-            5
-          </span>
+  <div v-if="shoppingCart" class="c-cartAccount c-card">
+    <div v-if="cartCount == 0" class="c-cartAccount__full">
+
+    </div>
+    <div v-else class="c-cartAccount__row">
+      <div class="c-cartAccount__side">
+        <span class="c-cartAccount__icon" v-html="iconCart" />
+      </div>
+      <div class="c-cartAccount__side c-cartAccount__side--large">
+        <h3 class="c-cartAccount__heading">
+          Your cart is empty
         </h3>
-        <span class="v-cartAccount__subtotal">
-          Subtotal: $20.00
+        <span class="c-cartAccount__message">
+          Fill it up to save some pups!
         </span>
+        <a class="c-cartAccount__shop c-button-small c-button--buy" href="/collection/all-products">
+          Start Shopping!
+        </a>
       </div>
     </div>
   </div>
-  <div v-else-if="shoppingCart" class="v-cartAccount v-cartAccount--empty c-card">
-    <div class="v-cartAccount__side">
-      <span class="v-cartAccount__cartIcon" v-html="iconCart" />
-    </div>
-    <div class="v-cartAccount__side">
-      <h3 class="v-cartAccount__heading">
-        Your cart is empty
-      </h3>
-      <span class="v-cartAccount__text">
-        Fill it up to save some rescue dogs!
-      </span>
-      <a class="c-button--small c-button--buy" href="/collections/all-products">
-          Shop Now
-      </a>
-    </div>
-  </div>
-  <div v-else class="v-cartAccount v-cartAccount--loading c-card">
-     <h3 class="v-cartAccount__heading">
-        Loading
-        <Loading class="v-cartAccount__loading" />
-      </h3>
+  <div v-else class="c-cartAccount c-loadingBlocks">
+    <span/><span/><span/>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 import { iconCart } from '@vue/assets/svg';
-import Loading from '../shared/Loading.vue';
 
 export default {
-  components: {
-    Loading
-  },
   data() {
     return { iconCart }
   },
@@ -62,9 +45,6 @@ export default {
 
 .v-cartAccount {
   @mixin flex column, flex-start, flex-start;
-  @media(--mobile-max) {
-    margin-top: -30px;
-  }
 }
 .v-cartAccount--empty {
   @media(--mobile) {
