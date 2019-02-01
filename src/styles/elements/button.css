@@ -1,6 +1,7 @@
 /*========== Buttons ==========*/
 
 button {
+  display: inline-block;
   width: auto;
   border-radius: 0;
   border: none;

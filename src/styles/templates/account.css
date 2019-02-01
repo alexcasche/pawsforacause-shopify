@@ -10,8 +10,8 @@
     text-align: center;
   }
 }
-.c-account__block {
-  margin-bottom: 40px;
+.c-account__block:not(:last-child) {
+  margin-bottom: 50px;
 }
 .c-account__text {
   font-size: 16px;

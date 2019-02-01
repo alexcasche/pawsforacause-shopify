@@ -3,6 +3,5 @@ export default {
   isFetching: false,
   shoppingCart: false,
   freeShipping: 100,
-  estShipping: 8.75,
   errorMessage: false
 };

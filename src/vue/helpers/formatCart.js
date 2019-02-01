@@ -7,14 +7,13 @@ export const formatCart = shopifyCart => {
   let cartItemsObj = {};
   shopifyCart.items.forEach(itemObj => {
     cartItemsObj[itemObj.variant_id] = {
-      frequency: itemObj.variant_options[0],
-      type: itemObj.variant_options[1],
       id: itemObj.variant_id,
-      title: itemObj.product_title,
-      variant: itemObj.variant_title,
       image: itemObj.image,
       price: itemObj.price,
-      quantity: itemObj.quantity
+      quantity: itemObj.quantity,
+      title: itemObj.product_title,
+      variant: itemObj.variant_title,
+      vendor: itemObj.vendor
     };
   });
   return {

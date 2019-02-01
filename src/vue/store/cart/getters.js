@@ -5,6 +5,5 @@ export default {
   cartCount: state => state.shoppingCart.count,
   cartSubtotal: state => state.shoppingCart.total,
   freeShipping: state => state.freeShipping,
-  estShipping: state => state.estShipping,
   errorMessage: state => state.errorMessage
 };

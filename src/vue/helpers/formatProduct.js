@@ -6,7 +6,8 @@ export const formatProduct = shopifyProduct => {
       price: shopifyProduct.price,
       quantity: shopifyProduct.quantity,
       title: shopifyProduct.product_title,
-      variant: shopifyProduct.variant_title
+      variant: shopifyProduct.variant_title,
+      vendor: shopifyProduct.vendor
     }
   };
 };
