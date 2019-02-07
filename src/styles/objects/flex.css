@@ -1,5 +1,46 @@
 /*========== Flex ==========*/
 
-.o-flex {
-  @mixin flex;
+.o-flexGrid {
+ @mixin flexGrid;
+}
+
+.o-flexRow {
+  @mixin flexRow;
+}
+
+.o-flexColumn {
+  @mixin flexColumn;
+}
+
+
+
+/*========== FlexItem ==========*/
+
+@define-mixin flexItem $width: 50%, $gutter: 40px, $margin: 50px {
+  width: calc($width - $gutter);
+  &:not(:last-child) {
+    margin-bottom: $margin;
+  }
+  @media(--mobile-max) {
+    width: 100%;
+  }
+}
+.o-flexItem-25 {
+  @mixin flexItem 25%;
+}
+.o-flexItem-30 {
+  @mixin flexItem 30%;
+}
+.o-flexItem-40 {
+  @mixin flexItem 40%;
+}
+.o-flexItem-60 {
+  @mixin flexItem 60%;
+}
+.o-flexItem-75 {
+  @mixin flexItem 75%;
+}
+.o-flexItem-100 {
+  width: 100%;
+  margin-bottom: 50px;
 }

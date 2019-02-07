@@ -3,19 +3,6 @@
 .c-form {
   @mixin flex column, flex-start, flex-start;
 }
-.c-form__heading {
-  margin-bottom: 20px;
-}
-.c-form__subheading {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-.c-form__text {
-  margin-bottom: 10px;
-}
-.c-form__body {
-  width: 100%;
-}
 .c-form__errors {
   width: 100%;
   .errors {
@@ -35,14 +22,15 @@
 }
 .c-form__fieldset {
   @mixin flex row, space-between, center, wrap;
+  width: 100%;
   .c-form__field {
-    width: 100%;
     @media(--mobile) {
       width: calc(50% - 10px);
     }
   }
 }
 .c-form__field {
+  width: 100%;
   margin-bottom: 20px;
 }
 .c-form__select {
@@ -63,7 +51,6 @@
   position: relative;
   margin-bottom: 20px;
   background-color: transparent !important;
-  width: auto !important;
   input {
     width: 100%;
   }
@@ -74,7 +61,7 @@
   }
   &:hover {
     label {
-      color: $color-blue-dark;
+      color: $color-blue;
     }
   }
 }
@@ -83,14 +70,17 @@
   font-size: 14px;
   pointer-events: none;
 }
-.c-form__buttonGroup {
-  @mixin flex row, flex-start, center, wrap;
-  .c-form__button:not(:last-child) {
-    margin: 0 0 20px 0;
-  }
-  @media(--mobile) {
-    .c-form__button:not(:last-child) {
-      margin: 0 15px 0 0;
+.c-form__buttons {
+  @mixin flex row, space-between, center, wrap;
+  margin-top: 10px;
+  width: 100%;
+  .c-form__button {
+    @media(--mobile) {
+      width: calc(50% - 10px);
     }
   }
+}
+.c-form__button {
+  width: 100%;
+  height: 50px;
 }

@@ -1,6 +1,6 @@
 /*========== Flex ==========*/
 
-@define-mixin flex $direction: row, $justify: space-between, $align: center,
+@define-mixin flex $direction: row, $justify: space-between, $align: flex-start,
   $wrap: nowrap {
   display: flex;
   flex-direction: $direction;
@@ -8,3 +8,21 @@
   align-items: $align;
   flex-wrap: $wrap;
 }
+
+@define-mixin flexRow {
+  @mixin flex row, space-between, center, nowrap;
+}
+
+@define-mixin flexColumn {
+  @mixin flex column, center, center, nowrap;
+}
+
+@define-mixin flexGrid $gutter: 50px {
+  @mixin flexColumn;
+  @media(--tablet) {
+    @mixin flexRow;
+    align-items: flex-start;
+  }
+}
+
+

@@ -589,12 +589,6 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@csstools/sass-import-resolve/-/sass-import-resolve-1.0.0.tgz#32c3cdb2f7af3cd8f0dca357b592e7271f3831b5"
 
-"@google/maps@^0.5.5":
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/@google/maps/-/maps-0.5.5.tgz#478a5791e3b8d444be966462daec3ee43eb331e0"
-  dependencies:
-    uuid ">=2.2.1"
-
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -6207,10 +6201,6 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-portal-vue@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/portal-vue/-/portal-vue-1.5.1.tgz#6bed79ef168d9676bb79f41d43c5cd4cedf54dbc"
-
 portscanner@2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/portscanner/-/portscanner-2.1.1.tgz#eabb409e4de24950f5a2a516d35ae769343fbb96"
@@ -8300,6 +8290,10 @@ timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
 
+tiny-slider@^2.9.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/tiny-slider/-/tiny-slider-2.9.1.tgz#5c4a5ff0715d4eaa5ba05be03d9fda5f02ed2639"
+
 tmp@^0.0.33:
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
@@ -8604,13 +8598,13 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
-uuid@>=2.2.1, uuid@^3.0.0:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
-
 uuid@^2.0.1:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
+
+uuid@^3.0.0:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 
 v8-compile-cache@^2.0.2:
   version "2.0.2"

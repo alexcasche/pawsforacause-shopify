@@ -23,12 +23,24 @@ export default {
       default: () => {}
     }
   },
+  methods: {
+    setModal() {
+      const modalContent = document.getElementById("modalContent");
+      modalContent.childNodes.forEach(child => child.classList.add("u-hidden"));
+      document.getElementById(this.contentId).classList.remove("u-hidden");
+      modalContent.classList.remove("u-hidden");
+      this.setClickEvents();
+    }
+  },
   mounted() {
-    const modalContent = document.getElementById("modalContent");
-    modalContent.childNodes.forEach(child => child.classList.add("u-hidden"));
-    document.getElementById(this.contentId).classList.remove("u-hidden");
-    modalContent.classList.remove("u-hidden");
-    this.setClickEvents();
+   this.setModal();
+  },
+  watch: {
+    contentId: {
+      handler() {
+        this.setModal();
+      }
+    },
   }
 }
 </script>

@@ -1,4 +1,15 @@
-import Cookies from 'universal-cookie';
+/******* Addresses *******/
+
+import { CountryProvinceSelector } from '@shopify/theme-addresses';
+
+const countryProvinceSelector = new CountryProvinceSelector(window.Site.allCountryOptionTags);
+const countrySelectors = document.querySelectorAll(".data-countries");
+const provinceSelectors = document.querySelectorAll(".data-provinces");
+
+countrySelectors.forEach((selector, index) => {
+  countryProvinceSelector.build(countrySelectors[index], provinceSelectors[index]);
+})
+
 const windowAddress = window.Site.defaultAddress;
 const googleUrl = "https://maps.googleapis.com/maps/api/staticmap";
 const googleKey = "&key=AIzaSyD-8X1D8u6v43jwi1D0Nhgo-xXU5l3Prg8";
@@ -9,20 +20,22 @@ if(windowAddress) {
   const googleAddress = `?center=${formattedAddress}`;
   const googleMarker = `&markers=color:red%7Clabel:%7C${formattedAddress}`;
   const mapContainer = document.getElementById("googleMap");
+  const mapLoading = document.getElementById("googleMapLoading");
   const map = new Image();
   map.classList.add("c-addresses__mapImage");
   map.src = `asdasdas${googleUrl}${googleAddress}${googleParams}${googleMarker}${googleKey}`;
   let loadingComplete = false;
   map.onload = () => {
     loadingComplete = true;
+    mapLoading.classList.add("u-hidden");
+    mapContainer.classList.remove("u-hidden")
     mapContainer.innerhHTML = "";
     mapContainer.appendChild(map);
   }
   setTimeout(() => {
     if(!loadingComplete) {
-      const mapMessage = document.querySelector(".c-addresses__mapMessage");
-      mapMessage.innerHTML = "<span class='c-addresses__mapText'>No Map Found</span>"
+      mapLoading.classList.add("u-hidden");
+      mapContainer.classList.remove("u-hidden")
     }
-  }, 5000);
+  }, 2500);
 }
-

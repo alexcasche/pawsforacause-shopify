@@ -43,12 +43,13 @@ export default {
       handler(val) {
         if(val) {
           document.getElementById("modal").classList.remove("u-hidden");
+          document.body.classList.add("u-noScroll");
         }
         if(!val) {
           document.getElementById("modal").classList.add("u-hidden");
-        }
-        if(!this.cartOpen) {
-          document.body.classList.toggle("u-noScroll");
+          if(!this.cartOpen) {
+            document.body.classList.remove("u-noScroll");
+          }
         }
       }
     },

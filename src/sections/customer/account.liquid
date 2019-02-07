@@ -1,0 +1,32 @@
+<section id="account" class="c-account">
+  <div class="c-account__top o-strip">
+    <div class="c-account__container o-container o-flexGrid">
+      <div class="c-account__info o-flexItem-40">
+        <h2 class="c-account__heading u-truncate">
+          My Account
+        </h2>
+        <h4 class="c-account__subheading u-truncate">
+          {{ customer.email }}
+        </h4>
+        <div class="c-account__address">
+          {% if customer.default_address %}
+            {{ customer.first_name | capitalize }} {{ customer.last_name | capitalize }}<br />
+            {{ customer.default_address.address1 }}<br />
+            {% if customer.default_address.address2 != '' and customer.default_address.address2 != nil %}
+              {{ customer.default_address.address2 }}<br />
+            {% endif %}
+            {{ customer.default_address.city}}, {% if customer.default_address.province_code %}{{ customer.default_address.province_code }}, {% endif %} {{ customer.default_address.zip }}<br />
+            {% if customer.default_address.phone != '' and customer.default_address.phone != nil %}
+            {{ customer.default_address.phone }}
+          {% endif %}
+          {% else %}
+            You don't have any addresses on file.<br />
+          {% endif %}
+        </div>
+      </div>
+      <div class="c-account__cart o-flexItem-60">
+        <vue-account-cart></vue-account-cart>
+      </div>
+    </div>
+  </div>
+</section>

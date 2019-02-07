@@ -40,4 +40,5 @@
 .c-modal__closeIcon {
   color: #ccc;
   pointer-events: none;
+  font-size: 16px;
 }

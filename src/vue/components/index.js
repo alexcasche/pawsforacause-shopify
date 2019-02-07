@@ -1,9 +1,9 @@
 import Cart from './cart/Cart.vue'
-import CartAccount from './cart/CartAccount.vue'
+import AccountCart from './account/AccountCart.vue'
 import Modal from './modal/Modal.vue'
 
 export default {
   'vue-cart': Cart,
-  'vue-cart-account': CartAccount,
+  'vue-account-cart': AccountCart,
   'vue-modal': Modal
 }

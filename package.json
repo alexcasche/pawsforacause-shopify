@@ -72,6 +72,7 @@
     "document-register-element": "^1.13.1",
     "qs": "^6.6.0",
     "smoothscroll-polyfill": "^0.4.3",
+    "tiny-slider": "^2.9.1",
     "universal-cookie": "^3.0.7",
     "vue": "^2.5.21",
     "vue-custom-element": "^3.2.6",

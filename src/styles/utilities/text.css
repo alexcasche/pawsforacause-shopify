@@ -1,0 +1,16 @@
+/*========== Text ==========*/
+
+.u-textCenter {
+  text-align: center !important;
+}
+.u-textLeft {
+  text-align: left !important;
+}
+.u-textRight {
+  text-align: right !important;
+}
+.u-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

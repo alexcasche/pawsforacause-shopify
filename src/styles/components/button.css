@@ -77,8 +77,8 @@
   color: #bbb;
   &:hover {
     transition: all .15s ease-in-out;
-    background-color: color(#eee shade(20%));
-    color: color(#bbb shade(20%));
+    background-color: color(#eee shade(10%));
+    color: color(#bbb shade(10%));
   }
 }
 .c-button--edit {

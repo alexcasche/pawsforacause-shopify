@@ -1,6 +1,23 @@
-/*========== Cart ==========*/
+/*========== Account Details ==========*/
 
-.c-cartAccount {
+.c-addresses__top {
+  padding-bottom: 0;
+}
+
+.c-account__heading, .c-account__subheading {
+  margin-bottom: 5px;
+  @media(--mobile-max) {
+    text-align: center;
+  }
+}
+.c-account__address {
+  font-size: 16px;
+  line-height: 1.5;
+  @media(--mobile-max) {
+    text-align: center;
+  }
+}
+.c-accountCart {
   @mixin flex row, space-between, center;
   min-height: 100px;
   width: 100%;
@@ -15,28 +32,31 @@
     @mixin flex column, center, center;
   }
 }
-.c-cartAccount__empty {
+.c-accountCart__loading {
+  width: 100%;
+}
+.c-accountCart__empty {
   width: 100%;
   @mixin flex row, flex-start, center, wrap;
   @media(--xs) {
     @mixin flex column, center, center;
   }
 }
-.c-cartAccount__full {
+.c-accountCart__full {
   width: 100%;
   @mixin flex row, space-between, center, wrap;
   @media(--xs) {
     @mixin flex column, center, center;
   }
 }
-.c-cartAccount__side {
+.c-accountCart__side {
   @media(--xs) {
     width: 100%;
     @mixin flex column, center, center;
     margin-bottom: 20px;
   }
 }
-.c-cartAccount__icon {
+.c-accountCart__icon {
   display: block;
   width: 80px;
   max-width: 100%;
@@ -51,10 +71,10 @@
     margin: 0 auto 10px;
   }
 }
-.c-cartAccount__heading {
+.c-accountCart__heading {
   margin-bottom: 0;
 }
-.c-cartAccount__message {
+.c-accountCart__message {
   display: block;
   font-size: 16px;
   line-height: 1.5;
@@ -65,10 +85,10 @@
     margin-bottom: 20px
   }
 }
-.c-cartAccount__button {
+.c-accountCart__button {
   max-width: 200px;
 }
-.c-cartAccount__count, .c-cartAccount__itemCount {
+.c-accountCart__count, .c-accountCart__itemCount {
   @mixin flex row, center, center;
   display: inline-flex;
   position: relative;
@@ -83,17 +103,17 @@
   font-size: 12px;
   font-weight: bold; 
 }
-.c-cartAccount__subtotal {
+.c-accountCart__subtotal {
   display: block;
   margin-top: 2px;
   color: $color-gray-dark;
 }
-.c-cartAccount__items {
+.c-accountCart__items {
   width: calc(100% + 60px);
   margin: 30px -30px 0;
 }
-.c-cartAccount__item {
-  @mixin flex row, flex-start, center;
+.c-accountCart__item {
+  @mixin flex row, flex-start, center, no-wrap;
   padding: 30px;
   border-top: 1px solid $hr-gray-light;
   transition: background-color .15s ease-in-out;
@@ -102,42 +122,42 @@
     cursor: pointer;
   }
 }
-.c-cartAccount__itemImage {
+.c-accountCart__itemImage {
   width: 60px;
   height: 60px;
   margin-right: 20px;
 }
-.c-cartAccount__itemInfo {
+.c-accountCart__itemInfo {
   width: 100%;
   @mixin flex column, flex-start, flex-start;
   margin-right: 20px;
 }
-.c-cartAccount__itemVendor, .c-cartAccount__itemVariant {
+.c-accountCart__itemVendor, .c-accountCart__itemVariant {
   font-size: 12px;
   line-height: 1.5;
   text-transform: uppercase;
 }
-.c-cartAccount__itemVendor {
+.c-accountCart__itemVendor {
   color: $color-blue-dark;
   font-weight: bold;
 }
-.c-cartAccount__itemTitle {
+.c-accountCart__itemTitle {
   color: $color-black;
   line-height: 1.5;
   font-size: 15px;
 }
-.c-cartAccount__itemVariant {
+.c-accountCart__itemVariant {
   color: $color-gray;
 }
-.c-cartAccount__itemCount {
+.c-accountCart__itemCount {
   top: 0;
   background-color: #ccc;
   color: white;
 }
-.c-cartAccount__freeShipping {
+.c-accountCart__freeShipping {
   width: calc(100% + 60px);
   margin: 0 -30px;
-  padding: 30px 30px 0;
+  padding: 30px 30px 5px;
   text-align: center;
   border-top: 1px solid $hr-gray-light;
 }

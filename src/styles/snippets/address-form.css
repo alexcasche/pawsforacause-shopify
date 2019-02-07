@@ -1,0 +1,31 @@
+/*========== Address Form ==========*/
+
+.c-addressForm {
+  .c-addressForm__heading {
+    margin-bottom: 20px;
+  }
+  .c-addressForm__button {
+    width: 100%;
+  }
+}
+.c-addressForm__delete {
+  @mixin flex row, center, center;
+  margin-top: 10px;
+  width: 100%;
+  @media(--mobile) {
+    justify-content: flex-end;
+  }
+}
+.c-addressForm__deleteButton {
+  color: #ccc;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: capitalize;
+  padding: 10px 0;
+  &:hover {
+    color: #bbb;
+  }
+}
+.c-addressForm__deleteIcon {
+  margin-right: 5px;
+}
