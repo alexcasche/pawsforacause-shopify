@@ -9,6 +9,9 @@
           <div class="c-addresses__address">
             You don't have a primary address.
           </div>
+          <button class="c-addresses__button c-button c-button--secondary trigger-modal" data-modal-content-id="addAddress">
+            Add Address
+          </button>
         {% else %}
           {% assign address = customer.default_address %}
           {% if address %}
@@ -101,3 +104,5 @@
     {% include 'address-form-delete' %}
   </vue-modal>
 </section>
+
+{{ 'addresses.js' | asset_url | script_tag }}

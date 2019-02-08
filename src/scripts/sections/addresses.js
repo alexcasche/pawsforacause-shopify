@@ -2,13 +2,30 @@
 
 import { CountryProvinceSelector } from '@shopify/theme-addresses';
 
-const countryProvinceSelector = new CountryProvinceSelector(window.Site.allCountryOptionTags);
-const countrySelectors = document.querySelectorAll(".data-countries");
-const provinceSelectors = document.querySelectorAll(".data-provinces");
+function buildSelects() {
+  const addressCountryProvinceSelector = new CountryProvinceSelector(window.Site.allCountryOptionTags);
+  const countrySelects = document.querySelectorAll(".data-countries");
+  const provinceSelects = document.querySelectorAll(".data-provinces");
+  countrySelects.forEach((selects, index) => {
+    addressCountryProvinceSelector.build(countrySelects[index], provinceSelects[index]);
+  })
+}
 
-countrySelectors.forEach((selector, index) => {
-  countryProvinceSelector.build(countrySelectors[index], provinceSelectors[index]);
-})
+const readyInterval = setInterval(() => {
+  const modalLoaded = document.getElementById("modal");
+  if(modalLoaded) {
+    buildSelects();
+    clearInterval(readyInterval);
+  }
+}, 250)
+
+
+
+// console.log(provinceSelect);
+// provinceSelect.classList.add("u-hidden");
+
+// const countrySelectors = document.querySelectorAll(".data-countries");
+// const provinceSelectors = document.querySelectorAll(".data-provinces");
 
 const windowAddress = window.Site.defaultAddress;
 const googleUrl = "https://maps.googleapis.com/maps/api/staticmap";

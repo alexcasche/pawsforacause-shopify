@@ -1,6 +1,6 @@
 <script>
   window.Site = {};
-  window.Site.allCountryOptionTags = {{ country_option_tags | json }};
+  window.Site.allCountryOptionTags = {{ all_country_option_tags | json }};
   {% assign address = customer.default_address %};
   {% if address %}
     var defaultAddress = "{{ address.address1 }}, ";

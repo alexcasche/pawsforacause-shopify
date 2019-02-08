@@ -2,7 +2,7 @@
 {% for address in customer.addresses %}
   <div class="c-addressForm u-hidden" id="editAddress_{{ address.id }}">
     <h2 class="c-addressForm__heading">
-      Edit Address
+      Edit Addresss
     </h2>
     {% form 'customer_address', address %}
       {{ form.errors | default_errors }}
@@ -16,7 +16,7 @@
       <div class="c-form__fieldset">
         <input class="c-form__field" required pattern=".*\S+.*" title="City (required)" type="text" name="address[city]" value="{{ form.city }}" placeholder="City*" autocapitalize="words" />
         <div class="c-form__field c-form__select">
-          <select class="c-form__selectInner data-countries" title="Country" name="address[country]" data-default="{{ form.country }}">{{ country_option_tags }}</select>
+          <select class="c-form__selectInner data-countries" title="Country" name="address[country]" data-default="{{ form.country }}"></select>
         </div>
       </div>
       <div class="c-form__fieldset">

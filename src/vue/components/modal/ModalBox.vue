@@ -32,9 +32,6 @@ export default {
       this.setClickEvents();
     }
   },
-  mounted() {
-   this.setModal();
-  },
   watch: {
     contentId: {
       handler() {

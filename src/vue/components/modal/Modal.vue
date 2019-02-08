@@ -4,8 +4,8 @@
       <Overlay v-if="contentId" />
     </transition>
     <div class="c-modal">
-      <ModalBox v-if="contentId" 
-        @closeClick="setModal" 
+      <ModalBox
+        @closeClick="setModal"
         :contentId="contentId" 
         :setClickEvents="setClickEvents"
       >

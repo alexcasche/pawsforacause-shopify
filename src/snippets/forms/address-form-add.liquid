@@ -1,10 +1,9 @@
-<div class="c-form u-hidden" id="addAddress">
-  <h2 class="c-form__heading">
+<div class="c-addressForm" id="addAddress">
+  <h2 class="c-addressForm__heading">
     Add Address
   </h2>
   {% form 'customer_address', customer.new_address %}
-    <div class="c-form__body">
-      {{ form.errors | default_errors }}
+    {{ form.errors | default_errors }}
       <div class="c-form__fieldset">
         <input class="c-form__field" required pattern=".*\S+.*" title="First Name (required)" type="text" name="address[first_name]" value="{{ form.first_name }}" placeholder="First Name*" autocapitalize="words">
         <input class="c-form__field" required pattern=".*\S+.*" title="Last Name (required)" type="text" name="address[last_name]" value="{{ form.last_name }}" placeholder="Last Name*" autocapitalize="words">
@@ -15,12 +14,12 @@
       <div class="c-form__fieldset">
         <input class="c-form__field" required pattern=".*\S+.*" title="City (required)" type="text" name="address[city]" value="{{ form.city }}" placeholder="City*" autocapitalize="words" />
         <div class="c-form__field c-form__select">
-          <select class="c-form__selectInner data-countries" title="Country" name="address[country]" data-default="{{ form.country }}">{{ country_option_tags }}</select>
+          <select class="c-form__selectInner data-countries" title="Country" name="address[country]" data-default="United States">{{ country_option_tags }}</select>
         </div>
       </div>
       <div class="c-form__fieldset">
         <div class="c-form__field c-form__select">
-          <select class="c-form__selectInner data-provinces" title="City" name="address[province]" data-default="{{ form.province }}"></select>
+          <select class="c-form__selectInner data-provinces" title="Province" name="address[province]" data-default="{{ form.province }}"></select>
         </div>
         <input class="c-form__field" required pattern="[0-9]{5}" title="5 Digit Zip Code (required)" type="text" name="address[zip]" value="{{ form.zip }}" placeholder="Zip Code*" />
       </div>
@@ -29,10 +28,9 @@
         {{ form.set_as_default_checkbox }}
         <label class="c-form__label">Set as default address</label>
       </div>
-      <div class="c-form__buttonGroup">
-        <button class="c-form__button c-button trigger-modal" type="button">Cancel</button>
-        <button class="c-form__button c-button--submit" type="submit">Save<button>
+      <div class="c-form__buttons">
+        <button class="c-form__button c-button-large c-button--submit" type="submit">Save</button>
+        <button class="c-form__button c-button-large c-button--cancel trigger-modal" type="button">Cancel</button>
       </div>
-    </div>
   {% endform %}
 </div>
