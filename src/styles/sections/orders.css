@@ -1,0 +1,46 @@
+/*========== Orders ==========*/
+
+.c-orders__intro {
+  @mixin flex column, flex-start, center;
+  margin-bottom: 24px;
+  @media(--tablet) {
+    align-items: flex-start;
+  }
+}
+.c-orders__heading {
+  margin-bottom: 0;
+  text-align: center;
+  @media(--tablet) {
+    text-align: left;
+  }
+}
+.c-orders__text {
+  margin-top: 8px;
+}
+.c-orders__button {
+  margin-top: 20px;
+}
+.c-orders__card {
+  padding: 0 !important;
+  overflow-x: hidden;
+  user-select: none;
+}
+.c-orders__cardWrapper {
+  padding: 20px 0 40px;
+  overflow-x: scroll;
+}
+.c-orders__table {
+  display: block;
+  padding: 0 30px;
+  min-width: 750px;
+}
+.c-orders__tableCell {
+  font-size: 15px;
+  white-space: nowrap;
+  &:not(:last-child) {
+    color: $color-black-light;
+  }
+}
+.c-orders__tableCell--large {
+  width: 100%;
+}

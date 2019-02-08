@@ -25,7 +25,7 @@
   color: $color;
   @mixin transition color $speed, $ease;
   &:hover {
-    color: color($color shade(10%));
+    color: color($color shade(20%));
   }
 }
 

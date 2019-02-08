@@ -1,0 +1,182 @@
+<section id="order" class="c-order{% if order.cancelled %} c-order--cancelled{% endif %}">
+  <div class="c-order__top o-strip">
+    <div class="c-order__container o-container">
+      <div class="c-order__intro">
+        <h2 class="c-order__heading">
+          Order {{ order.name }}
+        </h2>
+        <span class="c-order__status">
+          {% if order.financial_status == "paid" %}
+            <i class="c-order__icon c-order__icon--success fas fa-check-circle"></i>
+            Processed
+          {% elsif order.cancelled != true %}
+            <i class="c-order__icon c-order__icon--warning fas fa-minus-circle"></i>
+            Pending
+          {% else %}
+            <i class="c-order__icon c-order__icon--danger fas fa-times-circle"></i>
+            Cancelled
+          {% endif %}
+        </span>
+        <span class="c-order__date">
+          <i class="c-order__icon c-order__icon--date far fa-calendar-check"></i>
+          {{ order.created_at | date: "%B %e, %Y" }}
+        </span>
+      </div>
+      <div class="c-order__card c-card">
+        <div class="c-order__cardWrapper">
+          <table class="c-order__table" aria-label="Order">
+            <thead class="c-order__tableHead">
+              <tr class="c-order__tableRow">
+                <th class="c-order__tableCell c-order__tableCell--large">
+                  Item
+                </th>
+                <th class="c-order__tableCell">
+                  Price
+                </th>
+                <th class="c-order__tableCell c-order__tableCell--center">
+                  Quantity
+                </th>
+                <th class="c-order__tableCell">
+                  Total
+                </th>
+              </tr>
+            </thead>
+            <tbody class="c-order__tableBody">
+              {% for line_item in order.line_items %}
+                <tr class="c-order__tableRow">
+                  <td class="c-order__tableCell">
+                    <div class="c-order__item data-order-item" data-variant="{{ line_item.variant_id }}" data-quantity="{{ line_item.quantity }}">
+                      <img class="c-order__itemImage" src="{{ line_item.image | img_url: 'small' }}" />
+                      <div class="c-order__itemDetails">
+                        <span class="c-order__itemVendor">
+                          {{ line_item.vendor }}
+                        </span>
+                        <span class="c-order__itemTitle">
+                          {{ line_item.product.title }}
+                        </span>
+                        <span class="c-order__itemVariant">
+                          {{ line_item.variant.title }}
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="c-order__tableCell">
+                    {{ line_item.price | money }}
+                  </td>
+                  <td class="c-order__tableCell c-order__tableCell--center">
+                    {{ line_item.quantity }}
+                  </td>
+                  <td class="c-order__tableCell">
+                    {{ line_item.line_price | money }}
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+            <tfoot class="c-order__tableFooter">
+              <tr class="c-order__tableRow">
+                <td class="c-order__tableCell c-order__addresses">
+                  <div class="c-order__address">
+                    <span class="c-order__addressHeading">
+                      Billing Address
+                    </span>
+                    <div class="c-order__addressText">
+                      {{ order.billing_address.first_name | capitalize }} {{ order.billing_address.last_name | capitalize }}<br />
+                      {% if order.billing_address.company != '' and order.billing_address.company != nil %}
+                        {{ order.billing_address.company }}<br />
+                      {% endif %}
+                      {{ order.billing_address.address1 }}<br />
+                      {% if order.billing_address.address2 != '' and order.billing_address.address2 != nil %}
+                        {{ order.billing_address.address2 }}<br />
+                      {% endif %}
+                      {{ order.billing_address.city}}, {% if order.billing_address.province_code %}{{ order.billing_address.province_code }}, {% endif %} {{ order.billing_address.zip }}<br />
+                      {% if order.billing_address.phone != '' and order.billing_address.phone != nil %}
+                        {{ order.billing_address.phone }}
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="c-order__address">
+                    <span class="c-order__addressHeading">
+                      Shipping Address
+                    </span>
+                    <div class="c-order__addressText">
+                      {{ order.shipping_address.first_name | capitalize }} {{ order.shipping_address.last_name | capitalize }}<br />
+                      {% if order.shipping_address.company != '' and order.shipping_address.company != nil %}
+                        {{ order.shipping_address.company }}<br />
+                      {% endif %}
+                      {{ order.shipping_address.address1 }}<br />
+                      {% if order.shipping_address.address2 != '' and order.shipping_address.address2 != nil %}
+                        {{ order.shipping_address.address2 }}<br />
+                      {% endif %}
+                        {{ order.shipping_address.city}}, {% if order.shipping_address.province_code %}{{ order.shipping_address.province_code }}, {% endif %} {{ order.shipping_address.zip }}<br />
+                        {% if order.shipping_address.phone != '' and order.shipping_address.phone != nil %}
+                          {{ order.shipping_address.phone }}
+                        {% endif %}
+                    </div>
+                  </div>
+                </td>
+                <td class="c-order__tableCell c-order__summary" colspan="3">
+                  <div class="c-order__summaryLine">
+                    <span class="c-order__summaryLeft">
+                      Subtotal
+                    </span>
+                    <span class="c-order__summaryRight">
+                      {{ order.subtotal_price | money }}
+                    </span>
+                  </div>
+                  {% if order.total_discounts > 0 %}
+                    <div class="c-order__summaryLine">
+                      <span class="c-order__summaryLeft">
+                        Discount
+                      </span>
+                      <span class="c-order__summaryRight">
+                        -{{ order.total_discounts | money }}
+                      </span>
+                    </div>
+                  {% endif %}
+                  {% if order.tax_price > 0 %}
+                    <div class="c-order__summaryLine">
+                      <span class="c-order__summaryLeft">
+                        Tax
+                      </span>
+                      <span class="c-order__summaryRight">
+                        {{ order.tax_price | money }}
+                      </span>
+                    </div>
+                  {% endif %}
+                  <div class="c-order__summaryLine">
+                    <span class="c-order__summaryLeft">
+                      Shipping
+                    </span>
+                    <span class="c-order__summaryRight">
+                      {% if order.shipping_price > 0 %}
+                        {{ order.shipping_price | money }}
+                      {% else %}
+                        --
+                      {% endif %}
+                    </span>
+                  </div>
+                  <div class="c-order__summaryLine c-order__summaryLine--total">
+                    <span class="c-order__summaryLeft">
+                      Total
+                    </span>
+                    <span class="c-order__summaryRight">
+                      {{ order.total_price | money }}
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <div class="c-order__buttons">
+        <a class="c-order__button c-button c-button--edit" href="{{ order.order_status_url }}">
+          Order Status
+        </a>
+        <button class="c-order__button c-button c-button--submit trigger-reorder">
+          Order Again
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

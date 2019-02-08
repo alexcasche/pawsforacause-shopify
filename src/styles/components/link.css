@@ -1,0 +1,7 @@
+
+/*========== Link ==========*/
+
+.c-link {
+  color: $color-blue;
+  @mixin transition-color-darken $color-blue;
+}

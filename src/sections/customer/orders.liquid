@@ -1,0 +1,81 @@
+<section id="orders" class="c-orders u-hidden">
+  <div class="c-orders__top o-strip">
+    <div class="c-orders__container o-container">
+      <div class="c-orders__intro">
+        <h2 class="c-orders__heading">
+          Recent Orders
+        </h2>
+        {% if customer.orders.size == 0 %}
+          <div class="c-orders__text">
+            You haven't placed any orders yet.
+          </div>
+          <a class="c-orders__button c-button-small c-button--buy" href="/collection/all-products">
+            Start Shopping
+          </a>
+        {% endif %}
+      </div>
+      {% if customer.orders.size > 0 %}
+        <div class="c-orders__card c-card">
+          <div class="c-orders__cardWrapper">
+            <table class="c-orders__table" aria-label="Order">
+              <thead class="c-orders__tableHead">
+                <tr class="c-orders__tableRow">
+                  <th class="c-orders__tableCell">
+                    Order #
+                  </th>
+                  <th class="c-orders__tableCell">
+                    Date
+                  </th>
+                  <th class="c-orders__tableCell">
+                    Items
+                  </th>
+                  <th class="c-orders__tableCell">
+                    Total
+                  </th>
+                  <th class="c-orders__tableCell">
+                    Status
+                  </th>
+                  <th class="c-orders__tableCell"></th>
+                </tr>
+              </thead>
+              <tbody class="c-orders__tableBody">
+                {% for order in customer.orders %}
+                  <tr class="c-orders__tableRow">
+                    <td class="c-orders__tableCell c-orders__tableCell--large">
+                      <a class="c-orders__tableLink c-link" href="{{ order.customer_url }}">
+                        {{ order.name }}
+                      </a>
+                    </td>
+                    <td class="c-orders__tableCell">
+                      {{ order.created_at | date: "%Y-%m-%d" }}
+                    </td>
+                    <td class="c-orders__tableCell">
+                      {{ order.line_items.size }}
+                    </td>
+                    <td class="c-orders__tableCell">
+                      {{ order.total_price | money }}
+                    </td>
+                    <td class="c-orders__tableCell">
+                      {% if order.financial_status == "paid" %}
+                        Processed
+                      {% elsif order.cancelled != true %}
+                        Pending
+                      {% else %}
+                        Cancelled
+                      {% endif %}
+                    </td>
+                    <td class="c-orders__tableCell">
+                      <a class="c-orders__tableLink c-link" href="{{ order.order_status_url }}">
+                        View Status
+                      </a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
