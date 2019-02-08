@@ -17,7 +17,7 @@
   @mixin flex column, center, center, nowrap;
 }
 
-@define-mixin flexGrid $gutter: 50px {
+@define-mixin flexFlip $gutter: 50px {
   @mixin flexColumn;
   @media(--tablet) {
     @mixin flexRow;

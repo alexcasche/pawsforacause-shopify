@@ -1,10 +1,34 @@
 /*========== Addresses ==========*/
 
 .c-addresses__top {
-  padding-bottom: 0;
+  @media(--mobile-max) {
+    padding-bottom: 0;
+  }
+}
+.c-addresses__container, .c-addresses__primary, .c-addresses__secondary {
+  @media(--mobile-max) {
+    @mixin flexColumn;
+  }  
 }
 
-.c-addresses__heading, .c-addresses__subheading {
+.c-addresses__flex {
+  @media(--mobile-max) {
+    @mixin flexColumn;
+  }
+}
+
+.c-addresses__heading {
+  @media(--mobile-max) {
+    text-align: center;
+  }
+}
+.c-addresses__group {
+  @mixin flexColumn;
+  @media(--tablet) {
+    align-items: flex-start;
+  }
+}
+.c-addresses__subheading {
   margin-bottom: 5px;
   @media(--mobile-max) {
     text-align: center;
@@ -15,13 +39,22 @@
   margin-left: 5px;
   @mixin transition-color-darken $color-gray;
 }
-.c-addresses__address {
+.c-addresses__text {
   font-size: 16px;
   line-height: 1.5;
   @media(--mobile-max) {
     text-align: center;
   }
 }
+.c-addresses__button {
+  margin-top: 20px;
+}
+.c-address__button--other {
+  @media(--mobile-max) {
+    margin-top: 40px;
+  }
+}
+
 .c-addresses__loading {
   padding-top: 30px
 }

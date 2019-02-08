@@ -7,7 +7,7 @@
 .c-button-round,
 .c-button-icon {
   display: inline-block;
-  width: 100%;
+  width: auto;
   padding: 14px 35px;
   border-radius: $border-radius-input;
   background-color: transparent;
@@ -18,7 +18,7 @@
   text-transform: capitalize;
   text-align: center;
   user-select: none;
-  @media(--mobile) {
+  @media(--xs) {
     width: auto;
   }
   @media(--tablet) {

@@ -5,9 +5,10 @@
   padding: 100px 0;
 }
 .c-modal__box {
-  padding: 40px;
+  padding: 30px;
   background-color: $bg-gray-light;
   @media(--mobile) {
+    padding: 40px;
     position: relative;
     max-width: 750px;
     margin: 0 auto;
@@ -29,12 +30,17 @@
 .c-modal__close {
   background-color: #eee;
   position: absolute;
-  top: 30px;
-  right: 40px;
+  top: 20px;
+  right: 30px;
   width: 30px;
   height: 30px;
+  border-radius: 50% !important;
   &:hover {
     background-color: #e8e8e8;
+  }
+  @media(--mobile) {
+    top: 30px;
+    right: 40px;
   }
 }
 .c-modal__closeIcon {

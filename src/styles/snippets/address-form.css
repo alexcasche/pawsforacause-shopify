@@ -8,6 +8,26 @@
     width: 100%;
   }
 }
+.c-addressesForm__group {
+  @mixin flexColumn;
+  @media(--tablet) {
+    align-items: flex-start;
+  }
+}
+.c-addressesForm__subheading {
+  margin-bottom: 5px;
+  @media(--mobile-max) {
+    text-align: center;
+  }
+}
+.c-addressesForm__text {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  @media(--mobile-max) {
+    text-align: center;
+  }
+}
 .c-addressForm__delete {
   @mixin flex row, center, center;
   margin-top: 10px;

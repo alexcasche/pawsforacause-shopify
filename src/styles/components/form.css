@@ -75,8 +75,12 @@
   margin-top: 10px;
   width: 100%;
   .c-form__button {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
     @media(--mobile) {
       width: calc(50% - 10px);
+      margin-bottom: 0;
     }
   }
 }

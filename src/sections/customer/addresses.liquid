@@ -1,40 +1,42 @@
 <section id="addresses" class="c-addresses">
   <div class="c-addresses__top o-strip">
-    <div class="c-addresses__container o-container o-flexGrid">
+    <div class="c-addresses__container o-container o-flexFlip">
       <div class="c-addresses__primary o-flexItem-40">
         <h2 class="c-addresses__heading">
           Primary Address
         </h2>
-        {% if customer.addresses.size > 0 %}
-          <div class="c-addresses__address">
+        {% if customer.addresses.size == 0 %}
+          <div class="c-addresses__text">
             You don't have a primary address.
           </div>
-          <button class="c-addresses__button c-button c-button--secondary trigger-modal" data-modal-content-id="addAddress">
+          <button class="c-addresses__button c-button-small c-button--secondary trigger-modal" data-modal-content-id="addAddress">
             Add Address
           </button>
         {% else %}
-          {% assign address = customer.default_address %}
-          {% if address %}
-            <h4 class="c-addresses__subheading">
-              {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
-              <button class="c-button-icon c-button-icon--edit trigger-modal" data-modal-content-id="editAddress_{{ address.id }}">
-                <i class="fas fa-pencil-alt"></i>
-              </button>
-            </h4>
-            <div class="c-addresses__address">
-              {% if address.company != '' and address.company != nil %}
-                {{ address.company }}<br />
-              {% endif %}
-              {{ address.address1 }}<br />
-              {% if address.address2 != '' and address.address2 != nil %}
-                {{ address.address2 }}<br />
-              {% endif %}
-              {{ address.city}}, {% if address.province_code %}{{ address.province_code }}, {% endif %} {{ address.zip }}<br />
-              {% if address.phone != '' and address.phone != nil %}
-                {{ address.phone }}
-              {% endif %}
-            </div>
-          {% endif %}
+          <div class="c-addresses__group">
+            {% assign address = customer.default_address %}
+            {% if address %}
+              <h4 class="c-addresses__subheading">
+                {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
+                <button class="c-button-icon c-button-icon--edit trigger-modal" data-modal-content-id="editAddress_{{ address.id }}">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+              </h4>
+              <div class="c-addresses__text">
+                {% if address.company != '' and address.company != nil %}
+                  {{ address.company }}<br />
+                {% endif %}
+                {{ address.address1 }}<br />
+                {% if address.address2 != '' and address.address2 != nil %}
+                  {{ address.address2 }}<br />
+                {% endif %}
+                {{ address.city}}, {% if address.province_code %}{{ address.province_code }}, {% endif %} {{ address.zip }}<br />
+                {% if address.phone != '' and address.phone != nil %}
+                  {{ address.phone }}
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
         {% endif %}
       </div>
       <div id="googleMapLoading" class="c-addresses__loading o-flexColumn o-flexItem-60">
@@ -46,12 +48,12 @@
         <img class="c-addresses__mapImage" src="{{ 'map-placeholder.png' | asset_img_url: '750x' }}" alt="Map Placeholder" />
         <div class="c-addresses__mapOverlay"></div>
         <div class="c-addresses__mapMessage">
-          {% if customer.addresses.size == 0 %}
+          {% if customer.addresses.size > 0 %}
             <span class="c-addresses__mapText">
               No Map Found.
             </span>
           {% else %}
-            <button class="c-addresses__mapButton c-button--large c-button--submit trigger-modal" data-modal-content-id="addAddress">
+            <button class="c-addresses__button c-button c-button--submit trigger-modal" data-modal-content-id="addAddress">
               Add Address
             </button>
           {% endif %}
@@ -66,35 +68,47 @@
           Other Addresses
         </h2>
         {% if customer.addresses.size == 1 %}
-          <div class="c-addresses__address">
+          <div class="c-addresses__text">
             You don't have any other addresses.
           </div>
         {% else %}
-          {% for address in customer.addresses %}
-            {% if address != customer.default_address %}
-              <h4 class="c-addresses__subheading">
-                {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
-                <button class="c-button-icon c-button-icon--edit trigger-modal" data-modal-content-id="editAddress_{{ address.id }}">
-                  <i class="fas fa-pencil-alt"></i>
-                </button>
-              </h4>
-              <div class="c-addresses__address">
-                {% if address.company != '' and address.company != nil %}
-                  {{ address.company }}<br />
+          <div class="c-addresses__other o-flexFlip">
+            {% for address in customer.addresses %}
+              {% if address != customer.default_address %}
+                {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+                {% if thecycle == 'odd' %}
+                  {% assign flexClass = 'o-flexItem-40' %}
+                {% else %}
+                  {% assign flexClass = 'o-flexItem-60' %}
                 {% endif %}
-                {{ address.address1 }}<br />
-                {% if address.address2 != '' and address.address2 != nil %}
-                  {{ address.address2 }}<br />
-                {% endif %}
-                {{ address.city}}, {% if address.province_code %}{{ address.province_code }}, {% endif %} {{ address.zip }}<br />
-                {% if address.phone != '' and address.phone != nil %}
-                  {{ address.phone }}
-                {% endif %}
-              </div>
-            {% endif %}
-          {% endfor %}
-        {% endif %}
+                <div class="c-addresses__group {{ flexClass }}">
+                  <h4 class="c-addresses__subheading">
+                    {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
+                    <button class="c-button-icon c-button-icon--edit trigger-modal" data-modal-content-id="editAddress_{{ address.id }}">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                  </h4>
+                  <div class="c-addresses__text">
+                    {% if address.company != '' and address.company != nil %}
+                      {{ address.company }}<br />
+                    {% endif %}
+                    {{ address.address1 }}<br />
+                    {% if address.address2 != '' and address.address2 != nil %}
+                      {{ address.address2 }}<br />
+                    {% endif %}
+                    {{ address.city}}, {% if address.province_code %}{{ address.province_code }}, {% endif %} {{ address.zip }}<br />
+                    {% if address.phone != '' and address.phone != nil %}
+                      {{ address.phone }}
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         </div>
+        <button class="c-addresses__button c-address__button--other c-button-small c-button--secondary trigger-modal" data-modal-content-id="addAddress">
+          Add Address
+        </button>
       </div>
     </div>
   {% endif %}
