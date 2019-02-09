@@ -1,0 +1,53 @@
+<a class="c-productBox o-flexColumn trigger-product-buy" data-product-handle="{{ product.handle }}">
+  {% assign is_new = false %}
+  {% assign tags_array = product.tags | downcase %}
+  {% if tags_array contains "new" %}
+    {% assign is_new = true %}
+  {% endif %}
+  {% assign on_sale = false %}
+  {% if product.compare_at_price > product.price %}
+    {% assign on_sale = true %}
+  {% endif %}
+  <div class="c-productBox__images">
+    <img class="c-productBox__image" src="{{ product.images[0] | img_url: '1024x1024' }}" alt="{{ product.images[0].alt | escape}}" />
+  </div>
+  {% if on_sale %}
+    {% unless collection.handle == "on-sale" %}
+      <span class="c-productBox__badge c-productBox__badge--sale o-flexColumn">
+        Sale
+      </span>
+    {% endunless %}
+  {% elsif is_new %}
+    {% unless collection.handle == "new-arrivals" %}
+      <span class="c-productBox__badge c-productBox__badge--new o-flexColumn">
+        New
+      </span>
+    {% endunless %}
+  {% endif %}
+  <h4 class="c-productBox__title">
+    {{ product.title }}
+  </h4>
+  <div class="c-productBox__prices">
+    <span class="{% if on_sale == false %}c-productBox__basePrice{% else %}c-productBox__comparePrice{% endif %}">
+      {% if product.price_varies %}
+        {{ product.price_min | money }} - {{ product.price_max | money }}
+      {% else %}
+        {{ product.price | money }}
+      {% endif %}
+    </span>
+    {% if on_sale %}
+      <span class="c-productBox__salePrice">
+        {% if product.price_varies %}
+          {{ product.price_min | money }} - {{ product.price_max | money }}
+        {% else %}
+          {{ product.price | money }}
+        {% endif %}
+        {% comment %} {% if product.compare_at_price_varies %}
+          {{ product.compare_at_price_min | money }} - {{ product.compare_at_price_max | money }}
+        {% else %}
+          {{ product.compare_at_price | money }}
+        {% endif %} {% endcomment %}
+      </span>
+    {% endif %}
+  </div>
+</a>

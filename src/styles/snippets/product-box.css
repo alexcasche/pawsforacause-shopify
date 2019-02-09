@@ -1,0 +1,58 @@
+/*========== Product Box ==========*/
+
+.c-productBox {
+  width: 100%;
+  user-select: none;
+}
+.c-productBox__images {
+  position: relative;
+}
+.c-productBox__badge {
+  position: relative;
+  width: 70px;
+  height: 30px;
+  margin: -10px auto 10px;
+  padding-top: 1px;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+.c-productBox__badge--new {
+  background-color: $color-blue;
+}
+.c-productBox__badge--sale {
+  background-color: $color-red;
+}
+.c-productBox__title {
+  margin-bottom: 5px;
+  color: $color-black-dark;
+  text-align: center;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.c-productBox__prices {
+  @mixin flexColumn;
+}
+.c-productBox__basePrice, .c-productBox__salePrice {
+  font-size: 16px;
+  font-weight: 600;
+}
+.c-productBox__basePrice {
+  color: $color-black-light;
+}
+.c-productBox__salePrice {
+  color: $color-red-dark;
+}
+.c-productBox__comparePrice {
+  margin-bottom: 5px;
+  color: $color-gray;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: line-through;
+}
+.c-productBox:hover {
+  .c-productBox__basePrice, .c-productBox__salePrice {
+    color: $color-blue;
+  }
+}

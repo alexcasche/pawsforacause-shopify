@@ -1,14 +1,21 @@
 /*========== Colors ==========*/
 
 .u-color--primary {
-  color: $color-primary !important;
+  color: $color-primary;
 }
 .u-color--secondary {
-  color: $color-primary !important;
+  color: $color-primary;
 }
 .u-color--warning {
-  color: $color-warning !important;
+  color: $color-warning;
 }
 .u-color--danger {
-  color: $color-danger !important;
+  color: $color-danger;
+}
+
+.u-bg-gray {
+  background-color: $bg-gray;
+}
+.u-bg-gray-light {
+  background-color: $bg-gray-light;
 }

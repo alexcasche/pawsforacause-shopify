@@ -30,6 +30,12 @@ input, textarea, select {
 select {
   appearance: none;
   margin-bottom: 0;
+  &:focus {
+    border-color: #ddd;
+  }
+  &:hover {
+    cursor: pointer;
+  }
 }
 input[type='checkbox'], input[type='radio'] {
   width: auto;

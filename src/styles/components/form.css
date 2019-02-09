@@ -42,8 +42,9 @@
     right: 15px;
     color: $color-black;
     font-family: "Font Awesome 5 Free";
-    content: "\f0dc";
     font-size: 14px;
+    content: "\f0dc";
+    pointer-events: none;
   }
 }
 .c-form__checkbox {

@@ -1,0 +1,10 @@
+<div class="c-collectionGrid o-lost">
+  {% paginate collection.products by 48 %}
+    {% for product in collection.products %}
+      <div class="c-collectionGrid__item o-lost-item">
+        {% include 'product-box' with product %}
+      </div>
+    {% endfor %}
+    {{ paginate | default_pagination }}
+  {% endpaginate %}
+</div>

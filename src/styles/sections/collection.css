@@ -1,10 +1,54 @@
 /*========== Collection ==========*/
 
-/* .c-collection {
-  @mixin padding-section;
+.c-collection__top {
+  padding: 15px 0;
+}
+.c-collection__control {
+  @mixin flexRow;
+}
+.c-collection__label {
+  margin-right: 10px;
+  color: $color-black;
+  font-size: 14px;
+  font-weight: 600;
+  @media(--mobile-max) {
+    display: none;
+  }
+}
+.c-collection__select {
+  @mixin flex row, flex-start, center;
+  position: relative;
+  min-width: 150px;
+  @media(--xs) {
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  &:after {
+    position: absolute;
+    right: 15px;
+    color: $color-blue;
+    font-family: "Font Awesome 5 Free";
+    font-size: 12px;
+    content: "\f078";
+    pointer-events: none;
+  }
+}
+.c-collection__selectInner {
+  height: 32px;
+  color: $color-black-light;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 30px;
 }
 
-.c-collection__inner {
+
+/* .c-collection {
+  @mixin padding-section;
+} */
+
+/* .c-collection__inner {
   @mixin flex column, center, center;
   @mixin container-large;
 }
@@ -45,7 +89,4 @@
 .c-collection__itemPrice {
   margin-bottom: 0;
   color: $color-black;
-}
-
-.c-collection__button {
 } */

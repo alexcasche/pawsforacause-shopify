@@ -1,9 +1,5 @@
 /*========== Account Details ==========*/
 
-.c-addresses__top {
-  padding-bottom: 0;
-}
-
 .c-account__heading, .c-account__subheading {
   margin-bottom: 5px;
   @media(--mobile-max) {

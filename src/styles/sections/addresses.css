@@ -1,8 +1,9 @@
 /*========== Addresses ==========*/
 
 .c-addresses__top {
-  @media(--mobile-max) {
+  @media(--xs) {
     padding-bottom: 0;
+    margin-bottom: 20px;
   }
 }
 .c-addresses__container, .c-addresses__primary, .c-addresses__secondary {
@@ -65,7 +66,6 @@
   height: 50vw;
   max-height: 350px;
   padding: 0;
-  margin-bottom: 20px;
   @media(--tablet) {
     height: 32vw;
     margin-bottom: 0;
