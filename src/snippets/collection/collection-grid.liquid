@@ -5,6 +5,6 @@
         {% include 'product-box' with product %}
       </div>
     {% endfor %}
-    {{ paginate | default_pagination }}
+    {% include 'paginate' with paginate %}
   {% endpaginate %}
 </div>

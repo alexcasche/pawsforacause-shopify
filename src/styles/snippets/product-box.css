@@ -51,6 +51,11 @@
   font-size: 14px;
   text-decoration: line-through;
 }
+.c-productBox__soldOut {
+  color: $color-red-dark;
+  font-size: 16px;
+  text-transform: uppercase;
+}
 .c-productBox:hover {
   .c-productBox__basePrice, .c-productBox__salePrice {
     color: $color-blue;

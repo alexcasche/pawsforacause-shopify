@@ -1,0 +1,17 @@
+<div class="c-paginate o-flexRow">
+  {% if paginate.previous.is_link %}
+    <a class="c-paginate__bubble c-paginate__bubble-direction o-flexColumn" href="{{ paginate.previous.url }}">
+      <i class="c-paginate__icon fas fa-angle-left"></i>
+    </a>
+  {% endif %}
+  {% for part in paginate.parts %}
+    <a class="c-paginate__bubble{% unless part.is_link %} is-active{% endunless %} o-flexColumn" href="{{ part.url }}">
+      {{ forloop.index }}
+    </a>
+  {% endfor %}
+  {% if paginate.next.is_link %}
+  <a class="c-paginate__bubble c-paginate__bubble-direction o-flexColumn" href="{{ paginate.next.url }}">
+    <i class="c-paginate__icon fas fa-angle-right"></i>
+  </a>
+  {% endif %}
+</div>
