@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="u-hidden" id="modal">
+  <div v-if="prerender || contentId">
     <transition name="overlay-fade">
       <Overlay v-if="contentId" />
     </transition>
@@ -21,6 +21,16 @@ import Overlay from '../shared/Overlay.vue'
 import ModalBox from './ModalBox.vue'
 
 export default {
+  props: {
+    prerender: {
+      type: Boolean,
+      default: false
+    },
+    contentId: {
+      type: [Boolean, String],
+      default: false
+    }
+  },
   components: {
     Overlay,
     ModalBox,
@@ -55,7 +65,7 @@ export default {
     },
   },
   mounted() {
-    document.body.appendChild(document.getElementById("modal"));
+    document.getElementById("modal").appendChild(this.$el);
     this.setClickEvents();
   }
 }
