@@ -3,10 +3,10 @@
     <span class="c-sidemenu__searchIcon">
       {% include 'icon-search' %}
     </span>
-    <input class="c-sidemenu__searchInput" type="text" placeholder="Search..." name="q" />
+    <input class="c-sidemenu__searchInput" type="text" placeholder="{{ section.settings.search_text }}" name="q" />
   </form>
   <ul class="c-sidemenu__list c-sidemenu__primary">
-    {% for link in linklists.mobile-menu.links %}
+    {% for link in linklists[section.settings.main_nav].links %}
       <li class="c-sidemenu__item">
         {% if link.links.size <= 0 %}
           <a class="c-sidemenu__link" href="{{ link.url }}" title="{{ link.title }}">
@@ -25,7 +25,7 @@
                 <span class="c-sidemenu__linkIcon c-sidemenu__backIcon">
                   {% include 'icon-chevron' %}
                 </span>
-                Back
+                {{ section.settings.back_text }}
               </a>
             </li>
             {% for link in link.links %}
@@ -39,19 +39,70 @@
           {% endif %}
       </li>
     {% endfor %}
-    <li class="c-sidemenu__shipping">
-      Free Shipping On Orders Over $100
-    </li>
+    {% if section.settings.show_message %}
+      <li class="c-sidemenu__shipping">
+        Free Shipping On Orders Over $100
+      </li>
+    {% endif %}
     <li class="c-sidemenu__account">
-      {% if customer %}
-        <a class="c-sidemenu__accountLink" href="/account">Account</a>
-        <a class="c-sidemenu__accountLink" href="/logout">Logout</a>
-      {% else %}
-        <a class="c-sidemenu__accountLink" href="/account/login">Sign In</a>
-        <a class="c-sidemenu__accountLink" href="/account/register">Create Account</a>
-      {% endif %}
+       {% for nav in linklists[section.settings.account_nav].links %}
+          {% if customer and nav.title == 'User' %}
+            {% assign account_nav = nav %}
+          {% else %}
+            {% assign account_nav = nav %}
+          {% endif %}
+        {% endfor %}
+        {% for link in account_nav.links %}
+           <a class="c-sidemenu__accountLink" href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+        {% endfor %}
     </li>
   </ul>
 </nav>
 
 {{ 'sidemenu.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+	"name": "Sidemenu",
+	"settings": [
+    {
+      "type": "header",
+      "content": "Sidemenu"
+    },
+    {
+      "type": "text",
+      "id": "search_text",
+      "label": "Search Placeholder",
+      "default": "Search..."
+    },
+    {
+      "type": "link_list",
+      "id": "main_nav",
+      "label": "Main Navigation"
+    },
+    {
+      "type": "text",
+      "id": "back_text",
+      "label": "Back Link Text",
+      "default": "back"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_message",
+      "label": "Show Message",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message",
+      "default": "Free shipping on orders over $100"
+    },
+    {
+      "type": "link_list",
+      "id": "account_nav",
+      "label": "Account Navigation"
+    }
+  ]
+}
+{% endschema %}

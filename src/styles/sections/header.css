@@ -70,7 +70,7 @@
     width: 24px;
     fill: $color-black-dark;
   }
-  @media(--mobile) {
+  @media(--tablet) {
     &:hover svg {
       fill: $color-blue;
     }

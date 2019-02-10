@@ -21,8 +21,10 @@
 .c-sidemenu__search {
   @mixin flex row, flex-start, center;
   padding: 0 30px;
+  height: 60px;
   background-color: $bg-gray-light;
   border-bottom: 1px solid $hr-gray-light;
+  box-sizing: content-box;
 }
 .c-sidemenu__searchIcon {
   position: relative;
@@ -71,10 +73,11 @@
   display: block;
   position: relative;
   padding: 0 30px;
-  color: $color-black;
+  color: $color-blue-dark;
   line-height: 60px;
   font-size: 16px;
   font-weight: 500;
+  text-transform: capitalize;
   &:hover {
     cursor: pointer;
   }
@@ -86,7 +89,7 @@
   @mixin flex row, center, center;
   height: 60px;
   width: 12px;
-  fill: $color-black-light;
+  fill: $color-blue-dark;
   svg {
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
@@ -121,7 +124,5 @@
   margin-right: 30px;
   font-size: 16px;
   line-height: 40px;
-  &:hover {
-    color: $color-blue-dark;
-  }
+  color: $color-blue-dark
 }
