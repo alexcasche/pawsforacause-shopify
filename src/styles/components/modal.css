@@ -5,12 +5,14 @@
   padding: 100px 0;
 }
 .c-modal__box {
+  display: inline-block;
+  width: auto;
+  margin: 0 auto;
   padding: 30px;
   background-color: $bg-gray-light;
   @media(--mobile) {
     padding: 40px;
     position: relative;
-    max-width: 750px;
     margin: 0 auto;
     border-radius: $border-radius-card;
     border: 1px solid #d3d3d3;

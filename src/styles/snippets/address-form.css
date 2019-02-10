@@ -1,6 +1,8 @@
 /*========== Address Form ==========*/
 
 .c-addressForm {
+  width: 750px;
+  max-width: 100%;
   .c-addressForm__heading {
     margin-bottom: 20px;
   }

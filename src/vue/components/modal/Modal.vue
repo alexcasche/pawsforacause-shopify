@@ -1,17 +1,15 @@
 <template lang="html">
-  <div v-if="prerender || contentId">
+  <div class="c-modal o-flexColumn" v-if="prerender || contentId">
     <transition name="overlay-fade">
       <Overlay v-if="contentId" />
     </transition>
-    <div class="c-modal">
-      <ModalBox
-        @closeClick="setModal"
-        :contentId="contentId" 
-        :setClickEvents="setClickEvents"
-      >
-        <slot />
-      </ModalBox>
-    </div>
+    <ModalBox
+      @closeClick="setModal"
+      :contentId="contentId" 
+      :setClickEvents="setClickEvents"
+    >
+      <slot />
+    </ModalBox>
   </div>
 </template>
 
