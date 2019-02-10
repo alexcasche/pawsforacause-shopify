@@ -1,0 +1,119 @@
+<footer id="footer" class="c-footer" aria-label="Footer">
+  <div class="c-footerMain">
+    <div class="c-footerMain__wrapper o-container">
+      <nav role="navigation" aria-label="Footer Navigation" class="c-footerMain__nav">
+        {% for nav in linklists[section.settings.main_nav].links %}
+          <div class="c-footerMain__group">
+            <h4 class="c-footerMain__heading">
+              {{ nav.title }}
+            </h4>
+            <ul class="c-footerMain__list">
+              {% for link in nav.links %}
+                <li class="c-footerMain__item{{ socialClass }}">
+                  <a class="c-footerMain__link" href="{{ link.url }}" title="{{ link.title }}">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+        {% if section.settings.show_social %}
+          <div class="c-footerMain__group c-footerMain__group--social">
+            <h4 class="c-footerMain__heading">
+              {{ section.settings.social_heading }}
+            </h4>
+            <ul class="c-footerMain__socialList">
+              {% assign socialIcons = section.settings.social_icons | split:',' %}
+              {% for link in linklists.social-navigation.links %}
+                <li class="c-footerMain__socialItem">
+                  <a class="c-footerMain__socialLink" href= "{{ link.url }}" target="_blank">
+                    <i class="c-footerMain__socialIcon c-footerMain__socialIcon--{{ link.title | downcase }} fab fa-{{ socialIcons[forloop.index0] }}"></i>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </nav>
+      <div class="c-footerMain__legal">
+        Looking for an assistance dog? &nbsp; 
+        <br class="c-footerMain__legalBreak" /> 
+        Check out our friends 
+        <a class="c-footerMain__legalLink" href="https://pawswithacause.org" target="_blank">
+          Paws With A Cause
+        </a>
+      </div>
+      <div class="c-footerMain__legal">
+        © {{ 'now' | date: "%Y" }} {{ shop.name }}
+        <br class="c-footerMain__legalBreak" />
+        <ul class="c-footerMain__legalList">
+          {% for link in linklists.legal-menu.links %}
+            <li clas="c-footerMain__legalItem">
+              <span class="c-footerMain__legalPipe c-footerMain__legalPipe--{{ forloop.index0 }}">&nbsp;|&nbsp;</span>
+              <a class="c-footerMain__legalLink" href="{{ link.url }}" title="{{ link.title }}">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="c-footerLogo">
+    <a class="c-footerLogo__link" href="/">
+      <img class="c-footerLogo__logo" src="{{ section.settings.logo | asset_url }}"  alt="{{ shop.name }}" />
+    </a>
+  </div>
+</footer>
+
+
+{% schema %}
+{
+	"name": "Footer",
+	"settings": [
+    {
+      "type": "header",
+      "content": "Footer Main"
+    },
+    {
+      "type": "link_list",
+      "id": "main_nav",
+      "label": "Main Navigation"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show Social Navigation",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "social_heading",
+      "label": "Social Navigation Heading",
+      "default": "Community"
+    },
+    {
+      "type": "text",
+      "id": "social_icons",
+      "label": "Social Icons",
+      "info": "Comma Separated FontAwesome Classes"
+    },
+    {
+      "type": "header",
+      "content": "Footer Legal"
+    },
+     {
+      "type": "header",
+      "content": "Footer Logo"
+    },
+    {
+      "type": "text",
+      "id": "logo",
+      "label": "Logo",
+      "info": "Asset File",
+      "default": "logo-white.svg"
+    }
+  ]
+}
+{% endschema %}

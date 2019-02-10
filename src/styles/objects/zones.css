@@ -1,6 +1,7 @@
 /*========== Zones ==========*/
 
 #header {
+  position: relative;
   z-index: $z-index-header;
   user-select: none;
 }
@@ -17,6 +18,7 @@
 }
 
 #footer {
+  position: relative;
   z-index: $z-index-footer;
   user-select: none;
 }
@@ -37,7 +39,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  user-select: none;
   overflow-y: scroll;
   z-index: $z-index-modal;
+  user-select: none;
 }

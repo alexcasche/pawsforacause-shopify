@@ -2,16 +2,11 @@
 
 .c-header {
   width: 100%;
-  position: relative;
-  z-index: $z-index-header;
   height: 90px;
   @media(--tablet) {
     height: 160px;
   }
 }
-
-
-/*========== HeaderBar ==========*/
 
 .c-headerBar {
   position: fixed;
@@ -32,10 +27,7 @@
   margin: 0 4px;
 }
 
-
-/*========== HeaderTop ==========*/
-
-.c-headerTop {
+.c-headerMain {
   width: 100%;
   @mixin flex row, center, center;
   background-color: white;
@@ -52,22 +44,22 @@
     border-bottom: 1px solid $hr-gray-light;
   }
 }
-.c-headerTop__wrapper {
+.c-headerMain__wrapper {
   height: 100%;
   @mixin flex row, center, center;
 }
-.c-headerTop__logo {
+.c-headerMain__logo {
   display: block;
   height: 40px;
   @media(--tablet) {
     height: 48px; 
   }
 }
-.c-headerTop__logoIcon {
+.c-headerMain__logoIcon {
   display: block;
   height: 100%;
 }
-.c-headerTop__menu, .c-headerTop__cart {
+.c-headerMain__menu, .c-headerMain__cart {
   @mixin hide-tablet;
   position: fixed;
   padding: 0;
@@ -78,18 +70,20 @@
     width: 24px;
     fill: $color-black-dark;
   }
-  &:hover svg {
-    fill: $color-blue;
+  @media(--mobile) {
+    &:hover svg {
+      fill: $color-blue;
+    }
   }
 }
-.c-headerTop__menu {
+.c-headerMain__menu {
   left: 0;
 }
-.c-headerTop__cart {
+.c-headerMain__cart {
   right: 0;
   margin-top: -2px;
 }
-.c-headerTop__cartCount {
+.c-headerMain__cartCount {
   @mixin flex row, center, center;
   position: absolute;
   background-color: #f94331;
@@ -102,23 +96,20 @@
   width: 16px;
   height: 16px;
 }
-.c-headerTop__burger svg {
+.c-headerMain__burger svg {
   position: relative;
   top: 1px;
   fill: $color-black;
   width: 22px;
 }
-.c-headerTop__close svg {
+.c-headerMain__close svg {
   position: relative;
   top: 1px;
   fill: $color-black;
   width: 18px;
 }
 
-
-/*========== HeaderBottom ==========*/
-
-.c-headerBottom {
+.c-headerNav {
   @mixin show-tablet;
   position: absolute;
   top: 110px;
@@ -131,17 +122,17 @@
     top: 30px;
   }
 }
-.c-headerBottom__wrapper {
+.c-headerNav__wrapper {
   height: 100%;
 }
-.c-headerBottom__nav {
+.c-headerNav__nav {
   height: 100%;
   @mixin flex row, space-between, center;
 }
-.c-headerBottom__account {
+.c-headerNav__account {
   margin-left: -15px;
 }
-.c-headerBottom__burger {
+.c-headerNav__burger {
   height: 50px;
   width: 50px;
   @mixin flex row, center, center;
@@ -153,18 +144,18 @@
     height: 14px;
   }
 }
-.c-headerBottom__list {
+.c-headerNav__list {
   @mixin flex row, center, center;
 }
-.c-headerBottom__item {
+.c-headerNav__item {
   margin-left: 30px;
   &:hover {
-    .c-headerBottom__drop {
+    .c-headerNav__drop {
       display: block;
     }
   }
 }
-.c-headerBottom__link {
+.c-headerNav__link {
   display: block;
   color: $color-black-dark;
   font-weight: 600;
@@ -175,7 +166,7 @@
     color: $color-blue;
   }
 }
-.c-headerBottom__drop {
+.c-headerNav__drop {
   display: none;
   position: absolute;
   margin-top: -2px;
@@ -208,7 +199,7 @@
     border-radius: $border-radius-card;
   }
 }
-.c-headerBottom__dropLink {
+.c-headerNav__dropLink {
   display: block;
   padding: 0 24px;
   color: $color-black-dark;
@@ -221,7 +212,7 @@
     color: $color-blue;
   }
 }
-.c-headerBottom__cart {
+.c-headerNav__cart {
   position: relative;
   height: 50px;
   width: 50px;
@@ -237,7 +228,7 @@
     height: 20px;
   }
 }
-.c-headerBottom__cartCount {
+.c-headerNav__cartCount {
   @mixin flex row, center, center;
   position: absolute;
   background-color: #f94331;

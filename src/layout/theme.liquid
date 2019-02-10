@@ -8,13 +8,13 @@
 {% if handle != "challenge" %}
   <body id="body">
     <div id="view">
-      {% include 'header' %}
+      {% section 'header' %}
       <div id="page">
         {{ content_for_layout }}
       </div>
-      {% include "footer" %}
+      {% section "footer" %}
     </div>
-    {% include "sidemenu" %}
+    {% section "sidemenu" %}
     <vue-cart></vue-cart>
     <div id="modal" class="u-hidden"></div>
     {% include 'script-tags' %}

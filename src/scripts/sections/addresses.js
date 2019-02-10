@@ -19,14 +19,6 @@ const readyInterval = setInterval(() => {
   }
 }, 250)
 
-
-
-// console.log(provinceSelect);
-// provinceSelect.classList.add("u-hidden");
-
-// const countrySelectors = document.querySelectorAll(".data-countries");
-// const provinceSelectors = document.querySelectorAll(".data-provinces");
-
 const windowAddress = window.Site.defaultAddress;
 const googleUrl = "https://maps.googleapis.com/maps/api/staticmap";
 const googleKey = "&key=AIzaSyD-8X1D8u6v43jwi1D0Nhgo-xXU5l3Prg8";

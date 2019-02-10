@@ -1,10 +1,9 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Skeleton theme",
+    "theme_name": "Paws For A Cause",
     "theme_version": "1.0.0",
-    "theme_author": "Shopify",
-    "theme_documentation_url": "https://github.com/Shopify/skeleton-theme",
-    "theme_support_url": "https://github.com/Shopify/skeleton-theme/issues"
+    "theme_author": "Alex Asche",
+    "theme_support_email": "alexcasche@gmail.com"
   }
 ]
