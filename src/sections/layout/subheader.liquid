@@ -1,26 +1,75 @@
-<div class="c-collection__top o-strip u-bg-gray">
-    <div class="c-collection__controls o-container o-flexFlip">
-      <div class="c-collection__control">
-        <span class="c-collection__label">
-          Browse
-        </span>
-        <div class="c-collection__select">
-          <select class="c-collection__selectInner" title="Browse" name="collection-browse">
-            <option>For Dogs</option>
-            <option>For People</option>
-          </select>
-        </div>
-      </div>
-      <div class="c-collection__control">
-        <span class="c-collection__label">
-          Sort
-        </span>
-        <div class="c-collection__select">
-          <select class="c-collection__selectInner" title="Browse" name="collection-browse">
-            <option>Best Selling</option>
-            <option>A-Z</option>
-          </select>
-        </div>
-      </div>
+{% for block in section.blocks %}
+  {% if block.type == "navigation" %}
+    {% assign nav_templates = block.settings.templates | split: "," %}
+    {% assign nav_pages = block.settings.pages | split: "," %}
+    {% if nav_templates contains template.name or nav_pages contains page.handle %}
+      {% assign nav_menu = block.settings.menu | handleize %}
+      {% assign nav_icon = block.settings.icon %}
+      {% assign nav_label = block.settings.label %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% if nav_menu %}
+  <div id="subheader" class="c-subheader">
+    <div class="c-subheader__wrapper o-container">
+      <span class="c-subheader__label">
+        {% if block.settings.icon != blank %}
+          <i class="c-subheader__labelIcon {{ block.settings.icon }}"></i>
+        {% endif %}
+        {% if nav_menu == 'account' and customer %}
+          {{ customer.first_name }}
+        {% else %}
+          {{ block.settings.label }}
+        {% endif %}
+      </span>
+      <span class="c-subheader__select">
+        <select class="c-subheader__selectInner">
+          <option>Account</option>
+        </select>
+      </span>
     </div>
   </div>
+{% endif %}
+
+{% schema %}
+{
+	"name": "Subheader",
+  "blocks": [
+    {
+      "type": "navigation",
+      "name": "Navigation",
+      "settings": [
+        {
+          "id": "menu",
+          "type": "text",
+          "label": "Navigation Menu",
+          "info": "Must match subheader navigation"
+        },
+        {
+          "id": "icon",
+          "type": "text",
+          "label": "Navigation Icon",
+          "info": "FontAwesome class"
+        },
+        {
+          "id": "label",
+          "type": "text",
+          "label": "Navigation Label"
+        },
+        {
+          "id": "templates",
+          "type": "text",
+          "label": "Templates",
+          "info": "Show on these templates"
+        },
+        {
+          "id": "pages",
+          "type": "text",
+          "label": "Pages",
+          "info": "Show on these pages"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

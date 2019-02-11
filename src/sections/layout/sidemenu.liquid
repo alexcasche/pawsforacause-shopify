@@ -41,7 +41,7 @@
     {% endfor %}
     {% if section.settings.show_message %}
       <li class="c-sidemenu__shipping">
-        Free Shipping On Orders Over $100
+        {{ section.settings.message }}
       </li>
     {% endif %}
     <li class="c-sidemenu__account">

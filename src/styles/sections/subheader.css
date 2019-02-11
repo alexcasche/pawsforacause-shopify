@@ -1,0 +1,49 @@
+/*========== Subheader ==========*/
+
+.c-subheader {
+  height: 44px;
+  background-color: $bg-gray-light;
+  box-shadow: $box-shadow-header;
+}
+.c-subheader__wrapper {
+  @mixin flex row, space-between, center;
+  height: 100%;
+}
+.c-subheader__label {
+  color: $color-black-dark;
+  font-size: 15px;
+
+}
+.c-subheader__labelIcon {
+  position: relative;
+  top: 1px;
+  margin-right: 5px;
+  font-size: 18px;
+  color: $color-blue-dark;
+ 
+}
+.c-subheader__select {
+  @mixin flexRow;
+  position: relative;
+  width: auto;
+  &:after {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    color: $color-blue;
+    font-family: "Font Awesome 5 Free";
+    font-size: 12px;
+    content: "\f107";
+    pointer-events: none;
+  }
+}
+.c-subheader__selectInner {
+  height: 100%;
+  padding-right: 15px;
+  background-color: transparent;
+  border: none;
+  color: $color-black;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: initial;
+}

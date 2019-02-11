@@ -6,6 +6,12 @@
   user-select: none;
 }
 
+#subheader {
+  position: relative;
+  z-index: $z-index-subheader;
+  user-select: none;
+}
+
 #view {
   min-width: 100vw;
   position: relative;
