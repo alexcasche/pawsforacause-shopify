@@ -46,4 +46,12 @@
   font-size: 15px;
   font-weight: 600;
   line-height: initial;
+  opacity: 0;
+}
+.c-subheader__selectLabel {
+  position: absolute;
+  right: 15px;
+  pointer-events: none;
+  color: $color-black-dark;
+  font-size: 15px;
 }

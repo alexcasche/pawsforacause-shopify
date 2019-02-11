@@ -1,4 +1,4 @@
-/******* Cart Page Events *******/
+/******* Cart *******/
 
 const cartTrigger = document.querySelectorAll(".trigger-cart")[0];
 const cartInterval = setInterval(initCart, 1);

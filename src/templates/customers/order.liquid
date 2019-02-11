@@ -1,2 +1,3 @@
 {% section 'order' %}
-{{ 'order.js' | asset_url | script_tag }}
+
+<script src="{{ 'order.js' | asset_url }}" defer="defer"></script>

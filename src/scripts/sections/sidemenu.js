@@ -1,4 +1,4 @@
-/******* Click Events *******/
+/******* Sidemenu *******/
 
 function toggleSidemenu() {
   document.body.classList.toggle("sidemenu-open");
@@ -18,8 +18,6 @@ function toggleSidemenuSecondary(event) {
 const sidemenuSecondaryTriggers = document.querySelectorAll(".trigger-sidemenu-secondary");
 sidemenuSecondaryTriggers.forEach(trigger => trigger.addEventListener("click", toggleSidemenuSecondary));
 
-
-/******* Window Events *******/
 
 window.addEventListener("resize", () => {
   if(window.innerWidth > 767) {

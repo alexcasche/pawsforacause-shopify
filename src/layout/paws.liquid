@@ -15,6 +15,6 @@
     {{ content_for_layout }}
   </div>
   {% if canonical_url contains 'account' %}
-    {{ 'auth.js' | asset_url | script_tag }}
+    <script src="{{ 'auth.js' | asset_url }}" defer="defer"></script>
   {% endif %}
 </body>

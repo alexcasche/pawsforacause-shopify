@@ -1,35 +1,51 @@
 {% for block in section.blocks %}
-  {% if block.type == "navigation" %}
-    {% assign nav_templates = block.settings.templates | split: "," %}
+  {% if block.type == "navigation" %}    
     {% assign nav_pages = block.settings.pages | split: "," %}
-    {% if nav_templates contains template.name or nav_pages contains page.handle %}
-      {% assign nav_menu = block.settings.menu | handleize %}
+    {% if block.settings.templates contains template.name or block.settings.pages contains page.handle %}
+      {% assign nav_handle = block.settings.menu | handleize %}
       {% assign nav_icon = block.settings.icon %}
       {% assign nav_label = block.settings.label %}
+      {% for nav in linklists.subheader-navigation.links %}
+        {% assign nav_title = nav.title | handleize %}
+        {% if nav_title == nav_handle %}
+          {% assign nav_menu = nav %}
+        {% endif %}
+      {% endfor %}
     {% endif %}
   {% endif %}
 {% endfor %}
-{% if nav_menu %}
+{% if nav_handle %}
   <div id="subheader" class="c-subheader">
     <div class="c-subheader__wrapper o-container">
       <span class="c-subheader__label">
-        {% if block.settings.icon != blank %}
-          <i class="c-subheader__labelIcon {{ block.settings.icon }}"></i>
+        {% if nav_icon != blank %}
+          <i class="c-subheader__labelIcon {{ nav_icon }}"></i>
         {% endif %}
-        {% if nav_menu == 'account' and customer %}
+        {% if nav_handle == 'account' and customer %}
           {{ customer.first_name }}
         {% else %}
-          {{ block.settings.label }}
+          {{ nav_label }}
         {% endif %}
       </span>
       <span class="c-subheader__select">
-        <select class="c-subheader__selectInner">
-          <option>Account</option>
+        <select id="subheader-select" class="c-subheader__selectInner">
+          {% for link in nav_menu.links %}
+            {% if link.url == "/account/orders/" %}
+              {% if template.name == "order" %}
+                <option value="{{ order.customer_url }}" selected="selected">{{ link.title }} {{ order.name }}</option>
+              {% endif %}
+            {% else %}
+              <option value="{{ link.url }}">{{ link.title }}</option>
+            {% endif %}
+          {% endfor %}
         </select>
+        <span id="subheader-select-label" class="c-subheader__selectLabel"></span>
       </span>
     </div>
   </div>
 {% endif %}
+
+<script src="{{ 'subheader.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {

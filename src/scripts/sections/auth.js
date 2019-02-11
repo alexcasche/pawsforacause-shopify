@@ -1,4 +1,4 @@
-/******* Login Page Events *******/
+/******* Auth *******/
 
 if(window.location.href.indexOf("account/login") > -1) {
   const loginForm =  document.getElementById("loginForm");

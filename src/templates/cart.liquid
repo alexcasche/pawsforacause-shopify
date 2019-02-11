@@ -1,2 +1,3 @@
 {% include 'homepage' %}
-{{ 'cart.js' | asset_url | script_tag }}
+
+<script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>

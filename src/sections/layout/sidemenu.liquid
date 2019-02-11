@@ -59,7 +59,7 @@
   </ul>
 </nav>
 
-{{ 'sidemenu.js' | asset_url | script_tag }}
+<script src="{{ 'sidemenu.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
