@@ -4,6 +4,19 @@
     "theme_name": "Paws For A Cause",
     "theme_version": "1.0.0",
     "theme_author": "Alex Asche",
-    "theme_support_email": "alexcasche@gmail.com"
+    "theme_support_email": "alexcasche@gmail.com",
+    "theme_documentation_url": "https://github.com/alexcasche/pawsforacause-shopify"
+  },
+  {
+    "name": "General",
+    "settings": [
+      {
+        "type": "text",
+        "id": "shipping_threshold",
+        "label": "Shipping Threshold",
+        "info": "Total Until Free Shipping",
+        "default": "100"
+      }
+    ]
   }
 ]

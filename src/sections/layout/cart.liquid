@@ -1,0 +1,74 @@
+{% assign settings_json = section.settings | json | escape %}
+{% assign collection_json = collections[section.settings.upsell_collection].products | json | escape %}
+{% assign shipping_threshold = settings.shipping_threshold %}
+
+<vue-cart settings='{{ settings_json }}' collection='{{ collection_json }}' shipping_threshold='100'></vue-cart>
+
+{% schema %}
+{
+	"name": "Cart",
+	"settings": [
+    {
+      "type": "header",
+      "content": "Cart Main"
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "Cart"
+    },
+    {
+      "type": "text",
+      "id": "main_subtotal",
+      "label": "Main Subtotal Text",
+      "default": "Subtotal:"
+    },
+    {
+      "type": "text",
+      "id": "main_checkout",
+      "label": "Main Checkout Text",
+      "default": "Checkout"
+    },
+    {
+      "type": "header",
+      "content": "Cart Upsell"
+    },
+    {
+      "type": "text",
+      "id": "upsell_message",
+      "label": "Upsell Message",
+      "default": "Add {{ untilFreeShipping }} for free shipping!",
+      "info": "Variable {{ untilFreeShipping }}"
+    },
+    {
+      "type": "collection",
+      "id": "upsell_collection",
+      "label": "Upsell Collection"
+    },
+    {
+      "type": "text",
+      "id": "upsell_add_text",
+      "label": "Upsell Add Text",
+      "default": "Add"
+    },
+    {
+      "type": "header",
+      "content": "Cart Add",
+      "info": "Appears After Add Product"
+    },
+    {
+      "type": "text",
+      "id": "add_quantity_text",
+      "label": "Add Quantity Text",
+      "default": "Quantity"
+    },
+    {
+      "type": "text",
+      "id": "add_button_text",
+      "label": "Add Button Text",
+      "default": "Add To Cart"
+    }
+  ]
+}
+{% endschema %}

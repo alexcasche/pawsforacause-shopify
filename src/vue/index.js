@@ -4,6 +4,7 @@ import store from './store'
 import 'document-register-element'
 import filters from './filters'
 import plugins from './plugins'
+import mixins from './mixins'
 import components from './components'
 
 Vue.config.devtools = true
@@ -26,6 +27,8 @@ Object.entries(components).forEach(
   (component) => {
     const [name, module] = component
     module.store = vuexStore
+    module.mixins = mixins
+    console.log(module.mixins);
     Vue.customElement(name, module)
   }
 )

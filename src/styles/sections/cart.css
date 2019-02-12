@@ -1,0 +1,19 @@
+/*========== Cart ==========*/
+
+.c-cart {
+
+}
+.c-cart__drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 400px;
+  max-width: 100%;
+  background-color: white;
+  text-align: center;
+  overflow-y: scroll;
+  z-index: $z-index-cart;
+  @mixin transition-slide;
+}

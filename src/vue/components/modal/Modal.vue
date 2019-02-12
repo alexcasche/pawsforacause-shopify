@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="c-modal o-flexColumn" v-if="prerender || contentId">
     <transition name="overlay-fade">
+      <div v-if="contentId" class="c-overlay" />
       <Overlay v-if="contentId" />
     </transition>
     <ModalBox
@@ -15,7 +16,6 @@
 
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex'
-import Overlay from '../shared/Overlay.vue'
 import ModalBox from './ModalBox.vue'
 
 export default {
@@ -30,7 +30,6 @@ export default {
     }
   },
   components: {
-    Overlay,
     ModalBox,
   },
   computed: {

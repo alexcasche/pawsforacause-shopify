@@ -1,14 +1,17 @@
 <template lang="html">
-  <div class="v-cart" id="cart">
+  <div class="c-cart" id="cart">
     <transition name="overlay-fade">
-      <Overlay v-if="isOpen" 
-        @overlayClick="toggleCart"
+      <span v-if="isOpen"  
+        class="c-overlay" 
+        @click="toggleCart"
       />
     </transition>
     <transition name="cart-slide">
       <CartDrawer v-if="isOpen" 
         @closeClick="toggleCart"
-        :cartCount="cartCount"
+        :settings="JSON.parse(settings)"
+        :collection="JSON.parse(collection)"
+        :shippingThreshold="parseFloat(shipping_threshold)"
       />
     </transition>
   </div>
@@ -16,12 +19,24 @@
 
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
-import Overlay from '../shared/Overlay.vue'
 import CartDrawer from './CartDrawer.vue'
 
 export default {
+  props: {
+    settings: {
+      type: String,
+      default: "{}"
+    },
+    collection: {
+      type: String,
+      default: "{}"
+    },
+    shipping_threshold: {
+      type: String,
+      default: ""
+    }
+  },
   components: {
-    Overlay,
     CartDrawer,
   },
   computed: {
