@@ -3,7 +3,7 @@
 import { CountryProvinceSelector } from '@shopify/theme-addresses';
 
 function buildSelects() {
-  const addressCountryProvinceSelector = new CountryProvinceSelector(window.Site.allCountryOptionTags);
+  const addressCountryProvinceSelector = new CountryProvinceSelector(window.theme.allCountryOptionTags);
   const countrySelects = document.querySelectorAll(".data-countries");
   const provinceSelects = document.querySelectorAll(".data-provinces");
   countrySelects.forEach((selects, index) => {
@@ -19,7 +19,7 @@ const readyInterval = setInterval(() => {
   }
 }, 250)
 
-const windowAddress = window.Site.defaultAddress;
+const windowAddress = window.theme.customer.defaultAddress;
 const googleUrl = "https://maps.googleapis.com/maps/api/staticmap";
 const googleKey = "&key=AIzaSyD-8X1D8u6v43jwi1D0Nhgo-xXU5l3Prg8";
 const googleParams = "&zoom=15&size=640x640&scale=2"

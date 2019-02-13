@@ -4,6 +4,7 @@ export default {
   shoppingCart: state => state.shoppingCart,
   cartCount: state => state.shoppingCart.count,
   cartSubtotal: state => state.shoppingCart.total,
-  freeShipping: state => state.freeShipping,
-  errorMessage: state => state.errorMessage
+  errorMessage: state => state.errorMessage,
+  settings: state => state.settings,
+  collection: state => state.collection
 };

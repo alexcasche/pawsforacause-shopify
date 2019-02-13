@@ -1,3 +1,5 @@
+import { filterCollection } from "@vue/helpers";
+
 export default {
   toggleCart(state) {
     state.isOpen = !state.isOpen
@@ -17,4 +19,12 @@ export default {
     state.errorMessage = payload
     return state
   },
+  setSettings(state, payload) {
+    state.settings = { ...JSON.parse(payload), ...window.theme.cart }
+    return state
+  },
+  setCollection(state, payload) {
+    state.collection = JSON.parse(payload)
+    return state
+  }
 }

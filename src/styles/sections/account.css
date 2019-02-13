@@ -109,7 +109,7 @@
   margin: 30px -30px 0;
 }
 .c-accountCart__item {
-  @mixin flex row, flex-start, center, no-wrap;
+  @mixin flex row, flex-start, center, nowrap;
   padding: 30px;
   border-top: 1px solid $hr-gray-light;
   transition: background-color .15s ease-in-out;

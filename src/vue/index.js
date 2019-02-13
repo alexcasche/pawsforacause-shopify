@@ -28,7 +28,6 @@ Object.entries(components).forEach(
     const [name, module] = component
     module.store = vuexStore
     module.mixins = mixins
-    console.log(module.mixins);
     Vue.customElement(name, module)
   }
 )

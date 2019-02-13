@@ -37,6 +37,7 @@
 #cart {
   position: relative;
   z-index: $z-index-cart;
+  user-select: none;
 }
 
 #modal {

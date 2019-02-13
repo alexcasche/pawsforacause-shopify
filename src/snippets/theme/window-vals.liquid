@@ -1,6 +1,7 @@
 <script>
-  window.Site = {};
-  window.Site.allCountryOptionTags = {{ all_country_option_tags | json }};
+  window.theme = {};
+  window.theme.allCountryOptionTags = {{ all_country_option_tags | json }};
+  window.theme.customer = {}
   {% assign address = customer.default_address %};
   {% if address %}
     var defaultAddress = "{{ address.address1 }}, ";
@@ -8,8 +9,14 @@
       defaultAddress += "{{ address.address2}}, "
     {% endif %}
     defaultAddress += "{{ address.city }}, {{ address.province }} {{ address.zip }}, {{ address.country }}"
-    window.Site.defaultAddress = defaultAddress;
-  {% else %}
-    window.Site.defaultAddress = false;
+    window.theme.customer.defaultAddress = defaultAddress;
   {% endif %}
+  window.theme.cart = { 
+    currency: {
+      iso: "{{ cart.currency.iso_code }}",
+      name: "{{ cart.currency.name }}",
+      symbol: "{{ cart.currency.symbol }}"
+    },
+    shipping_threshold: "{{ settings.shipping_threshold }}"
+  }
 </script>

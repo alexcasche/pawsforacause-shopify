@@ -1,8 +1,5 @@
 /*========== Cart ==========*/
 
-.c-cart {
-
-}
 .c-cart__drawer {
   position: fixed;
   top: 0;
@@ -12,8 +9,109 @@
   width: 400px;
   max-width: 100%;
   background-color: white;
-  text-align: center;
   overflow-y: scroll;
   z-index: $z-index-cart;
   @mixin transition-slide;
 }
+
+.c-cartHeader {
+  position: relative;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.c-cartHeader__close {
+  background-color: #eee;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50% !important;
+  &:hover {
+    background-color: #e8e8e8;
+  }
+}
+.c-cartHeader__closeIcon {
+  color: #ccc;
+  pointer-events: none;
+  line-height: 18px;
+  font-size: 16px;
+}
+.c-cartHeader__count {
+  @mixin flex row, center, center;
+  display: inline-flex;
+  position: relative;
+  top: -4px;
+  margin-left: 2px;
+  width: 22px;
+  min-width: 22px;
+  height: 22px;
+  background-color: $color-blue;
+  border-radius: 50%;
+  color: white;
+  font-size: 12px;
+  font-weight: bold; 
+}
+.c-cartHeader__subtotal {
+  display: block;
+  color: $color-gray;
+  font-size: 15px;
+  line-height: 18px;
+}
+.c-cartHeader__button {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.c-cartContent {
+  padding: 0 15px 30px;
+}
+.c-cartContent__empty {
+  width: 100%;
+  padding: 20px 0;
+  border-top: 1px solid $hr-gray-light;
+}
+.c-cartContent__emptyMessage, .c-cartContent__emptyAction {
+  display: block;
+  color: $color-gray-dark;
+  text-align: center;
+  line-height: 1.5;
+}
+.c-cartContent__emptyAction {
+  color: $color-blue-dark;
+}
+
+
+/* .c-cart__item {
+  width: 100%;
+  @mixin flex row, flex-start, center, nowrap;
+  padding: 20px 0;
+  border-top: 1px solid $hr-gray-light;
+}
+.c-cart__itemImage {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+}
+.c-cart__itemInfo {
+  width: 100%;
+  @mixin flex column, flex-start, flex-start;
+  margin-right: 20px;
+}
+.c-cart__itemVendor, .c-cart__itemVariant {
+  font-size: 10px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.c-cart__itemVendor {
+  color: $color-blue-dark;
+  font-weight: bold;
+}
+.c-cart__itemTitle {
+  color: $color-black;
+  line-height: 1.5;
+  font-size: 13px;
+}
+.c-cart__itemVariant {
+  color: $color-gray;
+} */

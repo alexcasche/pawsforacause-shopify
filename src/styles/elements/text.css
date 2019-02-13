@@ -1,7 +1,7 @@
 /*========== Text ==========*/
 
 body {
-  color: #666;
+  color: $color-gray-dark;
   font-family: Raleway,sans-serif;
   font-size: 16px;
   font-weight: 600;

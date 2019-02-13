@@ -7,27 +7,27 @@
       />
     </transition>
     <transition name="cart-slide">
-      <CartDrawer v-if="isOpen" 
-        @closeClick="toggleCart"
-        :settings="JSON.parse(settings)"
-        :collection="JSON.parse(collection)"
-        :shippingThreshold="parseFloat(shipping_threshold)"
-      />
+      <div v-if="isOpen" class="c-cart__drawer">
+        <CartHeader />
+        <CartContent />
+      </div>
     </transition>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
-import CartDrawer from './CartDrawer.vue'
+import CartHeader from './CartHeader.vue'
+import CartContent from './CartContent.vue'
+import CartUpsell from './CartUpsell.vue'
 
 export default {
   props: {
-    settings: {
+    settings_json: {
       type: String,
       default: "{}"
     },
-    collection: {
+    collection_json: {
       type: String,
       default: "{}"
     },
@@ -37,22 +37,21 @@ export default {
     }
   },
   components: {
-    CartDrawer,
+    CartHeader,
+    CartContent,
+    CartUpsell
   },
   computed: {
     ...mapState({ modalOpen: state => state.modal.contentId }),
     ...mapGetters('cart', ['isOpen', 'cartCount']),
   },
   methods: {
-    ...mapMutations('cart', ['toggleCart']),
+    ...mapMutations('cart', ['toggleCart', 'setSettings', 'setCollection']),
     ...mapActions('cart', ['setCart']),
   },
   watch: {
     isOpen: {
       handler(val) {
-        if (val === true) {
-          this.setCart();
-        }
         if(!this.modalOpen) {
           document.body.classList.toggle("u-noScroll");
         }
@@ -61,15 +60,14 @@ export default {
     cartCount(val) {
       const cartCountEls = document.querySelectorAll(".data-cart-count");
       cartCountEls.forEach(el => el.textContent = val);
-      const cartText = val === 1 ? "Item" : "Items"
-      const cartTextEls = document.querySelectorAll(".data-cart-text");
-      cartTextEls.forEach(el => el.textContent = cartText);
     }
   },
   mounted() {
     const cartTriggers = document.querySelectorAll(".trigger-cart");
     cartTriggers.forEach(trigger => trigger.addEventListener("click", this.toggleCart))
     this.setCart()
+    this.setSettings(this.settings_json)
+    this.setCollection(this.collection_json)
   },
 }
 </script>

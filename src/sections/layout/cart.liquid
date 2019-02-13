@@ -1,8 +1,7 @@
 {% assign settings_json = section.settings | json | escape %}
 {% assign collection_json = collections[section.settings.upsell_collection].products | json | escape %}
-{% assign shipping_threshold = settings.shipping_threshold %}
 
-<vue-cart settings='{{ settings_json }}' collection='{{ collection_json }}' shipping_threshold='100'></vue-cart>
+<vue-cart settings_json='{{ settings_json }}' collection_json='{{ collection_json }}'></vue-cart>
 
 {% schema %}
 {
@@ -10,25 +9,41 @@
 	"settings": [
     {
       "type": "header",
-      "content": "Cart Main"
+      "content": "Cart Header"
     },
     {
       "type": "text",
-      "id": "main_heading",
-      "label": "Main Heading",
+      "id": "heading_text",
+      "label": "Heading Text",
       "default": "Cart"
     },
     {
       "type": "text",
-      "id": "main_subtotal",
-      "label": "Main Subtotal Text",
+      "id": "subtotal_label",
+      "label": "Subtotal Label",
       "default": "Subtotal:"
     },
     {
       "type": "text",
-      "id": "main_checkout",
-      "label": "Main Checkout Text",
+      "id": "checkout_button",
+      "label": "Checkout Button",
       "default": "Checkout"
+    },
+    {
+      "type": "header",
+      "content": "Cart Content"
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "Empty Message",
+      "default": "Oh no! Your cart is currently empty."
+    },
+    {
+      "type": "text",
+      "id": "empty_action",
+      "label": "Empty Action",
+      "default": "Fill it up to save some pups!"
     },
     {
       "type": "header",
@@ -36,8 +51,8 @@
     },
     {
       "type": "text",
-      "id": "upsell_message",
-      "label": "Upsell Message",
+      "id": "upsell_text",
+      "label": "Upsell Text",
       "default": "Add {{ untilFreeShipping }} for free shipping!",
       "info": "Variable {{ untilFreeShipping }}"
     },
@@ -48,25 +63,25 @@
     },
     {
       "type": "text",
-      "id": "upsell_add_text",
-      "label": "Upsell Add Text",
+      "id": "upsell_add_button",
+      "label": "Add Button",
       "default": "Add"
     },
     {
       "type": "header",
       "content": "Cart Add",
-      "info": "Appears After Add Product"
+      "info": "Appears after add product"
     },
     {
       "type": "text",
-      "id": "add_quantity_text",
-      "label": "Add Quantity Text",
+      "id": "add_quantity_label",
+      "label": "Quantity Label",
       "default": "Quantity"
     },
     {
       "type": "text",
-      "id": "add_button_text",
-      "label": "Add Button Text",
+      "id": "add_cart_button",
+      "label": "Add To Cart Button",
       "default": "Add To Cart"
     }
   ]

@@ -2,4 +2,6 @@
 
 .u-fullWidth {
   width: 100% !important;
+  min-width: 100% !important;
+  max-width: none !important;
 }

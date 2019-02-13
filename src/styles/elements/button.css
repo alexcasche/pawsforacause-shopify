@@ -17,4 +17,7 @@ button {
   i {
     pointer-events: none;
   }
+  &:disabled {
+    pointer-events: none;
+  }
 }
