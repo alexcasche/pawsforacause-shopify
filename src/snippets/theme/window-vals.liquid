@@ -1,5 +1,6 @@
 <script>
   window.theme = {};
+  window.theme.shop = { name: "{{ shop.name }}" }
   window.theme.allCountryOptionTags = {{ all_country_option_tags | json }};
   window.theme.customer = {}
   {% assign address = customer.default_address %};

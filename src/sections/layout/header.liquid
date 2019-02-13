@@ -23,7 +23,7 @@
       <a class="c-headerMain__logo" href="/" title="Home">
         <img class="c-headerMain__logoIcon" src="{{ section.settings.main_logo | asset_url }}"  alt="{{ shop.name }}" />
       </a>
-      <button class="c-headerMain__cart trigger-cart" aria-label="Toggle Cart">
+      <button class="c-headerMain__cart trigger-cart-open" aria-label="Toggle Cart">
         {% include 'icon-cart' %}
         <span class="c-headerMain__cartCount data-cart-count">
           {{ cart.item_count }}
@@ -79,7 +79,7 @@
             </li>
           {% endfor %}
         </ul>
-        <a class="c-headerNav__cart trigger-cart">
+        <a class="c-headerNav__cart trigger-cart-open">
           {% include 'icon-cart' %}
           <span class="c-headerNav__cartCount data-cart-count">
             {{ cart.item_count }}

@@ -1,6 +1,6 @@
 <template>
   <div class="c-cartHeader">
-    <button class="c-cartHeader__close" @click="toggleCart">
+    <button class="c-cartHeader__close" @click="closeCart">
       <i class="c-cartHeader__closeIcon fa fa-times" aria-hidden="true"></i>
     </button>
     <h2 class="c-cartHeader__heading u-textCenter">
@@ -32,7 +32,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('cart', ['toggleCart']),
+    ...mapMutations('cart', ['closeCart']),
   }
 }
 </script>

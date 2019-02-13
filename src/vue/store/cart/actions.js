@@ -1,6 +1,6 @@
 import axios from "axios";
 import qs from "qs";
-import { formatCart, formatProduct } from "@vue/helpers";
+import { axiosHeaders, formatCart, formatProduct } from "@vue/helpers";
 
 export default {
   setCart: ({ commit }) => {
@@ -15,7 +15,7 @@ export default {
       return;
     } else {
       commit("toggleFetching");
-      axios.post("/cart/update.js", qs.stringify(payload)).then(response => {
+      axios.post("/cart/update.js", qs.stringify(payload), axiosHeaders).then(response => {
         commit("setCart", normalizeShopifyCart(response.data));
         commit("setError", error);
         commit("toggleFetching");

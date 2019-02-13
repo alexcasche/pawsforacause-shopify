@@ -88,6 +88,7 @@
   @mixin flex row, flex-start, center;
 }
 .c-order__itemImage {
+  width: 100px;
   margin-right: 30px;
 }
 .c-order__itemDetails {

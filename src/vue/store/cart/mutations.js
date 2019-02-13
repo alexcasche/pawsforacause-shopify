@@ -1,11 +1,16 @@
 import { filterCollection } from "@vue/helpers";
 
 export default {
-  toggleCart(state) {
-    state.isOpen = !state.isOpen
+  openCart(state) {
+    state.isOpen = true
     state.cartError = false
     return state
   },
+  closeCart(state) {
+    state.isOpen = false
+    state.cartError = false
+    return state
+  }
   toggleFetching(state) {
     state.isFetching = !state.isFetching
     return state

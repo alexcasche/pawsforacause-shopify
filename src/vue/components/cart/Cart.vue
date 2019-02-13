@@ -3,7 +3,7 @@
     <transition name="overlay-fade">
       <span v-if="isOpen"  
         class="c-overlay" 
-        @click="toggleCart"
+        @click="closeCart"
       />
     </transition>
     <transition name="cart-slide">
@@ -17,6 +17,7 @@
 
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
+import { setCartData, setCartTriggers } from '@vue/helpers'
 import CartHeader from './CartHeader.vue'
 import CartContent from './CartContent.vue'
 import CartUpsell from './CartUpsell.vue'
@@ -43,31 +44,28 @@ export default {
   },
   computed: {
     ...mapState({ modalOpen: state => state.modal.contentId }),
-    ...mapGetters('cart', ['isOpen', 'cartCount']),
+    ...mapGetters('cart', ['isOpen', 'shoppingCart']),
   },
   methods: {
-    ...mapMutations('cart', ['toggleCart', 'setSettings', 'setCollection']),
-    ...mapActions('cart', ['setCart']),
+    ...mapMutations('cart', ['closeCart', 'openCart', 'setSettings', 'setCollection']),
+    ...mapActions('cart', ['setCart', 'updateCart']),
   },
   watch: {
     isOpen: {
       handler(val) {
-        if(!this.modalOpen) {
-          document.body.classList.toggle("u-noScroll");
-        }
+        if(!this.modalOpen) document.body.classList.toggle("u-noScroll");
       }
     },
-    cartCount(val) {
-      const cartCountEls = document.querySelectorAll(".data-cart-count");
-      cartCountEls.forEach(el => el.textContent = val);
+    shoppingCart(val) {
+      setCartData(val)
+      this.openCart()
     }
   },
   mounted() {
-    const cartTriggers = document.querySelectorAll(".trigger-cart");
-    cartTriggers.forEach(trigger => trigger.addEventListener("click", this.toggleCart))
     this.setCart()
     this.setSettings(this.settings_json)
     this.setCollection(this.collection_json)
+    setCartTriggers(this.openCart, this.updateCart)
   },
 }
 </script>

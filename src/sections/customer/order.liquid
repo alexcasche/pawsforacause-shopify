@@ -1,3 +1,14 @@
+{% assign cart_updates = "" %}
+{% for line_item in order.line_items %}
+  {% unless forloop.last %}
+    {% assign divider = "," %}
+  {% endunless %}
+  {% capture cart_update %}
+    {"{{ line_item.variant_id }}": "{{line_item.quantity}}"}{{ divider }}
+  {% endcapture %}
+  {% assign cart_updates = cart_updates | append: cart_update %}
+{% endfor %}
+
 <section id="order" class="c-order{% if order.cancelled %} c-order--cancelled{% endif %}">
   <div class="c-order__top o-strip u-bg-gray">
     <div class="c-order__container o-container">
@@ -45,8 +56,8 @@
               {% for line_item in order.line_items %}
                 <tr class="c-order__tableRow">
                   <td class="c-order__tableCell">
-                    <div class="c-order__item data-order-item" data-variant="{{ line_item.variant_id }}" data-quantity="{{ line_item.quantity }}">
-                      <img class="c-order__itemImage" src="{{ line_item.image | img_url: 'small' }}" />
+                    <div class="c-order__item">
+                      <img class="c-order__itemImage" src="{{ line_item.image | img_url: 'medium' }}" />
                       <div class="c-order__itemDetails">
                         <span class="c-order__itemVendor">
                           {{ line_item.vendor }}
@@ -173,7 +184,7 @@
         <a class="c-order__button c-button c-button--edit" href="{{ order.order_status_url }}">
           Order Status
         </a>
-        <button class="c-order__button c-button c-button--submit trigger-reorder">
+        <button class="c-order__button c-button c-button--submit trigger-cart-update" data-cart-updates='{{ cart_updates }}'>
           Order Again
         </button>
       </div>

@@ -16,14 +16,14 @@
 
 .c-cartHeader {
   position: relative;
-  padding: 15px;
+  padding: 15px 20px;
   margin-bottom: 20px;
 }
 .c-cartHeader__close {
   background-color: #eee;
   position: absolute;
   top: 15px;
-  right: 15px;
+  right: 20px;
   width: 30px;
   height: 30px;
   border-radius: 50% !important;
@@ -64,7 +64,7 @@
 }
 
 .c-cartContent {
-  padding: 0 15px 30px;
+  padding: 0 20px 30px;
 }
 .c-cartContent__empty {
   width: 100%;
@@ -78,40 +78,40 @@
   line-height: 1.5;
 }
 .c-cartContent__emptyAction {
+  margin-top: 5px;
   color: $color-blue-dark;
 }
 
-
-/* .c-cart__item {
+.c-cartItem {
   width: 100%;
   @mixin flex row, flex-start, center, nowrap;
   padding: 20px 0;
   border-top: 1px solid $hr-gray-light;
 }
-.c-cart__itemImage {
+.c-cartItem__image {
   width: 50px;
   height: 50px;
   margin-right: 20px;
 }
-.c-cart__itemInfo {
+.c-cartItem__info {
   width: 100%;
   @mixin flex column, flex-start, flex-start;
   margin-right: 20px;
 }
-.c-cart__itemVendor, .c-cart__itemVariant {
+.c-cartItem__vendor, .c-cartItem__variant {
   font-size: 10px;
   line-height: 1.5;
   text-transform: uppercase;
 }
-.c-cart__itemVendor {
+.c-cartItem__vendor {
   color: $color-blue-dark;
   font-weight: bold;
 }
-.c-cart__itemTitle {
+.c-cartItem__title {
   color: $color-black;
   line-height: 1.5;
   font-size: 13px;
 }
-.c-cart__itemVariant {
+.c-cartItem__variant {
   color: $color-gray;
-} */
+}

@@ -4,6 +4,7 @@
       <CartItem 
         v-for="(item, index) in shoppingCart.items"
         :key="index"
+        :item="item"
       />
     </div>
     <div v-else class="c-cartContent__empty">
@@ -19,8 +20,12 @@
 
 <script>
 import { mapGetters } from "vuex";
+import CartItem from "./CartItem.vue";
 
 export default {
+  components: {
+    CartItem
+  },
   computed: {
     ...mapGetters('cart', ['shoppingCart', 'settings'])
   }

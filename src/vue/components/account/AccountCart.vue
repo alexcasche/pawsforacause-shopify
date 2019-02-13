@@ -20,7 +20,7 @@
       <div class="c-accountCart__items">
         <div v-for="(item, index) in shoppingCart.items" 
           :key="index" 
-          @click="toggleCart"
+          @click="openCart"
           class="c-accountCart__item"
         >
           <img class="c-accountCart__itemImage" :src="item.image" :alt="'Paws For A Cause ' + item.title" />
@@ -88,7 +88,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('cart', ['toggleCart'])
+    ...mapMutations('cart', ['openCart'])
   },
 }
 </script>
