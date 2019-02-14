@@ -1,7 +1,7 @@
 <template>
   <div class="c-cartUpsell u-bg-gray">
-    <span class='c-cartContent__emptyMessage'>
-      {{ settings.upsell_text }}
+    <span class='c-cartUpsell__message'>
+      {{ upsellText }}
     </span>
   </div>
 </template>
@@ -15,15 +15,17 @@ export default {
     untilFreeShipping() {
       const { shipping_threshold } = this.settings
       if(shipping_threshold) {
-        return shipping_threshold - this.shoppingCart.total
+        return (shipping_threshold - this.shoppingCart.total).toFixed(2)
       }
     },
+    upsellText() {
+      const { upsell_text, upsell_free_text, currency } = this.settings
+      if(this.untilFreeShipping > 0) {
+        return upsell_text.replace("{{ untilFreeShipping }}", `${currency.symbol}${this.untilFreeShipping}`)
+      } else {
+        return upsell_free_text
+      }
+    }
   },
-    // upsellText() {
-    //   const { currency, shipping_threshold, upsell_text } = settings;
-    //   const untilFreeShipping = `${currency.symbol}${shipping_threshold - `
-    //   return `${`
-    //   text.replace("")
-    // }
 }
 </script>

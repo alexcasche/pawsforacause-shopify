@@ -61,7 +61,7 @@ export default {
       setCartData(val)
     }
   },
-  mounted() {
+  async mounted() {
     const actions = {
       openCart: this.openCart,
       addCart: this.addCart,
@@ -69,10 +69,11 @@ export default {
       clearCart: this.clearCart,
       updateCart: this.updateCart
     }
-    this.initCart()
-    this.setSettings(this.settings_json)
-    this.setCollection(this.collection_json)
-    setCartTriggers(actions)
+    await this.initCart()
+    await this.setSettings(this.settings_json)
+    await this.setCollection(this.collection_json)
+    await setCartTriggers(actions)
+    document.body.classList.add("status-cart-ready");
   },
 }
 </script>
