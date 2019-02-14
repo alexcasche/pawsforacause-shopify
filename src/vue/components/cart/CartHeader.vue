@@ -18,7 +18,7 @@
     <button v-else class="c-cartHeader__button c-button-large c-button--cancel u-fullWidth" disabled="disabled">
       {{ settings.checkout_button }}
     </button>
-    <div class="c-cartHeader__error">
+    <div v-if="errorMessage" class="c-cartHeader__error">
       {{ errorMessage }}
     </div>
   </div>

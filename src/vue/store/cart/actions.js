@@ -3,35 +3,44 @@ import qs from "qs";
 import { axiosHeaders, formatCart, formatProduct } from "@vue/helpers";
 
 export default {
-  setCart: ({ commit }) => {
-    axios.get("/cart.js").then(response => {
-      commit("setCart", formatCart(response.data));
-    }).catch(error => {
-      return error.message;
-    });
+  initCart: async ({ commit }) => { 
+    await axios.get("/cart.js")
+      .then(response => commit("setCart", formatCart(response.data)))
+      .catch(error => console.log(error.message))
   },
-  updateCart: ({ commit, state }, payload) => {
+  actionWrapper: async ({ state, commit, dispatch }, action) => {
     if (state.isFetching) return
     commit("toggleFetching");
-    axios.post("/cart/update.js", qs.stringify(payload), axiosHeaders).then(response => {
-      commit("setCart", formatCart(response.data));
-      commit("toggleFetching");
-    }).catch(error => {
-      commit("setError", error.response.data.description);
-      commit("toggleFetching");
-      commit("openCart");
-    });
-  },
-  clearCart: () => {
-    if (state.isFetching) return
+    await dispatch(action);
     commit("toggleFetching");
-    axios.post("/cart/clear.js").then(response => {
-      commit("setCart", formatCart(response.data));
-      commit("toggleFetching");
-    }).catch(error => {
-      commit("setError", error.response.data.description);
-      commit("toggleFetching");
-      commit("openCart");
-    });
+    commit("openCart");
+  },
+  addCart: async ({ commit, dispatch, state }, payload) => {
+    for (let item of payload) {
+      const action = await axios.post("/cart/add.js", qs.stringify(item), axiosHeaders)
+        .then(response => commit("setCart", { ...state.shoppingCart,
+          items: { ...state.shoppingCart.items, ...formatProduct(response.data) }
+        }))
+        .catch(error => commit("setError", error.response.data.description))
+      dispatch("actionWrapper", action)
+    }
+  },
+  changeCart: async ({ dispatch, commit, state }, payload) => {
+    const action = await axios.post("/cart/change.js", qs.stringify(payload), axiosHeaders)
+      .then(response => commit("setCart", formatCart(response.data)))
+      .catch(error => commit("setError", error.response.data.description))
+    dispatch("actionWrapper", action)
+  },
+  clearCart: async ({ commit, dispatch }) => {
+    const action = await axios.post("/cart/clear.js")
+      .then(response => commit("setCart", formatCart(response.data)))
+      .catch(error => commit("setError", error.response.data.description))
+    dispatch("actionWrapper", action);
+  },
+  updateCart: async ({ dispatch, commit, state }, payload) => {
+    const action = await axios.post("/cart/update.js", qs.stringify(payload), axiosHeaders)
+      .then(response => commit("setCart", formatCart(response.data)))
+      .catch(error => commit("setError", error.response.data.description))
+    dispatch("actionWrapper", action)
   }
 };

@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     ...mapMutations('cart', ['closeCart', 'openCart', 'setSettings', 'setCollection']),
-    ...mapActions('cart', ['setCart', 'updateCart']),
+    ...mapActions('cart', ['initCart', 'addCart', 'changeCart', 'clearCart', 'updateCart']),
   },
   watch: {
     isOpen: {
@@ -61,10 +61,17 @@ export default {
     }
   },
   mounted() {
-    this.setCart()
+    const actions = {
+      openCart: this.openCart,
+      addCart: this.addCart,
+      changeCart: this.changeCart,
+      clearCart: this.clearCart,
+      updateCart: this.updateCart
+    }
+    this.initCart()
     this.setSettings(this.settings_json)
     this.setCollection(this.collection_json)
-    setCartTriggers(this.openCart, this.updateCart)
+    setCartTriggers(actions)
   },
 }
 </script>
