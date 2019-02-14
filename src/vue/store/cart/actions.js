@@ -16,6 +16,8 @@ export default {
     commit("openCart");
   },
   addCart: async ({ commit, dispatch, state }, payload) => {
+    console.log(payload);
+    if(!Array.isArray(payload)) payload = [payload]
     for (let item of payload) {
       const action = await axios.post("/cart/add.js", qs.stringify(item), axiosHeaders)
         .then(response => commit("setCart", { ...state.shoppingCart,

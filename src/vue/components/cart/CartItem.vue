@@ -16,17 +16,17 @@
       </span>
     </div>
     <div class="c-cartItem__actions">
-      <button class="c-cartItem__remove" @click="changeItem('clear')">
+      <button class="c-cartItem__remove" @click="editItem('clear')">
         <i class="c-cartItem__removeIcon fa fa-times" aria-hidden="true"></i>
       </button>
       <div class="c-cartItem__quantity o-flexRow">
-        <button class="c-cartItem__quantityButton o-flexColumn">
+        <button class="c-cartItem__quantityButton o-flexColumn" @click="editItem('remove')">
           <i class="c-cartItem__quantityIcon fas fa-minus" aria-hidden="true"></i>
         </button>
         <span class="c-cartItem__quantityText">
           {{ item.quantity }}
         </span>
-        <button class="c-cartItem__quantityButton o-flexColumn">
+        <button class="c-cartItem__quantityButton o-flexColumn" @click="editItem('add')">
           <i class="c-cartItem__quantityIcon fas fa-plus" aria-hidden="true"></i>
         </button>
       </div>
@@ -50,23 +50,22 @@ export default {
       const { name } = window.theme.shop
       return image.alt ? image.alt : `${name} ${title}`
     },
-    changeItem(action) {
+  },
+  methods: {
+    ...mapActions('cart', ['addCart', 'changeCart']),
+    editItem(action) {
       let { id, quantity } = this.item;
       switch(action) {
         case "add":
-          quantity += 1
+          this.addCart({ id, quantity: 1 })
           break;
         case "remove":
-          quantity -= 1;
+          this.changeCart({ id, quantity: quantity -= 1 })
           break
         case "clear":
-          quantity = 0
+          this.changeCart({ id, quantity: 0 })
       }
-      this.changeCart({[id]: quantity})
     }
-  },
-  methods: {
-    ...mapActions('cart', ['changeCart'])
   },
 }
 </script>

@@ -92,7 +92,7 @@
   position: relative;
   width: 100%;
   @mixin flex row, flex-start, center, nowrap;
-  padding: 20px 0 40px;
+  padding: 20px 0 30px;
   border-top: 1px solid $hr-gray-light;
 }
 .c-cartItem__image {
@@ -124,7 +124,7 @@
 }
 .c-cartItem__actions {
   @mixin flex column, space-between, flex-end;
-  height: 100%;
+  height: calc(100% - 40px);
   position: absolute;
   top: 20px;
   right: 0;
