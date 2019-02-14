@@ -1,6 +1,6 @@
 import axios from "axios";
 import qs from "qs";
-import { axiosHeaders, formatCart, formatProduct } from "@vue/helpers";
+import { axiosHeaders, formatCart, formatFloat, formatProduct } from "@vue/helpers";
 
 export default {
   initCart: async ({ commit }) => { 
@@ -16,12 +16,12 @@ export default {
     commit("openCart");
   },
   addCart: async ({ commit, dispatch, state }, payload) => {
-    console.log(payload);
     if(!Array.isArray(payload)) payload = [payload]
     for (let item of payload) {
       const action = await axios.post("/cart/add.js", qs.stringify(item), axiosHeaders)
         .then(response => commit("setCart", { ...state.shoppingCart,
           count: state.shoppingCart.count + item.quantity,
+          total: (parseFloat(state.shoppingCart.total) + formatFloat(response.data.price) * item.quantity).toFixed(2),
           items: { ...state.shoppingCart.items, ...formatProduct(response.data) }
         }))
         .catch(error => commit("setError", error.response.data.description))

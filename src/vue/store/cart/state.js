@@ -1,8 +1,8 @@
 export default {
   isOpen: false,
   isFetching: false,
+  showAdd: false,
   shoppingCart: false,
-  freeShipping: false,
   errorMessage: false,
   settings: {},
   collection: {}

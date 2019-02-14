@@ -1,9 +1,8 @@
 export default {
   isOpen: state => state.isOpen,
   isFetching: state => state.isFetching,
+  showAdd: state => state.showAdd,
   shoppingCart: state => state.shoppingCart,
-  cartCount: state => state.shoppingCart.count,
-  cartSubtotal: state => state.shoppingCart.total,
   errorMessage: state => state.errorMessage,
   settings: state => state.settings,
   collection: state => state.collection

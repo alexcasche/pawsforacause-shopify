@@ -1,7 +1,9 @@
+import { formatFloat } from '@vue/helpers'
+
 export const formatCart = shopifyCart => {
   const cartInfo = {
     count: shopifyCart.item_count,
-    total: (shopifyCart.total_price / 100).toFixed(2),
+    total: formatFloat(shopifyCart.total_price),
     note: shopifyCart.note
   };
   let cartItemsObj = {};
@@ -9,7 +11,7 @@ export const formatCart = shopifyCart => {
     cartItemsObj[itemObj.variant_id] = {
       id: itemObj.variant_id,
       image: itemObj.image,
-      price: itemObj.price,
+      price: formatFloat(itemObj.price),
       quantity: itemObj.quantity,
       title: itemObj.product_title,
       variant: itemObj.variant_title,

@@ -10,6 +10,7 @@
       <div v-if="isOpen" class="c-cart__drawer">
         <CartHeader />
         <CartContent />
+        <CartUpsell />
       </div>
     </transition>
   </div>

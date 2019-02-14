@@ -1,11 +1,11 @@
 <template>
   <div v-if="shoppingCart" class="c-accountCart c-card">
-    <div v-if="cartCount > 0" class="c-accountCart__full">
+    <div v-if="shoppingCart.count > 0" class="c-accountCart__full">
       <div class="c-accountCart__side">
         <h3 class="c-accountCart__heading">
           Cart
           <span class="c-accountCart__count">
-            {{ cartCount }}
+            {{ shoppingCart.count }}
           </span>
         </h3>
         <span class="c-accountCart__subtotal">
@@ -77,7 +77,7 @@ export default {
     return { iconCart }
   },
   computed: {
-    ...mapGetters('cart', ['shoppingCart', 'cartCount', 'freeShipping']),
+    ...mapGetters('cart', ['shoppingCart', 'freeShipping']),
     shippingMessage() {
       const difference = (this.freeShipping - this.shoppingCart.total).toFixed(2);
       if(difference >= 0) {
