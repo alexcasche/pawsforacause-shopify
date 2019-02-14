@@ -9,14 +9,19 @@ const setOpenTriggers = openCart => {
 }
 
 const setUpdateTriggers = (updateCart) => {
-  const updateTriggers = document.querySelectorAll(".trigger-cart-updates");
-  console.log(updateTriggers);
-  updateTriggers.forEach(trigger => trigger.addEventListener("click", updateTriggerClick))
-
+  const updateTriggers = document.querySelectorAll(".trigger-cart-update");
+  updateTriggers.forEach(trigger => trigger.addEventListener("click", function() {
+    updateTriggerClick(this, updateCart);
+  }))
 }
 
-function updateTriggerClick(event) {
-  console.log('clicked');
-  const data = event.target.dataset;
-  console.log(data);
+function updateTriggerClick(target, updateCart) {
+  const { action, variants, quantities } = target.dataset
+  const variantArray = variants.split(",");
+  const quantityArray = quantities.split(",")
+  let updates = {};
+  variantArray.forEach((variant, index) => {
+    updates[variant] = quantityArray[index]
+  })
+  updateCart({ updates })
 }

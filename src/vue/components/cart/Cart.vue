@@ -58,7 +58,6 @@ export default {
     },
     shoppingCart(val) {
       setCartData(val)
-      this.openCart()
     }
   },
   mounted() {

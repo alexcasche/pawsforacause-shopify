@@ -58,9 +58,15 @@
   font-size: 15px;
   line-height: 18px;
 }
-.c-cartHeader__button {
-  width: 100% !important;
-  max-width: none !important;
+.c-cartHeader__error {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: $color-red-lightest;
+  border: 1px solid $color-red-light;
+  text-align: center;
+  color: $color-red;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .c-cartContent {

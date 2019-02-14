@@ -10,7 +10,7 @@ export default {
     state.isOpen = false
     state.cartError = false
     return state
-  }
+  },
   toggleFetching(state) {
     state.isFetching = !state.isFetching
     return state

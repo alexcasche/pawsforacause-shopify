@@ -11,18 +11,27 @@ export default {
     });
   },
   updateCart: ({ commit, state }, payload) => {
-    if (state.isFetching) {
-      return;
-    } else {
+    if (state.isFetching) return
+    commit("toggleFetching");
+    axios.post("/cart/update.js", qs.stringify(payload), axiosHeaders).then(response => {
+      commit("setCart", formatCart(response.data));
       commit("toggleFetching");
-      axios.post("/cart/update.js", qs.stringify(payload), axiosHeaders).then(response => {
-        commit("setCart", normalizeShopifyCart(response.data));
-        commit("setError", error);
-        commit("toggleFetching");
-      }).catch(error => {
-        commit("toggleFetching");
-        return error.message;
-      });
-    }
+    }).catch(error => {
+      commit("setError", error.response.data.description);
+      commit("toggleFetching");
+      commit("openCart");
+    });
+  },
+  clearCart: () => {
+    if (state.isFetching) return
+    commit("toggleFetching");
+    axios.post("/cart/clear.js").then(response => {
+      commit("setCart", formatCart(response.data));
+      commit("toggleFetching");
+    }).catch(error => {
+      commit("setError", error.response.data.description);
+      commit("toggleFetching");
+      commit("openCart");
+    });
   }
 };
