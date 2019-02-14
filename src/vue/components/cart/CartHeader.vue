@@ -12,7 +12,7 @@
         {{ settings.subtotal_text }}{{ subtotal }}
       </span>
     </h2>
-    <a v-if="!cartEmpty" class="c-cartHeader__button c-button-large c-button--submit u-fullWidth" href="/checkout">
+    <a v-if="shoppingCart.count" class="c-cartHeader__button c-button-large c-button--submit u-fullWidth" href="/checkout">
       {{ settings.checkout_button }}
     </a>
     <button v-else class="c-cartHeader__button c-button-large c-button--cancel u-fullWidth" disabled="disabled">

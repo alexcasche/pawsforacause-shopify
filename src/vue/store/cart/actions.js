@@ -19,6 +19,7 @@ export default {
     for (let item of payload) {
       const action = await axios.post("/cart/add.js", qs.stringify(item), axiosHeaders)
         .then(response => commit("setCart", { ...state.shoppingCart,
+          count: state.shoppingCart.count + item.quantity,
           items: { ...state.shoppingCart.items, ...formatProduct(response.data) }
         }))
         .catch(error => commit("setError", error.response.data.description))

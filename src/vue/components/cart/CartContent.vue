@@ -1,6 +1,6 @@
 <template>
   <div class="c-cartContent">
-    <div v-if="!cartEmpty" class="c-cartContent__items">
+    <div v-if="shoppingCart.count" class="c-cartContent__items">
       <CartItem 
         v-for="(item, index) in shoppingCart.items"
         :key="index"

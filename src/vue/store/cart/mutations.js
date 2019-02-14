@@ -16,7 +16,6 @@ export default {
     return state
   },
   setCart(state, payload) {
-    state.errorMessage = false
     state.shoppingCart = payload
     return state
   },
