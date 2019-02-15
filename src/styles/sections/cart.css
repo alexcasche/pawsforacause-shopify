@@ -157,3 +157,13 @@
 .c-cartItem__quantityText {
   padding: 0 2px;
 }
+
+.c-cartUpsell {
+  padding: 30px 15px 50px;
+}
+.c-cartUpsell__message {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: $color-black-dark;
+}

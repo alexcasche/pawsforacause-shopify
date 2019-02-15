@@ -9,10 +9,14 @@
         {{ item.vendor }}
       </span>
       <span class="c-cartItem__title">
-        {{ item.title }}
+        {{ item.product_title }}
       </span>
       <span class="c-cartItem__variant">
-        {{ item.variant }}
+        {{ item.variant_title }}
+      </span>
+      <span v-html="pricesHtml"
+        class="c-cartItem__prices" 
+      >
       </span>
     </div>
     <div class="c-cartItem__actions">
@@ -35,7 +39,8 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
+import { pricesVariant } from "@vue/helpers";
 
 export default {
   props: {
@@ -45,11 +50,18 @@ export default {
     }
   },
   computed: {
+    ...mapGetters('cart', ['settings']),
     imageAlt() {
       const { image, title } = this.item
       const { name } = window.theme.shop
       return image.alt ? image.alt : `${name} ${title}`
     },
+    pricesHtml() {
+      const { product_id, id } = this.item
+      const variant = this.$store.getters["cart/product"](product_id).variants[id]
+      const { symbol }  = this.settings.currency
+      return pricesVariant(variant, symbol, "c-cartItem__price")
+    }
   },
   methods: {
     ...mapActions('cart', ['addCart', 'changeCart']),

@@ -18,7 +18,7 @@
 
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
-import { setCartData, setCartTriggers } from '@vue/helpers'
+import { formatCollection, setCartData, setCartTriggers } from '@vue/helpers'
 import CartHeader from './CartHeader.vue'
 import CartContent from './CartContent.vue'
 import CartUpsell from './CartUpsell.vue'
@@ -30,6 +30,10 @@ export default {
       default: "{}"
     },
     collection_json: {
+      type: String,
+      default: "{}"
+    },
+    products_json: {
       type: String,
       default: "{}"
     },
@@ -48,7 +52,7 @@ export default {
     ...mapGetters('cart', ['isOpen', 'shoppingCart']),
   },
   methods: {
-    ...mapMutations('cart', ['closeCart', 'openCart', 'setSettings', 'setCollection']),
+    ...mapMutations('cart', ['closeCart', 'openCart', 'setSettings', 'setCollection', 'setProducts']),
     ...mapActions('cart', ['initCart', 'addCart', 'changeCart', 'clearCart', 'updateCart']),
   },
   watch: {
@@ -70,8 +74,12 @@ export default {
       updateCart: this.updateCart
     }
     await this.initCart()
-    await this.setSettings(this.settings_json)
-    await this.setCollection(this.collection_json)
+    const parsedSettings = await JSON.parse(this.settings_json)
+    const parsedCollection = await JSON.parse(this.collection_json)
+    const parsedProducts = await JSON.parse(this.products_json)
+    await this.setSettings(parsedSettings)
+    await this.setCollection(parsedCollection)
+    await this.setProducts(parsedProducts)
     await setCartTriggers(actions)
     document.body.classList.add("status-cart-ready");
   },

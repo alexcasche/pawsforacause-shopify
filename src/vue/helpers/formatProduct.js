@@ -1,15 +1,16 @@
 import { formatFloat } from '@vue/helpers'
 
 export const formatProduct = shopifyProduct => {
-  return {
-    [shopifyProduct.variant_id]: {
-      id: shopifyProduct.variant_id,
-      image: shopifyProduct.image,
-      price: formatFloat(shopifyProduct.price),
-      quantity: shopifyProduct.quantity,
-      title: shopifyProduct.product_title,
-      variant: shopifyProduct.variant_title,
-      vendor: shopifyProduct.vendor
+  let cartItem = { ...shopifyProduct }
+  const priceKeys = ["discounted_price", "original_line_price", "line_price", "original_price", "price", "total_discount"]
+  priceKeys.forEach(key => {
+    if(cartItem[key] > 0) {
+      cartItem[key] = formatFloat(cartItem[key])
+    } else {
+      cartItem[key] = false
     }
+  })
+  return {
+    [cartItem.id]: cartItem
   };
 };

@@ -6,20 +6,21 @@ export const formatCart = shopifyCart => {
     total: formatFloat(shopifyCart.total_price),
     note: shopifyCart.note
   };
-  let cartItemsObj = {};
-  shopifyCart.items.forEach(itemObj => {
-    cartItemsObj[itemObj.variant_id] = {
-      id: itemObj.variant_id,
-      image: itemObj.image,
-      price: formatFloat(itemObj.price),
-      quantity: itemObj.quantity,
-      title: itemObj.product_title,
-      variant: itemObj.variant_title,
-      vendor: itemObj.vendor
-    };
+  let cartItems = {};
+  shopifyCart.items.forEach(item => {
+    let cartItem = { ...item }
+    const priceKeys = ["discounted_price", "original_line_price", "line_price", "original_price", "price", "total_discount"]
+    priceKeys.forEach(key => {
+      if(cartItem[key] > 0) {
+        cartItem[key] = formatFloat(cartItem[key])
+      } else {
+        cartItem[key] = false
+      }
+    })
+    cartItems[item.id] = cartItem;
   });
   return {
     ...cartInfo,
-    items: cartItemsObj
+    items: { ...cartItems }
   };
 };

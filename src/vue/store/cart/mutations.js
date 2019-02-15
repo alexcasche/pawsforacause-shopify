@@ -1,4 +1,4 @@
-import { filterCollection } from "@vue/helpers";
+import { formatCollection, formatProducts } from "@vue/helpers";
 
 export default {
   openCart(state) {
@@ -24,11 +24,15 @@ export default {
     return state
   },
   setSettings(state, payload) {
-    state.settings = { ...JSON.parse(payload), ...window.theme.cart }
+    state.settings = { ...payload, ...window.theme.cart }
     return state
   },
   setCollection(state, payload) {
-    state.collection = JSON.parse(payload)
+    state.collection = formatCollection(payload, state.shoppingCart)
+    return state
+  },
+  setProducts(state, payload) {
+    state.products = formatCollection(payload)
     return state
   }
 }

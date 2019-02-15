@@ -1,7 +1,8 @@
 {% assign settings_json = section.settings | json | escape %}
 {% assign collection_json = collections[section.settings.upsell_collection].products | json | escape %}
+{% assign products_json = collections["all-products"].products | json | escape %}
 
-<vue-cart settings_json='{{ settings_json }}' collection_json='{{ collection_json }}'></vue-cart>
+<vue-cart settings_json='{{ settings_json }}' collection_json='{{ collection_json }}' products_json='{{ products_json }}'></vue-cart>
 
 {% schema %}
 {
