@@ -67,6 +67,7 @@
     "zip": "zip -r theme.zip dist"
   },
   "dependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@shopify/theme-addresses": "^1.0.0",
     "axios": "^0.18.0",
     "document-register-element": "^1.13.1",

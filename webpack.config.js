@@ -6,7 +6,6 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 function getEntries(pattern) {
   const entries = {};
   glob.sync(pattern).forEach(file => {
-    console.log(file);
     const ext = file.substr(file.lastIndexOf("."));
     const name = file.substr(file.lastIndexOf("/") + 1);
     const output = name.replace(ext, "");

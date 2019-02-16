@@ -3,8 +3,8 @@ export const pricesVariant = (variant, currencySymbol, classPrefix) => {
   let priceHtml = '';
   if(compare_at_price && compare_at_price > price) {
     priceHtml += `
-    <span class="${classPrefix}comparePrice">${currencySymbol}${compare_at_price}</span>
     <span class="${classPrefix}salePrice">${currencySymbol}${price}</span>
+    <span class="${classPrefix}comparePrice">${currencySymbol}${compare_at_price}</span>
     `.trim()
   } else {
     priceHtml += `

@@ -5,17 +5,14 @@
       :alt="imageAlt" 
     />
     <div class="c-cartItem__info">
-      <span class="c-cartItem__vendor">
-        {{ item.vendor }}
+      <span class="c-cartItem__variant">
+        {{ item.variant_title }}
       </span>
       <span class="c-cartItem__title">
         {{ item.product_title }}
       </span>
-      <span class="c-cartItem__variant">
-        {{ item.variant_title }}
-      </span>
       <span v-html="pricesHtml"
-        class="c-cartItem__prices" 
+        class="c-cartItem__prices o-flexRow" 
       >
       </span>
     </div>
@@ -60,7 +57,7 @@ export default {
       const { product_id, id } = this.item
       const variant = this.$store.getters["cart/product"](product_id).variants[id]
       const { symbol }  = this.settings.currency
-      return pricesVariant(variant, symbol, "c-cartItem__price")
+      return pricesVariant(variant, symbol, "c-cartItem__")
     }
   },
   methods: {

@@ -3,6 +3,7 @@ module.exports = {
   plugins: [
     "@babel/plugin-transform-runtime",
     "@babel/plugin-transform-destructuring",
-    "@babel/plugin-transform-object-assign"
+    "@babel/plugin-transform-object-assign",
+    "@babel/plugin-syntax-dynamic-import"
   ]
 };
