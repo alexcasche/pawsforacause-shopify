@@ -16,6 +16,7 @@ function getEntries(pattern) {
 
 const webpackJS = {
   mode: "production",
+  devtool: "source-map",
   resolve: {
     alias: {
       "@scripts": path.resolve(__dirname, "src/vue"),

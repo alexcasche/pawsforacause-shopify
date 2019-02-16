@@ -1,5 +1,7 @@
 <template>
-  <div class="c-cartItem">
+  <div v-if="activeProduct" 
+    class="c-cartItem"
+  >
     <img class="c-cartItem__image" 
       :src="item.image"
       :alt="imageAlt" 
@@ -53,11 +55,15 @@ export default {
       const { name } = window.theme.shop
       return image.alt ? image.alt : `${name} ${title}`
     },
+    activeProduct() {
+      return this.$store.getters["cart/product"](this.item.product_id)
+    },
     pricesHtml() {
-      const { product_id, id } = this.item
-      const variant = this.$store.getters["cart/product"](product_id).variants[id]
-      const { symbol }  = this.settings.currency
-      return pricesVariant(variant, symbol, "c-cartItem__")
+      if(this.activeProduct) {
+        const activeVariant = this.activeProduct.variants[this.item.id]
+        const { symbol }  = this.settings.currency
+        return pricesVariant(activeVariant, symbol, "c-cartItem__")
+      }
     }
   },
   methods: {
@@ -75,9 +81,6 @@ export default {
           this.changeCart({ id, quantity: 0 })
       }
     }
-  },
-  mounted() {
-    console.log(Object.keys(this.products).length)
   }
 }
 </script>

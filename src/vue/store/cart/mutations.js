@@ -15,6 +15,10 @@ export default {
     state.isFetching = !state.isFetching
     return state
   },
+  toggleLoading(state) {
+    state.isLoading = !state.isLoading
+    return state
+  },
   setCart(state, payload) {
     state.shoppingCart = payload
     return state
@@ -31,7 +35,7 @@ export default {
     state.collection = formatCollection(payload, state.shoppingCart)
     return state
   },
-  setProducts(state, payload) {
+  setProduct(state, payload) {
     state.products = { ...state.products, ...payload }
     return state
   }

@@ -1,12 +1,10 @@
 <template>
-  <div v-if="upsellCollection" 
-    class="c-cartUpsell u-bg-gray"
-  >
+  <div class="c-cartUpsell u-bg-gray">
     <span class='c-cartUpsell__message'>
       {{ upsellText }}
     </span>
     <div class="c-cartUpsell__grid o-flexRow">
-      <div v-for="(item, index) in upsellCollection"
+      <div v-for="(item, index) in activeCollection"
         :key="index"
         class="c-cartUpsell__item o-flexColumn"
       >
@@ -35,6 +33,11 @@ import { mapGetters, mapMutations, mapActions } from "vuex";
 import { filterCollection, pricesProduct } from "@vue/helpers";
 
 export default {
+  data() {
+    return {
+      upsellCollection: {}
+    }
+  },
   computed: {
     ...mapGetters('cart', ['shoppingCart', 'settings', 'collection']),
     untilFreeShipping() {
@@ -51,8 +54,15 @@ export default {
         return upsell_free_text
       }
     },
-    upsellCollection() {
-      return filterCollection(this.collection)
+    activeCollection() {
+      let activeCollection = {}
+      let collectionKeys = Object.keys(this.upsellCollection)
+      collectionKeys.forEach(key => {
+        if(!this.shoppingCart && !this.shoppingCart.items[key]) {
+          activeCollection[key] = this.upsellCollection[key]
+        }
+      })
+      return activeCollection
     }
   },
   methods: {
@@ -66,9 +76,6 @@ export default {
       const { symbol }  = this.settings.currency
       return pricesProduct(item, symbol, "c-cartUpsell__")
     },
-    variantsLength(item) {
-      return Object.keys(item.variants).length
-    },
     addClick(item) {
       const { variants } = item
       const variantKeys = Object.keys(variants)
@@ -76,7 +83,10 @@ export default {
       } else {
         this.addCart({ id: variantKeys[0], quantity: 1 })
       }
-    }
+    },
+  },
+  mounted() {
+    this.upsellCollection = filterCollection(this.collection, this.shoppingCart)
   }
 }
 </script>

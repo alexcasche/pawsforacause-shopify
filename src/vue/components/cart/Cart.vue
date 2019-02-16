@@ -18,7 +18,7 @@
 
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
-import { formatCollection, setCartData, setCartTriggers } from '@vue/helpers'
+import { setCartData, setCartTriggers } from '@vue/helpers'
 import CartHeader from './CartHeader.vue'
 import CartContent from './CartContent.vue'
 import CartUpsell from './CartUpsell.vue'
@@ -45,11 +45,11 @@ export default {
   },
   computed: {
     ...mapState({ modalOpen: state => state.modal.contentId }),
-    ...mapGetters('cart', ['isOpen', 'shoppingCart']),
+    ...mapGetters('cart', ['isOpen', 'isLoading', 'shoppingCart']),
   },
   methods: {
-    ...mapMutations('cart', ['closeCart', 'openCart', 'setSettings', 'setCollection']),
-    ...mapActions('cart', ['initCart', 'addCart', 'changeCart', 'clearCart', 'updateCart', 'setProduct']),
+    ...mapMutations('cart', ['closeCart', 'openCart', 'setSettings', 'setCollection', 'toggleLoading']),
+    ...mapActions('cart', ['initCart', 'addCart', 'changeCart', 'clearCart', 'updateCart', 'setProducts']),
   },
   watch: {
     isOpen: {
@@ -57,12 +57,14 @@ export default {
         if(!this.modalOpen) document.body.classList.toggle("u-noScroll");
       }
     },
-    shoppingCart(val) {
-      setCartData(val)
+    shoppingCart: {
+      handler(val) {
+        setCartData(val)
+        this.setProducts()
+      }
     }
   },
   async mounted() {
-    this.setProduct('natural-eye-wipes')
     const actions = {
       openCart: this.openCart,
       addCart: this.addCart,
@@ -70,6 +72,7 @@ export default {
       clearCart: this.clearCart,
       updateCart: this.updateCart
     }
+    this.toggleLoading()
     await this.initCart()
     const parsedSettings = await JSON.parse(this.settings_json)
     const parsedCollection = await JSON.parse(this.collection_json)
@@ -77,6 +80,7 @@ export default {
     await this.setCollection(parsedCollection)
     await setCartTriggers(actions)
     document.body.classList.add("status-cart-ready");
+    this.toggleLoading()
   },
 }
 </script>
