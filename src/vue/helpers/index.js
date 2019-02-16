@@ -2,6 +2,7 @@ export { axiosHeaders } from "./axiosHeaders";
 export { filterCollection } from "./filterCollection";
 export { formatCart } from "./formatCart";
 export { formatFloat } from "./formatFloat";
+export { formatItem } from "./formatItem";
 export { formatProduct } from "./formatProduct";
 export { formatCollection } from "./formatCollection";
 export { pricesProduct } from "./pricesProduct";

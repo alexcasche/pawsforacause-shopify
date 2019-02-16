@@ -1,4 +1,4 @@
-import { formatFloat } from '@vue/helpers'
+import { formatFloat } from "@vue/helpers";
 
 export const formatCart = shopifyCart => {
   const cartInfo = {

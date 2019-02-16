@@ -32,7 +32,7 @@ export default {
     return state
   },
   setProducts(state, payload) {
-    state.products = formatCollection(payload)
+    state.products = { ...state.products, ...payload }
     return state
   }
 }

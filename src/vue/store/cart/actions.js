@@ -1,6 +1,6 @@
 import axios from "axios";
 import qs from "qs";
-import { axiosHeaders, formatCart, formatFloat, formatProduct } from "@vue/helpers";
+import { axiosHeaders, formatCart, formatFloat, formatItem, formatProduct } from "@vue/helpers";
 
 export default {
   initCart: async ({ commit }) => { 
@@ -25,7 +25,7 @@ export default {
         .then(response => commit("setCart", { ...state.shoppingCart,
           count: state.shoppingCart.count + item.quantity,
           total: (parseFloat(state.shoppingCart.total) + formatFloat(response.data.price) * item.quantity).toFixed(2),
-          items: { ...state.shoppingCart.items, ...formatProduct(response.data) }
+          items: { ...state.shoppingCart.items, ...formatItem(response.data) }
         }))
         .catch(error => commit("setError", error.response.data.description))
       dispatch("actionWrapper", { action, loopAgain })
@@ -48,5 +48,10 @@ export default {
       .then(response => commit("setCart", formatCart(response.data)))
       .catch(error => commit("setError", error.response.data.description))
     dispatch("actionWrapper", { action })
+  },
+  setProduct: async ({dispatch, commit, state}, payload) => {
+    await axios.get(`/products/${payload}.js`)
+      .then(response => commit("setProducts", formatProduct(response.data)))
+      .catch(error => console.log(error.message))
   }
 };

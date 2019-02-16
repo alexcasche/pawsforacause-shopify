@@ -47,7 +47,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('cart', ['settings']),
+    ...mapGetters('cart', ['settings', 'products']),
     imageAlt() {
       const { image, title } = this.item
       const { name } = window.theme.shop
@@ -76,5 +76,8 @@ export default {
       }
     }
   },
+  mounted() {
+    console.log(Object.keys(this.products).length)
+  }
 }
 </script>

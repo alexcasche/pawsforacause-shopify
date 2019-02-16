@@ -5,6 +5,5 @@ export default {
   shoppingCart: state => state.shoppingCart,
   errorMessage: state => state.errorMessage,
   settings: state => state.settings,
-  collection: state => state.collection,
-  product: state => productId => state.products[productId]
+  collection: state => state.collection
 };

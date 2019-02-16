@@ -33,10 +33,6 @@ export default {
       type: String,
       default: "{}"
     },
-    products_json: {
-      type: String,
-      default: "{}"
-    },
     shipping_threshold: {
       type: String,
       default: ""
@@ -52,8 +48,8 @@ export default {
     ...mapGetters('cart', ['isOpen', 'shoppingCart']),
   },
   methods: {
-    ...mapMutations('cart', ['closeCart', 'openCart', 'setSettings', 'setCollection', 'setProducts']),
-    ...mapActions('cart', ['initCart', 'addCart', 'changeCart', 'clearCart', 'updateCart']),
+    ...mapMutations('cart', ['closeCart', 'openCart', 'setSettings', 'setCollection']),
+    ...mapActions('cart', ['initCart', 'addCart', 'changeCart', 'clearCart', 'updateCart', 'setProduct']),
   },
   watch: {
     isOpen: {
@@ -66,6 +62,7 @@ export default {
     }
   },
   async mounted() {
+    this.setProduct('natural-eye-wipes')
     const actions = {
       openCart: this.openCart,
       addCart: this.addCart,
@@ -76,10 +73,8 @@ export default {
     await this.initCart()
     const parsedSettings = await JSON.parse(this.settings_json)
     const parsedCollection = await JSON.parse(this.collection_json)
-    const parsedProducts = await JSON.parse(this.products_json)
     await this.setSettings(parsedSettings)
     await this.setCollection(parsedCollection)
-    await this.setProducts(parsedProducts)
     await setCartTriggers(actions)
     document.body.classList.add("status-cart-ready");
   },

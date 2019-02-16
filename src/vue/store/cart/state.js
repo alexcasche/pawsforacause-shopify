@@ -5,6 +5,5 @@ export default {
   shoppingCart: false,
   errorMessage: false,
   settings: {},
-  collection: {},
-  products: {}
+  collection: {}
 };
