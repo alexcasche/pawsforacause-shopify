@@ -30,7 +30,7 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from "vuex";
-import { filterCollection, pricesProduct } from "@vue/helpers";
+import { pricesProduct, upsellFilter, upsellTrim } from "@vue/helpers";
 
 export default {
   data() {
@@ -39,30 +39,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('cart', ['shoppingCart', 'settings', 'collection']),
-    untilFreeShipping() {
-      const { shipping_threshold } = this.settings
-      if(shipping_threshold) {
-        return (shipping_threshold - this.shoppingCart.total).toFixed(2)
-      }
-    },
-    upsellText() {
-      const { upsell_text, upsell_free_text, currency } = this.settings
-      if(this.untilFreeShipping > 0) {
-        return upsell_text.replace("{{ untilFreeShipping }}", `${currency.symbol}${this.untilFreeShipping}`)
-      } else {
-        return upsell_free_text
-      }
-    },
+    ...mapGetters('cart', ['shoppingCart', 'settings', 'collection', 'upsellText']),
     activeCollection() {
-      let activeCollection = {}
-      let collectionKeys = Object.keys(this.upsellCollection)
-      collectionKeys.forEach(key => {
-        if(!this.shoppingCart && !this.shoppingCart.items[key]) {
-          activeCollection[key] = this.upsellCollection[key]
-        }
-      })
-      return activeCollection
+      return upsellTrim(this.upsellCollection)
     }
   },
   methods: {
@@ -86,7 +65,7 @@ export default {
     },
   },
   mounted() {
-    this.upsellCollection = filterCollection(this.collection, this.shoppingCart)
+    this.upsellCollection = upsellFilter(this.collection, this.shoppingCart, 12)
   }
 }
 </script>

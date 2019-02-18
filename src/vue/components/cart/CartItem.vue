@@ -67,19 +67,20 @@ export default {
     }
   },
   methods: {
-    ...mapActions('cart', ['addCart', 'changeCart']),
+    ...mapActions('cart', ['changeCart']),
     editItem(action) {
       let { id, quantity } = this.item;
       switch(action) {
         case "add":
-          this.addCart({ id, quantity: 1 })
+          quantity = quantity + 1
           break;
         case "remove":
-          this.changeCart({ id, quantity: quantity -= 1 })
+          quantity = quantity - 1
           break
         case "clear":
-          this.changeCart({ id, quantity: 0 })
+          quantity = 0
       }
+      this.changeCart({ id, quantity })
     }
   }
 }

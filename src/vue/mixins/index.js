@@ -1,5 +1,7 @@
 import { emptyObject } from './emptyObject';
 
-export default [
-  { emptyObject }
-]
+export default {
+  methods: {
+    emtpyObject
+  }
+}
