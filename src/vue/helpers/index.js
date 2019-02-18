@@ -4,8 +4,6 @@ export { formatFloat } from "./formatFloat";
 export { formatItem } from "./formatItem";
 export { formatProduct } from "./formatProduct";
 export { formatCollection } from "./formatCollection";
-export { pricesProduct } from "./pricesProduct";
-export { pricesVariant } from "./pricesVariant";
 export { setCartData } from "./setCartData";
 export { setCartTriggers } from "./setCartTriggers";
 export { shuffleArray } from "./shuffleArray";

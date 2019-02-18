@@ -1,7 +1,9 @@
 import { emptyObject } from './emptyObject';
+import { imageAlt } from './imageAlt';
+import { pricesHtml } from './pricesHtml';
 
-export default {
-  methods: {
-    emtpyObject
-  }
-}
+export default [
+  emptyObject,
+  imageAlt,
+  pricesHtml
+]

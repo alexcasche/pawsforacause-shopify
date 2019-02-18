@@ -1,5 +1,5 @@
 import { toUSD } from "./toUSD";
 
-export default {
-  toUSD
-};
+export default [
+  { toUSD }
+]

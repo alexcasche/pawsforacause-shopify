@@ -13,7 +13,7 @@
           :alt="imageAlt(item)"
         />
         <span 
-          v-html="pricesHtml(item)"
+          v-html="pricesHtml(item, 'product', 'c-cartUpsell__')"
           class="c-cartUpsell__prices o-flexColumn"
         />
         <button 
@@ -30,7 +30,7 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from "vuex";
-import { pricesProduct, upsellFilter, upsellTrim } from "@vue/helpers";
+import { upsellFilter, upsellTrim } from "@vue/helpers";
 
 export default {
   data() {
@@ -41,23 +41,14 @@ export default {
   computed: {
     ...mapGetters('cart', ['shoppingCart', 'settings', 'collection', 'upsellText']),
     activeCollection() {
-      return upsellTrim(this.upsellCollection)
+      return upsellFilter(this.upsellCollection, this.shoppingCart)
     }
   },
   methods: {
     ...mapMutations('cart', ['showAdd']),
     ...mapActions('cart', ['addCart', 'clearCart']),
-    imageAlt(item) {
-      const { name } = window.theme.shop
-      return `${name} ${item.title}`
-    },
-    pricesHtml(item) {
-      const { symbol }  = this.settings.currency
-      return pricesProduct(item, symbol, "c-cartUpsell__")
-    },
     addClick(item) {
-      const { variants } = item
-      const variantKeys = Object.keys(variants)
+      const variantKeys = Object.keys(item.variants)
       if(variantKeys.length > 1) {
       } else {
         this.addCart({ id: variantKeys[0], quantity: 1 })
@@ -65,7 +56,7 @@ export default {
     },
   },
   mounted() {
-    this.upsellCollection = upsellFilter(this.collection, this.shoppingCart, 12)
+    this.upsellCollection = upsellTrim(this.collection, 12)
   }
 }
 </script>

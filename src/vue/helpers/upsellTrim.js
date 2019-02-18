@@ -1,10 +1,14 @@
-export const filterSlice = (upsellCollection, shoppingCart) => {
-  let collectionTrimmed = {}
-  let collectionKeys = Object.keys(upsellCollection)
-  collectionKeys.forEach(key => {
-    if(!shoppingCart && !shoppingCart.items[key]) {
-      collectionTrimmed[key] = upsellCollection[key]
+import { shuffleArray } from '@vue/helpers'
+
+export const upsellTrim = (collection, limit) => {
+  if(collection) {
+    let collectionKeys = shuffleArray(Object.keys(collection))
+    let collectionTrimmed = {};
+    for (let i = 0; i < limit; i++) { 
+      collectionTrimmed[collectionKeys[i]] = collection[collectionKeys[i]]
     }
-  })
-  return collectionTrimmed
-}
+    return collectionTrimmed;
+  } else {
+    return false
+  }
+};

@@ -1,10 +1,10 @@
 <template>
-  <div v-if="activeProduct" 
+  <div v-if="activeVariant" 
     class="c-cartItem"
   >
     <img class="c-cartItem__image" 
       :src="item.image"
-      :alt="imageAlt" 
+      :alt="imageAlt(item)"
     />
     <div class="c-cartItem__info">
       <span class="c-cartItem__variant">
@@ -13,10 +13,10 @@
       <span class="c-cartItem__title">
         {{ item.product_title }}
       </span>
-      <span v-html="pricesHtml"
+      <span 
+        v-html="pricesHtml(activeVariant, 'variant', 'c-cartUpsell__')"
         class="c-cartItem__prices o-flexRow" 
-      >
-      </span>
+      />
     </div>
     <div class="c-cartItem__actions">
       <button class="c-cartItem__remove" @click="editItem('clear')">
@@ -38,8 +38,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
-import { pricesVariant } from "@vue/helpers";
+import { mapActions } from "vuex";
 
 export default {
   props: {
@@ -49,37 +48,20 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('cart', ['settings', 'products']),
-    imageAlt() {
-      const { image, title } = this.item
-      const { name } = window.theme.shop
-      return image.alt ? image.alt : `${name} ${title}`
+    activeVariant() {
+      const activeProduct = this.$store.getters["cart/product"](this.item.product_id)
+      if(activeProduct) return activeProduct.variants[this.item.id]
     },
-    activeProduct() {
-      return this.$store.getters["cart/product"](this.item.product_id)
-    },
-    pricesHtml() {
-      if(this.activeProduct) {
-        const activeVariant = this.activeProduct.variants[this.item.id]
-        const { symbol }  = this.settings.currency
-        return pricesVariant(activeVariant, symbol, "c-cartItem__")
-      }
-    }
   },
   methods: {
     ...mapActions('cart', ['changeCart']),
     editItem(action) {
       let { id, quantity } = this.item;
-      switch(action) {
-        case "add":
-          quantity = quantity + 1
-          break;
-        case "remove":
-          quantity = quantity - 1
-          break
-        case "clear":
-          quantity = 0
-      }
+      quantity = action === "add"
+        ? quantity + 1
+        : action === "remove"
+          ? quantity - 1
+          : 0
       this.changeCart({ id, quantity })
     }
   }

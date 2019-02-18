@@ -1,3 +1,5 @@
 import vueCustomElement from "vue-custom-element";
 
-export default [vueCustomElement];
+export default [
+  vueCustomElement
+];

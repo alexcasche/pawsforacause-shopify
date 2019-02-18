@@ -16,7 +16,8 @@ function getEntries(pattern) {
 
 const webpackJS = {
   mode: "production",
-  devtool: "source-map",
+  // devtool: "source-map",
+  cache: false,
   resolve: {
     alias: {
       "@scripts": path.resolve(__dirname, "src/vue"),
@@ -32,9 +33,10 @@ const webpackJS = {
     rules: [
       {
         test: /\.js$/,
-        use: {
-          loader: "babel-loader"
-        },
+        use: [
+          // { loader: "source-map-loader", options: { enforce: "pre" } },
+          { loader: "babel-loader" }
+        ],
         exclude: /node_modules/
       },
       {

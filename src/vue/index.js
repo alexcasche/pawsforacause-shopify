@@ -11,6 +11,11 @@ Object.entries(filters).forEach((filter) => {
   Vue.use(...filter)
 })
 
+/* Register Mixins */
+mixins.forEach((mixin) => {
+  Vue.mixin(mixin)
+})
+
 /* Register Plugins */
 plugins.forEach((plugin) => {
   Vue.use(plugin)
