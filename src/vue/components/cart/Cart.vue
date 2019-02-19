@@ -9,7 +9,7 @@
     <transition name="cart-slide">
       <div v-if="isOpen" class="c-cart__drawer">
         <CartHeader />
-        <CartContent />
+        <CartMain />
         <CartUpsell />
       </div>
     </transition>
@@ -20,7 +20,7 @@
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 import { setCartData, setCartTriggers } from '@vue/helpers'
 import CartHeader from './CartHeader.vue'
-import CartContent from './CartContent.vue'
+import CartMain from './CartMain.vue'
 import CartUpsell from './CartUpsell.vue'
 
 export default {
@@ -40,7 +40,7 @@ export default {
   },
   components: {
     CartHeader,
-    CartContent,
+    CartMain,
     CartUpsell
   },
   computed: {

@@ -27,6 +27,7 @@ const paths = {
   theme: ["./src/**/*", "!./src/{scripts,styles,templates,vue}/**/*"],
   templates: ["./src/templates/**/*"],
   webpack: ["./src/scripts/index.js"],
+  vue: ["./src/vue/**/*"],
   browserFiles: ["./dist/**/*", "./tmp/theme.update"]
 }
 
@@ -59,7 +60,7 @@ gulp.task('build:webpack', () => {
     .pipe(gulp.dest(`${paths.dist}/assets`))
 })
 gulp.task('watch:webpack', () => {
-  return gulp.watch(paths.webpack, gulp.series('build:webpack'))
+  return gulp.watch(paths.vue, gulp.series('build:webpack'))
 })
 
 gulp.task('clean:theme', () => {

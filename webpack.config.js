@@ -5,6 +5,7 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
   mode: "production",
+  devtool: "source-map",
   cache: false,
   resolve: {
     alias: {

@@ -34,8 +34,10 @@ export default {
   },
   watch: {
     contentId: {
-      handler() {
-        this.setModal();
+      handler(val) {
+        if(val) {
+          this.setModal();
+        }
       }
     },
   }
