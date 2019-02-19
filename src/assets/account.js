@@ -1,1 +1,1 @@
-"use strict";"#orders"!=window.location.hash?document.querySelector("#account").classList.remove("u-hidden"):(location.hash&&setTimeout(function(){window.scrollTo(0,0)},1),document.querySelector("#orders").classList.remove("u-hidden"));
+"use strict";"#orders"!=window.location.hash?document.querySelector("#account").classList.remove("u-hidden"):(location.hash&&setTimeout(function(){window.scrollTo(0,0)},1),document.querySelector("#orders").classList.remove("u-hidden")),console.log("YPPPsdas");
