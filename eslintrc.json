@@ -4,5 +4,9 @@
     "eslint:recommended",
     "plugin:vue/strongly-recommended",
     "plugin:prettier/recommended"
-  ]
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  }
 }

@@ -46,7 +46,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      name: "[index].css"
+      filename: "index.css"
     }),
     new VueLoaderPlugin()
   ]

@@ -1,8 +1,10 @@
 const gulp = require('gulp');
-const exec = require('gulp-exec');
+const browserify = require('gulp-browserify');
+const babelify = require('babelify');
 const plumber = require('gulp-plumber');
 const changed = require('gulp-changed');
 const flatten = require('gulp-flatten');
+const exec = require('child_process').exec;
 const merge = require('merge-stream');
 const print = require('gulp-print').default;
 const gutil = require("gulp-util");
@@ -25,7 +27,7 @@ const paths = {
   theme: ["./src/**/*", "!./src/{scripts,styles,templates,vue}/**/*"],
   templates: ["./src/templates/**/*"],
   webpack: ["./src/scripts/index.js"],
-  browserFiles: ["./dist/**/*"]
+  browserFiles: ["./dist/**/*", "./tmp/theme.update"]
 }
 
 gulp.task('clean:js', () => {
@@ -35,8 +37,8 @@ gulp.task('clean:js', () => {
 })
 gulp.task('build:js', () => {
   return gulp.src(paths.scripts)
+    .pipe(browserify({ transform: ['babelify'] }))
     .pipe(flatten())
-    .pipe(babel())
     .pipe(uglify())
     .pipe(changed(paths.assets))
     .pipe(print(filepath => `built: ${filepath}`))
@@ -82,15 +84,21 @@ gulp.task('watch:theme', () => {
   return gulp.watch(paths.theme, gulp.series('copy:theme'))
 })
 
-gulp.task('build:themekit', () => {
-  return exec('theme deploy -d dist')
-})
-gulp.task('watch:themekit', () => {
-  return exec('theme watch -d dist')
-})
+gulp.task('build:themekit', (cb) => {
+  exec('theme deploy -d dist', (err, stdout, stderr) => {
+    console.log(stderr);
+    cb(err)
+  })
+});
+gulp.task('watch:themekit', (cb) => {
+  exec('theme watch -d dist --notify=/tmp/theme.update', (err, stdout, stderr) => {
+    console.log(stderr);
+    cb(err)
+  })
+});
 
 gulp.task('browserSync', () => {
-  return browserSync.init({
+  browserSync.init({
     proxy: `${BASE_URL}${PREVIEW_QUERY}`,
     files: paths.browserFiles,
   })
@@ -99,4 +107,4 @@ gulp.task('browserSync', () => {
 gulp.task('clean', gulp.series('clean:js', 'clean:webpack', 'clean:theme'))
 gulp.task('build', gulp.series('build:js', 'build:webpack', 'copy:theme', 'build:themekit'))
 gulp.task('watch', gulp.parallel('watch:js', 'watch:webpack', 'watch:theme', 'watch:themekit', 'browserSync'))
-gulp.task('dev', gulp.series('clean', 'build', 'watch'))
+gulp.task('start', gulp.series('clean', 'build', 'watch'))

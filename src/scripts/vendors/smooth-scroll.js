@@ -1,6 +1,5 @@
-import smoothscroll from 'smoothscroll-polyfill'
-
-smoothscroll.polyfill()
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
 
 function getOffset(el) {
   const rect = el.getBoundingClientRect()
