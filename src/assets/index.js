@@ -1,1 +1,0 @@
-"use strict";require("../styles/index.css"),require("../vue/index.js");

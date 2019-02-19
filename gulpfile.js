@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const watch = require('gulp-watch');
+const exec = require('gulp-exec');
 const plumber = require('gulp-plumber');
 const changed = require('gulp-changed');
 const flatten = require('gulp-flatten');
@@ -10,8 +10,12 @@ const del = require('del');
 const vinylPaths = require('vinyl-paths');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
-const webpack_stream = require('webpack-stream')
-const webpack_config = require('./webpack.config.js');
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.config.js');
+const webpackStream = require('webpack-stream');
+const browserSync = require('browser-sync');
+const BASE_URL = 'https://pawsforacause.com';
+const PREVIEW_QUERY = '?preview_theme_id=44007161954';
 
 const paths = {
   src: "./src",
@@ -20,6 +24,8 @@ const paths = {
   scripts: ["./src/scripts/**/*.js", "!./src/scripts/index.js"],
   theme: ["./src/**/*", "!./src/{scripts,styles,templates,vue}/**/*"],
   templates: ["./src/templates/**/*"],
+  webpack: ["./src/scripts/index.js"],
+  browserFiles: ["./dist/**/*"]
 }
 
 gulp.task('clean:js', () => {
@@ -37,7 +43,21 @@ gulp.task('build:js', () => {
     .pipe(gulp.dest(paths.assets))
 })
 gulp.task('watch:js', () => {
-  gulp.watch(paths.scripts, gulp.series('build:js'))
+  return gulp.watch(paths.theme, gulp.series('build:js'))
+})
+
+gulp.task('clean:webpack', () => {
+  return gulp.src(`${paths.assets}/index.js`, { allowEmpty: true })
+    .pipe(print())
+    .pipe(vinylPaths(del))
+})
+gulp.task('build:webpack', () => {
+  return gulp.src(`${paths.webpack}`)
+    .pipe(webpackStream(webpackConfig), webpack)
+    .pipe(gulp.dest(`${paths.dist}/assets`))
+})
+gulp.task('watch:webpack', () => {
+  return gulp.watch(paths.webpack, gulp.series('build:webpack'))
 })
 
 gulp.task('clean:theme', () => {
@@ -49,19 +69,34 @@ gulp.task('copy:theme', () => {
   const theme = gulp.src(paths.theme)
     .pipe(flatten({ includeParents: 1 }))
     .pipe(changed(paths.dist))
-    .pipe(print(filepath => `built: ${filepath}`))
+    .pipe(print(filepath => `copied: ${filepath}`))
     .pipe(gulp.dest(paths.dist))
   const templates = gulp.src(paths.templates)
     .pipe(flatten({ includeParents: 1 }))
-    .pipe(changed(paths.dist))
-    .pipe(print(filepath => `built: ${filepath}`))
+    .pipe(changed(`${paths.dist}/templates`))
+    .pipe(print(filepath => `copied: ${filepath}`))
     .pipe(gulp.dest(`${paths.dist}/templates`))
   return merge(theme, templates);
 })
 gulp.task('watch:theme', () => {
-  gulp.watch(paths.theme, gulp.series('copy:theme'))
+  return gulp.watch(paths.theme, gulp.series('copy:theme'))
 })
 
+gulp.task('build:themekit', () => {
+  return exec('theme deploy -d dist')
+})
+gulp.task('watch:themekit', () => {
+  return exec('theme watch -d dist')
+})
 
-gulp.task('js', gulp.series('clean:js', 'build:js', 'watch:js'))
-gulp.task('theme', gulp.series('clean:theme', 'copy:theme', 'watch:theme'))
+gulp.task('browserSync', () => {
+  return browserSync.init({
+    proxy: `${BASE_URL}${PREVIEW_QUERY}`,
+    files: paths.browserFiles,
+  })
+})
+
+gulp.task('clean', gulp.series('clean:js', 'clean:webpack', 'clean:theme'))
+gulp.task('build', gulp.series('build:js', 'build:webpack', 'copy:theme', 'build:themekit'))
+gulp.task('watch', gulp.parallel('watch:js', 'watch:webpack', 'watch:theme', 'watch:themekit', 'browserSync'))
+gulp.task('dev', gulp.series('clean', 'build', 'watch'))

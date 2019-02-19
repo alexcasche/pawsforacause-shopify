@@ -3,20 +3,8 @@ const glob = require("glob");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
-function getEntries(pattern) {
-  const entries = {};
-  glob.sync(pattern).forEach(file => {
-    const ext = file.substr(file.lastIndexOf("."));
-    const name = file.substr(file.lastIndexOf("/") + 1);
-    const output = name.replace(ext, "");
-    entries[output] = path.join(__dirname, file);
-  });
-  return entries;
-}
-
-const webpackJS = {
+module.exports = {
   mode: "production",
-  // devtool: "source-map",
   cache: false,
   resolve: {
     alias: {
@@ -24,17 +12,15 @@ const webpackJS = {
       "@vue": path.resolve(__dirname, "src/vue")
     }
   },
-  entry: getEntries("src/scripts/**/*.js"),
   output: {
-    path: path.join(__dirname, "src/assets"),
-    filename: "[name].js"
+    filename: 'index.js',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         use: [
-          // { loader: "source-map-loader", options: { enforce: "pre" } },
+          { loader: "source-map-loader", options: { enforce: "pre" } },
           { loader: "babel-loader" }
         ],
         exclude: /node_modules/
@@ -60,10 +46,8 @@ const webpackJS = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      name: "[name].css"
+      name: "[index].css"
     }),
     new VueLoaderPlugin()
   ]
-};
-
-module.exports = [{ ...webpackJS }];
+}

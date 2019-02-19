@@ -8,5 +8,3 @@ if(window.location.hash != "#orders") {
   }
   document.querySelector("#orders").classList.remove("u-hidden");
 }
-
-console.log("YPPPsdas")
