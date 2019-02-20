@@ -5,12 +5,30 @@
     >
       <i class="c-cartUpsellAdd__closeIcon fa fa-times" aria-hidden="true"></i>
     </button>
-    SHOWING {{ item.id }}
+     <span class="c-cartUpsellAdd__title">
+      {{ item.title }}
+    </span>
+    <div class="c-cartUpsellAdd__main o-flexRow">
+      <div class="c-cartUpsellAdd__imageBox o-flexColumn">
+        <img class="c-cartUpsellAdd__image"
+        :src="imageUrl(item.featured_image, '.jpg', '300x300')"
+        :alt="imageAlt(item)"
+        />
+      </div>
+      <ProductSelect
+        :item="item"
+        classPrefix="c-cartUpsellAdd__"
+        :quantity_label="settings.quantity_label"
+        :button_text="settings.add_cart_button"
+      />
+
+    </div>
   </div>
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapGetters, mapMutations, mapActions } from "vuex";
+import ProductSelect from "@vue/components/product/ProductSelect.vue";
 
 export default {
   props: {
@@ -19,8 +37,15 @@ export default {
       default: () => {}
     }
   },
+  components: {
+    ProductSelect
+  },
+  computed: {
+    ...mapGetters('cart', ['settings'])
+  },
   methods: {
     ...mapMutations('cart', ['setAdd']),
+    ...mapActions('cart', ['settings', 'addCart']),
   }
 }
 </script>

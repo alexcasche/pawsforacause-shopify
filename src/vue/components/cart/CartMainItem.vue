@@ -3,7 +3,7 @@
     class="c-cartMainItem"
   >
     <img class="c-cartMainItem__image" 
-      :src="item.image"
+      :src="imageUrl(item.image, '.jpg', '120x120')"
       :alt="imageAlt(item)"
     />
     <div class="c-cartMainItem__info">

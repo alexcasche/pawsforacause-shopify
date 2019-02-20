@@ -3,7 +3,7 @@
     class="c-cartUpsellItem o-flexColumn"
   >
     <img class="c-cartUpsellItem__image"
-        :src="item.featured_image" 
+        :src="imageUrl(item.featured_image, '.jpg', '120x120')" 
         :alt="imageAlt(item)"
       />
     <span 

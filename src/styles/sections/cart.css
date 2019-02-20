@@ -238,7 +238,7 @@
   bottom: 0;
   left: 0;
   background-color: $bg-gray;
-  padding: 30px 15px 50px;
+  padding: 30px 20px 50px;
 }
 .c-cartUpsellAdd__close {
   position: absolute;
@@ -250,13 +250,58 @@
   border-radius: 50% !important;
   background-color: #e7e7e7;
   &:hover {
-    background-color: #ddd;
+    background-color: #dedede;
   }
 }
 .c-cartUpsellAdd__closeIcon {
   font-size: 13px;
   color: #bbb;
-  &:hover {
-    color: #b5b5b5;
-  }
+}
+.c-cartUpsellAdd__title {
+  display: block;
+  margin-bottom: 30px;
+  padding: 0 40px;
+  text-align: center;
+  font-size: 16px;
+  color: $color-black-dark;
+}
+.c-cartUpsellAdd__main {
+  align-items: flex-start;
+}
+.c-cartUpsellAdd__imageBox {
+  width: calc(50% - 10px);
+}
+.c-cartUpsellAdd__image {
+  width: 150px;
+}
+.c-cartUpsellAdd__form {
+  width: calc(50% - 10px);
+  align-items: flex-start;
+}
+.c-cartUpsellAdd__prices {
+  margin-bottom: 15px;
+}
+.c-cartUpsellAdd__basePrice, .c-cartUpsellAdd__salePrice {
+  font-size: 15px;
+  font-weight: 600;
+}
+.c-cartUpsellAdd__basePrice {
+  color: $color-black-light;
+}
+.c-cartUpsellAdd__comparePrice {
+  color: $color-gray;
+  font-weight: 500;
+  font-size: 13px;
+  text-decoration: line-through;
+}
+.c-cartUpsellAdd__salePrice {
+  order: -1;
+  margin-right: 5px;
+  color: $color-red-dark;
+  margin-right: 5px;
+}
+.c-cartUpsellAdd__button {
+  width: 100%;
+  padding: 8px 20px;
+  font-size: 13px;
 }
