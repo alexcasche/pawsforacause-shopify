@@ -27,7 +27,7 @@ const paths = {
   theme: ["./src/**/*", "!./src/{scripts,styles,templates,vue}/**/*"],
   templates: ["./src/templates/**/*"],
   webpack: ["./src/scripts/index.js"],
-  vue: ["./src/vue/**/*"],
+  vue: ["./src/{vue,styles}/**/*"],
   browserFiles: ["./dist/**/*", "./tmp/theme.update"]
 }
 

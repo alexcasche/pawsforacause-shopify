@@ -14,7 +14,7 @@
         {{ item.product_title }}
       </span>
       <span 
-        v-html="pricesHtml(activeVariant, 'variant', 'c-cartMain__')"
+        v-html="pricesHtml(activeVariant, 'variant', 'c-cartMainItem__')"
         class="c-cartMainItem__prices o-flexRow" 
       />
     </div>

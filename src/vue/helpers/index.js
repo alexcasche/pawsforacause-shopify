@@ -1,4 +1,6 @@
 export { axiosHeaders } from "./axiosHeaders";
+export { filterKeys } from "./filterKeys";
+export { filterUpsell } from "./filterUpsell";
 export { formatCart } from "./formatCart";
 export { formatFloat } from "./formatFloat";
 export { formatItem } from "./formatItem";
@@ -7,5 +9,3 @@ export { formatCollection } from "./formatCollection";
 export { setCartData } from "./setCartData";
 export { setCartTriggers } from "./setCartTriggers";
 export { shuffleArray } from "./shuffleArray";
-export { upsellFilter } from "./upsellFilter";
-export { upsellTrim } from "./upsellTrim";

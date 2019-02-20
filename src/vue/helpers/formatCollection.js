@@ -1,6 +1,6 @@
 import { formatFloat } from '@vue/helpers'
 
-export const formatCollection = (collection, shoppingCart = false) => {
+export const formatCollection = (collection) => {
   if(collection) {
     let collectionObj = {}
     collection.forEach(item => {
@@ -19,13 +19,8 @@ export const formatCollection = (collection, shoppingCart = false) => {
         itemObj.variants[variant.id] = variant
         itemObj.variants[variant.id].compare_at_price = variant.compare_at_price > 0 ? formatFloat(variant.compare_at_price) : false
         itemObj.variants[variant.id].price = variant.price > 0 ? formatFloat(variant.price) : false
-        if(shoppingCart) {
-          if(shoppingCart.items[variant.id]) {
-            inCart = true
-          }
-        }
       })
-      if(!inCart & item.available || !shoppingCart) {
+      if(item.available) {
         collectionObj[item.id] = itemObj
       }
     })

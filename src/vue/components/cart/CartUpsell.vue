@@ -1,9 +1,9 @@
 <template>
-  <div class="c-cartUpsell u-bg-gray">
+  <div class="c-cartUpsell">
     <span class='c-cartUpsell__message'>
       {{ upsellText }}
     </span>
-    <div class="c-cartUpsell__items o-flexRow">
+    <div class="c-cartUpsell__items o-lost">
       <CartUpsellItem 
         v-for="(item, index) in upsellCollection"
         :key="index"
@@ -15,29 +15,23 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from "vuex";
-import { upsellFilter, upsellTrim } from "@vue/helpers";
+import { filterUpsell } from "@vue/helpers";
 import CartUpsellItem from "./CartUpsellItem.vue"
 
 export default {
+  data() {
+    return { 
+      upsellCollection: {}
+    }
+  },
   components: {
     CartUpsellItem
   },
   computed: {
-    ...mapGetters('cart', ['shoppingCart', 'settings', 'collection', 'upsellText']),
-    upsellTCollection() {
-      return upsellTrim(this.collection, 12)
-    }
+    ...mapGetters('cart', ['collection', 'cartIds', 'upsellText'])
   },
-  methods: {
-    ...mapMutations('cart', ['showAdd']),
-    ...mapActions('cart', ['addCart', 'clearCart']),
-    addClick(item) {
-      const variantKeys = Object.keys(item.variants)
-      if(variantKeys.length > 1) {
-      } else {
-        this.addCart({ id: variantKeys[0], quantity: 1 })
-      }
-    },
+  mounted() {
+    this.upsellCollection = filterUpsell(this.collection, this.cartIds, 12)
   }
 }
 </script>

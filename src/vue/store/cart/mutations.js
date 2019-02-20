@@ -32,7 +32,7 @@ export default {
     return state
   },
   setCollection(state, payload) {
-    state.collection = formatCollection(payload, state.shoppingCart)
+    state.collection = formatCollection(payload)
     return state
   },
   setProduct(state, payload) {
