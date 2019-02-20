@@ -38,5 +38,8 @@ export default {
   setProduct(state, payload) {
     state.products = { ...state.products, ...payload }
     return state
+  },
+  setAdd(state, payload) {
+    return state.showAdd = payload
   }
 }

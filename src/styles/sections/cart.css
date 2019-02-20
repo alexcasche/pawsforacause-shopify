@@ -27,6 +27,7 @@
   right: 20px;
   width: 30px;
   height: 30px;
+  padding: 0;
   border-radius: 50% !important;
   &:hover {
     background-color: #e8e8e8;
@@ -175,6 +176,7 @@
 }
 
 .c-cartUpsell {
+  position: relative;
   padding: 30px 15px 50px;
   background-color: $bg-gray;
   flex-grow: 1;
@@ -227,4 +229,34 @@
 .c-cartUpsellItem__addIcon {
   margin-left: 3px;
   font-size: 8px;
+}
+
+.c-cartUpsellAdd {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $bg-gray;
+  padding: 30px 15px 50px;
+}
+.c-cartUpsellAdd__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 26px;
+  width: 26px;
+  padding: 0;
+  border-radius: 50% !important;
+  background-color: #e7e7e7;
+  &:hover {
+    background-color: #ddd;
+  }
+}
+.c-cartUpsellAdd__closeIcon {
+  font-size: 13px;
+  color: #bbb;
+  &:hover {
+    color: #b5b5b5;
+  }
 }

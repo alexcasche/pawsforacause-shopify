@@ -19,17 +19,23 @@
       />
     </div>
     <div class="c-cartMainItem__actions">
-      <button class="c-cartMainItem__remove" @click="editItem('clear')">
+      <button @click="editItem('clear')" 
+        class="c-cartMainItem__remove" 
+      >
         <i class="c-cartMainItem__removeIcon fa fa-times" aria-hidden="true"></i>
       </button>
       <div class="c-cartMainItem__quantity o-flexRow">
-        <button class="c-cartMainItem__quantityButton o-flexColumn" @click="editItem('remove')">
+        <button @click="editItem('remove')"
+          class="c-cartMainItem__quantityButton o-flexColumn" 
+        >
           <i class="c-cartMainItem__quantityIcon fas fa-minus" aria-hidden="true"></i>
         </button>
         <span class="c-cartMainItem__quantityText">
           {{ item.quantity }}
         </span>
-        <button class="c-cartMainItem__quantityButton o-flexColumn" @click="editItem('add')">
+        <button @click="editItem('add')"
+          class="c-cartMainItem__quantityButton o-flexColumn"
+        >
           <i class="c-cartMainItem__quantityIcon fas fa-plus" aria-hidden="true"></i>
         </button>
       </div>
