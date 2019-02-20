@@ -84,6 +84,13 @@
     color: color(#bbb shade(10%));
   }
 }
+.c-button--disabled {
+  background-color: #ddd;
+  color: #ccc;
+  &:hover {
+    pointer-events: none;
+  }
+}
 .c-button--edit {
   @mixin transition-bg-darken #ccc;
 }
