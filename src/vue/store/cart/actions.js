@@ -23,7 +23,7 @@ export default {
       const item = payload[i];
       const hideCart = i < payload.length - 1 ? true : false
       const inCart = state.shoppingCart.items[item.id]
-      if(!inCart) { 
+      if(!inCart) {
         const action = await axios.post("/cart/add.js", qs.stringify(item), axiosHeaders)
           .then(response => commit("setCart", { ...state.shoppingCart,
             count: state.shoppingCart.count + item.quantity,

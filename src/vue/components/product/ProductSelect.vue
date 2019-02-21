@@ -10,7 +10,7 @@
     <div 
       v-for="(select, key, index) in productSelects"
       :key="index"
-      :class="classPrefix + 'select o-flexRow' + index"
+      :class="classPrefix + 'select o-flexRow'"
     >
       <label 
         :class="classPrefix + 'selectLabel'"
@@ -27,15 +27,43 @@
           v-for="(option, index) in select.options"
           :key="index"
           :value="option"
-          :selected="form['option' + (index + 1)] === option"
         >
           {{ option }}
+        </option>
+      </select>
+    </div>
+    <div 
+      :class="classPrefix + 'select o-flexRow'"
+    >
+      <label 
+        :class="classPrefix + 'selectLabel'"
+        for="quantitySelect"
+      >
+        {{ quantity_label }}
+      </label>
+      <select 
+        v-model="form.quantity"
+        id="quantitySelect"
+        :class="classPrefix + 'selectInner'"
+      >
+        <option 
+          v-for="n in activeQuantity"
+          :key="n"
+          :value="n"
+        >
+          {{ n }}
+        </option>
+        <option v-if="!activeQuantity"
+          value="--"
+        >
+          --
         </option>
       </select>
     </div>
     <button 
       v-if="activeQuantity > 0"
       :class="classPrefix + 'button c-button-small c-button--submit'"
+      @click="addToCart"
     >
       {{ button_text }}
     </button>
@@ -50,7 +78,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapMutations, mapActions } from "vuex";
 import { productOptions, productVariant } from "@vue/helpers";
 
 export default {
@@ -59,7 +87,8 @@ export default {
       form: {
         option1: '',
         option2: '',
-        option3: ''
+        option3: '',
+        quantity: ''
       }
     }
   },
@@ -103,8 +132,22 @@ export default {
       }
     },
   },
-  methods: {
+  watch: {
+    activeQuantity: {
+      handler(val) {
+        if(val === 0) this.form.quantity = "--"
+        else this.form.quantity = 1
+      }
+    }
 
+  },
+  methods: {
+    ...mapMutations('cart', ['setAdd']),
+    ...mapActions('cart', ['addCart']),
+    addToCart() {
+      this.setAdd(false);
+      this.addCart({ id: this.activeVariant.id, quantity: this.form.quantity })
+    }
   },
   mounted() {
     const options = ["option1", "option2", "option3"];
@@ -113,6 +156,8 @@ export default {
         this.form[option] = this.productSelects[option].options[0]
       }
     })
+    if(this.activeQuantity) this.form.quantity = 1
+    else this.form.quantity = '--'
   }
 }
 </script>
