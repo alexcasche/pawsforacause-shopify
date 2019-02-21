@@ -3,11 +3,13 @@ export default {
   isFetching: state => state.isFetching,
   showAdd: state => state.showAdd,
   shoppingCart: state => state.shoppingCart,
-  cartIds: (state, getters) => {
+  cartProductIds: (state, getters) => {
     const { items } = getters.shoppingCart
-    let ids = [];
-    Object.keys(items).forEach(key => ids.push(items[key].product_id))
-    return ids;
+    return Object.keys(items).map(key => items[key].product_id)
+  },
+  cartVariantIds: (state, getters) => {
+    const { items } = getters.shoppingCart
+    return Object.keys(items)
   },
   cartTotal: state => state.shoppingCart.total,
   errorMessage: state => state.errorMessage,

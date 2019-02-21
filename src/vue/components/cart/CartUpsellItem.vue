@@ -40,9 +40,9 @@ export default {
     CartUpsellAdd
   },
   computed: {
-    ...mapGetters('cart', ['cartIds', 'settings', 'showAdd']),
+    ...mapGetters('cart', ['cartProductIds', 'settings', 'showAdd']),
     inCart() {
-      return this.cartIds.indexOf(this.item.id) >= 0
+      return this.cartProductIds.indexOf(this.item.id) >= 0
     }
   },
   methods: {

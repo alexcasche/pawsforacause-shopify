@@ -28,10 +28,10 @@ export default {
     CartUpsellItem
   },
   computed: {
-    ...mapGetters('cart', ['collection', 'cartIds', 'upsellText'])
+    ...mapGetters('cart', ['collection', 'cartProductIds', 'upsellText'])
   },
   mounted() {
-    this.upsellCollection = filterUpsell(this.collection, this.cartIds, 12)
+    this.upsellCollection = filterUpsell(this.collection, this.cartProductIds, 12)
   }
 }
 </script>

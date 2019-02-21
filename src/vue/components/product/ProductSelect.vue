@@ -5,7 +5,7 @@
   >
     <span 
       :class="classPrefix + 'prices o-flexRow'"
-      v-html="pricesHtml(item, 'product', classPrefix)"
+      v-html="pricesHtml(activeVariant, 'variant', classPrefix)"
     />
     <div 
       v-for="(select, key, index) in productSelects"
@@ -41,16 +41,16 @@
     </button>
     <button 
       v-else
-      :class="classPrefix + 'button c-button-large c-button--disabled'"
+      :class="classPrefix + 'button c-button-large c-button--cancel'"
       disabled="disabled"
     >
-      Sold Out
+      {{ sold_out_text }}
     </button>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import { productOptions, productVariant } from "@vue/helpers";
 
 export default {
@@ -79,6 +79,10 @@ export default {
     button_text: {
       type: String,
       default: 'Add to Cart'
+    },
+    sold_out_text: {
+      type: String,
+      default: 'Sold Out'
     }
   },
   computed: {

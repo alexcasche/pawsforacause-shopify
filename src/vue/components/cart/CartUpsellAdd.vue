@@ -18,8 +18,9 @@
       <ProductSelect
         :item="item"
         classPrefix="c-cartUpsellAdd__"
-        :quantity_label="settings.quantity_label"
-        :button_text="settings.add_cart_button"
+        :quantity_label="settings.add_quantity_label"
+        :button_text="settings.add_cart_utton"
+        :sold_out_text="settings.add_sold_out"
       />
 
     </div>
