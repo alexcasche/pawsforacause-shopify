@@ -1,0 +1,72 @@
+<section class="c-productMain o-strip u-bg-gray">
+  <div class="c-productMain__container o-container o-flexFlip">
+    {% if section.settings.show_breadcrumbs %}
+      {% include 'breadcrumbs' %}
+    {% endif %}
+    {% include 'product-images' with product, class_prefix: 'c-productMain__' %}
+    <aside class="c-productMain__aside o-flexItem-50 o-flexColumn">
+      {% if product.vendor and section.settings.show_vendor %}
+        <h5 class="c-productMain__vendor">{{ product.vendor }}</h5>
+      {% endif %}
+      <h2 class="c-productMain__title">{{ product.title }}</h2>
+      <p class="c-productMain__tagline">
+        Made with <i class="c-productMain__taglineHeart fas fa-heart"></i> by Paws For A Cause
+      </p>
+      <vue-product-select
+        product='{{ product | json | escape }}'
+        quantity_label="{{ section.settings.quantity_label }}"
+        button_text="{{ section.settings.button_text }}"
+        sold_out_text="{{ section.settings.sold_out_text }}"
+      ></vue-product-select>
+    </aside>
+  </div>
+</section>
+
+{% schema %}
+{
+	"name": "Product Main",
+	"settings": [
+    {
+      "type": "header",
+      "content": "Product Main"
+    },
+		{
+			"id": "show_breadcrumbs",
+			"type": "checkbox",
+			"label": "Show Breadcrumbs"
+		},
+		{
+			"id": "show_vendor",
+			"type": "checkbox",
+			"label": "Show Vendor"
+		},
+    {
+      "id": "quantity_label",
+      "type": "text",
+      "label": "Quantity Label",
+      "default": "Quantity"
+    },
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Add To Cart",
+      "default": "Add To Cart"
+    },
+     {
+      "id": "sold_out_text",
+      "type": "text",
+      "label": "Sold Out",
+      "default": "Sold Out"
+    },
+    {
+			"id": "show_social",
+			"type": "checkbox",
+			"label": "Show Social"
+		},
+     {
+      "type": "header",
+      "content": "Product Details"
+    }
+  ]
+}
+{% endschema %}

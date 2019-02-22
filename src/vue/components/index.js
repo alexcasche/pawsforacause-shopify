@@ -1,9 +1,13 @@
-import Cart from './cart/Cart.vue'
 import AccountCart from './account/AccountCart.vue'
+
+import Cart from './cart/Cart.vue'
 import Modal from './modal/Modal.vue'
+import ProductSelect from './product/ProductSelect.vue'
 
 export default {
-  'vue-cart': Cart,
   'vue-account-cart': AccountCart,
-  'vue-modal': Modal
+
+  'vue-cart': Cart,
+  'vue-modal': Modal,
+  'vue-product-select': ProductSelect
 }

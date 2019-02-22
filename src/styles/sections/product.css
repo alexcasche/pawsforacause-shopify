@@ -1,19 +1,10 @@
 /*========== Product ==========*/
 
-.c-productMain {
-  background-color: $bg-gray;
-}
-.c-productMain__wrapper {
-  @mixin flex row, space-between, flex-start, wrap;
-}
-.c-productMain__side {
-  width: 100%;
-  @media(--desktop) {
-    width: calc(50% - 20px);
-  }
+.c-productMain__container {
+  margin-top: 5px;
 }
 .c-productMain__images {
-  @mixin flex row, space-between, flex-start;
+  align-items: flex-start;
 }
 .c-productMain__thumbnailList {
   @mixin flex column;
@@ -29,15 +20,15 @@
   width: calc(100% - 90px);
 }
 .c-productMain__aside {
-  @mixin flex column, center, flex-start;
-  padding: 0 40px;
+  align-items: flex-start;
 }
 .c-productMain__title {
   margin-bottom: 10px;
 }
 .c-productMain__vendor {
-  margin-bottom: 0;
+  margin-bottom: 5px;
   color: $color-blue;
+  font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;
 }

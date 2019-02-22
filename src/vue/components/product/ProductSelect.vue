@@ -14,13 +14,13 @@
     >
       <label 
         :class="classPrefix + 'selectLabel'"
-        :for="item.options[index] + 'Select'"
+        :for="product.options[index] + 'Select'"
       >
-        {{ item.options[index] }}
+        {{ product.options[index] }}
       </label>
       <select 
         v-model="form['option' + (index + 1)]"
-        :id="item.options[index] + 'Select'" 
+        :id="product.options[index] + 'Select'" 
         :class="classPrefix + 'selectInner'"
       >
         <option 
@@ -79,7 +79,7 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from "vuex";
-import { productOptions, productVariant } from "@vue/helpers";
+import { formatProduct, productOptions, productVariant } from "@vue/helpers";
 
 export default {
   data() {
@@ -93,8 +93,8 @@ export default {
     }
   },
   props: {
-    item: {
-      type: Object,
+    product: {
+      type: [String, Object],
       default: () => {}
     },
     classPrefix: {
@@ -115,11 +115,14 @@ export default {
     }
   },
   computed: {
+    productObject() {
+      return typeof this.product === 'object'
+    },
     productSelects() {
-      return productOptions(this.item)
+      return this.productObject ? productOptions(this.product) : false
     },
     activeVariant() {
-      return productVariant(this.item, this.form)
+      return this.productObject ? productVariant(this.product, this.form) : false
     },
     activeQuantity() {
       if(this.activeVariant) {
@@ -145,11 +148,15 @@ export default {
     ...mapMutations('cart', ['setAdd']),
     ...mapActions('cart', ['addCart']),
     addToCart() {
-      this.setAdd(false);
       this.addCart({ id: this.activeVariant.id, quantity: this.form.quantity })
+      this.setAdd(false);
     }
   },
   mounted() {
+    if(!this.productObject) {
+      const formattedProduct = formatProduct(JSON.parse(this.product))
+      this.product = formattedProduct[Object.keys(formattedProduct)[0]]
+    }
     const options = ["option1", "option2", "option3"];
     options.forEach(option => {
       if(this.productSelects[option]) {

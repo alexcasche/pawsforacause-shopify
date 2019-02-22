@@ -19,6 +19,9 @@
 .o-flexItem-40 {
   @mixin flexItem 40%;
 }
+.o-flexItem-50 {
+  @mixin flexItem 50%;
+}
 .o-flexItem-60 {
   @mixin flexItem 60%;
 }

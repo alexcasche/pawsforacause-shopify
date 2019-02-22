@@ -16,7 +16,7 @@
         />
       </div>
       <ProductSelect
-        :item="item"
+        :product="item"
         classPrefix="c-cartUpsellAdd__"
         :quantity_label="settings.add_quantity_label"
         :button_text="settings.add_cart_utton"

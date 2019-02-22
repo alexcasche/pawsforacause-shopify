@@ -1,4 +1,4 @@
-import { formatCollection, formatProducts } from "@vue/helpers";
+import { formatCollection } from "@vue/helpers";
 
 export default {
   openCart(state) {
