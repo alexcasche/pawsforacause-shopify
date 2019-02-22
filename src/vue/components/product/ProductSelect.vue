@@ -84,6 +84,8 @@ import { formatProduct, productOptions, productVariant } from "@vue/helpers";
 export default {
   data() {
     return {
+      activeVariant: false,
+      updateVariant: false,
       form: {
         option1: '',
         option2: '',
@@ -121,9 +123,6 @@ export default {
     productSelects() {
       return this.productObject ? productOptions(this.product) : false
     },
-    activeVariant() {
-      return this.productObject ? productVariant(this.product, this.form) : false
-    },
     activeQuantity() {
       if(this.activeVariant) {
         const { inventory_management, inventory_quantity } = this.activeVariant
@@ -134,15 +133,24 @@ export default {
         return activeQuantity
       }
     },
+    optionsWatch() {
+      const { option1, option2, option3 } = this.form
+      return `${option1}${option2}${option3}`
+    }
   },
   watch: {
+    optionsWatch: {
+      handler(val) {
+        if(this.updateVariant) this.activeVariant = productVariant(this.product, this.form)
+        else this.updateVariant = true
+      }
+    },
     activeQuantity: {
       handler(val) {
         if(val === 0) this.form.quantity = "--"
         else this.form.quantity = 1
       }
     }
-
   },
   methods: {
     ...mapMutations('cart', ['setAdd']),
@@ -157,10 +165,14 @@ export default {
       const formattedProduct = formatProduct(JSON.parse(this.product))
       this.product = formattedProduct[Object.keys(formattedProduct)[0]]
     }
+    const { variants } = this.product
+    const variantKeys = Object.keys(variants)
+    const firstAvailable = variantKeys.find(key => variants[key].available)
+    this.activeVariant = firstAvailable ? variants[firstAvailable] : variants[variantKeys[0]]
     const options = ["option1", "option2", "option3"];
     options.forEach(option => {
-      if(this.productSelects[option]) {
-        this.form[option] = this.productSelects[option].options[0]
+      if(this.activeVariant[option]) {
+        this.form[option] = this.activeVariant[option]
       }
     })
     if(this.activeQuantity) this.form.quantity = 1
