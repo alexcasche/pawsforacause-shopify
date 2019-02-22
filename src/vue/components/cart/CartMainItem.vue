@@ -2,10 +2,12 @@
   <div v-if="activeVariant" 
     class="c-cartMainItem"
   >
-    <img class="c-cartMainItem__image" 
-      :src="imageUrl(item.image, '.jpg', '120x120')"
-      :alt="imageAlt(item)"
-    />
+    <a class="c-cartMainItem__link" :href="item.url">
+      <img class="c-cartMainItem__image" 
+        :src="imageUrl(item.image, '.jpg', '120x120')"
+        :alt="imageAlt(item)"
+      />
+    </a>
     <div class="c-cartMainItem__info">
       <span class="c-cartMainItem__variant">
         {{ item.variant_title }}

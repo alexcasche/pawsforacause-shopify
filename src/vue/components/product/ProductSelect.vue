@@ -99,7 +99,7 @@ export default {
     },
     classPrefix: {
       type: String,
-      default: 'c-productSelect'
+      default: 'c-productSelect__'
     },
     quantity_label: {
       type: String,
