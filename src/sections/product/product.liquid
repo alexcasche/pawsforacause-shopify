@@ -9,14 +9,15 @@
         <h5 class="c-productMain__vendor">{{ product.vendor }}</h5>
       {% endif %}
       <h2 class="c-productMain__title">{{ product.title }}</h2>
-      <p class="c-productMain__tagline">
+      <span class="c-productMain__tagline">
         Made with <i class="c-productMain__taglineHeart fas fa-heart"></i> by Paws For A Cause
-      </p>
+      </span>
       <vue-product-select
         product='{{ product | json | escape }}'
         quantity_label="{{ section.settings.quantity_label }}"
         button_text="{{ section.settings.button_text }}"
         sold_out_text="{{ section.settings.sold_out_text }}"
+        class_prefix="c-productMain__"
       ></vue-product-select>
     </aside>
   </div>

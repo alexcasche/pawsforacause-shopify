@@ -1,27 +1,27 @@
 <template>
-  <div 
+  <form 
     v-if="activeVariant"
-    :class="classPrefix + 'form o-flexColumn'"
+    :class="class_prefix + 'form o-flexColumn'"
   >
     <span 
-      :class="classPrefix + 'prices o-flexRow'"
-      v-html="pricesHtml(activeVariant, 'variant', classPrefix)"
+      :class="class_prefix + 'prices o-flexRow'"
+      v-html="pricesHtml(activeVariant, 'variant', class_prefix)"
     />
     <div 
       v-for="(select, key, index) in productSelects"
       :key="index"
-      :class="classPrefix + 'select o-flexRow'"
+      :class="class_prefix + 'select o-flexRow'"
     >
       <label 
-        :class="classPrefix + 'selectLabel'"
-        :for="product.options[index] + 'Select'"
+        :class="class_prefix + 'selectLabel'"
+        :for="product.options[index].toLowerCase() + 'Select'"
       >
         {{ product.options[index] }}
       </label>
       <select 
         v-model="form['option' + (index + 1)]"
-        :id="product.options[index] + 'Select'" 
-        :class="classPrefix + 'selectInner'"
+        :id="product.options[index].toLowerCase() + 'Select'" 
+        :class="class_prefix + 'selectInner'"
       >
         <option 
           v-for="(option, index) in select.options"
@@ -33,10 +33,10 @@
       </select>
     </div>
     <div 
-      :class="classPrefix + 'select o-flexRow'"
+      :class="class_prefix + 'select o-flexRow'"
     >
       <label 
-        :class="classPrefix + 'selectLabel'"
+        :class="class_prefix + 'selectLabel'"
         for="quantitySelect"
       >
         {{ quantity_label }}
@@ -44,7 +44,7 @@
       <select 
         v-model="form.quantity"
         id="quantitySelect"
-        :class="classPrefix + 'selectInner'"
+        :class="class_prefix + 'selectInner'"
       >
         <option 
           v-for="n in activeQuantity"
@@ -62,19 +62,20 @@
     </div>
     <button 
       v-if="activeQuantity > 0"
-      :class="classPrefix + 'button c-button-small c-button--submit'"
+      :class="class_prefix + 'button c-button-small c-button--submit'"
       @click="addToCart"
+      type="button"
     >
       {{ button_text }}
     </button>
     <button 
       v-else
-      :class="classPrefix + 'button c-button-large c-button--cancel'"
+      :class="class_prefix + 'button c-button-large c-button--cancel'"
       disabled="disabled"
     >
       {{ sold_out_text }}
     </button>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -99,7 +100,7 @@ export default {
       type: [String, Object],
       default: () => {}
     },
-    classPrefix: {
+    class_prefix: {
       type: String,
       default: 'c-productSelect__'
     },

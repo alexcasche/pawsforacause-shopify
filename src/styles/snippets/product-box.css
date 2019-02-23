@@ -46,7 +46,7 @@
 }
 .c-productBox__comparePrice {
   margin-bottom: 5px;
-  color: $color-gray;
+  color: $color-gray-dark;
   font-weight: 500;
   font-size: 14px;
   text-decoration: line-through;

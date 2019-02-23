@@ -217,7 +217,7 @@
   font-weight: 600;
 }
 .c-cartUpsellItem__basePrice {
-  color: $color-black-light;
+  color: $color-gray-dark;
 }
 .c-cartUpsellItem__salePrice {
   color: $color-red-dark;
