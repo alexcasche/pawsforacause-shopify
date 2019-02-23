@@ -1,0 +1,73 @@
+/*========== Product Select ==========*/
+
+.c-productSelect__form {
+  align-items: center;
+  width: 350px;
+  max-width: 100%;
+  @media(--tablet) {
+    align-items: flex-start;
+  }
+}
+
+.c-productSelect__prices {
+  margin-bottom: 25px;
+}
+.c-productSelect__basePrice, .c-productSelect__salePrice {
+  font-size: 24px;
+  font-weight: 600;
+}
+.c-productSelect__basePrice {
+  color: $color-gray;
+}
+.c-productSelect__salePrice {
+  margin-right: 8px;
+  color: $color-red-dark;
+}
+.c-productSelect__comparePrice {
+  text-decoration: line-through;
+  color: $color-gray;
+  font-size: 20px;
+  font-weight: 500;
+}
+.c-productSelect__select {
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+  padding-top: 20px;
+  &:after {
+    position: absolute;
+    right: 15px;
+    bottom: 16px;
+    color: $color-black-light;
+    font-family: Font Awesome\ 5 Free;
+    font-size: 13px;
+    content: "\f0dc";
+    pointer-events: none;
+  }
+}
+.c-productSelect__selectLabel {
+  position: absolute;
+  top: 0;
+  color: $color-gray-light;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+.c-productSelect__selectInner {
+  height: 50px;
+  line-height: 48px;
+  padding: 0 30px 0 15px;
+  border-radius: 4px;
+  border: 2px solid #aaa;
+  color: $color-gray-dark;
+  font-size: 16px;
+  font-weight: 600; 
+  &:focus {
+    border-color: #aaa;
+  }
+}
+.c-productSelect__button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 15px 20px;
+  font-size: 15px;
+}

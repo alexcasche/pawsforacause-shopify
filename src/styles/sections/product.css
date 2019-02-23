@@ -3,30 +3,11 @@
 .c-productMain__container {
   margin-top: 5px;
 }
-.c-productMain__images {
-  align-items: flex-start;
-}
-.c-productMain__thumbnailList {
-  @mixin flex column;
-  width: 70px;
-}
-.c-productMain__thumbnailItem {
-  margin-bottom: 20px;
-  &.is-active {
-    border: 2px solid $color-blue;
-  }
-}
-.c-productMain__thumbnailLink {
-  display: block;
-}
-.c-productMain__thumbnailImage {
-  display: block;
-}
-.c-productMain__imageBox {
-  width: calc(100% - 90px);
-}
 .c-productMain__aside {
-  align-items: stretch;
+  align-items: center;
+  @media(--tablet) {
+    align-items: stretch;
+  }
 }
 .c-productMain__title {
   margin-bottom: 10px;
@@ -41,75 +22,8 @@
 .c-productMain__tagline {
   margin-bottom: 25px;
   color: $color-gray-dark;
-  font-size: 16px;
+  font-size: 18px;
 }
 .c-productMain__taglineHeart {
   color: $color-red;
-}
-.c-productMain__form {
-  align-items: flex-start;
-  width: 100%;
-  max-width: 350px;
-}
-.c-productMain__prices {
-  margin-bottom: 25px;
-}
-.c-productMain__basePrice, .c-productMain__salePrice {
-  font-size: 20px;
-  font-weight: 600;
-}
-.c-productMain__basePrice {
-  color: $color-gray;
-}
-.c-productMain__salePrice {
-  margin-right: 8px;
-  color: $color-red-dark;
-}
-.c-productMain__comparePrice {
-  text-decoration: line-through;
-  color: $color-gray;
-  font-size: 18px;
-  font-weight: 500;
-}
-.c-productMain__select {
-  width: 100%;
-  position: relative;
-  margin-bottom: 15px;
-  padding-top: 20px;
-  &:after {
-    position: absolute;
-    right: 15px;
-    bottom: 13px;
-    color: $color-black-light;
-    font-family: Font Awesome\ 5 Free;
-    font-size: 13px;
-    content: "\f0dc";
-    pointer-events: none;
-  }
-}
-.c-productMain__selectLabel {
-  position: absolute;
-  top: 0;
-  color: $color-gray-light;
-  font-size: 13px;
-  text-transform: uppercase;
-}
-.c-productMain__selectInner {
-  height: 44px;
-  line-height: 40px;
-  padding: 0 30px 0 15px;
-  border-radius: 4px;
-  border: 2px solid #aaa;
-  color: $color-gray-dark;
-  font-size: 15px;
-  font-weight: 600; 
-  &:focus {
-    border-color: #aaa;
-  }
-}
-.c-productMain__button {
-  width: 100%;
-  margin-top: 10px;
-  padding: 15px 20px;
-  font-size: 15px;
 }

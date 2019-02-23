@@ -19,13 +19,13 @@
 /*========== Components ==========*/
 @import "components/index";
 
-/*========== Sections ==========*/
-@import "sections/index";
-
 /*========== Snippets ==========*/
 @import "snippets/index";
 
-/*========== Snippets ==========*/
+/*========== Sections ==========*/
+@import "sections/index";
+
+/*========== Templates ==========*/
 @import "templates/index";
 
 /*========== Vendors ==========*/

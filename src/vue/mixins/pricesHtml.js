@@ -1,33 +1,33 @@
 export const pricesHtml = {
   methods: {
-    pricesHtml(item, type, classPrefix, showRange = false) {
+    pricesHtml(item, type, classPrefix, classPrefixBase = false, showRange = false) {
       if(type === "variant") {
-        return pricesVariant(item, classPrefix)
+        return pricesVariant(item, classPrefix, classPrefixBase)
       } else {
-        return pricesProduct(item, classPrefix, showRange)
+        return pricesProduct(item, classPrefix, classPrefixBase, showRange)
       }
     }
   }
 }
 
-const pricesVariant = (variant, classPrefix) => {
+const pricesVariant = (variant, classPrefix, classPrefixBase) => {
   const { compare_at_price, price } = variant
   const { symbol } = window.theme.cart.currency
   let output = '';
   if(compare_at_price && compare_at_price > price) {
     output += `
-    <span class="${classPrefix}salePrice">${symbol}${price}</span>
-    <span class="${classPrefix}comparePrice">${symbol}${compare_at_price}</span>
+    <span class="${classPrefixBase ? classPrefixBase + 'salePrice ' : ''}${classPrefix}salePrice">${symbol}${price}</span>
+    <span class="${classPrefixBase ? classPrefixBase + 'comparePrice ' : ''}${classPrefix}comparePrice">${symbol}${compare_at_price}</span>
     `.trim()
   } else {
     output += `
-    <span class="${classPrefix}basePrice">${symbol}${price}</span>
+    <span class="${classPrefixBase ? classPrefixBase + 'basePrice ' : ''}${classPrefix}basePrice">${symbol}${price}</span>
     `.trim()
   }
   return output
 }
 
-const pricesProduct = (product, classPrefix, showRange = false) => {
+const pricesProduct = (product, classPrefix, classPrefixBase, showRange = false) => {
   const { price, price_varies, compare_at_price, compare_at_price_varies } = product
   const { symbol } = window.theme.cart.currency
   let output = '';
@@ -44,12 +44,12 @@ const pricesProduct = (product, classPrefix, showRange = false) => {
       compareString = `${symbol}${compare_at_price_min} - ${symbol}${compare_at_price_max}`
     }
     output = `
-    <span class="${classPrefix}comparePrice">${compareString}</span>
-    <span class="${classPrefix}salePrice">${priceString}</span>
+    <span class="${classPrefixBase ? classPrefixBase + 'comparePrice ' : ''}${classPrefix}comparePrice">${compareString}</span>
+    <span class="${classPrefixBase ? classPrefixBase + 'salePrice ' : ''}${classPrefix}salePrice">${priceString}</span>
     `.trim()
   } else {
     output = `
-    <span class="${classPrefix}basePrice">${priceString}</span>
+    <span class="${classPrefixBase ? classPrefixBase + 'basePrice ' : ''}${classPrefix}basePrice">${priceString}</span>
     `.trim()
   }
   return output
