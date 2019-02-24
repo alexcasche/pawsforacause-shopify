@@ -28,7 +28,7 @@ export default {
           .then(response => commit("setCart", { ...state.shoppingCart,
             count: state.shoppingCart.count + item.quantity,
             total: (parseFloat(state.shoppingCart.total) + formatFloat(response.data.price) * item.quantity).toFixed(2),
-            items: { ...state.shoppingCart.items, ...formatItem(response.data) }
+            items: { ...formatItem(response.data), ...state.shoppingCart.items }
           }))
           .catch(error => commit("setError", error.response.data.description))
         dispatch("actionWrapper", { action, hideCart })

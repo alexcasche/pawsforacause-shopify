@@ -5,25 +5,31 @@
 }
 .c-productMain__aside {
   align-items: center;
-  @media(--tablet) {
-    align-items: stretch;
-  }
 }
 .c-productMain__title {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 .c-productMain__vendor {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  text-align: center;
   color: $color-blue;
   font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;
 }
 .c-productMain__tagline {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  text-align: center;
   color: $color-gray-dark;
   font-size: 18px;
 }
 .c-productMain__taglineHeart {
   color: $color-red;
+}
+.c-productMain__form {
+  align-items: center !important;
+}
+.c-productMain__prices {
+  margin-bottom:
 }

@@ -11,6 +11,10 @@ export default {
     const { items } = getters.shoppingCart
     return Object.keys(items)
   },
+  cartVariant: (state, getters) => variantId => {
+    const { items } = getters.shoppingCart
+    return items[variantId]
+  },
   cartTotal: state => state.shoppingCart.total,
   errorMessage: state => state.errorMessage,
   settings: state => state.settings,

@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 import { formatProduct, productOptions, productVariant } from "@vue/helpers";
 
 export default {
@@ -130,10 +130,13 @@ export default {
     },
     activeQuantity() {
       if(this.activeVariant) {
+        const cartVariant = this.$store.getters['cart/cartVariant'](this.activeVariant.id)
+        const quantityInCart = cartVariant ? cartVariant.quantity : 0
         const { inventory_management, inventory_quantity } = this.activeVariant
-        let activeQuantity = 10
+        let activeQuantity = 10 - quantityInCart
         if(inventory_management === "shopify") {
-          activeQuantity = inventory_management > 10 ? 10 : inventory_quantity
+          const availableQuantity = inventory_quantity - quantityInCart
+          activeQuantity = availableQuantity  > 10 ? 10 : availableQuantity
         }
         return activeQuantity
       }

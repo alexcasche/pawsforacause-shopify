@@ -8,9 +8,8 @@
     align-items: flex-start;
   }
 }
-
 .c-productSelect__prices {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 .c-productSelect__basePrice, .c-productSelect__salePrice {
   font-size: 24px;
