@@ -46,7 +46,7 @@ gulp.task('build:js', () => {
     .pipe(gulp.dest(paths.assets))
 })
 gulp.task('watch:js', () => {
-  return gulp.watch(paths.theme, gulp.series('build:js'))
+  return gulp.watch(paths.scripts, gulp.series('build:js'))
 })
 
 gulp.task('clean:webpack', () => {

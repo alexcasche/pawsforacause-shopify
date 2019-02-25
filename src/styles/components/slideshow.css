@@ -1,0 +1,37 @@
+/*========== Slideshow ==========*/
+
+.c-slideshow {
+  @mixin flex column, center, flex-start;
+}
+.c-slideshow__imageBox {
+  position: relative;
+  width: 100%;
+}
+.c-slideshow__image {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: opacity .35s ease-in-out;
+  &.is-active {
+    position: relative;
+    opacity: 1;
+    z-index: 0;
+  }
+}
+.c-slideshow__thumbnailList {
+  @mixin flex row, flex-start, center;
+}
+.c-slideshow__thumbnailItem {
+  width: 70px;
+  margin: 20px 20px 20px 0;
+  &.is-active {
+    border: 2px solid $color-blue;
+  }
+}
+.c-slideshow__thumbnailLink {
+  display: block;
+}
+.c-productImages__thumbnailImage {
+  pointer-events: none;
+  display: block;
+}

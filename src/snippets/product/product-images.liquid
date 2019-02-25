@@ -1,14 +1,14 @@
-<div class="c-productImages__slideshow {{ class_prefix }}slideshow c-slideshow o-flexItem-50 o-flexColumn">
-  <div class="c-productImages__imageBox {{ class_prefix }}imageBox">
+<div id="productImages" class="c-productImages__slideshow {{ class_prefix }}slideshow c-slideshow o-flexItem-50 o-flexColumn">
+  <div class="c-productImages__imageBox {{ class_prefix }}imageBox c-slideshow__imageBox">
     {% for image in product.images %}
-      <img class="c-productImages__image {{ class_prefix }}image" src="{{ image.src | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" />
+      <img class="c-productImages__image {{ class_prefix }}image c-slideshow__image{% if forloop.first %} is-active active{% endif %}" src="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
     {% endfor %}
   </div>
-  <ul class="c-productImages__thumbnailList {{ class_prefix }}thumbnailList o-flexRow">
+  <ul class="c-productImages__thumbnailList {{ class_prefix }}thumbnailList c-slideshow__thumbnailList">
     {% for image in product.images %}
-    <li class="c-productImages__thumbnailItem {{ class_prefix }}thumbnailItem {% if forloop.first %}is-active{% endif %}">
-      <a class="c-productImages__thumbnailLink {{ class_prefix }}thumbnailLink trigger-product-thumb" aria-label="Product Thumbnail">
-        <img class="c-productImages__thumbnailImage {{ class_prefix }}thumbnailImage" src="{{ image.src | img_url: 'compact' }}" data-url="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
+    <li class="c-productImages__thumbnailItem {{ class_prefix }}thumbnailItem c-slideshow__thumbnailItem{% if forloop.first %} is-active{% endif %}">
+      <a class="c-productImages__thumbnailLink {{ class_prefix }}thumbnailLink c-slideshow__thumbnailLink trigger-slideshow" data-slideshow-index="{% forloop.index0 %}" data-slideshow-id="productImages" aria-label="Slideshow Thumbnail">
+        <img class="c-productImages__thumbnailImage {{ class_prefix }}thumbnailImage c-slideshow__thumbnailImage" src="{{ image.src | img_url: 'compact' }}" data-url="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
       </a>
     </li>
     {% endfor %}
