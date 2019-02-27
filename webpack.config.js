@@ -5,9 +5,7 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
   mode: "production",
-  // devtool: "source-map",
   cache: false,
-  watch: true,
   resolve: {
     alias: {
       "@scripts": path.resolve(__dirname, "src/vue"),
@@ -23,7 +21,6 @@ module.exports = {
       {
         test: /\.js$/,
         use: [
-          // { loader: "source-map-loader", options: { enforce: "pre" } },
           { loader: "babel-loader" }
         ],
         exclude: /node_modules/

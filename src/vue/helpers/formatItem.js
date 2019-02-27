@@ -10,7 +10,5 @@ export const formatItem = shopifyItem => {
       itemObj[key] = false
     }
   })
-  return {
-    [itemObj.id]: itemObj
-  };
+  return itemObj
 };

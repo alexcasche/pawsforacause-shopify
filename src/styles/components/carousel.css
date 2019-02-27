@@ -1,0 +1,28 @@
+/*========== Carousel ==========*/
+
+.c-carousel__slide {
+  &:focus {
+    outline: none;
+  }
+}
+.c-carousel__dots {
+  @mixin flexRow;
+  margin-top: 20px
+}
+.c-carousel__dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid $color-gray-light;
+  margin: 0 3px;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
+  &.tns-nav-active {
+    background-color: $color-blue;
+    border: 2px solid $color-blue;
+  }
+}

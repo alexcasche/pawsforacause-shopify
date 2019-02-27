@@ -1,19 +1,19 @@
 <template>
   <form 
     v-if="activeVariant"
-    :class="`c-productSelect__form ${class_prefix}form o-flexColumn`"
+    :class="`c-productSelect__form ${class_prefix}__form o-flexColumn`"
   >
     <span 
-      :class="`c-productSelect__prices ${class_prefix}prices o-flexRow`"
+      :class="`c-productSelect__prices ${class_prefix}__prices o-flexRow`"
       v-html="pricesHtml(activeVariant, 'variant', class_prefix, class_prefix_base)"
     />
     <div 
       v-for="(select, key, index) in productSelects"
       :key="index"
-      :class="`c-productSelect__select ${class_prefix}select o-flexRow`"
+      :class="`c-productSelect__select ${class_prefix}__select o-flexRow`"
     >
       <label 
-        :class="`c-productSelect__selectLabel ${class_prefix}selectLabel`"
+        :class="`c-productSelect__selectLabel ${class_prefix}__selectLabel`"
         :for="product.options[index].toLowerCase() + 'Select'"
       >
         {{ product.options[index] }}
@@ -21,7 +21,7 @@
       <select 
         v-model="form['option' + (index + 1)]"
         :id="product.options[index].toLowerCase() + 'Select'" 
-        :class="`c-productSelect__selectInner ${class_prefix}selectInner`"
+        :class="`c-productSelect__selectInner ${class_prefix}__selectInner`"
       >
         <option 
           v-for="(option, index) in select.options"
@@ -33,10 +33,10 @@
       </select>
     </div>
     <div 
-      :class="`c-productSelect__select ${class_prefix}select o-flexRow`"
+      :class="`c-productSelect__select ${class_prefix}__select o-flexRow`"
     >
       <label 
-        :class="`c-productSelect__selectLabel ${class_prefix}selectLabel`"
+        :class="`c-productSelect__selectLabel ${class_prefix}__selectLabel`"
         for="quantitySelect"
       >
         {{ quantity_label }}
@@ -44,7 +44,7 @@
       <select 
         v-model="form.quantity"
         id="quantitySelect"
-        :class="`c-productSelect__selectInner ${class_prefix}selectInner`"
+        :class="`c-productSelect__selectInner ${class_prefix}__selectInner`"
       >
         <option 
           v-for="n in activeQuantity"
@@ -62,7 +62,7 @@
     </div>
     <button 
       v-if="activeQuantity > 0"
-      :class="`c-productSelect__button ${class_prefix}button c-button-small c-button--submit`"
+      :class="`c-productSelect__button ${class_prefix}__button c-button-small c-button--submit`"
       @click="addToCart"
       type="button"
     >
@@ -70,7 +70,7 @@
     </button>
     <button 
       v-else
-      :class="`c-productSelect__button ${class_prefix}button c-button-large c-button--cancel`"
+      :class="`c-productSelect__button ${class_prefix}__button c-button-large c-button--cancel`"
       disabled="disabled"
     >
       {{ sold_out_text }}
@@ -101,12 +101,12 @@ export default {
       default: () => {}
     },
     class_prefix_base: {
-      type: String,
-      default: 'c-productSelect__'
+      type: [String, Boolean],
+      default: 'c-productSelect'
     },
     class_prefix: {
-      type: String,
-      default: 'c-productSelect__'
+      type: [String, Boolean],
+      default: false
     },
     quantity_label: {
       type: String,
@@ -133,12 +133,11 @@ export default {
         const cartVariant = this.$store.getters['cart/cartVariant'](this.activeVariant.id)
         const quantityInCart = cartVariant ? cartVariant.quantity : 0
         const { inventory_management, inventory_quantity } = this.activeVariant
-        let activeQuantity = 10 - quantityInCart
+        let availableQuantity = 10;
         if(inventory_management === "shopify") {
-          const availableQuantity = inventory_quantity - quantityInCart
-          activeQuantity = availableQuantity  > 10 ? 10 : availableQuantity
+          availableQuantity = inventory_quantity - quantityInCart
         }
-        return activeQuantity
+        return availableQuantity > 10 ? 10 : availableQuantity
       }
     },
     optionsWatch() {

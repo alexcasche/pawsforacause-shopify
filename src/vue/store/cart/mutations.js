@@ -3,12 +3,11 @@ import { formatCollection } from "@vue/helpers";
 export default {
   openCart(state) {
     state.isOpen = true
-    state.cartError = false
     return state
   },
   closeCart(state) {
     state.isOpen = false
-    state.cartError = false
+    state.errorMessage = false
     return state
   },
   toggleFetching(state) {

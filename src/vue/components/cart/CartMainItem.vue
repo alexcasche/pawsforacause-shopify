@@ -16,7 +16,7 @@
         {{ item.product_title }}
       </span>
       <span 
-        v-html="pricesHtml(activeVariant, 'variant', 'c-cartMainItem__')"
+        v-html="pricesHtml(activeVariant, 'variant', 'c-cartMainItem')"
         class="c-cartMainItem__prices o-flexRow" 
       />
     </div>
@@ -62,15 +62,19 @@ export default {
     },
   },
   methods: {
-    ...mapActions('cart', ['changeCart']),
+    ...mapActions('cart', ['addCart', 'changeCart']),
     editItem(action) {
       let { id, quantity } = this.item;
-      quantity = action === "add"
-        ? quantity + 1
-        : action === "remove"
-          ? quantity - 1
-          : 0
-      this.changeCart({ id, quantity })
+      switch(action) {
+        case "add":
+          this.addCart({ id, quantity: 1 })
+          break;
+        case "remove":
+          this.changeCart({ id, quantity: quantity - 1 })
+          break
+        case "clear":
+          this.changeCart({ id, quantity: 0 })
+      }
     }
   }
 }

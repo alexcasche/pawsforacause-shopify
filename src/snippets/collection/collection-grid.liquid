@@ -2,7 +2,7 @@
   {% paginate collection.products by 48 %}
     {% for product in collection.products %}
       <div class="c-collectionGrid__item o-lost-item">
-        {% include 'product-box' with product %}
+        {% include 'collection-item' with product %}
       </div>
     {% endfor %}
     {% include 'paginate' with paginate %}

@@ -1,37 +1,20 @@
 /*========== Slideshow ==========*/
 
-.c-slideshow {
-  @mixin flex column, center, flex-start;
+.c-slideshow__slide {
+  margin-bottom: 10px;
 }
-.c-slideshow__imageBox {
-  position: relative;
-  width: 100%;
-}
-.c-slideshow__image {
-  position: absolute;
-  top: 0;
-  opacity: 0;
-  transition: opacity .35s ease-in-out;
-  &.is-active {
-    position: relative;
-    opacity: 1;
-    z-index: 0;
-  }
-}
-.c-slideshow__thumbnailList {
-  @mixin flex row, flex-start, center;
-}
-.c-slideshow__thumbnailItem {
+.c-slideshow__thumbnail {
+  min-width: 70px;
   width: 70px;
-  margin: 20px 20px 20px 0;
-  &.is-active {
+  margin: 10px 5px 5px;
+  border: 2px solid transparent;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
+  &.tns-nav-active {
     border: 2px solid $color-blue;
   }
-}
-.c-slideshow__thumbnailLink {
-  display: block;
-}
-.c-productImages__thumbnailImage {
-  pointer-events: none;
-  display: block;
 }

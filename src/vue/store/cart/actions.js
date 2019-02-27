@@ -22,23 +22,14 @@ export default {
     for (let i = 0; i < payload.length; i++) { 
       const item = payload[i];
       const hideCart = i < payload.length - 1 ? true : false
-      const inCart = state.shoppingCart.items[item.id]
-      if(!inCart) {
-        const action = await axios.post("/cart/add.js", qs.stringify(item), axiosHeaders)
-          .then(response => commit("setCart", { ...state.shoppingCart,
-            count: state.shoppingCart.count + item.quantity,
-            total: (parseFloat(state.shoppingCart.total) + formatFloat(response.data.price) * item.quantity).toFixed(2),
-            items: { ...formatItem(response.data), ...state.shoppingCart.items }
-          }))
-          .catch(error => commit("setError", error.response.data.description))
-        dispatch("actionWrapper", { action, hideCart })
-      } else {
-        item.quantity += inCart.quantity
-        const action = await axios.post("/cart/change.js", qs.stringify(item), axiosHeaders)
-          .then(response => commit("setCart", formatCart(response.data)))
-          .catch(error => commit("setError", error.response.data.description))
-        dispatch("actionWrapper", { action })
-      }
+      const action = await axios.post("/cart/add.js", qs.stringify(item), axiosHeaders)
+        .then(response => commit("setCart", { ...state.shoppingCart,
+          count: state.shoppingCart.count + item.quantity,
+          total: (parseFloat(state.shoppingCart.total) + formatFloat(response.data.price) * item.quantity).toFixed(2),
+          items: { ...state.shoppingCart.items, [item.id]: formatItem(response.data) }
+        }))
+        .catch(error => commit("setError", error.response.data.description))
+      dispatch("actionWrapper", { action, hideCart })
     }
   },
   changeCart: async ({ dispatch, commit, state }, payload) => {

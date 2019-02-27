@@ -1,4 +1,4 @@
-<a class="c-productBox o-flexColumn trigger-product-buy" data-product-handle="{{ product.handle }}">
+<a class="c-collectionItem o-flexColumn trigger-product-buy" data-product-handle="{{ product.handle }}">
   {% assign is_new = false %}
   {% assign tags_array = product.tags | downcase %}
   {% if tags_array contains "new" %}
@@ -12,34 +12,34 @@
   {% if product.available %}
     {% assign sold_out = false %}
   {% endif %}
-  <div class="c-productBox__images">
-    <img class="c-productBox__image" src="{{ product.images[0] | img_url: '1024x1024' }}" alt="{{ product.images[0].alt | escape}}" />
+  <div class="c-collectionItem__images">
+    <img class="c-collectionItem__image" src="{{ product.images[0] | img_url: '1024x1024' }}" alt="{{ product.images[0].alt | escape}}" />
   </div>
   {% unless sold_out %}
     {% if on_sale %}
       {% unless collection.handle == "on-sale" %}
-        <span class="c-productBox__badge c-productBox__badge--sale o-flexColumn">
+        <span class="c-collectionItem__badge c-collectionItem__badge--sale o-flexColumn">
           Sale
         </span>
       {% endunless %}
     {% elsif is_new %}
       {% unless collection.handle == "new-arrivals" %}
-        <span class="c-productBox__badge c-productBox__badge--new o-flexColumn">
+        <span class="c-collectionItem__badge c-collectionItem__badge--new o-flexColumn">
           New
         </span>
       {% endunless %}
     {% endif %}
   {% endunless %}
-  <h4 class="c-productBox__title">
+  <h4 class="c-collectionItem__title">
     {{ product.title }}
   </h4>
   {% if sold_out %}
-    <div class="c-productBox__soldOut">
+    <div class="c-collectionItem__soldOut">
       Sold Out
     </div>
   {% else %}
-    <div class="c-productBox__prices">
-      <span class="{% if on_sale == false %}c-productBox__basePrice{% else %}c-productBox__comparePrice{% endif %}">
+    <div class="c-collectionItem__prices">
+      <span class="{% if on_sale == false %}c-collectionItem__basePrice{% else %}c-collectionItem__comparePrice{% endif %}">
         {% if product.price_varies %}
           {{ product.price_min | money }} - {{ product.price_max | money }}
         {% else %}
@@ -47,7 +47,7 @@
         {% endif %}
       </span>
       {% if on_sale %}
-        <span class="c-productBox__salePrice">
+        <span class="c-collectionItem__salePrice">
           {% if product.compare_at_price_varies %}
             {{ product.compare_at_price_min | money }} - {{ product.compare_at_price_max | money }}
           {% else %}

@@ -16,12 +16,12 @@ const pricesVariant = (variant, classPrefix, classPrefixBase) => {
   let output = '';
   if(compare_at_price && compare_at_price > price) {
     output += `
-    <span class="${classPrefixBase ? classPrefixBase + 'salePrice ' : ''}${classPrefix}salePrice">${symbol}${price}</span>
-    <span class="${classPrefixBase ? classPrefixBase + 'comparePrice ' : ''}${classPrefix}comparePrice">${symbol}${compare_at_price}</span>
+    <span class="${classString(classPrefix, classPrefixBase, 'salePrice')}">${symbol}${price}</span>
+    <span class="${classString(classPrefix, classPrefixBase, 'comparePrice')}">${symbol}${compare_at_price}</span>
     `.trim()
   } else {
     output += `
-    <span class="${classPrefixBase ? classPrefixBase + 'basePrice ' : ''}${classPrefix}basePrice">${symbol}${price}</span>
+    <span class="${classString(classPrefix, classPrefixBase, 'basePrice')}">${symbol}${price}</span>
     `.trim()
   }
   return output
@@ -44,13 +44,19 @@ const pricesProduct = (product, classPrefix, classPrefixBase, showRange = false)
       compareString = `${symbol}${compare_at_price_min} - ${symbol}${compare_at_price_max}`
     }
     output = `
-    <span class="${classPrefixBase ? classPrefixBase + 'comparePrice ' : ''}${classPrefix}comparePrice">${compareString}</span>
-    <span class="${classPrefixBase ? classPrefixBase + 'salePrice ' : ''}${classPrefix}salePrice">${priceString}</span>
+    <span class="${classString(classPrefix, classPrefixBase, 'comparePrice')}">${compareString}</span>
+    <span class="${classString(classPrefix, classPrefixBase, 'salePrice')}">${priceString}</span>
     `.trim()
   } else {
     output = `
-    <span class="${classPrefixBase ? classPrefixBase + 'basePrice ' : ''}${classPrefix}basePrice">${priceString}</span>
+    <span class="${classString(classPrefix, classPrefixBase, 'basePrice')}">${priceString}</span>
     `.trim()
   }
   return output
+}
+
+const classString = (classPrefix = false, classPrefixBase = false, classSuffix) => {
+  let classString = classPrefixBase ? `${classPrefixBase}__${classSuffix} ` : ''
+  classString += classPrefix ? `${classPrefix}__${classSuffix} ` : ''
+  return classString
 }

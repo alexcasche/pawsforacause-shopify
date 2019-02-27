@@ -7,3 +7,19 @@
 .u-visible {
   display: block !important;
 }
+
+.u-hideTablet {
+  @mixin hide-tablet;
+}
+
+.u-showTablet {
+  @mixin show-tablet;
+}
+
+.u-hideDesktop {
+  @mixin hide-desktop;
+}
+
+.u-showDesktop {
+  @mixin show-desktop;
+}

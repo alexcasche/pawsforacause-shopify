@@ -5,6 +5,9 @@
 @define-mixin lost {
   lost-center: 100%;
   lost-utility: clearfix;
+  &:before, &:after {
+    display: none;
+  }
 }
 
 @define-mixin lost-item $mobile: 1/2, $tablet: 1/4, $desktop: 1/4 {

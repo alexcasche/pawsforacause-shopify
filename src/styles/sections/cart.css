@@ -146,8 +146,11 @@
   top: 20px;
   right: 0;
 }
+.c-cartMainItem__remove {
+  width: auto;
+}
 .c-cartMainItem__removeIcon {
-  font-size: 12px;
+  font-size: 14px;
   color: $color-gray-light;
   &:hover {
     color: $color-gray;
@@ -184,7 +187,7 @@
 .c-cartUpsell__message {
   display: block;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   color: $color-black-dark;
 }
 .c-cartUpsell__items {
@@ -262,7 +265,7 @@
   margin-bottom: 30px;
   padding: 0 40px;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   color: $color-black-dark;
 }
 .c-cartUpsellAdd__main {
@@ -282,7 +285,7 @@
   margin-bottom: 15px;
 }
 .c-cartUpsellAdd__basePrice, .c-cartUpsellAdd__salePrice {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
 }
 .c-cartUpsellAdd__basePrice {
@@ -291,7 +294,7 @@
 .c-cartUpsellAdd__comparePrice {
   color: $color-gray;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 16px;
   text-decoration: line-through;
 }
 .c-cartUpsellAdd__salePrice {
@@ -308,7 +311,7 @@
   &:after {
     position: absolute;
     right: 10px;
-    bottom: 10px;
+    bottom: 13px;
     color: $color-black-light;
     font-family: Font Awesome\ 5 Free;
     font-size: 12px;
@@ -320,19 +323,20 @@
   position: absolute;
   top: 0;
   color: $color-gray-light;
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
 }
 .c-cartUpsellAdd__selectInner {
-  height: 32px;
+  height: 40px;
   padding: 0 25px 0 10px;
   color: $color-black-light;
-  font-size: 14px;
-  line-height: 30px;
+  font-size: 16px;
+  line-height: 38px;
+  font-weight: 500;
 }
 .c-cartUpsellAdd__button {
   width: 100%;
   margin-top: 5px;
-  padding: 8px 20px;
-  font-size: 13px;
+  padding: 10px 20px;
+  font-size: 14px;
 }

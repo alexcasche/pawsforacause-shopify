@@ -1,9 +1,7 @@
 /*========== Snippets ==========*/
 
 @import "address-form.css";
-@import "breadcrumbs.css";
 @import "collection-grid.css";
-@import "paginate.css";
-@import "product-box.css";
-@import "product-images.css";
+/* @import "product-box.css"; */
 @import "product-select.css";
+/* @import "product-images.css"; */

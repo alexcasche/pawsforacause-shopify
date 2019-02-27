@@ -3,8 +3,31 @@
     {% if section.settings.show_breadcrumbs %}
       {% include 'breadcrumbs' %}
     {% endif %}
-    {% include 'product-images' with product, class_prefix: 'c-productMain__' %}
-    <aside class="c-productMain__aside o-flexItem-50 o-flexColumn">
+    <div class="c-productMain__carouselWrapper u-hideTablet u-hidden ">
+      <div class="c-productMain__carousel c-carousel">
+        {% for image in product.images %}
+          <img class="c-productMain__carouselSlide c-carousel__slide" src="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
+        {% endfor %}
+      </div>
+      <div class="c-productMain__carouselDots c-carousel__dots">
+        {% for image in product.images %}
+          <span class="c-productMain__carouselDot c-carousel__dot"></span>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="c-productMain__slideshowWrapper o-flexItem-50 o-flexColumn u-showTablet u-hidden">
+      <div class="c-productMain__slideshow c-slideshow">
+        {% for image in product.images %}
+          <img class="c-productMain__slideshowSlide c-slideshow__slide" src="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
+        {% endfor %}
+      </div>
+      <div class="c-productMain__slideshowThumbnails c-slideshow__thumbnails">
+        {% for image in product.images %}
+          <img class="c-productMain__slideshowThumbnail c-slideshow__thumbnail" src="{{ image.src | img_url: 'compact' }}" data-url="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
+        {% endfor %}
+      </div>
+    </div>
+    <div class="c-productMain__side o-flexItem-50 o-flexColumn">
       {% if product.vendor and section.settings.show_vendor %}
         <h5 class="c-productMain__vendor">{{ product.vendor }}</h5>
       {% endif %}
@@ -17,9 +40,9 @@
         quantity_label="{{ section.settings.quantity_label }}"
         button_text="{{ section.settings.button_text }}"
         sold_out_text="{{ section.settings.sold_out_text }}"
-        class_prefix="c-productMain__"
+        class_prefix="c-productMain"
       ></vue-product-select>
-    </aside>
+    </div>
   </div>
 </section>
 

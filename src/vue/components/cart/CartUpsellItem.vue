@@ -7,7 +7,7 @@
         :alt="imageAlt(item)"
       />
     <span 
-      v-html="pricesHtml(item, 'product', 'c-cartUpsellItem__')"
+      v-html="pricesHtml(item, 'product', 'c-cartUpsellItem')"
       class="c-cartUpsellItem__prices o-flexColumn"
     />
     <button 
