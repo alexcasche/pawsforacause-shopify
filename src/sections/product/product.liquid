@@ -1,0 +1,120 @@
+<section class="c-product">
+  <div class="productBuy o-strip u-bg-gray">
+    <div class="c-productBuy__container o-container o-flexFlip">
+      {% assign settings = section.settings %}
+      {% if settings.show_breadcrumbs %}
+        {% include 'breadcrumbs' %}
+      {% endif %}
+      {% include 'product-slideshow' with product, settings %}
+      {% include 'product-carousel' with product, settings %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+	"name": "Page",
+	"settings": [
+    {
+      "type": "header",
+      "content": "Page"
+    },
+		{
+			"id": "show_breadcrumbs",
+			"type": "checkbox",
+			"label": "Show Breadcrumbs",
+      "default": true
+		},
+    {
+      "type": "header",
+      "content": "Product Gallery"
+    },
+    {
+      "id": "gallery_format_small",
+      "type": "select",
+      "label": "Gallery Format Small",
+      "info": "Appears on small screens",
+      "default": "carousel",
+      "options": [
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        },
+        {
+          "value": "slideshow",
+          "label": "Slideshow"
+        }
+      ]
+    },
+    {
+      "id": "gallery_format_large",
+      "type": "select",
+      "label": "Gallery Format Large",
+      "info": "Appears on large screens",
+      "default": "slideshow",
+      "options": [
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        },
+        {
+          "value": "slideshow",
+          "label": "Slideshow"
+        }
+      ]
+    },
+    {
+			"id": "show_carousel_bubbles",
+			"type": "checkbox",
+			"label": "Show Carousel Thumbnails",
+      "default": true
+		},
+    {
+			"id": "show_slideshow_thumbnails",
+			"type": "checkbox",
+			"label": "Show Slideshow Thumbnails",
+      "default": true
+		},
+    {
+      "type": "header",
+      "content": "Product Form"
+    },
+    {
+			"id": "show_tagline",
+			"type": "checkbox",
+			"label": "Show Tagline",
+      "default": true
+		},
+		{
+			"id": "show_vendor_name",
+			"type": "checkbox",
+			"label": "Show Vendor",
+      "default": true
+		},
+    {
+      "id": "quantity_select_label",
+      "type": "text",
+      "label": "Quantity Label",
+      "default": "Quantity"
+    },
+    {
+      "id": "button_active_text",
+      "type": "text",
+      "label": "Button Active Text",
+      "default": "Add To Cart"
+    },
+    {
+      "id": "button_disabled_text",
+      "type": "text",
+      "label": "Button Disabled Text",
+      "default": "Sold Out"
+    },
+    {
+      "id": "show_social_share",
+      "type": "checkbox",
+      "label": "Show Social Share",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

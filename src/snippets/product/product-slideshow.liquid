@@ -1,0 +1,21 @@
+{% assign show_small = false %}{% assign show_large = false %}
+{% if settings.gallery_format_small == 'slideshow' %}{% assign show_small = true %}{% endif %}
+{% if settings.gallery_format_large == 'slideshow' %}{% assign show_large = true %}{% endif %}
+{% if show_small or show_large %}
+  {% unless show_small %}{% assign media_class = ' u-showTablet' %}{% endunless %}
+  {% unless show_large %}{% assign media_class = ' u-hideTablet' %}{% endunless %}
+  <div class="c-productSlideshow c-slideshow slideshow-loading{% if media_class %}{{ media_class }}{% endif %}">
+    <div class="c-productSlideshow__track c-slideshow__track">
+      {% for image in product.images %}
+        <img class="c-productSlideshow__slide c-slideshow__slide" src="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
+      {% endfor %}
+    </div>
+    {% if settings.show_slideshow_thumbnails %}
+      <div class="c-productSlideshow__thumbnails c-slideshow__thumbnails">
+        {% for image in product.images %}
+          <img class="c-productSlideshow__thumbnail c-slideshow__thumbnail" src="{{ image.src | img_url: 'compact' }}" data-url="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

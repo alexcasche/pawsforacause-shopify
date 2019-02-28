@@ -1,19 +1,26 @@
 /******* Product *******/
 
+const slideshow = document.querySelector(".c-product .c-slideshow");
+const slideshowTrack = document.querySelector(".c-product .c-slideshow__track");
+const slideshowThumbnails = document.querySelector(".c-product .c-slideshow__thumbnails");
+const carousel = document.querySelector(".c-product .c-carousel");
+const carouselTrack = document.querySelector(".c-product .c-carousel__track");
+const carouselBubbles = document.querySelector(".c-product .c-carousel__bubbles");
+
 const tnsReady = setInterval(() => {
   const { tns } = window.theme
   if(tns) {
-    const productGallery = buildProductGallery(tns);
+    const productSlideshow = buildSlideshow(tns);
+    slideshow.classList.remove('slideshow-loading');
     const productCarousel = buildProductCarousel(tns);
-    document.querySelector('.c-productMain__slideshowWrapper').classList.remove('u-hidden');
-    document.querySelector('.c-productMain__carouselWrapper').classList.remove('u-hidden');
+    slideshow.classList.remove('carousel-loading');
     clearInterval(tnsReady);
   }
 }, 100);
 
-function buildProductGallery(tns) {
+function buildSlideshow(tns) {
   return tns({
-    container: '.c-productMain__slideshow',
+    container: slideshowTrack,
     mode: 'gallery',
     speed: 350,
     items: 1,
@@ -22,13 +29,13 @@ function buildProductGallery(tns) {
     nav: true,
     navPosition: "bottom",
     navAsThumbnails: true,
-    navContainer: ".c-productMain__slideshowThumbnails"
+    navContainer: slideshowThumbnails
   })
 }
 
 function buildProductCarousel(tns) {
   return tns({
-    container: '.c-productMain__carousel',
+    container: carouselTrack,
     mode: 'carousel',
     mouseDrag: true,
     speed: 350,
@@ -38,6 +45,6 @@ function buildProductCarousel(tns) {
     controls: false,
     nav: true,
     navPosition: "bottom",
-    navContainer: ".c-productMain__carouselDots"
+    navContainer: carouselBubbles
   })
 }
