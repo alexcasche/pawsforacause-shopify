@@ -3,6 +3,9 @@
 .c-slideshow__slide {
   margin-bottom: 10px;
 }
+.c-slideshow__thumbnails {
+  @mixin flex row, center, center;
+}
 .c-slideshow__thumbnail {
   min-width: 70px;
   width: 70px;

@@ -1,16 +1,19 @@
-{% assign show_small = false %}{% assign show_large = false %}
-{% if settings.gallery_format_small == 'carousel' %}{% assign show_small = true %}{% endif %}
-{% if settings.gallery_format_large == 'carousel' %}{% assign show_large = true %}{% endif %}
-{% if show_small or show_large %}
-  {% unless show_small %}{% assign media_class = ' u-showTablet' %}{% endunless %}
-  {% unless show_large %}{% assign media_class = ' u-hideTablet' %}{% endunless %}
-  <div class="c-productCarousel c-carousel carousel-loading{% if media_class %}{{ media_class }}{% endif %}">
+{% assign visibility = settings.carousel_visibility %}
+{% case visibility %}
+  {% when "small" %}{% assign visible_class = " u-hideTablet" %}
+  {% when "small_medium" %}{% assign visible_class = " u-hideDesktop" %}
+  {% when "medium" %}{% assign visible_class = " u-showTablet u-hideDesktop" %}
+  {% when "medium_large" %}{% assign visible_class = " u-showTablet" %}
+  {% else %}{% assign visible_class = "" %}
+{% endcase %}
+{% unless visibility == "none" %}
+  <div class="c-productCarousel c-carousel carousel-loading{{ visible_class }}">
     <div class="c-productCarousel__track c-carousel__track">
       {% for image in product.images %}
-        <img class="c-productCarousel__slide c-carousel__slide" src="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
+        <img class="c-productCarousel__slide c-carousel__slide" src="{{ image.src | img_url: image_size }}" alt="{{ image.alt | escape }}" />
       {% endfor %}
     </div>
-    {% if settings.show_carousel_bubbles %}
+    {% if settings.show_carousel_nav %}
       <div class="c-productCarousel__bubbles c-carousel__bubbles">
         {% for image in product.images %}
           <span class="c-productCarousel__bubble c-carousel__bubble"></span>
@@ -18,4 +21,4 @@
       </div>
     {% endif %}
   </div>
-{% endif %}
+{% endunless %}

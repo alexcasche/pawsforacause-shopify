@@ -3,10 +3,12 @@
     <div class="c-productBuy__container o-container o-flexFlip">
       {% assign settings = section.settings %}
       {% if settings.show_breadcrumbs %}
-        {% include 'breadcrumbs' %}
+        {% include "breadcrumbs" %}
       {% endif %}
-      {% include 'product-slideshow' with product, settings %}
-      {% include 'product-carousel' with product, settings %}
+      <div class="c-productBuy__images o-flexItem-50 o-flexColumn">
+        {% include 'product-carousel' with product, settings, image_size: "1024x1024" %}
+        {% include 'product-slideshow' with product, settings, image_size: "1024x1024" %}
+      </div>
     </div>
   </div>
 </section>
@@ -30,47 +32,87 @@
       "content": "Product Gallery"
     },
     {
-      "id": "gallery_format_small",
+      "id": "carousel_visibility",
       "type": "select",
-      "label": "Gallery Format Small",
-      "info": "Appears on small screens",
-      "default": "carousel",
+      "label": "Carousel Visibilty",
+      "info": "Show carousel on these screen sizes",
+      "default": "small",
       "options": [
         {
-          "value": "carousel",
-          "label": "Carousel"
+          "value": "all",
+          "label": "All"
         },
         {
-          "value": "slideshow",
-          "label": "Slideshow"
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "small_medium",
+          "label": "Small/Medium"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "medium_large",
+          "label": "Medium/Large"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+         {
+          "value": "none",
+          "label": "None"
         }
       ]
     },
     {
-      "id": "gallery_format_large",
-      "type": "select",
-      "label": "Gallery Format Large",
-      "info": "Appears on large screens",
-      "default": "slideshow",
-      "options": [
-        {
-          "value": "carousel",
-          "label": "Carousel"
-        },
-        {
-          "value": "slideshow",
-          "label": "Slideshow"
-        }
-      ]
-    },
-    {
-			"id": "show_carousel_bubbles",
+			"id": "show_carousel_nav",
 			"type": "checkbox",
-			"label": "Show Carousel Thumbnails",
+			"label": "Show Carousel Bubbles",
       "default": true
 		},
     {
-			"id": "show_slideshow_thumbnails",
+      "id": "slideshow_visibility",
+      "type": "select",
+      "label": "Slideshow Visibilty",
+      "info": "Show slideshow on these screen sizes",
+      "default": "medium_large",
+      "options": [
+        {
+          "value": "all",
+          "label": "All"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "small_medium",
+          "label": "Small/Medium"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "medium_large",
+          "label": "Medium/Large"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+         {
+          "value": "none",
+          "label": "None"
+        }
+      ]
+    },
+    {
+			"id": "show_slideshow_nav",
 			"type": "checkbox",
 			"label": "Show Slideshow Thumbnails",
       "default": true

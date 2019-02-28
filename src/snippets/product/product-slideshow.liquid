@@ -1,21 +1,24 @@
-{% assign show_small = false %}{% assign show_large = false %}
-{% if settings.gallery_format_small == 'slideshow' %}{% assign show_small = true %}{% endif %}
-{% if settings.gallery_format_large == 'slideshow' %}{% assign show_large = true %}{% endif %}
-{% if show_small or show_large %}
-  {% unless show_small %}{% assign media_class = ' u-showTablet' %}{% endunless %}
-  {% unless show_large %}{% assign media_class = ' u-hideTablet' %}{% endunless %}
-  <div class="c-productSlideshow c-slideshow slideshow-loading{% if media_class %}{{ media_class }}{% endif %}">
+{% assign visibility = settings.slideshow_visibility %}
+{% case visibility %}
+  {% when "small" %}{% assign visible_class = " u-hideTablet" %}
+  {% when "small_medium" %}{% assign visible_class = " u-hideDesktop" %}
+  {% when "medium" %}{% assign visible_class = " u-showTablet u-hideDesktop" %}
+  {% when "medium_large" %}{% assign visible_class = " u-showTablet" %}
+  {% else %}{% assign visible_class = "" %}
+{% endcase %}
+{% unless visibility == "none" %}
+  <div class="c-productSlideshow c-slideshow slideshow-loading{{ visible_class }}">
     <div class="c-productSlideshow__track c-slideshow__track">
       {% for image in product.images %}
-        <img class="c-productSlideshow__slide c-slideshow__slide" src="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
+        <img class="c-productSlideshow__slide c-slideshow__slide" src="{{ image.src | img_url: image_size }}" alt="{{ image.alt | escape }}" />
       {% endfor %}
     </div>
-    {% if settings.show_slideshow_thumbnails %}
+    {% if settings.show_slideshow_nav %}
       <div class="c-productSlideshow__thumbnails c-slideshow__thumbnails">
         {% for image in product.images %}
-          <img class="c-productSlideshow__thumbnail c-slideshow__thumbnail" src="{{ image.src | img_url: 'compact' }}" data-url="{{ image.src | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
+          <img class="c-productSlideshow__thumbnail c-slideshow__thumbnail" src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}" />
         {% endfor %}
       </div>
     {% endif %}
   </div>
-{% endif %}
+{% endunless %}

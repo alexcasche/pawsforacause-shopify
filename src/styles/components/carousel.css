@@ -1,15 +1,18 @@
 /*========== Carousel ==========*/
 
 .c-carousel__slide {
+  &:hover {
+    cursor: pointer;
+  }
   &:focus {
     outline: none;
   }
 }
-.c-carousel__dots {
-  @mixin flexRow;
+.c-carousel__bubbles {
+  @mixin flex row, center, center;
   margin-top: 20px
 }
-.c-carousel__dot {
+.c-carousel__bubble {
   width: 15px;
   height: 15px;
   border-radius: 50%;
