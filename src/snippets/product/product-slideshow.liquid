@@ -7,7 +7,7 @@
   {% else %}{% assign visible_class = "" %}
 {% endcase %}
 {% unless visibility == "none" %}
-  <div class="c-productSlideshow c-slideshow slideshow-loading{{ visible_class }}">
+  <div class="c-productSlideshow c-slideshow is-loading{{ visible_class }}">
     <div class="c-productSlideshow__track c-slideshow__track">
       {% for image in product.images %}
         <img class="c-productSlideshow__slide c-slideshow__slide" src="{{ image.src | img_url: image_size }}" alt="{{ image.alt | escape }}" />

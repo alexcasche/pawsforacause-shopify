@@ -1,5 +1,11 @@
 /*========== Slideshow ==========*/
 
+.c-slideshow.is-loading {
+  .c-slideshow__slide:not(:first-child) {
+    display: none;
+  }
+}
+
 .c-slideshow__slide {
   margin-bottom: 10px;
 }
@@ -9,8 +15,9 @@
 .c-slideshow__thumbnail {
   min-width: 70px;
   width: 70px;
+  height: 70px;
   margin: 10px 5px 5px;
-  border: 2px solid transparent;
+  box-sizing: border-box;
   &:hover {
     cursor: pointer;
   }

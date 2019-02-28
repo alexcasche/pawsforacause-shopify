@@ -11,9 +11,9 @@ const tnsReady = setInterval(() => {
   const { tns } = window.theme
   if(tns) {
     const productCarousel = buildProductCarousel(tns);
-    carousel.classList.remove('carousel-loading');
+    carousel.classList.remove('is-loading');
     const productSlideshow = buildSlideshow(tns);
-    slideshow.classList.remove('slideshow-loading');
+    slideshow.classList.remove('is-loading');
     clearInterval(tnsReady);
   }
 }, 100);

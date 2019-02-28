@@ -1,5 +1,12 @@
 /*========== Carousel ==========*/
 
+
+.c-carousel.is-loading {
+  .c-carousel__slide:not(:first-child) {
+    display: none;
+  }
+}
+
 .c-carousel__slide {
   &:hover {
     cursor: pointer;
