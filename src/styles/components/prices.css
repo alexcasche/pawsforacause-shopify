@@ -4,7 +4,7 @@
   font-weight: 600;
 }
 .c-prices__basePrice {
-  color: $color-gray;
+  color: $color-gray-dark;
 }
 .c-prices__salePrice {
   margin-right: 8px;

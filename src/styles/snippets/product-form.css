@@ -11,12 +11,10 @@
     font-size: 16px;
   }
 }
-
 .c-productForm__title {
   margin-bottom: 20px;
   text-align: center;
 }
-
 .c-productForm__tagline {
   display: block;
   margin-bottom: 20px;
@@ -36,7 +34,66 @@
     }
   }
 }
-
+.c-productForm__form {
+  align-items: center;
+  margin: auto;
+  width: 350px;
+  max-width: 100%;
+}
 .c-productForm__prices {
-  
+  margin: 10px 0;
+  width: 100%;
+  @mixin flex row, center, center;
+}
+.c-productForm__basePrice, .c-productForm__salePrice {
+  font-size: 22px;
+}
+.c-productForm__salePrice {
+  order: -1;  
+}
+.c-productForm__comparePrice {
+  margin-left: 5px;
+  font-size: 18px;
+}
+.c-productForm__select {
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+  padding-top: 20px;
+  &:after {
+    position: absolute;
+    right: 15px;
+    bottom: 16px;
+    color: $color-black-light;
+    font-family: Font Awesome\ 5 Free;
+    font-size: 13px;
+    content: "\f0dc";
+    pointer-events: none;
+  }
+}
+.c-productForm__selectLabel {
+  position: absolute;
+  top: 0;
+  color: $color-gray-light;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+.c-productForm__selectInner {
+  height: 50px;
+  line-height: 48px;
+  padding: 0 30px 0 15px;
+  border-radius: 4px;
+  border: 2px solid #aaa;
+  color: $color-gray-dark;
+  font-size: 16px;
+  font-weight: 600; 
+  &:focus {
+    border-color: #aaa;
+  }
+}
+.c-productForm__button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 15px 20px;
+  font-size: 15px;
 }

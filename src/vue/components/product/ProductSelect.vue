@@ -1,19 +1,20 @@
 <template>
   <form 
     v-if="activeVariant"
-    class="c-productSelect__form o-flexColumn"
+    :class="`${class_name}__form o-flexColumn`"
   >
-    <span 
-      class="c-productSelect__prices o-flexRow"
-      v-html="pricesHtml(activeVariant, 'variant')"
+    <ProductPrices
+      :class_name="class_name"
+      :item="activeVariant"
+      :show_range="true"
     />
     <div 
       v-for="(select, key, index) in productSelects"
       :key="index"
-      class="c-productSelect__select o-flexRow"
+      :class="`${class_name}__select o-flexRow`"
     >
       <label 
-        class="c-productSelect__selectLabel"
+        :class="`${class_name}__selectLabel`"
         :for="product.options[index].toLowerCase() + 'Select'"
       >
         {{ product.options[index] }}
@@ -21,7 +22,7 @@
       <select 
         v-model="form['option' + (index + 1)]"
         :id="product.options[index].toLowerCase() + 'Select'" 
-        class="c-productSelect__selectInner"
+        :class="`${class_name}__selectInner`"
       >
         <option 
           v-for="(option, index) in select.options"
@@ -33,10 +34,10 @@
       </select>
     </div>
     <div 
-      class="c-productSelect__select o-flexRow"
+      :class="`${class_name}__select o-flexRow`"
     >
       <label 
-        class="c-productSelect__selectLabel"
+        :class="`${class_name}__selectLabel`"
         for="quantitySelect"
       >
         {{ quantity_label }}
@@ -44,7 +45,7 @@
       <select 
         v-model="form.quantity"
         id="quantitySelect"
-        class="c-productSelect__selectInner"
+        :class="`${class_name}__selectInner`"
       >
         <option 
           v-for="n in activeQuantity"
@@ -62,18 +63,18 @@
     </div>
     <button 
       v-if="activeQuantity > 0"
-      class="c-productSelect__button c-button-small c-button--submit"
+      :class="`${class_name}__button c-button-small c-button--submit`"
       @click="addToCart"
       type="button"
     >
-      {{ button_text }}
+      {{ button_active_text }}
     </button>
     <button 
       v-else
-      class="c-productSelect__button c-button-large c-button--cancel"
+      :class="`${class_name}__button c-button-large c-button--cancel`"
       disabled="disabled"
     >
-      {{ sold_out_text }}
+      {{ button_disabled_text }}
     </button>
   </form>
 </template>
@@ -81,6 +82,7 @@
 <script>
 import { mapMutations, mapActions } from "vuex";
 import { formatProduct, productOptions, productVariant } from "@vue/helpers";
+import ProductPrices from "./ProductPrices.vue"
 
 export default {
   data() {
@@ -95,39 +97,30 @@ export default {
       }
     }
   },
+  components: {
+    ProductPrices
+  },
   props: {
     product: {
-      type: [String, Object],
-      default: () => {}
-    },
-    settings: {
       type: [String, Object],
       default: () => {}
     },
     class_name: {
       type: [String, Boolean],
       default: false
+    },
+    quantity_label: {
+      type: String,
+      default: 'Quantity'
+    },
+    button_active_text: {
+      type: String,
+      default: 'Add to Cart'
+    },
+    button_disabled_text: {
+      type: String,
+      default: 'Sold Out'
     }
-    // class_prefix_base: {
-    //   type: [String, Boolean],
-    //   default: 'c-productSelect'
-    // },
-    // class_prefix: {
-    //   type: [String, Boolean],
-    //   default: false
-    // },
-    // quantity_label: {
-    //   type: String,
-    //   default: 'Quantity'
-    // },
-    // button_text: {
-    //   type: String,
-    //   default: 'Add to Cart'
-    // },
-    // sold_out_text: {
-    //   type: String,
-    //   default: 'Sold Out'
-    // }
   },
   computed: {
     productObject() {

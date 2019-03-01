@@ -1,33 +1,33 @@
 export const pricesHtml = {
   methods: {
-    pricesHtml(item, type, showRange = false) {
+    pricesHtml(item, type, classPrefix, showRange = false) {
       if(type === "variant") {
-        return pricesVariant(item)
+        return pricesVariant(item, classPrefix)
       } else {
-        return pricesProduct(item, showRange)
+        return pricesProduct(item, classPrefix, showRange)
       }
     }
   }
 }
 
-const pricesVariant = (variant) => {
+const pricesVariant = (variant, classPrefix) => {
   const { compare_at_price, price } = variant
   const { symbol } = window.theme.cart.currency
   let output = '';
   if(compare_at_price && compare_at_price > price) {
     output += `
-    <span class="c-prices__salePrice">${symbol}${price}</span>
-    <span class="c-prices__comparePrice">${symbol}${compare_at_price}</span>
+    <span class="${classString(classPrefix, 'salePrice')}">${symbol}${price}</span>
+    <span class="${classString(classPrefix, 'comparePrice')}">${symbol}${compare_at_price}</span>
     `.trim()
   } else {
     output += `
-    <span class="c-prices__basePrice">${symbol}${price}</span>
+    <span class="${classString(classPrefix, 'basePrice')}">${symbol}${price}</span>
     `.trim()
   }
   return output
 }
 
-const pricesProduct = (product, showRange = false) => {
+const pricesProduct = (product, classPrefix, showRange = false) => {
   const { price, price_varies, compare_at_price, compare_at_price_varies } = product
   const { symbol } = window.theme.cart.currency
   let output = '';
@@ -44,13 +44,17 @@ const pricesProduct = (product, showRange = false) => {
       compareString = `${symbol}${compare_at_price_min} - ${symbol}${compare_at_price_max}`
     }
     output = `
-    <span class="c-prices__comparePrice">${compareString}</span>
-    <span class="c-prices__salePrice">${priceString}</span>
+    <span class="${classString(classPrefix, 'comparePrice')}">${compareString}</span>
+    <span class="${classString(classPrefix, 'salePrice')}">${priceString}</span>
     `.trim()
   } else {
     output = `
-    <span class="c-prices__basePrice">${priceString}</span>
+    <span class="${classString(classPrefix, 'basePrice')}">${priceString}</span>
     `.trim()
   }
   return output
+}
+
+const classString = (classPrefix, classSuffix) => {
+  return `c-prices__${classSuffix} ${classPrefix}__${classSuffix}`
 }

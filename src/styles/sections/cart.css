@@ -210,20 +210,10 @@
 }
 .c-cartUpsellItem__comparePrice {
   margin-bottom: 2px;
-  color: $color-gray;
-  font-weight: 500;
   font-size: 12px;
-  text-decoration: line-through;
 }
 .c-cartUpsellItem__basePrice, .c-cartUpsellItem__salePrice {
   font-size: 14px;
-  font-weight: 600;
-}
-.c-cartUpsellItem__basePrice {
-  color: $color-gray-dark;
-}
-.c-cartUpsellItem__salePrice {
-  color: $color-red-dark;
 }
 .c-cartUpsellItem__add {
   padding: 5px 18px;
@@ -286,21 +276,14 @@
 }
 .c-cartUpsellAdd__basePrice, .c-cartUpsellAdd__salePrice {
   font-size: 16px;
-  font-weight: 600;
 }
 .c-cartUpsellAdd__basePrice {
   color: $color-black-light;
-}
-.c-cartUpsellAdd__comparePrice {
-  color: $color-gray;
-  font-weight: 500;
   font-size: 16px;
-  text-decoration: line-through;
 }
 .c-cartUpsellAdd__salePrice {
   order: -1;
   margin-right: 5px;
-  color: $color-red-dark;
   margin-right: 5px;
 }
 .c-cartUpsellAdd__select {

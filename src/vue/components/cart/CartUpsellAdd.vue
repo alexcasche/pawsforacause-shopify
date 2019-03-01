@@ -17,10 +17,10 @@
       </div>
       <ProductSelect
         :product="item"
-        class_prefix="c-cartUpsellAdd"
+        class_name="c-cartUpsellAdd"
         :quantity_label="settings.add_quantity_label"
-        :button_text="settings.add_cart_utton"
-        :sold_out_text="settings.add_sold_out"
+        :button_active_text="settings.add_cart_button"
+        :button_disabled_text="settings.add_sold_out"
       />
 
     </div>
