@@ -1,33 +1,33 @@
 export const pricesHtml = {
   methods: {
-    pricesHtml(item, type, classPrefix, classPrefixBase = false, showRange = false) {
+    pricesHtml(item, type, showRange = false) {
       if(type === "variant") {
-        return pricesVariant(item, classPrefix, classPrefixBase)
+        return pricesVariant(item)
       } else {
-        return pricesProduct(item, classPrefix, classPrefixBase, showRange)
+        return pricesProduct(item, showRange)
       }
     }
   }
 }
 
-const pricesVariant = (variant, classPrefix, classPrefixBase) => {
+const pricesVariant = (variant) => {
   const { compare_at_price, price } = variant
   const { symbol } = window.theme.cart.currency
   let output = '';
   if(compare_at_price && compare_at_price > price) {
     output += `
-    <span class="${classString(classPrefix, classPrefixBase, 'salePrice')}">${symbol}${price}</span>
-    <span class="${classString(classPrefix, classPrefixBase, 'comparePrice')}">${symbol}${compare_at_price}</span>
+    <span class="c-prices__salePrice">${symbol}${price}</span>
+    <span class="c-prices__comparePrice">${symbol}${compare_at_price}</span>
     `.trim()
   } else {
     output += `
-    <span class="${classString(classPrefix, classPrefixBase, 'basePrice')}">${symbol}${price}</span>
+    <span class="c-prices__basePrice">${symbol}${price}</span>
     `.trim()
   }
   return output
 }
 
-const pricesProduct = (product, classPrefix, classPrefixBase, showRange = false) => {
+const pricesProduct = (product, showRange = false) => {
   const { price, price_varies, compare_at_price, compare_at_price_varies } = product
   const { symbol } = window.theme.cart.currency
   let output = '';
@@ -44,19 +44,13 @@ const pricesProduct = (product, classPrefix, classPrefixBase, showRange = false)
       compareString = `${symbol}${compare_at_price_min} - ${symbol}${compare_at_price_max}`
     }
     output = `
-    <span class="${classString(classPrefix, classPrefixBase, 'comparePrice')}">${compareString}</span>
-    <span class="${classString(classPrefix, classPrefixBase, 'salePrice')}">${priceString}</span>
+    <span class="c-prices__comparePrice">${compareString}</span>
+    <span class="c-prices__salePrice">${priceString}</span>
     `.trim()
   } else {
     output = `
-    <span class="${classString(classPrefix, classPrefixBase, 'basePrice')}">${priceString}</span>
+    <span class="c-prices__basePrice">${priceString}</span>
     `.trim()
   }
   return output
-}
-
-const classString = (classPrefix = false, classPrefixBase = false, classSuffix) => {
-  let classString = classPrefixBase ? `${classPrefixBase}__${classSuffix} ` : ''
-  classString += classPrefix ? `${classPrefix}__${classSuffix} ` : ''
-  return classString
 }

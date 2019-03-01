@@ -1,19 +1,19 @@
 <template>
   <form 
     v-if="activeVariant"
-    :class="`c-productSelect__form ${class_prefix}__form o-flexColumn`"
+    class="c-productSelect__form o-flexColumn"
   >
     <span 
-      :class="`c-productSelect__prices ${class_prefix}__prices o-flexRow`"
-      v-html="pricesHtml(activeVariant, 'variant', class_prefix, class_prefix_base)"
+      class="c-productSelect__prices o-flexRow"
+      v-html="pricesHtml(activeVariant, 'variant')"
     />
     <div 
       v-for="(select, key, index) in productSelects"
       :key="index"
-      :class="`c-productSelect__select ${class_prefix}__select o-flexRow`"
+      class="c-productSelect__select o-flexRow"
     >
       <label 
-        :class="`c-productSelect__selectLabel ${class_prefix}__selectLabel`"
+        class="c-productSelect__selectLabel"
         :for="product.options[index].toLowerCase() + 'Select'"
       >
         {{ product.options[index] }}
@@ -21,7 +21,7 @@
       <select 
         v-model="form['option' + (index + 1)]"
         :id="product.options[index].toLowerCase() + 'Select'" 
-        :class="`c-productSelect__selectInner ${class_prefix}__selectInner`"
+        class="c-productSelect__selectInner"
       >
         <option 
           v-for="(option, index) in select.options"
@@ -33,10 +33,10 @@
       </select>
     </div>
     <div 
-      :class="`c-productSelect__select ${class_prefix}__select o-flexRow`"
+      class="c-productSelect__select o-flexRow"
     >
       <label 
-        :class="`c-productSelect__selectLabel ${class_prefix}__selectLabel`"
+        class="c-productSelect__selectLabel"
         for="quantitySelect"
       >
         {{ quantity_label }}
@@ -44,7 +44,7 @@
       <select 
         v-model="form.quantity"
         id="quantitySelect"
-        :class="`c-productSelect__selectInner ${class_prefix}__selectInner`"
+        class="c-productSelect__selectInner"
       >
         <option 
           v-for="n in activeQuantity"
@@ -62,7 +62,7 @@
     </div>
     <button 
       v-if="activeQuantity > 0"
-      :class="`c-productSelect__button ${class_prefix}__button c-button-small c-button--submit`"
+      class="c-productSelect__button c-button-small c-button--submit"
       @click="addToCart"
       type="button"
     >
@@ -70,7 +70,7 @@
     </button>
     <button 
       v-else
-      :class="`c-productSelect__button ${class_prefix}__button c-button-large c-button--cancel`"
+      class="c-productSelect__button c-button-large c-button--cancel"
       disabled="disabled"
     >
       {{ sold_out_text }}
@@ -100,26 +100,34 @@ export default {
       type: [String, Object],
       default: () => {}
     },
-    class_prefix_base: {
-      type: [String, Boolean],
-      default: 'c-productSelect'
+    settings: {
+      type: [String, Object],
+      default: () => {}
     },
-    class_prefix: {
+    class_name: {
       type: [String, Boolean],
       default: false
-    },
-    quantity_label: {
-      type: String,
-      default: 'Quantity'
-    },
-    button_text: {
-      type: String,
-      default: 'Add to Cart'
-    },
-    sold_out_text: {
-      type: String,
-      default: 'Sold Out'
     }
+    // class_prefix_base: {
+    //   type: [String, Boolean],
+    //   default: 'c-productSelect'
+    // },
+    // class_prefix: {
+    //   type: [String, Boolean],
+    //   default: false
+    // },
+    // quantity_label: {
+    //   type: String,
+    //   default: 'Quantity'
+    // },
+    // button_text: {
+    //   type: String,
+    //   default: 'Add to Cart'
+    // },
+    // sold_out_text: {
+    //   type: String,
+    //   default: 'Sold Out'
+    // }
   },
   computed: {
     productObject() {

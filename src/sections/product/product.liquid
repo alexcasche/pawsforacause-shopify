@@ -9,6 +9,9 @@
         {% include 'product-carousel' with product, settings, image_size: "1024x1024" %}
         {% include 'product-slideshow' with product, settings, image_size: "1024x1024" %}
       </div>
+      <div class="c-productBuy__details o-flexItem-50 o-flexColumn">
+        {% include 'product-form' with product, settings %}
+      </div>
     </div>
   </div>
 </section>
@@ -128,13 +131,13 @@
       "default": true
 		},
 		{
-			"id": "show_vendor_name",
+			"id": "show_vendor",
 			"type": "checkbox",
 			"label": "Show Vendor",
       "default": true
 		},
     {
-      "id": "quantity_select_label",
+      "id": "quantity_label",
       "type": "text",
       "label": "Quantity Label",
       "default": "Quantity"

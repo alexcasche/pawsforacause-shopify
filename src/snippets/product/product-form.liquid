@@ -1,0 +1,24 @@
+{% assign metafields = product.metafields.product %}
+<div class="c-productForm">
+  {% if product.vendor and settings.show_vendor %}
+    <h5 class="c-productForm__vendor">
+      {{ product.vendor }}
+    </h5>
+  {% endif %}
+  <h1 class="c-productForm__title">
+    {{ product.title }}
+  </h1>
+  {% if metafields.tagline and settings.show_tagline %}
+    <span class="c-productForm__tagline">
+      {{ metafields.tagline }}
+    </span>
+  {% endif %}
+  <div class="c-productForm__select">
+    <vue-product-select 
+      product="{{ product | json | escape }}" 
+      settings="{{ settings | json | escape }}"
+      class_name="c-productForm"
+    >
+    </vue-product-select>
+  </div>
+</div>
