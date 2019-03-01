@@ -1,11 +1,11 @@
-import { emptyObject } from './emptyObject';
+import { objectEmpty } from './objectEmpty';
 import { imageAlt } from './imageAlt';
 import { imageUrl } from './imageUrl';
-import { pricesHtml } from './pricesHtml';
+import { typeObject } from './typeObject';
 
 export default [
-  emptyObject,
+  objectEmpty,
   imageAlt,
   imageUrl,
-  pricesHtml
+  typeObject
 ]

@@ -1,6 +1,6 @@
-export const emptyObject = {
+export const objectEmpty = {
   methods: {
-    emptyObject(object) {
+    objectEmpty(object) {
       return !Object.keys(object).length;
     }
   }

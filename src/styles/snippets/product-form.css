@@ -55,6 +55,10 @@
   margin-left: 5px;
   font-size: 18px;
 }
+.c-productForm__options {
+  width: 100%;
+  max-width: 350px;
+}
 .c-productForm__select {
   width: 100%;
   position: relative;

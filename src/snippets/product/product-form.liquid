@@ -13,12 +13,12 @@
       {{ metafields.tagline }}
     </span>
   {% endif %}
-  <vue-product-select
+  <vue-product-add
     product="{{ product | json | escape }}"
     class_name="c-productForm"
     quantity_label="{{ settings.quantity_label }}"
     button_active_text="{{ settings.button_active_text }}"
     button_disabled_text="{{ settings.button_disabled_text }}"
   >
-  </vue-product-select>
+  </vue-product-add>
 </div>

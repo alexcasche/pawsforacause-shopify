@@ -15,7 +15,7 @@
         :alt="imageAlt(item)"
         />
       </div>
-      <ProductSelect
+      <ProductAdd
         :product="item"
         class_name="c-cartUpsellAdd"
         :quantity_label="settings.add_quantity_label"
@@ -29,7 +29,7 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from "vuex";
-import ProductSelect from "@vue/components/product/ProductSelect.vue";
+import ProductAdd from "@vue/components/product/ProductAdd.vue";
 
 export default {
   props: {
@@ -39,7 +39,7 @@ export default {
     }
   },
   components: {
-    ProductSelect
+    ProductAdd
   },
   computed: {
     ...mapGetters('cart', ['settings'])

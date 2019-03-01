@@ -26,7 +26,7 @@ export default {
     }
   },
   props: {
-    item: {
+    product: {
       type: [Object, Boolean],
       default: false
     },
@@ -41,17 +41,17 @@ export default {
   },
   computed: {
     onSale() {
-      const { compare_at_price, price } = this.item
+      const { compare_at_price, price } = this.product
       return compare_at_price && compare_at_price > price;
     },
     price() {
-      const { price_varies, price, price_min, price_max } = this.item
+      const { price_varies, price, price_min, price_max } = this.product
       return this.showRange && price_varies
         ? `${this.symbol}${price_min} - ${this.symbol}${price_max}`
         : `${this.symbol}${price}`
     },
     compare() {
-      const { compare_at_price_varies, compare_at_price, compare_at_price_min, compare_at_price_max } = this.item
+      const { compare_at_price_varies, compare_at_price, compare_at_price_min, compare_at_price_max } = this.product
       return this.onSale
         ? this.showRange && compare_at_price_varies
           ? `${this.symbol}${compare_at_price_min} - ${this.symbol}${compare_at_price_max}`
