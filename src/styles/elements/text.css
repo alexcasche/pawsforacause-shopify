@@ -4,7 +4,7 @@ body {
   color: $color-gray-dark;
   font-family: Raleway,sans-serif;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,6 +20,7 @@ h6 {
   font-weight: 600;
   color: $color-black-dark;
   text-align: center;
+  line-height: 1.5;
   @media(--mobile) {
     text-align: left;
   }
@@ -40,6 +41,7 @@ h2 {
 }
 
 h3 {
+  color: $color-blue-dark;
   font-size: 22px;
   line-height: 34px;
   margin: 0 0 12px;
@@ -72,8 +74,8 @@ a {
 
 p {
   margin: 0 0 20px;
-  line-height: 1.88;
-  color: $color-black-light;
+  line-height: 1.5;
+  color: $color-black;
   font-size: 16px;
   @media (--tablet) {
     font-size: 18px;

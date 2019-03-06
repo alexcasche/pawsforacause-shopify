@@ -10,8 +10,33 @@
         {% include 'product-slideshow' with product, settings, image_size: "1024x1024" %}
       </div>
       <div class="c-productBuy__details o-flexItem-50 o-flexColumn">
-        {% include 'product-form' with product, settings %}
+        {% assign tagline = product.metafields.product.tagline %}
+        {% include 'product-form' with product, tagline, settings %}
       </div>
+    </div>
+  </div>
+  <div class="c-productDetails o-strip">
+    <div class="c-productDetails__container o-container o-flexFlip">
+      <div class="c-productDetails__group o-flexItem-50 o-flexColumn">
+        <h3>Description</h3>
+        <p class="c-productDetails__description">
+          {{ product.description }}
+        </p>
+      </div>
+      {% assign tag_array = product.metafields.product.tags | split: "," %}
+      {% if tag_array.size > 0 %}
+        <div class="c-productDetails__group o-flexItem-50 o-flexColumn">
+          <h3>Tags</h3>
+          {% include 'product-tags' with tag_list: tag_array, settings %}
+        </div>
+      {% endif %}
+      {% assign feature_array = product.metafields.product.features | split: "," %}
+      {% if feature_array.size > 0 %}
+        {{ feature_array }}
+        <div class="c-productDetails__group o-flexItem-50 o-flexColumn">
+          <h3>Features</h3>
+          {% include 'product-features' with feature_list: feature_array, settings %}
+        </div>
     </div>
   </div>
 </section>

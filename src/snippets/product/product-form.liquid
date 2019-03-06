@@ -1,4 +1,3 @@
-{% assign metafields = product.metafields.product %}
 <div class="c-productForm">
   {% if product.vendor and settings.show_vendor %}
     <h5 class="c-productForm__vendor">
@@ -8,9 +7,9 @@
   <h1 class="c-productForm__title">
     {{ product.title }}
   </h1>
-  {% if metafields.tagline and settings.show_tagline %}
+  {% if tagline %}
     <span class="c-productForm__tagline">
-      {{ metafields.tagline }}
+      {{ tagline }}
     </span>
   {% endif %}
   <vue-product-add

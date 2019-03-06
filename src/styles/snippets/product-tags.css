@@ -1,0 +1,23 @@
+/*========== Product Form ==========*/
+
+.c-productTags {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.c-productTags__tag {
+  margin-right: 30px;
+}
+
+.c-productTags__icon {
+  height: 50px;
+}
+
+.c-productTags__text {
+  display: block;
+  color: $color-blue;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}

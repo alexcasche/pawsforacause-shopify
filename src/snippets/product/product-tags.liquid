@@ -1,0 +1,13 @@
+<div class="c-productTags o-flexRow">
+  {% for tag_item in tag_list %}
+    <div class="c-productTags__tag o-flexColumn">
+      <div class="c-productTags__icon o-flexColumn">
+        {% assign tag_icon = 'tag-' | append: tag_item %}
+        {% include tag_icon %}
+      </div>
+      <span class="c-productTags__text">
+        {{ tag_item | replace: "-", " " }}
+      </span>
+    </div>
+  {% endfor %}
+</div>

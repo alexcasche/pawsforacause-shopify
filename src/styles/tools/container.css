@@ -2,14 +2,21 @@
 
 @define-mixin container {
   width: 100%;
+  max-width: 1200px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@define-mixin container--narrow {
+  width: 100%;
   padding-right: 30px;
   padding-left: 30px;
   margin-right: auto;
   margin-left: auto;
   @media (--mobile) {
     max-width: 700px;
-    padding-right: 40px;
-    padding-left: 40px;
   }
   @media (--tablet) {
     max-width: 900px;

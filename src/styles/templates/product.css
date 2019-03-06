@@ -1,9 +1,7 @@
 /*========== Product ==========*/
 
-.c-product {
-  .c-productBuy {
-    padding-top: 50px; 
-  }
+.c-productBuy {
+  padding-top: 50px; 
   .c-productCarousel {
     width: 100%;
     max-width: 420px;
@@ -25,4 +23,11 @@
       margin: 0 0 10px;
     }
   }
+}
+.c-productDetails__container {
+  flex-wrap: wrap;
+}
+.c-productDetails__group {
+  align-items: flex-start;
+  margin-bottom: 30px;
 }
