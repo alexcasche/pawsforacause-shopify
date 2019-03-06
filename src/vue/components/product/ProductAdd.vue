@@ -20,33 +20,25 @@
       :class_name="class_name"
       :active_variant="activeVariant"
       :quantity_label="quantity_label"
-      @quantityChange="updateQuantities"
+      @quantityChange="updateQuantity"
     />
-    
-    <button 
-      v-if="activeQuantity > 0"
-      :class="`${class_name}__button c-button-small c-button--submit`"
-      @click="addToCart"
-      type="button"
-    >
-      {{ button_active_text }}
-    </button>
-    <button 
-      v-else
-      :class="`${class_name}__button c-button-large c-button--cancel`"
-      disabled="disabled"
-    >
-      {{ button_disabled_text }}
-    </button>
+    <ProductButton
+      :class_name="class_name"
+      :variant="activeVariant.id"
+      :quantity="activeQuantity"
+      :available="availableQuantity"
+      :active_text="button_active_text"
+      :disabled_text="button_disabled_text"
+    />
   </form>
 </template>
 
 <script>
-import { mapMutations, mapActions } from "vuex";
-import { formatProduct } from "@vue/helpers";
+import { formatProduct } from "@vue/helpers"
 import ProductPrices from "./ProductPrices.vue"
 import ProductOptions from "./ProductOptions.vue"
 import ProductQuantity from "./ProductQuantity.vue"
+import ProductButton from "./ProductButton.vue"
 
 export default {
   data() {
@@ -60,7 +52,8 @@ export default {
   components: {
     ProductPrices,
     ProductOptions,
-    ProductQuantity
+    ProductQuantity,
+    ProductButton
   },
   props: {
     product: {
@@ -85,12 +78,6 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('cart', ['setAdd']),
-    ...mapActions('cart', ['addCart']),
-    addToCart() {
-      this.addCart({ id: this.activeVariant.id, quantity: this.form.quantity })
-      this.setAdd(false);
-    },
     firstAvailable() {
       const { variants } = { ...this.product }
       const variantKeys = Object.keys(variants)
@@ -99,6 +86,11 @@ export default {
     },
     updateVariant(variant) {
       this.activeVariant = variant
+    },
+    updateQuantity(quantities) {
+      const { activeQuantity, availableQuantity } = quantities
+      this.activeQuantity = activeQuantity
+      this.availableQuantity = availableQuantity
     }
   },
   mounted() {

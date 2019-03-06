@@ -286,6 +286,9 @@
   margin-right: 5px;
   margin-right: 5px;
 }
+.c-cartUpsellAdd__options {
+  width: 100%;
+}
 .c-cartUpsellAdd__select {
   width: 100%;
   position: relative;

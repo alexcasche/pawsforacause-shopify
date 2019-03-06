@@ -41,27 +41,39 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      activeQuantity: '1',
-    }
-  },
   computed: {
+    activeQuantity() {
+      return this.availableQuantity > 0 ? 1 : '--'
+    },
     availableQuantity() {
-      const cartVariant = this.$store.getters['cart/cartVariant'](this.activeVariant.id)
+      const cartVariant = this.$store.getters['cart/cartVariant'](this.active_variant.id)
       const quantityInCart = cartVariant ? cartVariant.quantity : 0
-      const { inventory_management, inventory_quantity } = this.activeVariant
+      const { inventory_management, inventory_quantity } = this.active_variant
       let available = 10;
       if(inventory_management === "shopify") {
         available = inventory_quantity - quantityInCart
       }
       return available > 10 ? 10 : available
-  }
+    },
+    
   },
   watch: {
     activeQuantity: {
+      immediate: true,
       handler(val) {
-        this.$emit('quantityChange', val)
+        this.$emit('quantityChange', { 
+          activeQuantity: val, 
+          availableQuantity: this.availableQuantity 
+        })
+      }
+    },
+    availableQuantity: {
+      immediate: true,
+      handler(val) {
+        this.$emit('quantityChange', { 
+          activeQuantity: this.activeQuantity, 
+          availableQuantity: val
+        })
       }
     }
   }

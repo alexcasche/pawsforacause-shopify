@@ -3,8 +3,9 @@
     class="c-cartMainItem"
   >
     <a class="c-cartMainItem__link" :href="item.url">
-      <img class="c-cartMainItem__image" 
-        :src="imageUrl(item.image, '.jpg', '120x120')"
+      <img class="c-cartMainItem__image lazyload" 
+        :src="imageUrl(item.image, '.jpg', '50x50')"
+        :data-src="imageUrl(item.image, '.jpg', '120x120')"
         :alt="imageAlt(item)"
       />
     </a>
@@ -15,9 +16,9 @@
       <span class="c-cartMainItem__title">
         {{ item.product_title }}
       </span>
-      <span 
-        v-html="pricesHtml(activeVariant, 'variant', 'c-cartMainItem')"
-        class="c-cartMainItem__prices o-flexRow" 
+      <ProductPrices 
+        class_name="c-cartMainItem"
+        :product="item"
       />
     </div>
     <div class="c-cartMainItem__actions">
@@ -47,6 +48,7 @@
 
 <script>
 import { mapActions } from "vuex";
+import ProductPrices from "../product/ProductPrices.vue"
 
 export default {
   props: {
@@ -54,6 +56,9 @@ export default {
       type: Object,
       default: () => {}
     }
+  },
+  components: {
+    ProductPrices
   },
   computed: {
     activeVariant() {

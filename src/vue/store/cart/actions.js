@@ -23,11 +23,14 @@ export default {
       const item = payload[i];
       const hideCart = i < payload.length - 1 ? true : false
       const action = await axios.post("/cart/add.js", qs.stringify(item), axiosHeaders)
-        .then(response => commit("setCart", { ...state.shoppingCart,
-          count: state.shoppingCart.count + item.quantity,
-          total: (parseFloat(state.shoppingCart.total) + formatFloat(response.data.price) * item.quantity).toFixed(2),
-          items: { ...state.shoppingCart.items, [item.id]: formatItem(response.data) }
-        }))
+        .then(response => { 
+          const { [item.id]: omit, ...cartItems } = state.shoppingCart.items
+          commit("setCart", { ...state.shoppingCart,
+            count: state.shoppingCart.count + item.quantity,
+            total: (parseFloat(state.shoppingCart.total) + formatFloat(response.data.price) * item.quantity).toFixed(2),
+            items: { [item.id]: formatItem(response.data), ...cartItems }
+          })
+        })
         .catch(error => commit("setError", error.response.data.description))
       dispatch("actionWrapper", { action, hideCart })
     }

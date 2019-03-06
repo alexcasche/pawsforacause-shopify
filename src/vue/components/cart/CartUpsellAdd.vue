@@ -10,8 +10,9 @@
     </span>
     <div class="c-cartUpsellAdd__main o-flexRow">
       <div class="c-cartUpsellAdd__imageBox o-flexColumn">
-        <img class="c-cartUpsellAdd__image"
-        :src="imageUrl(item.featured_image, '.jpg', '300x300')"
+        <img class="c-cartUpsellAdd__image lazyload"
+        :src="imageUrl(item.featured_image, '.jpg', '120x120')"
+        :data-src="imageUrl(item.featured_image, '.jpg', '300x300')"
         :alt="imageAlt(item)"
         />
       </div>
@@ -22,7 +23,6 @@
         :button_active_text="settings.add_cart_button"
         :button_disabled_text="settings.add_sold_out"
       />
-
     </div>
   </div>
 </template>

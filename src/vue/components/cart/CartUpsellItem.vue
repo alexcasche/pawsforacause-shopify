@@ -2,14 +2,15 @@
   <div v-if="!inCart"
     class="c-cartUpsellItem o-flexColumn"
   >
-    <img class="c-cartUpsellItem__image"
-        :src="imageUrl(item.featured_image, '.jpg', '120x120')" 
+    <img class="c-cartUpsellItem__image lazyload"
+        :src="imageUrl(item.featured_image, '.jpg', '50x50')"
+        :data-src="imageUrl(item.featured_image, '.jpg', '120x120')" 
         :alt="imageAlt(item)"
       />
-    <span 
-      v-html="pricesHtml(item, 'product', 'c-cartUpsellItem')"
-      class="c-cartUpsellItem__prices o-flexColumn"
-    />
+     <ProductPrices 
+        class_name="c-cartUpsellItem"
+        :product="item"
+      />
     <button 
       class="c-cartUpsellItem__add c-button-small c-button--submit"
       @click="addClick"
@@ -27,7 +28,8 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from "vuex"
-import CartUpsellAdd from "./CartUpsellAdd.vue";
+import CartUpsellAdd from "./CartUpsellAdd.vue"
+import ProductPrices from "../product/ProductPrices.vue"
 
 export default {
   props: {
@@ -37,7 +39,8 @@ export default {
     }
   },
   components: {
-    CartUpsellAdd
+    CartUpsellAdd,
+    ProductPrices
   },
   computed: {
     ...mapGetters('cart', ['cartProductIds', 'settings', 'showAdd']),
