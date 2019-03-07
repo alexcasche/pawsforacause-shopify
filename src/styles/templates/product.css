@@ -7,27 +7,44 @@
     max-width: 420px;
   }
   .c-productSlideshow {
-    @media(--desktop) {
+    @media(--tablet) {
       @mixin flex row, space-between, flex-start;
+      max-width: 700px;
     }
   }
   .c-productSlideshow__thumbnails {
-    @media(--desktop) {
+    @media(--tablet) {
       @mixin flex column, flex-start, center;
       margin-right: 20px;
       order: -1;
     }
   }
   .c-productSlideshow__thumbnail {
+    @media(--tablet) {
+      min-width: 100px;
+      min-height: 100px;
+      margin: 0 0 20px;
+    }
     @media(--desktop) {
+      min-width: 70px;
+      min-height: 70px;
       margin: 0 0 10px;
     }
+  }
+  .c-productForm__button {
+    font-size: 18px;
+    height: 54px;
   }
 }
 .c-productDetails__container {
   flex-wrap: wrap;
 }
 .c-productDetails__group {
-  align-items: flex-start;
-  margin-bottom: 30px;
+  margin-bottom: 70px;
+  @media(--desktop) {
+    align-items: flex-start;
+  }
+}
+.c-productDetails__profits {
+  width: 250px;
 }

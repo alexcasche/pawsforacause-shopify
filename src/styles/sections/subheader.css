@@ -33,6 +33,7 @@
     color: $color-blue;
     font-family: "Font Awesome 5 Free";
     font-size: 12px;
+    font-weight: 900;
     content: "\f107";
     pointer-events: none;
   }

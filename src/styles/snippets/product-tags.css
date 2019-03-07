@@ -6,7 +6,7 @@
 }
 
 .c-productTags__tag {
-  margin-right: 30px;
+  margin: 0 30px 20px 0;
 }
 
 .c-productTags__icon {
@@ -16,6 +16,7 @@
 .c-productTags__text {
   display: block;
   color: $color-blue;
+  font-family: $font-raleway;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;

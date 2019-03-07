@@ -1,10 +1,10 @@
-{% comment %} <ul class="c-productFeatures o-flexRow">
+<ul class="c-productFeatures o-flexRow">
   {% for feature_item in feature_list %}
-    <li class="c-productFeatures__item">
-      {% include 'icon-badge-check' %}
+    <li class="c-productFeatures__item o-flexRow o-flexItem-50">
+      <span class="c-productFeatures__icon">
+        {% include 'icon-badge-check' %}
+      </span>
       {{ feature_item }}
     </li>
   {% endfor %}
-</ul> {% endcomment %}
-
-teststststs
+</ul>

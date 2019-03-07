@@ -2,26 +2,34 @@
 
 @define-mixin container {
   width: 100%;
-  max-width: 1200px;
-  padding-right: 30px;
-  padding-left: 30px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@define-mixin container--narrow {
-  width: 100%;
   padding-right: 30px;
   padding-left: 30px;
   margin-right: auto;
   margin-left: auto;
   @media (--mobile) {
+    padding-left: 40px;
+    padding-right: 40px;
     max-width: 700px;
   }
-  @media (--tablet) {
-    max-width: 900px;
-  }
   @media (--desktop) {
-    max-width: 1024px;
+    max-width: 1200px;
+  }
+}
+
+/* @define-mixin container--narrow {
+  width: 100%;
+  max-width: 1200px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-right: auto;
+  margin-left: auto;
+} */
+
+
+@define-mixin container--large {
+  @mixin container;
+  width: 100%;
+  @media (--mobile) {
+    max-width: 1200px;
   }
 }

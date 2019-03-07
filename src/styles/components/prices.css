@@ -1,6 +1,7 @@
 /*========== Prices ==========*/
 
 .c-prices__basePrice, .c-prices__salePrice {
+  font-family: $font-raleway;
   font-weight: 600;
 }
 .c-prices__basePrice {

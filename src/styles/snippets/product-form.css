@@ -1,18 +1,18 @@
 /*========== Product Form ==========*/
 
 .c-productForm__vendor {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   text-align: center;
   color: $color-blue;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   @media(--tablet) {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 .c-productForm__title {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: center;
 }
 .c-productForm__tagline {
@@ -20,17 +20,13 @@
   margin-bottom: 20px;
   text-align: center;
   color: $color-gray-dark;
-  font-size: 16px;
+  font-size: 15px;
+  font-family: $font-raleway;
+  font-weight: 600;
   i {
     font-size: 14px;
     &.fa-heart {
       color: $color-red;
-    }
-  }
-  @media(--tablet) {
-    font-size: 18px;
-    i {
-      font-size: 16px;
     }
   }
 }
@@ -46,7 +42,8 @@
   @mixin flex row, center, center;
 }
 .c-productForm__basePrice, .c-productForm__salePrice {
-  font-size: 22px;
+  font-size: 24px;
+  font-weight: 700;
 }
 .c-productForm__salePrice {
   order: -1;  
@@ -54,6 +51,8 @@
 .c-productForm__comparePrice {
   margin-left: 5px;
   font-size: 18px;
+  font-weight: 600;
+  color: #aaa;
 }
 .c-productForm__options {
   width: 100%;
@@ -67,10 +66,11 @@
   &:after {
     position: absolute;
     right: 15px;
-    bottom: 16px;
-    color: $color-black-light;
+    bottom: 18px;
+    color: $color-gray-dark;
     font-family: Font Awesome\ 5 Free;
     font-size: 13px;
+    font-weight: 900;
     content: "\f0dc";
     pointer-events: none;
   }
@@ -80,14 +80,15 @@
   top: 0;
   color: $color-gray-light;
   font-size: 13px;
+  font-weight: 600;
   text-transform: uppercase;
 }
 .c-productForm__selectInner {
-  height: 50px;
-  line-height: 48px;
+  height: 54px;
+  line-height: 50px;
   padding: 0 30px 0 15px;
   border-radius: 4px;
-  border: 2px solid #aaa;
+  border: 3px solid #bbb;
   color: $color-gray-dark;
   font-size: 16px;
   font-weight: 600; 

@@ -51,7 +51,7 @@
 .c-footerMain__link {
   color: #ddd;
   font-size: 13px;
-  font-weight: 600;
+  font-family: $font-open-sans;
   line-height: 1.88;
   margin-bottom: 4px;
   &:hover {
@@ -94,7 +94,7 @@
   text-align: center;
   color: #aaa;
   font-size: 12px;
-  font-weight: 600;
+  font-family: $font-open-sans;
   line-height: 1.88;
   @media(--tablet) {
     margin-bottom: 4px;

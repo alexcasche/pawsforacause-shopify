@@ -4,6 +4,7 @@
   position: absolute;
   top: 18px;
   color: $color-gray-light;
+  font-family: $font-raleway;
   font-size: 12px;
   font-weight: 700;
 }

@@ -22,6 +22,9 @@
         <p class="c-productDetails__description">
           {{ product.description }}
         </p>
+        <div class="c-productDetails__profits">
+          {% include 'icon-profits' %}
+        </div>
       </div>
       {% assign tag_array = product.metafields.product.tags | split: "," %}
       {% if tag_array.size > 0 %}
@@ -32,11 +35,11 @@
       {% endif %}
       {% assign feature_array = product.metafields.product.features | split: "," %}
       {% if feature_array.size > 0 %}
-        {{ feature_array }}
         <div class="c-productDetails__group o-flexItem-50 o-flexColumn">
           <h3>Features</h3>
           {% include 'product-features' with feature_list: feature_array, settings %}
         </div>
+      {% endif %}
     </div>
   </div>
 </section>

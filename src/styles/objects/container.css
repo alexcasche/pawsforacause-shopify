@@ -5,14 +5,5 @@
 }
 
 .o-container--large {
-  @mixin container;
-  @media (--mobile) {
-    max-width: none;
-  }
-  @media (--tablet) {
-    max-width: none;
-  }
-  @media (--desktop) {
-    max-width: 1240px;
-  }
+  @mixin container--large;
 }

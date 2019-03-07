@@ -14,3 +14,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.u-fontRaleway {
+  font-family: $font-raleway !important;
+}
+
+.u-fontOpenSans {
+  font-family: $font-open-sans !important;
+}

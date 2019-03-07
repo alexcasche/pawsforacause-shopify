@@ -1,7 +1,7 @@
 <template>
   <button 
     v-if="available > 0"
-    :class="`${class_name}__button c-button-small c-button--submit`"
+    :class="`${class_name}__button c-button-small c-button--primary`"
     @click="addToCart"
     type="button"
   >

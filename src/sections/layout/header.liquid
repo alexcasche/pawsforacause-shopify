@@ -1,6 +1,6 @@
 <header id="header" class="c-header" aria-label="Header">
   <div id="headerBar" class="c-headerBar">
-    <div class="headerBar__wrapper o-container">
+    <div class="headerBar__wrapper o-container--large">
       {% if section.settings.bar_show_icon_left %}
         <i class="c-headerBar__icon {{ section.settings.bar_icon_left }}"></i>
       {% endif %}
@@ -11,7 +11,7 @@
     </div>
   </div>
   <div id="headerMain" class="c-headerMain">
-    <div class="c-headerMain__wrapper o-container">
+    <div class="c-headerMain__wrapper o-container--large">
       <button class="c-headerMain__menu trigger-sidemenu" aria-label="Toggle Menu">
         <span class="c-headerMain__burger trigger-sidemenu-icon">
           {% include 'icon-burger' %}
@@ -32,7 +32,7 @@
     </div>
   </div>
   <div id="headerNav" class="c-headerNav">
-    <div class="headerNav__wrapper o-container">
+    <div class="headerNav__wrapper o-container--large">
       <nav class="c-headerNav__nav" role="navigation" aria-label="Main Navigation">
         <div class="c-headerNav__account trigger-nav-account">
           <button class="c-headerNav__burger" aria-label="Toggle Menu">
