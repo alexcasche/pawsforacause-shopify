@@ -1,6 +1,5 @@
 /*========== Components ==========*/
 
-@import "breadcrumbs.css";
 @import "button.css";
 @import "card.css";
 @import "carousel.css";
@@ -9,6 +8,4 @@
 @import "link.css";
 @import "modal.css";
 @import "overlay.css";
-@import "paginate.css";
-@import "prices.css";
 @import "slideshow.css";

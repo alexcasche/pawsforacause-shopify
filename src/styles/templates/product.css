@@ -45,6 +45,13 @@
     align-items: flex-start;
   }
 }
+.c-productDetails__description {
+  margin-bottom: 0;
+}
 .c-productDetails__profits {
   width: 250px;
+  margin-top: 20px;
+  @media(--tablet-max) {
+    display: none;
+  }
 }

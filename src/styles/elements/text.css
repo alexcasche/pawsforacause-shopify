@@ -1,10 +1,11 @@
 /*========== Text ==========*/
 
-body {
-  color: $color-gray-dark;
-  font-family: $font-open-sans;
+html, body {
+  color: $color-black-light;
+  font-family: $font-body;
   font-size: 16px;
   font-weight: 500;
+  line-height: 1.25;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -16,10 +17,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-raleway;
-  font-weight: 700;
   color: $color-black-dark;
   text-align: center;
+  text-transform: capitalize;
+  font-family: $font-heading;
+  font-weight: 700;
   line-height: 1.25;
   width: 100%;
   @media(--desktop) {

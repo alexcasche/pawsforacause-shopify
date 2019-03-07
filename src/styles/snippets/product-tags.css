@@ -16,7 +16,6 @@
 .c-productTags__text {
   display: block;
   color: $color-blue;
-  font-family: $font-raleway;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;

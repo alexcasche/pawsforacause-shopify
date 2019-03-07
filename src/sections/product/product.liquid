@@ -3,7 +3,7 @@
     <div class="c-productBuy__container o-container o-flexFlip">
       {% assign settings = section.settings %}
       {% if settings.show_breadcrumbs %}
-        {% include "breadcrumbs" %}
+        {% include "part-breadcrumbs" %}
       {% endif %}
       <div class="c-productBuy__images o-flexItem-50 o-flexColumn">
         {% include 'product-carousel' with product, settings, image_size: "1024x1024" %}
@@ -35,11 +35,26 @@
       {% endif %}
       {% assign feature_array = product.metafields.product.features | split: "," %}
       {% if feature_array.size > 0 %}
-        <div class="c-productDetails__group o-flexItem-50 o-flexColumn">
+        <div class="c-productDetails__group o-flexItem-100 o-flexColumn">
           <h3>Features</h3>
           {% include 'product-features' with feature_list: feature_array, settings %}
         </div>
       {% endif %}
+    </div>
+    <div class="c-productRelated o-strip u-bg-gray">
+      {% if collection.handle %}
+        {% assign related_title = collection.handle | replace: "-", " " %}
+      {% else %}
+        {% assign related_title = product.type %}
+      {% endif %}
+      {% assign related_handle = related_title | handleize %}
+      {% assign related_products = collections[related_handle] %}
+      <h2 class="c-productRelated__heading u-textCenter">
+        More From {{ related_title }}
+      </h2>
+      <div class="c-productRelated__collection">
+        {% include 'collection-carousel' with collection: related_products, limit: 12 %}
+      </div>
     </div>
   </div>
 </section>

@@ -15,10 +15,10 @@
   text-overflow: ellipsis;
 }
 
-.u-fontRaleway {
-  font-family: $font-raleway !important;
+.u-fontBody {
+  font-family: $font-body !important;
 }
 
-.u-fontOpenSans {
-  font-family: $font-open-sans !important;
+.u-fontHeading {
+  font-family: $font-heading !important;
 }
