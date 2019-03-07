@@ -30,11 +30,7 @@
       min-height: 70px;
       margin: 0 0 10px;
     }
-  }
-  .c-productForm__button {
-    font-size: 18px;
-    height: 54px;
-  }
+  }  
 }
 .c-productDetails__container {
   flex-wrap: wrap;

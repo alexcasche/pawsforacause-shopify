@@ -1,1 +1,4 @@
-{{ collections.all_products.all_products_count }}
+{% for product in collection.products %}
+  
+  {{ product.title }}
+{% endfor %}

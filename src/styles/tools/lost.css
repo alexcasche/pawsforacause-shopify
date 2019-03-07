@@ -12,7 +12,7 @@
 
 @define-mixin lost-item $mobile: 1/2, $tablet: 1/4, $desktop: 1/4 {
   @media(--mobile) {
-    lost-column: $mobile calc(1/2 );
+    lost-column: $mobile;
   }
   @media (--tablet) {
     lost-column: $tablet;
