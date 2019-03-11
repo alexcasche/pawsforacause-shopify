@@ -1,4 +1,19 @@
-{% for product in collection.products %}
-  
-  {{ product.title }}
-{% endfor %}
+
+<div class="c-collectionCarousel c-carousel is-loading{{ visible_class }}">
+  <div class="c-collectionCarousel__track c-carousel__track">
+    {% assign count = 0 %}
+    {% for item in collection.products %}
+      {% if count >= limit %}
+        {% break %}
+      {% endif %}
+      {% unless item.handle == product.handle %}
+        {% assign count = count | plus: 1 %}
+        <div class="c-collectionCarousel__slide c-carousel__slide o-flexColumn">
+          {% include 'collection-item' with product: item %}  
+        </div>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
+
+<script src="{{ 'collection-carousel.js' | asset_url }}" defer="defer"></script>

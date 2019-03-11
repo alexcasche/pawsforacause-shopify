@@ -1,0 +1,25 @@
+{% if product.available %}
+  {% assign is_new = false %}
+  {% assign tags_array = product.tags | downcase %}
+  {% if tags_array contains "new" and collection.handle != "new-arrivals" %}
+    {% assign is_new = true %}
+  {% endif %}
+  {% assign on_sale = false %}
+  {% if product.compare_at_price > product.price and collection.handle != "on-sale" %}
+    {% assign on_sale = true %}
+  {% endif %}
+  {% if on_sale or is_new %}
+    <div class="c-productStatus">
+      {% if on_sale %}
+        <span class="c-productStatus__badge c-productStatus__badge--sale o-flexColumn">
+          Sale
+        </span>
+      {% endif %}
+      {% if is_new %}
+        <span class="c-productStatus__badge c-productStatus__badge--new o-flexColumn">
+          New
+        </span>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endif %}

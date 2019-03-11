@@ -11,8 +11,9 @@ const options = {
   responsive: {
     480: {
       items: 2,
+      center: false,
       controls: true
-    }
+    },
     768: {
       items: 4
     }

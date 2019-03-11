@@ -1,0 +1,30 @@
+{% if product.available %}
+  {% assign on_sale = false %}
+  {% if product.compare_at_price > product.price %}
+    {% assign on_sale = true %}
+  {% endif %}
+  <div class="c-productPrices">
+    <span class="{% if on_sale == false %}c-productPrices__basePrice{% else %}c-productPrices__comparePrice{% endif %}">
+      {% if product.price_varies %}
+        {{ product.price_min | money }} - {{ product.price_max | money }}
+      {% else %}
+        {{ product.price | money }}
+      {% endif %}
+    </span>
+    {% if on_sale %}
+      <span class="c-productPrices__salePrice">
+        {% if product.compare_at_price_varies %}
+          {{ product.compare_at_price_min | money }} - {{ product.compare_at_price_max | money }}
+        {% else %}
+          {{ product.compare_at_price | money }}
+        {% endif %}
+      </span>
+    {% endif %}
+  </div>
+{% else %}
+  <div class="c-productPrices">
+    <span class="c-productPrices__soldOut">
+      Sold Out
+    </span>
+  </div>
+{% endif %}
