@@ -1,5 +1,9 @@
-
-<div class="c-collectionCarousel c-carousel is-loading{{ visible_class }}">
+<div class="c-collectionCarousel c-carousel is-loading">
+  {% include 'part-loading' with count: 4 %}
+  <div class="c-collectionCarousel__buttons c-carousel__buttons">
+    <span class="c-collectionCarousel__button c-carousel__button"></span>
+    <span class="c-collectionCarousel__button c-carousel__button"></span>
+  </div>
   <div class="c-collectionCarousel__track c-carousel__track">
     {% assign count = 0 %}
     {% for item in collection.products %}

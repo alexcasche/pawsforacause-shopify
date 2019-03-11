@@ -1,8 +1,9 @@
 /*========== Loading ==========*/
 
-.c-loadingBlocks {
+.c-loading {
   display: flex;
   justify-content: center;
+  align-items: center;
   & > span {
     width: 10px;
     height: 10px;

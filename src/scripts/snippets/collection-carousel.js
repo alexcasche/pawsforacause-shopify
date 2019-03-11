@@ -12,10 +12,14 @@ const options = {
     480: {
       items: 2,
       center: false,
-      controls: true
+      controls: true,
+      edgePadding: 40,
+      speed: 450
     },
-    768: {
-      items: 4
+    1024: {
+      items: 4,
+      edgePadding: 60,
+      speed: 550
     }
   }
 }

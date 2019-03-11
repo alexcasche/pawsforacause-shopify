@@ -1,17 +1,81 @@
 /*========== Carousel ==========*/
 
+.c-carousel {
+  position: relative;
+  .tns-inner {
+    overflow: hidden;
+  }
+}
 .c-carousel.is-loading {
   .c-carousel__slide:not(:first-child) {
     display: none;
   }
 }
-
 .c-carousel__slide {
   &:hover {
     cursor: pointer;
   }
   &:focus {
     outline: none;
+  }
+}
+.c-carousel__buttons {
+  @mixin flex row, space-between, center;
+  width: calc(100vw + 120px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &:focus {
+    outline: none;
+  }
+  @media(--desktop) {
+    width: 100%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+.c-carousel__button {
+  @mixin flexColumn;
+  border-radius: 50%;
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  box-shadow: $box-shadow-card;
+  @mixin transition-opacity .75;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
+  @media(--desktop) {
+    width: 40px;
+    height: 40px;
+  }
+  &:after {
+    color: $color-primary;
+    font-family: "Font Awesome 5 Free";
+    font-size: 18px;
+    font-weight: 900;
+    pointer-events: none;
+    @media(--desktop) {
+      font-size: 14px;
+    }
+  }
+  &:first-child:after {
+    content: "\f053";
+    margin-left: 46px;
+     @media(--desktop) {
+       margin-left: 0;
+     }
+  }
+  &:last-child:after {
+    content: "\f054";
+    margin-right: 46px;
+     @media(--desktop) {
+       margin-right: 0;
+     }
   }
 }
 .c-carousel__bubbles {

@@ -1,0 +1,23 @@
+/*========== Collection Carousel ==========*/
+
+.c-collectionCarousel {
+  .c-loading {
+    display: none;
+    min-height: 200px;
+  }
+}
+.c-collectionCarousel.is-loading {
+  .c-collectionCarousel__track {
+    display: none;
+  }
+  .c-loading {
+    display: flex;
+  }
+}
+.c-collectionItem__images {
+  width: 100%;
+}
+.c-collectionItem__image {
+  width: 100%;
+  padding: 20px;
+}
