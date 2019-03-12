@@ -2,12 +2,16 @@
 
 .c-productFeatures {
   align-items: flex-start;
-  flex-wrap: wrap;
   margin-top: 10px;
+  @media(--tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 }
 
 .c-productFeatures__item {
-  width: 100%;
+  width: auto;
   justify-content: flex-start;
   align-items: flex-start;
   margin-bottom: 15px !important;

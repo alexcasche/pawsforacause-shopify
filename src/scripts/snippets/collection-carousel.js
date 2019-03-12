@@ -13,12 +13,12 @@ const options = {
       items: 2,
       center: false,
       controls: true,
-      edgePadding: 40,
+      edgePadding: 20,
       speed: 450
     },
     1024: {
       items: 4,
-      edgePadding: 60,
+      edgePadding: 40,
       speed: 550
     }
   }

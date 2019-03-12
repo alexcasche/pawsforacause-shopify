@@ -14,10 +14,7 @@
     display: flex;
   }
 }
-.c-collectionItem__images {
+.c-collectionCarousel__slide {
   width: 100%;
-}
-.c-collectionItem__image {
-  width: 100%;
-  padding: 20px;
+  padding: 10px;
 }

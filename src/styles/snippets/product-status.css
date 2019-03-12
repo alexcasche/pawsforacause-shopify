@@ -1,0 +1,25 @@
+/*========== Product Status ==========*/
+
+.c-productStatus {
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}
+
+.c-productStatus__badge {
+  position: absolute;
+  transform: translateY(-100%);
+  padding: 0 10px;
+  height: 22px;
+  padding-top: 1px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.c-productStatus__badge--new {
+  background-color: $color-blue;
+}
+.c-productStatus__badge--sale {
+  background-color: $color-red;
+}

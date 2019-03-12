@@ -2,11 +2,13 @@
 
 @import "form-address.css";
 @import "collection-carousel.css";
+@import "collection-item.css";
 @import "collection-grid.css";
 @import "part-breadcrumbs.css";
 @import "part-loading.css";
 @import "part-paginate.css";
-@import "part-prices.css";
 @import "product-features.css";
 @import "product-form.css";
+@import "product-prices.css";
+@import "product-status.css";
 @import "product-tags.css";

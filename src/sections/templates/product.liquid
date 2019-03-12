@@ -41,22 +41,22 @@
         </div>
       {% endif %}
     </div>
-    <div class="c-productRelated o-strip u-bg-gray">
-      <div class="c-productRelated__container o-container">
-        {% if collection.handle %}
-          {% assign related_title = collection.handle | replace: "-", " " %}
-        {% else %}
-          {% assign related_title = product.type %}
-        {% endif %}
-        {% assign related_handle = related_title | handleize %}
-        {% assign related_products = collections[related_handle] %}
-        <h2 class="c-productRelated__heading u-textCenter">
-          More From {{ related_title }}
-        </h2>
-        <div class="c-productRelated__collection">
-          {% assign related_products = collections['all-products'] %}
-          {% include 'collection-carousel' with product, collection: related_products, limit: 12 %}
-        </div>
+  </div>
+  <div class="c-productRelated o-strip {% comment %}u-bg-gray{% endcomment">
+    <div class="c-productRelated__container o-container">
+      {% if collection.handle %}
+        {% assign related_title = collection.handle | replace: "-", " " %}
+      {% else %}
+        {% assign related_title = product.type %}
+      {% endif %}
+      {% assign related_handle = related_title | handleize %}
+      {% assign related_products = collections[related_handle] %}
+      <h2 class="c-productRelated__heading u-textCenter">
+        More From {{ related_title }}
+      </h2>
+      <div class="c-productRelated__collection">
+        {% assign related_products = collections['all-products'] %}
+        {% include 'collection-carousel' with product, collection: related_products, limit: 12 %}
       </div>
     </div>
   </div>
