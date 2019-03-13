@@ -5,7 +5,7 @@
   background-color: $bg-gray-light;
   box-shadow: $box-shadow-header;
 }
-.c-subheader__wrapper {
+.c-subheader__container {
   @mixin flex row, space-between, center;
   height: 100%;
 }

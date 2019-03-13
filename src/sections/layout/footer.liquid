@@ -1,6 +1,6 @@
 <footer id="footer" class="c-footer" aria-label="Footer">
   <div class="c-footerMain">
-    <div class="c-footerMain__wrapper o-container--large">
+    <div class="c-footerMain__container o-container--large">
       <nav role="navigation" aria-label="Footer Navigation" class="c-footerMain__nav">
         {% for nav in linklists[section.settings.main_nav].links %}
           <div class="c-footerMain__group">
@@ -23,16 +23,7 @@
             <h4 class="c-footerMain__heading">
               {{ section.settings.social_heading }}
             </h4>
-            <ul class="c-footerMain__socialList">
-              {% assign socialIcons = section.settings.social_icons | split: "," %}
-              {% for link in linklists.social-navigation.links %}
-                <li class="c-footerMain__socialItem">
-                  <a class="c-footerMain__socialLink" href= "{{ link.url }}" target="_blank">
-                    <i class="c-footerMain__socialIcon c-footerMain__socialIcon--{{ link.title | downcase }} fab fa-{{ socialIcons[forloop.index0] }}"></i>
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
+            {% include "part-social" %}
           </div>
         {% endif %}
       </nav>
@@ -92,12 +83,6 @@
       "id": "social_heading",
       "label": "Social Navigation Heading",
       "default": "Community"
-    },
-    {
-      "type": "text",
-      "id": "social_icons",
-      "label": "Social Icons",
-      "info": "Comma separated FontAwesome classes"
     },
     {
       "type": "header",

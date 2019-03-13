@@ -18,7 +18,7 @@ const options = {
     },
     1024: {
       items: 4,
-      edgePadding: 40,
+      edgePadding: 60,
       speed: 550
     }
   }

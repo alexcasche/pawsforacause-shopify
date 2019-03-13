@@ -1,0 +1,70 @@
+<div id="prefooter" class="c-prefooter o-strip u-bg-paws" aria-label="Prefooter" style="background-image:url({{ 'background-paws.svg' | asset_url }});">
+  <div class="c-prefooter__container o-container">
+    {% if template.name == "product" %}
+      <h2 class="c-prefooter__title">
+        {{ section.settings.share_header_product }}
+      </h2>
+    {% else %}
+      {% unless customer or customer.accepts_marketing %}
+        <h2 class="c-prefooter__title">
+          {{ section.settings.newsletter_header }}
+        </h2>
+      {% endunless %}
+      <h2 class="c-prefooter__title">
+        {{ section.settings.share_header }}
+      </h2>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+	"name": "Prefooter",
+	"settings": [
+    {
+      "type": "header",
+      "content": "Prefooter Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_header",
+      "label": "Newsletter Header",
+      "default": "Join our newsletter for the inside scoop!"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "Newsletter Placeholder",
+      "default": "Email Address..."
+    },
+    {
+      "type": "text",
+      "id": "newsletter_button",
+      "label": "Newsletter Button",
+      "default": "Sign Up!"
+    },
+    {
+      "type": "header",
+      "content": "Prefooter Share"
+    },
+    {
+      "type": "text",
+      "id": "share_header",
+      "label": "Share Header",
+      "default": "Help us save lives by sharing the cause!"
+    },
+    {
+      "type": "text",
+      "id": "share_header_product",
+      "label": "Share Header Product",
+      "default": "Help us save lives by sharing our products!"
+    },
+    {
+      "type": "text",
+      "id": "share_header_blog",
+      "label": "Share Header Blog",
+      "default": "Help us save lives by sharing the cause!"
+    }
+  ]
+}
+{% endschema %}

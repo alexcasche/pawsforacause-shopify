@@ -13,6 +13,7 @@
       <div id="page">
         {{ content_for_layout }}
       </div>
+      {% section "prefooter" %}
       {% section "footer" %}
     </div>
     {% section "sidemenu" %}
@@ -22,7 +23,7 @@
   </body>
 {% else %}
   <body id="body" class="c-auth" style="background-image:url({{ 'background-paws.svg' | asset_url }});">
-    <div class="c-auth__wrapper o-container--large">
+    <div class="c-auth__container o-container--large">
       <div class="c-auth__back">
         <a class="c-auth__backLink" href="/">
           <span class="c-auth__backChevron" aria-hidden="true">&lsaquo;</span>

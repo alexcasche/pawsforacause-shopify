@@ -1,0 +1,75 @@
+{% assign image_size = '1024x1024' %}
+{% assign share_url = '' %}
+{% assign share_img = '' %}
+{% assign share_title = '' %}
+
+{% case template %}
+  {% when 'page' %}
+    {% assign share_url = page.url %}
+    {% include 'helper-src-from-text' with page.content %}
+    {% assign share_img = img_src %}
+    {% assign share_title = page.title %}
+  {% when 'article' %}
+    {% assign share_url = article.url %}
+    {% if article.image %}
+      {% assign share_img = article.image.src | img_url: '1024x1024' %}
+    {% else %}
+      {% include 'helper-src-from-text' with article.content %}
+      {% assign share_img = img_src %}
+    {% endif %}
+    {% assign share_title = article.title %}
+  {% when 'blog' %}
+    {% assign share_url = blog.url %}
+    {% assign share_img = img_src %}
+    {% assign share_title = blog.title %}
+  {% when 'collection' %}
+    {% assign share_url = collection.url %}
+    {% assign share_img = collection.image | img_url: image_size %}
+    {% assign share_title = collection.title %}
+  {% when 'product' %}
+    {% assign share_url = product.url %}
+    {% assign share_img = product.featured_image | img_url: image_size %}
+    {% assign share_title = product.title %}
+{% endcase %}
+
+<ul class="c-share">
+  {% if settings.share_facebook %}
+    <li class="c-share__item c-share__facebook">
+      <div class="fb-like" data-href="{{ canonical_url }}" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true">
+      </div>
+    </li>
+  {% endif %}
+  {% if settings.share_twitter %}
+    <li li class="c-share__item c-share__twitter">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ canonical_url }}" data-text="{{ share_title | strip_html | truncate: 110, '' }}">
+        Tweet
+      </a>
+    </li>
+  {% endif %}
+  {% if settings.share_pinterest %}
+    <li class="c-share__item c-share__pinterest">
+      <a href="//www.pinterest.com/pin/create/button/?url={{ canonical_url }}&amp;media={{ share_img }}&amp;description={{ share_title | strip_html | truncate: 200, '' | url_param_escape }}" data-pin-do="buttonPin" data-pin-config="beside" data-pin-color="white">
+        <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_20.png" /></a>
+    </li>
+  {% endif %}
+</ul>
+
+{% if settings.share_facebook %}
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>
+{% endif %}
+
+{% if settings.share_twitter %}
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+{% endif %}
+
+{% if settings.share_pinterest %}
+  <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+{% endif %}

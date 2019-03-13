@@ -1,0 +1,38 @@
+
+<ul class="c-social">
+  {% if settings.account_facebook != blank %}
+    <li class="c-social__item">
+      <a class="c-social__link" href="{{ settings.account_facebook }}" target="_blank" title="{{ shop.name }} on Facebook">
+        <i class="c-social__icon c-social__icon--facebook {{ settings.icon_facebook }}" aria-hidden="true"></i>
+      </a>
+    </li>
+  {% endif %}
+  {% if settings.account_twitter != blank %}
+    <li class="c-social__item">
+      <a class="c-social__link" href="{{ settings.account_twitter }}" target="_blank" title="{{ shop.name }} on Twitter">
+        <i class="c-social__icon c-social__icon--twitter {{ settings.icon_twitter }}" aria-hidden="true"></i>
+      </a>
+    </li>
+  {% endif %}
+  {% if settings.account_instagram != blank %}
+    <li class="c-social__item">
+      <a class="c-social__link" href="{{ settings.account_instagram }}" target="_blank" title="{{ shop.name }} on Instagram">
+        <i class="c-social__icon c-social__icon--instagram {{ settings.icon_instagram }}" aria-hidden="true"></i>
+      </a>
+    </li>
+  {% endif %}
+  {% if settings.account_youtube != blank %}
+    <li class="c-social__item">
+      <a class="c-social__link" href="{{ settings.account_pinterest }}" target="_blank" title="{{ shop.name }} on Pinterest">
+        <i class="c-social__icon c-social__icon--pinterest {{ settings.icon_pinterest }}" aria-hidden="true"></i>
+      </a>
+    </li>
+  {% endif %}
+  {% if settings.account_youtube != blank %}
+    <li class="c-social__item">
+      <a class="c-social__" href="{{ settings.account_youtube }}" target="_blank" title="{{ shop.name }} on Youtube">
+        <i class="c-social__icon c-social__icon--youtube {{ settings.icon_youtube }}" aria-hidden="true"></i>
+      </a>
+    </li>
+  {% endif %}
+</ul>

@@ -8,7 +8,112 @@
     "theme_documentation_url": "https://github.com/alexcasche/pawsforacause-shopify"
   },
   {
-    "name": "Shop",
+    "name": "Social",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Accounts",
+        "info": "Account URLS"
+      },
+      {
+        "type": "text",
+        "id": "account_facebook",
+        "label": "Facebook"
+      },
+      {
+        "type": "text",
+        "id": "account_twitter",
+        "label": "Twitter"
+      },
+      {
+        "type": "text",
+        "id": "account_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "text",
+        "id": "account_pinterest",
+        "label": "Pinterest"
+      },
+      {
+        "type": "text",
+        "id": "account_youtube",
+        "label": "Youtube"
+      },
+      {
+        "type": "header",
+        "content": "Sharing",
+        "info": "Enable Sharing"
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": "Facebook",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": "Twitter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": "Pinterest",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_email",
+        "label": "Email",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Icons",
+        "info": "Font Awesome Classes"
+      },
+      {
+        "type": "text",
+        "id": "icon_facebook",
+        "label": "Facebook",
+        "default": "fab fa-facebook-f"
+      },
+      {
+        "type": "text",
+        "id": "icon_twitter",
+        "label": "Twitter",
+        "default": "fab fa-twitter"
+      },
+      {
+        "type": "text",
+        "id": "icon_instagram",
+        "label": "Instagram",
+        "default": "fab fa-instagram"
+      },
+      {
+        "type": "text",
+        "id": "icon_pinterest",
+        "label": "Pinterest",
+        "default": "fab fa-pinterest-p"
+      },
+      {
+        "type": "text",
+        "id": "icon_youtube",
+        "label": "Youtube",
+        "default": "fab fa-youtube"
+      },
+      {
+        "type": "text",
+        "id": "icon_email",
+        "label": "Email",
+        "default": "fas fa-envelope"
+      }
+    ]
+  },
+  {
+    "name": "Shipping",
     "settings": [
       {
         "type": "text",

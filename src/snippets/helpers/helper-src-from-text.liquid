@@ -1,0 +1,17 @@
+{% assign src = text_content | escape %}
+{% assign img_src = '' %}
+{% if src contains '&lt;img' %}
+  {% assign src = src | split: 'src=&quot;' %}
+  {% assign src = src[1] | split: '&quot;' %}
+  {% assign src = src[0] | remove: '//cdn' %}
+  {% unless image_size == empty %}
+    {% capture replacement %}_{{image_size}}.{% endcapture %}
+    {% assign sizes = 'pico icon thumb small compact medium large grande 1024x1024 2048x2048' | split:' ' %}
+    {% for size in sizes %}
+      {% capture search %}_{{size}}.{% endcapture %}
+      {% assign src = src | replace:search,replacement %}
+    {% endfor %}
+  {% endunless %}
+  {% assign img_src = src | prepend: '//cdn' %}
+{% endif %}
+{% assign image_size = '' %}

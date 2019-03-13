@@ -18,8 +18,8 @@
       {% endunless %}
     {% endfor %}
     {% assign loop_left = limit | minus: loop_count %}
-    {% if loop_left > 0 %}
-      {% for item in collections['all-products'].products %}
+    {% if loop_left > 0 and fill_collection %}
+      {% for item in fill_collection.products %}
         {% if loop_left <= 0 %}
           {% break %}
         {% endif %}

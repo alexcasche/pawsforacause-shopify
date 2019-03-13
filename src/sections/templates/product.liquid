@@ -56,7 +56,7 @@
       </h2>
       <div class="c-productRelated__collection">
         {% assign related_products = collections[related_handle] %}
-        {% include 'collection-carousel' with product, collection: related_products, limit: 12 %}
+        {% include 'collection-carousel' with product, collection: related_products, fill_collection: collections['all-products'], limit: 12 %}
       </div>
     </div>
   </div>

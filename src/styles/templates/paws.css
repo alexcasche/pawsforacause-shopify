@@ -15,7 +15,7 @@
     opacity: .99;
   }
 }
-.c-paws__wrapper {
+.c-paws__container {
   position: relative;
   min-height: 100vh;
   @mixin flex column, flex-start, center;

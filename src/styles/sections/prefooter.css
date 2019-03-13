@@ -1,0 +1,13 @@
+/*========== Prefooter ==========*/
+
+.c-prefooter {
+  background-color: transparent;
+  background-size: 300px;
+  background-repeat: repeat;
+}
+
+.c-prefooter__title {
+  text-align: center;
+  color: white;
+  font-size: 24px;
+}
