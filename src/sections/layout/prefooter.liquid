@@ -3,6 +3,7 @@
     {% if template.name == "product" %}
       <h2 class="c-prefooter__title">
         {{ section.settings.share_header_product }}
+        {% include "part-share" %}
       </h2>
     {% else %}
       {% unless customer or customer.accepts_marketing %}

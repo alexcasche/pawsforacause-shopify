@@ -1,14 +1,14 @@
 {% assign image_size = '1024x1024' %}
 {% assign share_url = '' %}
 {% assign share_img = '' %}
-{% assign share_title = '' %}
+{% assign share_text = '' %}
 
 {% case template %}
   {% when 'page' %}
     {% assign share_url = page.url %}
     {% include 'helper-src-from-text' with page.content %}
     {% assign share_img = img_src %}
-    {% assign share_title = page.title %}
+    {% assign share_text = page.title %}
   {% when 'article' %}
     {% assign share_url = article.url %}
     {% if article.image %}
@@ -17,32 +17,34 @@
       {% include 'helper-src-from-text' with article.content %}
       {% assign share_img = img_src %}
     {% endif %}
-    {% assign share_title = article.title %}
+    {% assign share_text = article.title %}
   {% when 'blog' %}
     {% assign share_url = blog.url %}
     {% assign share_img = img_src %}
-    {% assign share_title = blog.title %}
+    {% assign share_text = blog.title %}
   {% when 'collection' %}
     {% assign share_url = collection.url %}
     {% assign share_img = collection.image | img_url: image_size %}
-    {% assign share_title = collection.title %}
+    {% assign share_text = collection.title %}
   {% when 'product' %}
-    {% assign share_url = product.url %}
     {% assign share_img = product.featured_image | img_url: image_size %}
-    {% assign share_title = product.title %}
+    {% assign share_text = "Shop to save rescue dogs - 100% profits to shelters!" %}
 {% endcase %}
 
 <ul class="c-share">
   {% if settings.share_facebook %}
-    <li class="c-share__item c-share__facebook">
+    <li class="c-share__item">
+      <a class="c-share__link c-share__facebook" href="http://www.facebook.com/share.php?u={{ cannonical_url }}&title={{ share_title }}">
+        Share fbook
+      </a>
       <div class="fb-like" data-href="{{ canonical_url }}" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true">
       </div>
     </li>
   {% endif %}
   {% if settings.share_twitter %}
-    <li li class="c-share__item c-share__twitter">
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ canonical_url }}" data-text="{{ share_title | strip_html | truncate: 110, '' }}">
-        Tweet
+    <li li class="c-share__item">
+      <a  class="c-share__link c-share__link--twitter" data-text="{{ share_text }}" data-url="{{ share_url }}">
+        <i class="c-share__icon c-share__icon--twitter {{ settings.icon_twitter }}"></i>
       </a>
     </li>
   {% endif %}
@@ -66,10 +68,8 @@
   </script>
 {% endif %}
 
-{% if settings.share_twitter %}
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-{% endif %}
-
 {% if settings.share_pinterest %}
   <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
 {% endif %}
+
+<script src="{{ 'part-share.js' | asset_url }}" defer="defer"></script>

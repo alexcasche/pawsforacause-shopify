@@ -12,6 +12,7 @@
   }
 }
 .c-carousel__slide {
+  touch-action: none;
   &:hover {
     cursor: pointer;
   }
