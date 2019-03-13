@@ -5,18 +5,32 @@
     <span class="c-collectionCarousel__button c-carousel__button"></span>
   </div>
   <div class="c-collectionCarousel__track c-carousel__track">
-    {% assign count = 0 %}
+    {% assign loop_count = 0 %}
     {% for item in collection.products %}
-      {% if count >= limit %}
+      {% if loop_count >= limit %}
         {% break %}
       {% endif %}
       {% unless item.handle == product.handle %}
-        {% assign count = count | plus: 1 %}
+        {% assign loop_count = loop_count | plus: 1 %}
         <div class="c-collectionCarousel__slide c-carousel__slide o-flexColumn">
           {% include 'collection-item' with product: item %}  
         </div>
       {% endunless %}
     {% endfor %}
+    {% assign loop_left = limit | minus: loop_count %}
+    {% if loop_left > 0 %}
+      {% for item in collections['all-products'].products %}
+        {% if loop_left <= 0 %}
+          {% break %}
+        {% endif %}
+        {% unless item.handle == product.handle %}
+          {% assign loop_left = loop_left | minus: 1 %}
+          <div class="c-collectionCarousel__slide c-carousel__slide o-flexColumn">
+            {% include 'collection-item' with product: item %}  
+          </div>
+        {% endunless %}
+      {% endfor %}
+    {% endif %}
   </div>
 </div>
 

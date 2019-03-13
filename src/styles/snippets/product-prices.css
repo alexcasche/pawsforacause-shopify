@@ -1,26 +1,30 @@
 /*========== Product Prices ==========*/
 
+.c-productPrices {
+  text-align: center;
+}
+
 .c-productPrices__basePrice, 
 .c-productPrices__salePrice,
 .c-productPrices__soldOut {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
 }
 .c-productPrices__basePrice {
   color: $color-gray-dark;
 }
 .c-productPrices__salePrice {
-  margin-right: 8px;
   color: $color-red-dark;
-  font-size: 14px;
 }
 .c-productPrices__comparePrice {
+  display: block;
   text-decoration: line-through;
   color: $color-gray;
+  font-size: 14px;
   font-weight: 500;
 }
 .c-productPrices__soldOut {
-  font-size: 17px;
+  font-size: 18px;
   color: $color-red-dark;
   text-transform: uppercase;
 }

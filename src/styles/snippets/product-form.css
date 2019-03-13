@@ -42,12 +42,14 @@
 }
 .c-productForm__salePrice {
   order: -1;  
+  color: $color-red-dark;
 }
 .c-productForm__comparePrice {
   margin-left: 5px;
-  font-size: 22px;
-  font-weight: 600;
   color: #aaa;
+  font-size: 22px;
+  font-weight: 500;
+  text-decoration: line-through;
 }
 .c-productForm__options {
   width: 100%;

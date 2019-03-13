@@ -42,7 +42,7 @@
       {% endif %}
     </div>
   </div>
-  <div class="c-productRelated o-strip {% comment %}u-bg-gray{% endcomment">
+  <div class="c-productRelated o-strip u-bg-gray">
     <div class="c-productRelated__container o-container">
       {% if collection.handle %}
         {% assign related_title = collection.handle | replace: "-", " " %}
@@ -55,7 +55,7 @@
         More From {{ related_title }}
       </h2>
       <div class="c-productRelated__collection">
-        {% assign related_products = collections['all-products'] %}
+        {% assign related_products = collections[related_handle] %}
         {% include 'collection-carousel' with product, collection: related_products, limit: 12 %}
       </div>
     </div>
