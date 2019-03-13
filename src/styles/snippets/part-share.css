@@ -1,5 +1,26 @@
 /*========== Share ==========*/
 
+.c-share {
+  justify-content: center;
+}
+
+.c-share__item {
+  margin: 0 8px;
+}
+
+.c-share__link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+  color: white;
+  transition: all .15s ease-in-out;
+  &:hover {
+    background-color: white;
+    color: $color-blue-dark;
+  }
+}
+
 .c-share__icon {
-  pointer-events: none;
+  font-size: 20px;
 }

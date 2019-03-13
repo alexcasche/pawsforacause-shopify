@@ -3,17 +3,19 @@
     {% if template.name == "product" %}
       <h2 class="c-prefooter__title">
         {{ section.settings.share_header_product }}
-        {% include "part-share" %}
       </h2>
+      {% include "part-share" %}
     {% else %}
-      {% unless customer or customer.accepts_marketing %}
+      {% if customer or customer.accepts_marketing %}
+        <h2 class="c-prefooter__title">
+          {{ section.settings.share_header }}
+        </h2>
+        {% include "part-share" %}
+      {% else %}
         <h2 class="c-prefooter__title">
           {{ section.settings.newsletter_header }}
         </h2>
-      {% endunless %}
-      <h2 class="c-prefooter__title">
-        {{ section.settings.share_header }}
-      </h2>
+      {% endif %}
     {% endif %}
   </div>
 </div>
