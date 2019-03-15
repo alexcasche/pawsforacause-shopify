@@ -4,6 +4,10 @@
   @mixin container;
 }
 
+.o-container--small {
+  @mixin container--small;
+}
+
 .o-container--large {
   @mixin container--large;
 }

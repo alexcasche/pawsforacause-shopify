@@ -10,8 +10,9 @@
   }
 }
 
-@define-mixin lost-item $mobile: 1/2, $tablet: 1/4, $desktop: 1/4 {
-  @media(--mobile) {
+@define-mixin lost-item $xs: 1/2, $mobile: 1/2, $tablet: 1/4, $desktop: 1/4 {
+  lost-column: $xs;
+  @media (--mobile) {
     lost-column: $mobile;
   }
   @media (--tablet) {
