@@ -44,19 +44,18 @@
   </div>
   <div class="c-productRelated o-strip u-bg-gray">
     <div class="c-productRelated__container o-container">
-      {% if collection.handle %}
-        {% assign related_title = collection.handle | replace: "-", " " %}
-      {% else %}
-        {% assign related_title = product.type %}
-      {% endif %}
-      {% assign related_handle = related_title | handleize %}
-      {% assign related_products = collections[related_handle] %}
       <h2 class="c-productRelated__heading u-textCenter">
-        More From {{ related_title }}
+        Recommended Products
       </h2>
+      {% for tag in product.tags %}
+        {% if tag contains 'For Dogs' %}
+          {% assign related_products = collections['for-dogs'] %}
+        {% elsif tag contains 'For People' %}
+          {% assign related_products = collections['for-people'] %}
+        {% endif %}
+      {% endfor %}
       <div class="c-productRelated__collection">
-        {% assign related_products = collections[related_handle] %}
-        {% include 'collection-carousel' with product, collection: related_products, fill_collection: collections['all-products'], limit: 12 %}
+        {% include 'collection-carousel' with product, collection: related_products, randomize: true, limit: 12 %}
       </div>
     </div>
   </div>

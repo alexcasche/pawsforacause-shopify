@@ -1,0 +1,34 @@
+{% if settings.newsletter == 'shopify' %}
+  <div class="c-newsletter c-form">
+    {% form 'customer' %}
+      <div class="c-form__errors">
+        {{ form.errors | default_errors }}
+      </div>
+      {% if form.posted_successfully %}
+        <p class="c-form__success">{{ settings.newsletter_success }}</p>
+      {% else %}
+        <div class="c-form__body">
+          <input type="hidden" name="contact[tags]" value="prospect, email subscribe">
+          <input class="c-form__field" type="email" name="contact[email]" placeholder="{{ settings.newsletter_placeholder }}">
+          <button class="c-form__button c-button--large c-button--submit" type="submit">
+            {{ settings.newsletter_button }}
+          </button>
+        </div>
+      {% endif %}
+    {% endform %}
+  </div>
+{% endif %}
+
+{% elsif settings.newsletter == 'mailchimp' %}
+  <div class="c-newsletter c-form">
+    {% if settings.newsletter_action != blank %}
+      {% assign form_action = settings.newsletter_action %}
+    {% else %}
+      {% assign form_action = '#' %}
+    {% endif %}
+    <form class="c-form__body" action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+      <input class="c-form__field" type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ settings.newsletter_placeholder }}" name="EMAIL" id="mail" aria-label="{{ settings.newsletter_placeholder }}" autocorrect="off" autocapitalize="off">
+      <button class="c-form__button c-button--large c-button--submit" type="submit" id="subscribe">{{ settings.newsletter_button }}</button>
+    </form>
+  </div>
+{% endif %}

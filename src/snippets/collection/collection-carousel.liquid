@@ -1,36 +1,17 @@
-<div class="c-collectionCarousel c-carousel is-loading">
+<div class="c-collectionCarousel c-carousel is-loading" data-randomize="{{ randomize }}" data-limit="{{ limit }}">
   {% include 'part-loading' with count: 4 %}
   <div class="c-collectionCarousel__buttons c-carousel__buttons">
     <span class="c-collectionCarousel__button c-carousel__button"></span>
     <span class="c-collectionCarousel__button c-carousel__button"></span>
   </div>
   <div class="c-collectionCarousel__track c-carousel__track">
-    {% assign loop_count = 0 %}
     {% for item in collection.products %}
-      {% if loop_count >= limit %}
-        {% break %}
-      {% endif %}
       {% unless item.handle == product.handle %}
-        {% assign loop_count = loop_count | plus: 1 %}
         <div class="c-collectionCarousel__slide c-carousel__slide o-flexColumn">
           {% include 'collection-item' with product: item %}  
         </div>
       {% endunless %}
     {% endfor %}
-    {% assign loop_left = limit | minus: loop_count %}
-    {% if loop_left > 0 and fill_collection %}
-      {% for item in fill_collection.products %}
-        {% if loop_left <= 0 %}
-          {% break %}
-        {% endif %}
-        {% unless item.handle == product.handle %}
-          {% assign loop_left = loop_left | minus: 1 %}
-          <div class="c-collectionCarousel__slide c-carousel__slide o-flexColumn">
-            {% include 'collection-item' with product: item %}  
-          </div>
-        {% endunless %}
-      {% endfor %}
-    {% endif %}
   </div>
 </div>
 

@@ -1,13 +1,13 @@
 {% for address in customer.addresses %}
-  <div class="c-addressForm u-hidden" id="deleteAddress_{{ address.id }}">
-    <h3 class="c-addressForm__heading">
+  <div class="c-formAddress u-hidden" id="deleteAddress_{{ address.id }}">
+    <h3 class="c-formAddress__heading u-textTransformNone">
       Are you sure you want to delete this address?
     </h3>
-    <div class="c-addressForm__group">
-      <h4 class="c-addressesForm__subheading">
+    <div class="c-formAddress__group">
+      <h4 class="c-formAddress__subheading">
         {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
       </h4>
-      <div class="c-addressesForm__text">
+      <div class="c-formAddress__text">
         {% if address.company != '' and address.company != nil %}
           {{ address.company }}<br />
         {% endif %}

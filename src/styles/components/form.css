@@ -58,7 +58,7 @@
   }
   label {
     position: absolute;
-    top: 0;
+    top: -1px;
     left: 30px;
   }
   &:hover {
@@ -69,7 +69,7 @@
 }
 .c-form__label {
   color: $color-black-light;
-  font-size: 14px;
+  font-size: 16px;
   pointer-events: none;
 }
 .c-form__buttons {

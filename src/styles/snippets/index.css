@@ -1,9 +1,10 @@
 /*========== Snippets ==========*/
 
-@import "form-address.css";
 @import "collection-carousel.css";
 @import "collection-item.css";
 @import "collection-grid.css";
+@import "form-address.css";
+@import "form-customer.css";
 @import "part-breadcrumbs.css";
 @import "part-loading.css";
 @import "part-paginate.css";

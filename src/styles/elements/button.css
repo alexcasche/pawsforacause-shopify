@@ -10,6 +10,7 @@ button {
   text-transform: uppercase;
   text-align: center;
   user-select: none;
+  font-family: $font-body;
   &:hover {
     cursor: pointer;
     opacity: 1;

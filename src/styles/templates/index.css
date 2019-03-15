@@ -1,7 +1,5 @@
 /*========== Templates ==========*/
 
 @import "404";
-@import "auth";
 @import "challenge";
-@import "paws";
 @import "product";

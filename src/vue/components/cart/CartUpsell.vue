@@ -1,8 +1,8 @@
 <template>
   <div class="c-cartUpsell">
-    <span class='c-cartUpsell__message'>
-      {{ upsellText }}
-    </span>
+    <span class='c-cartUpsell__message'
+      v-html="upsellText"
+    />
     <div class="c-cartUpsell__items o-lost">
       <CartUpsellItem 
         v-for="(item, index) in upsellCollection"

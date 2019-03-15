@@ -8,10 +8,13 @@
       <span class="c-cartHeader__count">
         {{ shoppingCart.count }}
       </span>
-      <span class="c-cartHeader__subtotal">
-        {{ settings.subtotal_text }}{{ subtotal }}
-      </span>
     </h2>
+    <div class="c-cartHeader__subtotal u-textCenter">
+      {{ settings.subtotal_label }}
+      <span class="c-cartHeader__subtotalPrice">
+        {{ subtotal }}
+      </span>
+    </div>
     <a v-if="shoppingCart.count" class="c-cartHeader__button c-button-large c-button--submit u-fullWidth" href="/checkout">
       {{ settings.checkout_button }}
     </a>

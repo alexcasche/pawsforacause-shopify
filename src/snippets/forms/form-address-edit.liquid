@@ -1,7 +1,7 @@
 
 {% for address in customer.addresses %}
-  <div class="c-addressForm u-hidden" id="editAddress_{{ address.id }}">
-    <h2 class="c-addressForm__heading">
+  <div class="c-formAddress u-hidden" id="editAddress_{{ address.id }}">
+    <h2 class="c-formAddress__heading">
       Edit Addresss
     </h2>
     {% form 'customer_address', address %}
@@ -35,9 +35,9 @@
         <button class="c-form__button c-button-large c-button--cancel trigger-modal" type="button">Cancel</button>
       </div>
       {% if address != customer.default_address %}
-        <div class="c-addressForm__delete">
-          <button class="c-addressForm__deleteButton trigger-modal" type="button" data-modal-content-id="deleteAddress_{{ address.id }}">
-            <i class="c-addressForm__deleteIcon far fa-trash-alt"></i>
+        <div class="c-formAddress__delete">
+          <button class="c-formAddress__deleteButton trigger-modal" type="button" data-modal-content-id="deleteAddress_{{ address.id }}">
+            <i class="c-formAddress__deleteIcon far fa-trash-alt"></i>
             Delete Address
           </button>
         </div>

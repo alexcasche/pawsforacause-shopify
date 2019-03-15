@@ -1,0 +1,25 @@
+<div class="c-formCustomer">
+  <h2 class="c-formCustomer__heading">
+    Welcome Aboard!
+  </h2>
+  <div class="c-formCustomer__form c-form">
+    {% form 'create_customer' %}
+      <div class="c-form__errors">
+        {{ form.errors | default_errors }}
+      </div>
+      <div class="c-formCustomer__body c-form__body">
+        <input class="c-form__field" type="text" name="customer[first_name]" placeholder="First Name" autocapitalize="words" autofocus required />
+        <input class="c-form__field" type="text" name="customer[last_name]" placeholder="Last Name" autocapitalize="words" required />
+        <input class="c-form__field" type="email" name="customer[email]" placeholder="Email Address" autocorrect="off" autocapitalize="off" required />
+        <input class="c-form__field" type="password" name="customer[password]" placeholder="Password" required />
+        <button class="c-form__button c-button-large c-button--submit u-fullWidth" type="submit">Register</button>
+      </div>
+      <div class="c-formCustomer__links">
+        <span class="c-formCustomer__linkBlock u-textCenter">
+          Already a member? &nbsp;
+          <a class="c-formCustomer__link" href="/account/login">Sign in</a>
+        </span>
+      </div>
+    {% endform %}
+  </div>
+</div>

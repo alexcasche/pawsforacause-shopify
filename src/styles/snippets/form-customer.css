@@ -1,16 +1,17 @@
-/*========== Auth ==========*/
+/*========== Form Customer ==========*/
 
-.c-auth {
-  width: 450px;
-  max-width: 100%;
+.c-formCustomer {
+  width: 100%;
+  max-width: 450px;
   margin-top: 80px;
 }
-.c-auth__heading {
-  @mixin flex row, center, center;
+.c-formCustomer__heading {
+  margin-bottom: 20px;
   text-align: center;
   color: white;
 }
-.c-auth__box {
+.c-formCustomer__body {
+  width: 100%;
   @media(--mobile) {
     padding: 40px;
     border-radius: $border-radius-card;
@@ -19,26 +20,25 @@
     box-shadow: $box-shadow-modal;
   }
 }
-.c-auth__links {
+.c-formCustomer__links {
   width: 100%;
   @mixin flex column, flex-start, center;
   margin-top: 20px;
   color: $color-blue-lighter;
-  font-size: 15px;
+  font-size: 16px;
   @media(--mobile) {
     @mixin flex row;
   }
 }
-.c-auth__linksSide {
+.c-formCustomer__linkBlock {
   margin-bottom: 10px;
+  &:first-child {
+    flex-grow: 1;
+  }
 }
-.c-auth__link {
+.c-formCustomer__link {
   color: $color-blue-lighter;
-  font-size: 15px;
   &:hover {
     color: $color-blue-lightest;
   }
-}
-.c-auth__links--center {
-  justify-content: center !important;
 }

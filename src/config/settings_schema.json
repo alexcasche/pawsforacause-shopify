@@ -113,6 +113,51 @@
     ]
   },
   {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "select",
+        "id": "newsletter",
+        "label": "Newsletter Service",
+        "default": "shopify",
+        "options": [
+          {
+            "value": "shopify",
+            "label": "Shopify customers"
+          },
+          {
+            "value": "mailchimp",
+            "label": "MailChimp list"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "newsletter_success",
+        "label": "Newsletter Success",
+        "default": "Thanks for signing up!"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_placeholder",
+        "label": "Newsletter Placeholder",
+        "default": "Email Address"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_button",
+        "label": "Newsletter Button",
+        "default": "Sign Up!"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_action",
+        "label": "MailChimp Action URL",
+        "info": "[Mailchimp Ref](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
+      }
+    ]
+  },
+  {
     "name": "Shipping",
     "settings": [
       {

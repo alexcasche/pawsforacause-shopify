@@ -22,6 +22,9 @@
 /*========== Snippets ==========*/
 @import "snippets/index";
 
+/*========== Theme ==========*/
+@import "theme/index";
+
 /*========== Sections ==========*/
 @import "sections/index";
 

@@ -1,6 +1,6 @@
-/*========== Paws ==========*/
+/*========== Cover ==========*/
 
-.c-paws {
+.c-cover {
   background-color: transparent;
   background-size: 350px;
   background-repeat: repeat;
@@ -15,14 +15,14 @@
     opacity: .99;
   }
 }
-.c-paws__container {
+.c-cover__container {
   position: relative;
   min-height: 100vh;
   @mixin flex column, flex-start, center;
   padding-top: 40px;
   padding-bottom: 80px;
 }
-.c-paws__back {
+.c-cover__back {
   position: absolute;
   padding: 0 40px;
   width: 100vw;
@@ -31,15 +31,17 @@
     text-align: left;
   }
 }
-.c-paws__backLink {
-  font-size: 15px;
+.c-cover__backLink {
+  display: inline-flex;
+  align-items: center;
+  font-size: 18px;
   margin-right: 2px;
   color: $color-blue-lighter;
   &:hover {
     color: $color-blue-lightest;
   }
 }
-.c-paws__backChevron {
-  font-size: 18px;
-  margin-right: 5px;
+.c-cover__backIcon {
+  font-size: 10px;
+  margin-right: 8px;
 }

@@ -1,20 +1,20 @@
 <div id="prefooter" class="c-prefooter o-strip u-bg-paws" aria-label="Prefooter" style="background-image:url({{ 'background-paws.svg' | asset_url }});">
   <div class="c-prefooter__container o-container">
     {% if template.name == "product" %}
-      <h2 class="c-prefooter__title">
+      <h3 class="c-prefooter__title">
         {{ section.settings.share_header_product }}
-      </h2>
+      </h3>
       {% include "part-share" %}
     {% else %}
       {% if customer or customer.accepts_marketing %}
-        <h2 class="c-prefooter__title">
+        <h3 class="c-prefooter__title">
           {{ section.settings.share_header }}
-        </h2>
+        </h3>
         {% include "part-share" %}
       {% else %}
-        <h2 class="c-prefooter__title">
+        <h3 class="c-prefooter__title">
           {{ section.settings.newsletter_header }}
-        </h2>
+        </h3>
       {% endif %}
     {% endif %}
   </div>

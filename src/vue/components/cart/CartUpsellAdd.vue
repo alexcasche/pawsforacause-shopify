@@ -5,9 +5,9 @@
     >
       <i class="c-cartUpsellAdd__closeIcon fa fa-times" aria-hidden="true"></i>
     </button>
-     <span class="c-cartUpsellAdd__title">
+     <h5 class="c-cartUpsellAdd__title">
       {{ item.title }}
-    </span>
+    </h5>
     <div class="c-cartUpsellAdd__main o-flexRow">
       <div class="c-cartUpsellAdd__imageBox o-flexColumn">
         <img class="c-cartUpsellAdd__image lazyload"

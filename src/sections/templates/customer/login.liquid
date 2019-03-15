@@ -1,0 +1,47 @@
+<div class="c-formCustomer" id="customerLogin">
+  <h2 class="c-formCustomer__heading">
+    Welcome Back!
+  </h2>
+  <div class="c-formCustomer__form c-form">
+    {% form 'customer_login' %}
+      <div class="c-form__errors">
+        {{ form.errors | default_errors }}
+      </div>
+      <div class="c-formCustomer__body c-form__body">
+        <input class="c-form__field" type="email" name="customer[email]" placeholder="Email Address" autocorrect="off" autocapitalize="off" autofocus required />
+        <input class="c-form__field" type="password" name="customer[password]" placeholder="Password" required />
+        <button class="c-form__button c-button-large c-button--submit u-fullWidth" type="submit">Sign In</button>
+      </div>
+      <div class="c-formCustomer__links">
+        <span class="c-formCustomer__linkBlock">
+          Not a member? &nbsp;
+          <a class="c-formCustomer__link" href="/account/register">Register now</a>
+        </span>
+        <span class="c-formCustomer__linkBlock">
+          <a class="c-formCustomer__link trigger-recover-form" href="#recover">Forgot password?</a>
+        </span>
+      </div>
+    {% endform %}
+  </div>
+</div>
+<div class="c-formCustomer u-hidden" id="customerRecover">
+  <h2 class="c-formCustomer__heading">
+    Reset Password
+  </h2>
+  <div class="c-formCustomer__form c-form">
+    {% form 'recover_customer_password' %}
+      <div class="c-form__errors">
+        {{ form.errors | default_errors }}
+      </div>
+      <div class="c-formCustomer__body c-form__body">
+        <input class="c-form__field" type="email" value="" name="email" placeholder="Email Address" autocorrect="off" autocapitalize="off">
+        <button class="c-form__button c-button-large c-button--submit u-fullWidth" type="submit">Sign In</button>
+      </div>
+      <div class="c-formCustomer__links">
+        <span class="c-formCustomer__linkBlock u-textCenter">
+          <a class="c-formCustomer__link trigger-login-form" href="#">Cancel</a>
+        </span>
+      </div>
+    {% endform %}
+  </div>
+</div>

@@ -1,24 +1,2 @@
-{% layout 'paws' %}
-<div class="c-auth">
-  <h2 class="c-auth__heading">
-    Welcome Aboard!
-  </h2>
-  <div id="registerForm" class="c-form">
-    {% form 'create_customer' %}
-      <div class="c-form__errors">
-        {{ form.errors | default_errors }}
-      </div>
-      <div class="c-auth__box c-form__body">
-        <input class="c-form__field" type="text" name="customer[first_name]" placeholder="First Name" autocapitalize="words" autofocus required />
-        <input class="c-form__field" type="text" name="customer[last_name]" placeholder="Last Name" autocapitalize="words" required />
-        <input class="c-form__field" type="email" name="customer[email]" placeholder="Email Address" autocorrect="off" autocapitalize="off" required />
-        <input class="c-form__field" type="password" name="customer[password]" placeholder="Password" required />
-        <button class="c-form__button c-button--large c-button--submit u-fullWidth" type="submit">Register</button>
-      </div>
-      <div class="c-auth__links c-auth__links--center {">
-        Already a member? &nbsp;
-        <a class="c-auth__link" href="/account/login">Sign in</a>
-      </div>
-    {% endform %}
-  </div>
-</div>
+{% layout 'cover' %}
+{% section 'register' %}

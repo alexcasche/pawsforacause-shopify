@@ -82,7 +82,7 @@ gulp.task('copy:theme', () => {
   return merge(theme, templates);
 })
 gulp.task('watch:theme', () => {
-  return gulp.watch(paths.theme, gulp.series('copy:theme'))
+  return gulp.watch([...paths.theme, ...paths.templates], gulp.series('copy:theme'))
 })
 
 gulp.task('build:themekit', (cb) => {

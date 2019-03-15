@@ -1,28 +1,28 @@
-/*========== Address Form ==========*/
+/*========== Form Address ==========*/
 
-.c-addressForm {
+.c-formAddress {
   width: 750px;
   max-width: 100%;
-  .c-addressForm__heading {
+  .c-formAddress__heading {
     margin-bottom: 20px;
   }
-  .c-addressForm__button {
+  .c-formAddress__button {
     width: 100%;
   }
 }
-.c-addressesForm__group {
+.c-formAddress__group {
   @mixin flexColumn;
   @media(--tablet) {
     align-items: flex-start;
   }
 }
-.c-addressesForm__subheading {
+.c-formAddress__subheading {
   margin-bottom: 5px;
   @media(--mobile-max) {
     text-align: center;
   }
 }
-.c-addressesForm__text {
+.c-formAddress__text {
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 30px;
@@ -30,7 +30,7 @@
     text-align: center;
   }
 }
-.c-addressForm__delete {
+.c-formAddress__delete {
   @mixin flex row, center, center;
   margin-top: 10px;
   width: 100%;
@@ -38,7 +38,7 @@
     justify-content: flex-end;
   }
 }
-.c-addressForm__deleteButton {
+.c-formAddress__deleteButton {
   color: #ccc;
   font-weight: 600;
   font-size: 13px;
@@ -48,6 +48,6 @@
     color: #bbb;
   }
 }
-.c-addressForm__deleteIcon {
+.c-formAddress__deleteIcon {
   margin-right: 5px;
 }

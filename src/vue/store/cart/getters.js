@@ -30,7 +30,7 @@ export default {
     const { upsell_text, upsell_free_text, currency } = state.settings
     const untilFreeShipping = getters.untilFreeShipping
     if(untilFreeShipping > 0) {
-      return upsell_text.replace("{{ untilFreeShipping }}", `${currency.symbol}${untilFreeShipping}`)
+      return upsell_text.replace("{{ untilFreeShipping }}", `<span>${currency.symbol}${untilFreeShipping}</span>`)
     } else {
       return upsell_free_text
     }

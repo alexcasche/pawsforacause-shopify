@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ shop.locale }}">
+<head>
+{% include 'theme-head' %}
+{{ content_for_header }}
+</head>
+<body id="body" class="c-cover" style="background-image:url({{ 'background-paws.svg' | asset_url }});">
+  <div class="c-cover__container o-container--large">
+    <div class="c-cover__back">
+      <a class="c-cover__backLink" href="/">
+        <i class="c-cover__backIcon fas fa-chevron-left"></i>
+        {{ shop.name }}
+      </a>
+    </div>
+    {{ content_for_layout }}
+  </div>
+</body>
