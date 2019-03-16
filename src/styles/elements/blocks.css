@@ -1,0 +1,10 @@
+/*========== Blocks ==========*/
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin: 40px auto;
+  border: none;
+  background-color: $color-gray;
+  opacity: .5;
+}

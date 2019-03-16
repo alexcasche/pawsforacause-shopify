@@ -4,26 +4,17 @@
   background-color: transparent;
   background-size: 350px;
   background-repeat: repeat;
-  &:before {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: $color-blue-dark;
-    opacity: .99;
-  }
 }
 .c-cover__container {
   position: relative;
   min-height: 100vh;
-  @mixin flex column, flex-start, center;
+  @mixin flex column, flex-start, stretch;
   padding-top: 40px;
   padding-bottom: 80px;
 }
 .c-cover__back {
   position: absolute;
+  left: 0;
   padding: 0 40px;
   width: 100vw;
   text-align: center;

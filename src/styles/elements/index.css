@@ -1,5 +1,6 @@
 /*========== Elements ==========*/
 
+@import "blocks.css";
 @import "button.css";
 @import "form.css";
 @import "table.css";

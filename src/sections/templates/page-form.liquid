@@ -1,0 +1,9 @@
+{% assign form = 'form-' | append: page.handle %}
+<section class="c-page">
+  <div class="c-page__container o-container--small">
+    <h1 class="c-page__title">{{ page.title }}</h1>
+    <div class="c-page__content">
+      {% include form %}
+    </div>
+  </div>
+</section>

@@ -6,6 +6,12 @@
       </h3>
       {% include "part-share" %}
     {% else %}
+      <h3 class="c-prefooter__title">
+        {{ section.settings.share_header }}
+      </h3>
+      {% include "part-share" %}
+    {% endif %}
+    {% comment %} {% else %}
       {% if customer or customer.accepts_marketing %}
         <h3 class="c-prefooter__title">
           {{ section.settings.share_header }}
@@ -16,7 +22,7 @@
           {{ section.settings.newsletter_header }}
         </h3>
       {% endif %}
-    {% endif %}
+    {% endif %} {% endcomment %}
   </div>
 </div>
 

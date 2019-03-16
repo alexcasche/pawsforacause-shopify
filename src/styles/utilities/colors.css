@@ -13,6 +13,9 @@
   color: $color-danger;
 }
 
+.u-bgWhite {
+  background-color: white;
+}
 .u-bgGray {
   background-color: $bg-gray;
 }
