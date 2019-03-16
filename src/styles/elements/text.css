@@ -40,26 +40,23 @@ h2 {
 }
 
 h3 {
-  color: $color-black;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   margin: 0 0 12px;
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 22px;
   margin: 0 0 10px;
-  color: $color-blue-dark;
 }
 
 h5 {
-  font-size: 16px;
+  font-size: 20px;
   margin: 0 0 10px;
-  color: $color-gray-dark;
 }
 
 h6 {
-  font-size: 14px;
+  font-size: 18px;
   margin: 0 0 10px;
 }
 
@@ -77,7 +74,7 @@ p {
   margin: 0 0 20px;
   line-height: 1.5;
   color: $color-black;
-  font-size: 16px;
+  font-size: 20px;
   text-align: center;
   @media (--tablet) {
     font-size: 18px;

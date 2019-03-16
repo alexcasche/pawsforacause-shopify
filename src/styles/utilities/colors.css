@@ -1,21 +1,21 @@
 /*========== Colors ==========*/
 
-.u-color--primary {
+.u-colorPrimary {
   color: $color-primary;
 }
-.u-color--secondary {
+.u-colorSecondary {
   color: $color-primary;
 }
-.u-color--warning {
+.u-colorWarning {
   color: $color-warning;
 }
-.u-color--danger {
+.u-colorDanger {
   color: $color-danger;
 }
 
-.u-bg-gray {
+.u-bgGray {
   background-color: $bg-gray;
 }
-.u-bg-gray-light {
+.u-bgGrayLight {
   background-color: $bg-gray-light;
 }

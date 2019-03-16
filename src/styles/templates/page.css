@@ -1,0 +1,38 @@
+/*========== Page ==========*/
+
+.c-page {
+  padding: 40px 0 60px;
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 40px;
+    @media(--mobile) {
+      text-align: left;
+    }
+  }
+  h1 {
+    margin-top: 0;
+  }
+  p {
+    text-align: left !important;
+    font-size: 18px;
+    @media(--tablet) {
+      font-size: 20px;
+    }
+  }
+  a {
+    color: $color-blue;
+    transition: all .15s ease-in-out;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+  ul, ol {
+    margin-bottom: 20px;
+    list-style-type: disc;
+    li {
+      margin-bottom: 10px;
+    }
+  }
+  ol {
+    list-style-type: decimal;
+  }
+}

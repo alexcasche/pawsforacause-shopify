@@ -39,7 +39,7 @@
         © {{ 'now' | date: "%Y" }} {{ shop.name }}
         <br class="c-footerMain__legalBreak" />
         <ul class="c-footerMain__legalList">
-          {% for link in linklists.legal-menu.links %}
+          {% for link in linklists.legal-navigation.links %}
             <li clas="c-footerMain__legalItem">
               <span class="c-footerMain__legalPipe c-footerMain__legalPipe--{{ forloop.index0 }}">&nbsp;|&nbsp;</span>
               <a class="c-footerMain__legalLink" href="{{ link.url }}" title="{{ link.title }}">
