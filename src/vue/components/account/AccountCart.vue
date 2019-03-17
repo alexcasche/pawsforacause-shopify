@@ -62,7 +62,7 @@
     </div>
   </div>
   <div v-else class="c-accountCart">
-    <div class="c-accountCart__loading c-loading">
+    <div class="c-accountCart__loading c-loadingDots">
       <span/><span/><span/>
     </div>
   </div>

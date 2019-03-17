@@ -6,14 +6,14 @@
         {% include "part-breadcrumbs" %}
       {% endif %}
       <div class="c-productBuy__images o-flexItem-50 o-flexColumn u-showTablet">
-        {% include 'product-slideshow' with product, image_size: "1024x1024" %}
+        {% include "product-slideshow" with product, image_size: "1024x1024" %}
       </div>
       <div class="c-productBuy__images o-flexItem-50 o-flexColumn u-hideTablet">
-        {% include 'product-carousel' with product, image_size: "1024x1024" %}
+        {% include "product-carousel" with product, image_size: "1024x1024" %}
       </div>
       <div class="c-productBuy__details o-flexItem-50 o-flexColumn">
         {% assign tagline = product.metafields.product.tagline %}
-        {% include 'product-form' with product, tagline, settings %}
+        {% include "product-form" with product, tagline, settings %}
       </div>
     </div>
   </div>
@@ -26,7 +26,7 @@
             {{ product.description }}
           </p>
           <div class="c-productDetails__profits">
-            {% include 'icon-profits' %}
+            {% include "icon-profits" %}
           </div>
         </div>
       {% endif %}
@@ -35,7 +35,7 @@
         {% if tag_array.size > 0 %}
           <div class="c-productDetails__group o-flexItem-50 o-flexColumn">
             <h3>{{ section.settings.tags_heading }}</h3>
-            {% include 'product-tags' with tag_list: tag_array, settings %}
+            {% include "product-tags" with tag_list: tag_array, settings %}
           </div>
         {% endif %}
       {% endif %}
@@ -44,7 +44,7 @@
         {% if feature_array.size > 0 %}
           <div class="c-productDetails__group o-flexItem-100 o-flexColumn">
             <h3>{{ section.settings.features_heading }}</h3>
-            {% include 'product-features' with feature_list: feature_array, settings %}
+            {% include "product-features" with feature_list: feature_array, settings %}
           </div>
         {% endif %}
       {% endif %}
@@ -56,14 +56,14 @@
         <h2 class="c-productRelated__heading u-textCenter">
           {{ section.settings.collection_heading }}
         </h2>
-        {% assign related_handle = 'all-products' %}
+        {% assign related_handle = "all-products" %}
         {% for tag in product.tags %}
           {% if section.settings.collection_tags contains tag %}
             {% assign related_handle = tag | handleize %}
           {% endif %}
         {% endfor %}
         <div class="c-productRelated__collection">
-          {% include 'collection-carousel' with product, collection: collections[related_handle], randomize: true, limit: section.settings.collection_count %}
+          {% include "collection-carousel" with product, collection: collections[related_handle], randomize: true, limit: section.settings.collection_count %}
         </div>
       </div>
     </div>

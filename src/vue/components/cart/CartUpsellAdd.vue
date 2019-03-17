@@ -16,7 +16,7 @@
         :alt="imageAlt(item)"
         />
       </div>
-      <ProductAdd
+      <ProductForm
         :product="item"
         class_name="c-cartUpsellAdd"
         :quantity_label="settings.add_quantity_label"
@@ -29,7 +29,7 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from "vuex";
-import ProductAdd from "@vue/components/product/ProductAdd.vue";
+import ProductForm from "@vue/components/product/ProductForm.vue";
 
 export default {
   props: {
@@ -39,7 +39,7 @@ export default {
     }
   },
   components: {
-    ProductAdd
+    ProductForm
   },
   computed: {
     ...mapGetters('cart', ['settings'])

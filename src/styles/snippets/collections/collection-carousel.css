@@ -1,7 +1,7 @@
 /*========== Collection Carousel ==========*/
 
 .c-collectionCarousel {
-  .c-loading {
+  .c-loadingDots {
     display: none;
     min-height: 200px;
   }
@@ -10,7 +10,7 @@
   .c-collectionCarousel__track {
     display: none;
   }
-  .c-loading {
+  .c-loadingDots {
     display: flex;
   }
 }

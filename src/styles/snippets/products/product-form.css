@@ -25,6 +25,12 @@
     }
   }
 }
+.c-productForm .c-loadingDots {
+  margin-top: 35px;
+}
+.c-productForm:not(.is-loading) .c-loadingDots {
+  display: none;
+}
 .c-productForm__form {
   align-items: center;
   margin: auto;

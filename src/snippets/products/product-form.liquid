@@ -1,4 +1,4 @@
-<div class="c-productForm">
+<div class="c-productForm is-loading">
   {% if product.vendor and settings.show_vendor %}
     <span class="c-productForm__vendor">
       {{ product.vendor }}
@@ -12,12 +12,15 @@
       {{ tagline }}
     </span>
   {% endif %}
-  <vue-product-add
+  {% include "part-loading-dots" with count: 4 %}
+  <vue-product-form
     product="{{ product | json | escape }}"
     class_name="c-productForm"
     quantity_label="{{ settings.quantity_label }}"
     button_active_text="{{ settings.button_active_text }}"
     button_disabled_text="{{ settings.button_disabled_text }}"
   >
-  </vue-product-add>
+  </vue-product-form>
 </div>
+
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>

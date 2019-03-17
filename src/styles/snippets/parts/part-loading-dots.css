@@ -1,6 +1,6 @@
-/*========== Loading ==========*/
+/*========== Loading Dots ==========*/
 
-.c-loading {
+.c-loadingDots {
   display: flex;
   justify-content: center;
   align-items: center;
