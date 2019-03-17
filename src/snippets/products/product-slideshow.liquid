@@ -1,0 +1,16 @@
+<div class="c-productSlideshow c-slideshow is-loading{{ visible_class }}">
+  <div class="c-productSlideshow__track c-slideshow__track">
+    {% for image in product.images %}
+      <img class="c-productSlideshow__slide c-slideshow__slide" src="{{ image.src | img_url: image_size }}" alt="{{ image.alt | escape }}" />
+    {% endfor %}
+  </div>
+  {% if settings.show_slideshow_nav %}
+    <div class="c-productSlideshow__thumbnails c-slideshow__thumbnails">
+      {% for image in product.images %}
+        <img class="c-productSlideshow__thumbnail c-slideshow__thumbnail" src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}" />
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+<script src="{{ 'product-slideshow.js' | asset_url }}" defer="defer"></script>

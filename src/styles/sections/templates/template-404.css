@@ -1,0 +1,73 @@
+/*========== 404 ==========*/
+
+.c-404 {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 80px;
+}
+.c-404__heading, 
+.c-404__text,
+.c-404__navHeading {
+  color: white;
+}
+.c-404__divider {
+  max-width: 900px;
+  margin-bottom: 50px;
+}
+.c-404__nav {
+  max-width: 900px;
+  margin: 0 auto;
+  @media(--mobile) {
+    @mixin flex row, center, flex-start, wrap;
+  }
+  @media(--desktop) {
+    justify-content: space-between;
+  }
+}
+.c-404__navGroup {
+  @mixin flex column, flex-start, center, no-wrap;
+  margin-bottom: 40px;
+  text-align: center;
+  @media (--mobile) {
+    width: calc(50% - 20px);
+  }
+  @media (--tablet) {
+    width: calc(33.333% - 20px);
+  }
+  @media (--desktop) {
+    align-items: flex-start;
+    text-align: left;
+    width: calc(20% - 20px);
+    margin-bottom: 20px;
+  }
+}
+
+.c-404__navGroup--social {
+  @media(--desktop) {
+    width: 100px;
+  }
+}
+
+.c-404__navHeading {
+  text-align: center;
+  @media(--desktop) {
+    text-align: left;
+  }
+}
+
+.c-404__navLink {
+  color: #f2f2f2;
+  font-size: 16px;
+  &:hover {
+    color: $color-blue-lighter;
+  }
+}
+
+.c-404 {
+  .c-social__link:hover {
+    color: $color-blue-lighter;
+  }
+  .c-social__icon {
+    color: $color-blue-dark;
+  }
+}

@@ -1,16 +1,7 @@
 /*========== Snippets ==========*/
 
-@import "collection-carousel.css";
-@import "collection-item.css";
-@import "collection-grid.css";
-@import "form-address.css";
-@import "form-customer.css";
-@import "part-breadcrumbs.css";
-@import "part-loading.css";
-@import "part-paginate.css";
-@import "part-share.css";
-@import "product-features.css";
-@import "product-form.css";
-@import "product-prices.css";
-@import "product-status.css";
-@import "product-tags.css";
+@import "blocks/index.css";
+@import "collections/index.css";
+@import "forms/index.css";
+@import "parts/index.css";
+@import "products/index.css";

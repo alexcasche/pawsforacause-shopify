@@ -4,13 +4,13 @@
   position: absolute;
   top: 18px;
   color: $color-gray-light;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
 }
 .c-breadcrumbs__link {
   color: $color-gray-light;
 }
 .c-breadcrumbs__chevron {
-  font-size: 13px;
+  font-size: 15px;
   margin: 0 1px;
 }

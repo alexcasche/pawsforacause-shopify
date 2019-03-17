@@ -1,28 +1,28 @@
 <!doctype html>
 <html lang="{{ shop.locale }}">
 <head>
-{% include 'theme-head' %}
+{% include "global-head" %}
 {{ content_for_header }}
 </head>
 {% assign handle = canonical_url | split: "/" | last %}
 {% if handle != "challenge" %}
   <body id="body">
     <div id="view">
-      {% section 'header' %}
-      {% section 'subheader' %}
+      {% section "theme-header" %}
+      {% section "theme-subheader" %}
       <div id="page">
         {{ content_for_layout }}
       </div>
-      {% section "prefooter" %}
-      {% section "footer" %}
+      {% section "theme-prefooter" %}
+      {% section "theme-footer" %}
     </div>
-    {% section "sidemenu" %}
-    {% section 'cart' %}
+    {% section "theme-sidemenu" %}
+    {% section "theme-cart" %}
     <div id="modal" class="u-hidden"></div>
-    {% include 'theme-scripts' %}
+    {% include "global-scripts" %}
   </body>
 {% else %}
-  <body id="body" class="c-auth" style="background-image:url({{ 'background-paws.svg' | asset_url }});">
+  <body id="body" class="c-auth" style="background-image:url({{ "background-paws.svg" | asset_url }});">
     <div class="c-auth__container o-container--large">
       <div class="c-auth__back">
         <a class="c-auth__backLink" href="/">

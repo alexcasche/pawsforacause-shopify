@@ -1,17 +1,17 @@
 /*========== Settings ==========*/
-@import "./settings/index";
+@import "settings/index";
 
 /*========== Tools ==========*/
-@import "./tools/index";
+@import "tools/index";
 
 /*========== Generic ==========*/
-@import "./generic/index";
+@import "generic/index";
 
 /*========== Elements ==========*/
-@import "./elements/index";
+@import "elements/index";
 
 /*========== Objects ==========*/
-@import "./objects/index";
+@import "objects/index";
 
 /*========== Utilities ==========*/
 @import "utilities/index";
@@ -22,14 +22,8 @@
 /*========== Snippets ==========*/
 @import "snippets/index";
 
-/*========== Theme ==========*/
-@import "theme/index";
-
 /*========== Sections ==========*/
 @import "sections/index";
-
-/*========== Templates ==========*/
-@import "templates/index";
 
 /*========== Vendors ==========*/
 @import "vendors/index";

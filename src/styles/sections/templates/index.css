@@ -1,0 +1,8 @@
+/*========== Templates ==========*/
+
+@import "customers/index.css";
+@import "template-404.css";
+@import "template-collection.css";
+@import "template-challenge.css";
+@import "template-page.css";
+@import "template-product.css";

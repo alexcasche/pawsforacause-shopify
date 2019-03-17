@@ -1,0 +1,78 @@
+<div class="c-404">
+  <h1 class="c-404__heading u-textCenter">{{ section.settings.main_heading }}</h1>
+  <p class="c-404__text u-textCenter">
+    {{ section.settings.main_text }}
+  </p>
+  <hr class="c-404__divider u-bgWhite" />
+  <nav class="c-404__nav o-flexColumn" role="navigation" aria-label="404 Navigation">
+    {% for link in linklists[section.settings.links_navigation].links %}
+      <div class="c-404__navGroup">
+        <h6 class="c-404__navHeading">
+          {{ link.title }}
+        </h6>
+        <ul class="c-404__navList">
+          {% for link in link.links %}
+            <li class="c-404__navItem">
+              <a class="c-404__navLink" href="{{ link.url }}" title="{{ link.title }}"">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+    {% if section.settings.links_show_social %}
+      <div class="c-404__navGroup c-404__navGroup--social">
+        <h6 class="c-404__navHeading">
+          {{ section.settings.links_social_heading }}
+        </h6>
+        {% include "part-social" %}
+      </div>
+    {% endif %}
+  </nav>
+</div>
+
+{% schema %}
+{
+	"name": "Page",
+	"settings": [
+    {
+      "type": "header",
+      "content": "404 Main"
+    },
+		{
+      "type": "text",
+			"id": "main_heading",
+			"label": "Main Heading",
+      "default": "Whoops!"
+		},
+    {
+      "type": "text",
+			"id": "main_text",
+			"label": "Main Text",
+      "default": "The page you're looking for was not found. Let's get you back on track!"
+		},
+    {
+      "type": "header",
+      "content": "404 Links"
+    },
+    {
+      "type": "link_list",
+			"id": "links_navigation",
+			"label": "Links Navigation"
+		},
+    {
+      "type": "checkbox",
+			"id": "links_show_social",
+			"label": "Show Social Links",
+      "default": true
+		},
+    {
+      "type": "text",
+			"id": "links_social_heading",
+			"label": "Social Links Heading",
+      "default": "Community"
+		}
+  ]
+}
+{% endschema %}

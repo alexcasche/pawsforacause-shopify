@@ -1,0 +1,29 @@
+/*========== Social ==========*/
+
+.c-social {
+  @mixin flex row, flex-start, center;
+}
+.c-social__item {
+  margin-right: 8px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.c-social__link {
+  @mixin flex row, center, center;;
+  height: 24px;
+  width: 24px;
+  background-color: $color-silver-dark;
+  border-radius: 50%;
+  text-align: center;
+  &:hover {
+    background-color: $color-blue-light;
+  }
+}
+.c-social__icon {
+  color: $color-black-light;
+  font-size: 13px;
+}
+.c-social__icon--instagram {
+  font-size: 15px;
+}

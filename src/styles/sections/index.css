@@ -1,8 +1,4 @@
 /*========== Sections ==========*/
 
-@import "account.css";
-@import "addresses.css";
-@import "banner.css";
-@import "collection.css";
-@import "order.css";
-@import "orders.css";
+@import "theme/index.css";
+@import "templates/index.css";
