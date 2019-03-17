@@ -1,8 +1,35 @@
 <section class="c-page">
   <div class="c-page__container o-container--small">
-    <h1 class="c-page__title">{{ page.title }}</h1>
+    {% if section.settings.show_title %}
+      <h1 class="c-page__title">
+      {% if section.settings.override_title == blank %}
+        {{ page.title }}
+      {% else %}
+        {{ section.settings.override_title }}
+      {% endif %}
+      </h1>
+    {% endif %}
     <div class="c-page__content">
       {{ page.content }}
     </div>
   </div>
 </section>
+
+{% schema %}
+{
+	"name": "Page",
+	"settings": [
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show Page Title",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "override_title",
+      "label": "Override Page Title"
+    }
+  ]
+}
+{% endschema %}
