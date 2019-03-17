@@ -59,12 +59,13 @@
   display: block;
   height: 100%;
 }
-.c-headerMain__menu, .c-headerMain__cart {
+.c-headerMain__menu, .c-headerMain__buttons {
   @mixin hide-tablet;
   position: fixed;
-  padding: 0;
-  height: 60px;
+}
+.c-headerMain__menu, .c-headerMain__button {
   width: 60px;
+  height: 60px;
   @mixin flex row, center, center;
   svg {
     width: 24px;
@@ -79,9 +80,34 @@
 .c-headerMain__menu {
   left: 0;
 }
-.c-headerMain__cart {
+.c-headerMain__buttons {
   right: 0;
-  margin-top: -2px;
+}
+.c-headerMain__burger svg {
+  position: relative;
+  top: 1px;
+  fill: $color-black;
+  width: 22px;
+}
+.c-headerMain__close svg {
+  position: relative;
+  top: 1px;
+  fill: $color-black;
+  width: 18px;
+}
+
+.c-headerMain__search {
+  width: 40px;
+  svg {
+    width: 20px;
+  }
+}
+.c-headerMain__cart {
+  width: 50px;
+  padding-right: 10px;
+}
+.c-headerMain__cart {
+  position: relative;
 }
 .c-headerMain__cartCount {
   @mixin flex row, center, center;
@@ -95,18 +121,6 @@
   bottom: 10px;
   width: 16px;
   height: 16px;
-}
-.c-headerMain__burger svg {
-  position: relative;
-  top: 1px;
-  fill: $color-black;
-  width: 22px;
-}
-.c-headerMain__close svg {
-  position: relative;
-  top: 1px;
-  fill: $color-black;
-  width: 18px;
 }
 
 .c-headerNav {
@@ -127,14 +141,16 @@
 }
 .c-headerNav__nav {
   height: 100%;
-  @mixin flex row, space-between, center;
+  position: relative;
+  @mixin flex row, center, center;
 }
 .c-headerNav__account {
-  margin-left: -15px;
+  position: absolute;
+  left: 0;
 }
 .c-headerNav__burger {
   height: 50px;
-  width: 50px;
+  width: 36px;
   @mixin flex row, center, center;
   fill: $color-black;
   &:hover {
@@ -148,7 +164,10 @@
   @mixin flex row, center, center;
 }
 .c-headerNav__item {
-  margin-left: 30px;
+  margin-left: 20px;
+  @media(--desktop) {
+    margin-left: 30px;
+  }
   &:hover {
     .c-headerNav__drop {
       display: block;
@@ -160,8 +179,11 @@
   padding-bottom: 2px;
   color: $color-black-dark;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 48px;
+  @media(--desktop) {
+    font-size: 17px;
+  }
   &:hover {
     cursor: pointer;
     color: $color-blue;
@@ -205,19 +227,25 @@
   padding: 0 24px;
   color: $color-black-dark;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 32px;
   white-space: nowrap;
+  @media(--desktop) {
+    font-size: 16px;
+  }
   &:hover {
     background-color: $bg-gray;
     color: $color-blue;
   }
 }
-.c-headerNav__cart {
+.c-headerNav__buttons {
+  position: absolute;
+  right: 0;
+}
+.c-headerNav__button {
   position: relative;
   height: 50px;
-  width: 50px;
-  margin-right: -10px;
+  width: 36px;
   @mixin flex row, center, center;
   fill: $color-black;
   &:hover {
@@ -225,9 +253,11 @@
   }
   svg {
     position: relative;
-    bottom: 2px;
     height: 20px;
   }
+}
+.c-headerNav__cart svg {
+  bottom: 2px;
 }
 .c-headerNav__cartCount {
   @mixin flex row, center, center;
@@ -237,7 +267,7 @@
   color: #fff;
   font-size: 9px;
   font-weight: 700;
-  right: 8px;
+  right: 2px;
   bottom: 8px;
   width: 16px;
   height: 16px;

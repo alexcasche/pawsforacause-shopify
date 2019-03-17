@@ -34,8 +34,8 @@
 .c-productForm__form {
   align-items: center;
   margin: auto;
-  width: 350px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 350px;
 }
 .c-productForm__prices {
   margin: 10px 0 30px;
