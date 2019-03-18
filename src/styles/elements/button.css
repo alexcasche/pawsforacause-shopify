@@ -12,6 +12,7 @@ button {
   text-align: center;
   user-select: none;
   font-family: $font-body;
+  -webkit-tap-highlight-color: transparent;
   &:hover {
     cursor: pointer;
     opacity: 1;

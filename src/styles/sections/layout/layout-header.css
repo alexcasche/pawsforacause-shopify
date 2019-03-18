@@ -71,11 +71,9 @@
     width: 24px;
     fill: $color-black-dark;
   }
-  @media(--tablet) {
-    &:hover svg {
+  &:hover svg {
       fill: $color-blue;
     }
-  }
 }
 .c-headerMain__menu {
   left: 0;

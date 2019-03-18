@@ -3,8 +3,8 @@
 function toggleSidemenu() {
   document.body.classList.toggle("sidemenu-open");
   document.getElementById("sidemenu").classList.toggle("is-open");
-  const menuIcons = document.querySelectorAll(".trigger-sidemenu-icon");
-  menuIcons.forEach(icon => icon.classList.toggle("u-hidden"));
+  const menuButtons = document.querySelectorAll(".trigger-sidemenu");
+  menuButtons.forEach(button => button.classList.toggle("u-hidden"));
   const secondaryMenus = document.querySelectorAll(".c-sidemenu__secondary");
   secondaryMenus.forEach(menu => menu.classList.remove("is-open"));
 }

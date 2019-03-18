@@ -19,7 +19,7 @@
   </div>
 {% endif %}
 
-{% elsif settings.newsletter == 'mailchimp' %}
+{% if settings.newsletter == 'mailchimp' %}
   <div class="c-newsletter c-form">
     {% if settings.newsletter_action != blank %}
       {% assign form_action = settings.newsletter_action %}

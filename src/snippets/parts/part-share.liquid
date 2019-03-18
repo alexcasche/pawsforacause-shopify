@@ -1,38 +1,37 @@
-{% assign image_size = '1024x1024' %}
-{% assign share_url = '' %}
-{% assign share_img = '' %}
-{% assign share_text = '' %}
+{% assign image_size = "1024x1024" %}
+{% assign share_img = "logo.svg" | asset_url %}
+{% assign share_text = "Help save rescue dogs in need!" %}
 
 {% case template %}
-  {% when 'page' %}
-    {% include 'helper-src-from-text' with page.content %}
+  {% when "page" %}
+    {% include "helper-src-from-text" with page.content %}
     {% assign share_img = img_src %}
     {% assign share_text = page.title %}
-    {% assign share_subject = shop.name | append: ' - ' | append: share_text | escape %}
-  {% when 'article' %}
+    {% assign share_subject = shop.name | append: " - " | append: share_text | escape %}
+  {% when "article" %}
     {% if article.image %}
       {% assign share_img = article.image.src | img_url: image_size %}
     {% else %}
-      {% include 'helper-src-from-text' with article.content %}
+      {% include "helper-src-from-text" with article.content %}
       {% assign share_img = img_src %}
     {% endif %}
     {% assign share_text = article.title %}
-    {% assign share_subject = shop.name | append: ' - ' | append: share_text | escape %}
-  {% when 'blog' %}
+    {% assign share_subject = shop.name | append: " - " | append: share_text | escape %}
+  {% when "blog" %}
     {% assign share_img = blog.articles[0].image.src | img_url: image_size %}
     {% assign share_text = blog.title %}
-    {% assign share_subject = shop.name | append: ' - ' | append: share_text | escape %}
-  {% when 'collection' %}
+    {% assign share_subject = shop.name | append: " - " | append: share_text | escape %}
+  {% when "collection" %}
     {% assign share_img = collection.image | img_url: image_size %}
     {% assign share_text = collection.title %}
-    {% assign share_subject = shop.name | append: ' - ' | append: share_text | escape %}
-  {% when 'product' %}
+    {% assign share_subject = shop.name | append: " - " | append: share_text | escape %}
+  {% when "product" %}
     {% assign share_img = product.featured_image | img_url: image_size %}
     {% assign share_text = product.metafields.social.text | escape %}
     {% unless share_text %}
       {% assign share_text = product.title | escape %}
     {% endunless %}
-    {% assign share_subject = shop.name | append: ' - ' | append: share_text | escape %}
+    {% assign share_subject = shop.name | append: " - " | append: share_text | escape %}
 {% endcase %}
 
 <ul class="c-share o-flexRow">

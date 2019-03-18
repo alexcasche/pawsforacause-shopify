@@ -13,10 +13,12 @@
   <div id="headerMain" class="c-headerMain">
     <div class="c-headerMain__container o-container--large">
       <button class="c-headerMain__menu trigger-sidemenu" aria-label="Toggle Menu">
-        <span class="c-headerMain__burger trigger-sidemenu-icon">
+        <span class="c-headerMain__burger">
           {% include 'icon-burger' %}
         </span>
-        <span class="c-headerMain__close trigger-sidemenu-icon u-hidden">
+      </button>
+      <button class="c-headerMain__menu trigger-sidemenu u-hidden" aria-label="Toggle Menu">
+        <span class="c-headerMain__close">
           {% include 'icon-close' %}
         </span>
       </button>
@@ -109,7 +111,7 @@
   </header>
 {% endif %}
 
-<script src="{{ 'theme-header.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'layout-header.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {

@@ -1,0 +1,11 @@
+/*========== Loading ==========*/
+
+.c-loading {
+  @mixin flex column, center, center;
+  background-color: rgba(4, 97, 142, .95);
+}
+.c-loading__title {
+  margin-bottom: 20px;
+  text-align: center !important;
+  color: white;
+}
