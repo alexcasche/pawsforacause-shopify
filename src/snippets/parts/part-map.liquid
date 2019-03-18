@@ -1,0 +1,18 @@
+<div id="googleMapLoading" class="c-addresses__loading o-flexColumn o-flexItem-60">
+  {% include "part-loading-dots" %}
+</div>
+<div id="googleMap" class="c-addresses__map o-flexColumn o-flexItem-60 c-card u-hidden">
+  <img class="c-addresses__mapImage" src="{{ 'map-placeholder.png' | asset_img_url: '750x' }}" alt="Map Placeholder" />
+  <div class="c-addresses__mapOverlay"></div>
+  <div class="c-addresses__mapMessage">
+    {% if customer.addresses.size > 0 %}
+      <span class="c-addresses__mapText">
+        No Map Found.
+      </span>
+    {% else %}
+      <button class="c-addresses__button c-button c-button--submit trigger-modal" data-modal-content-id="addAddress">
+        Add Address
+      </button>
+    {% endif %}
+  </div>
+</div>

@@ -23,17 +23,15 @@
     {% include "theme-scripts" %}
   </body>
 {% else %}
-  <body id="body" class="c-auth" style="background-image:url({{ "background-paws.svg" | asset_url }});">
-    <div class="c-auth__container o-container--large">
-      <div class="c-auth__back">
-        <a class="c-auth__backLink" href="/">
-          <span class="c-auth__backChevron" aria-hidden="true">&lsaquo;</span>
-          Back to Paws For A Cause
+  <body id="body" ontouchstart="" class="c-cover" style="background-image:url({{ "background-paws.svg" | asset_url }});">
+    <div class="c-cover__container o-container--large">
+      <div class="c-cover__back">
+        <a class="c-cover__backLink" href="/">
+          <i class="c-cover__backIcon fas fa-chevron-left"></i>
+          {{ shop.name }}
         </a>
       </div>
-      <div class="c-auth__inner">
-        {{ content_for_layout }}
-      </div>
+      {{ content_for_layout }}
     </div>
   </body>
 {% endif %}

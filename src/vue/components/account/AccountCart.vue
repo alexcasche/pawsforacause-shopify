@@ -9,7 +9,7 @@
           </span>
         </h3>
         <span class="c-accountCart__subtotal">
-          Subtotal: ${{ shoppingCart.total }}
+          Subtotal: <span class="c-accountCart__subtotalPrice">${{ shoppingCart.total }}</span>
         </span>
       </div>
       <div class="c-accountCart__side">
@@ -63,7 +63,7 @@
   </div>
   <div v-else class="c-accountCart">
     <div class="c-accountCart__loading c-loadingDots">
-      <span/><span/><span/>
+      <span/><span/><span/><span/>
     </div>
   </div>
 </template>

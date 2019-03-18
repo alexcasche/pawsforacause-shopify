@@ -1,5 +1,12 @@
+{% unless duration %}{% assign duration = "850" %}{% endunless %}
+{% unless count %}{% assign count = 4 %}{% endunless %}
+{% assign divider = count | plus: 1 %}
+{% assign step = duration | divided_by: divider %}
 <div class="c-loadingDots">
   {% for i in (1..count) %}
-  <span></span>
+    {% assign subtract = step | times: forloop.index0 %}
+    {% assign delay = duration | minus: subtract %}
+    <span style="animation-duration:{{ duration }}ms; animation-delay: -{{ delay }}ms;">
+    </span>
   {% endfor %}
 </div>

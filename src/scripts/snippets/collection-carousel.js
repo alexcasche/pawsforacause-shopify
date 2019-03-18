@@ -14,6 +14,9 @@ const arrayShuffle = array => {
 
 const options = {
   mouseDrag: true,
+  autoplay: true,
+  autoplayHoverPause: true,
+  autoplayButtonOutput: false,
   speed: 350,
   items: 1,
   slideBy: 'page',

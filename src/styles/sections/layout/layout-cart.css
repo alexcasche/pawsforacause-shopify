@@ -244,6 +244,7 @@
 .c-cartUpsellItem__add {
   padding: 5px 18px;
   font-size: 13px;
+  font-weight: 700;
 }
 .c-cartUpsellItem__addIcon {
   margin-left: 3px;
@@ -357,4 +358,5 @@
   margin-top: 5px;
   padding: 10px 20px;
   font-size: 16px;
+  font-weight: 700;
 }

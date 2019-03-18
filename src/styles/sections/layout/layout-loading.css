@@ -5,7 +5,11 @@
   background-color: rgba(4, 97, 142, .95);
 }
 .c-loading__title {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center !important;
   color: white;
+}
+.c-loading .c-loadingDots span {
+  width: 15px;
+  height: 15px;
 }

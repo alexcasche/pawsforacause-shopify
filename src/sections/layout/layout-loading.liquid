@@ -1,8 +1,40 @@
 <div id="loading" class="c-loading u-hidden">
   <div class="c-loading__container o-container">
-    <h3 class="c-loading__title">
-      Updating your account
-    </h3>
-    {% include "part-loading-dots" with count: 4 %}
+    <h2 class="c-loading__title">
+      {{ section.settings.loading_text }}
+    </h2>
+    {% include "part-loading-dots" with duration: section.settings.loading_duration, count: section.settings.loading_dots %}
   </div>
 </div>
+
+{% schema %}
+{
+	"name": "Loading",
+	"settings": [
+    {
+      "type": "text",
+      "id": "loading_text",
+      "label": "Loading Text",
+      "default": "Loading..."
+    },
+    {
+      "type": "range",
+      "id": "loading_duration",
+      "min": 0,
+      "max": 900,
+      "step": 50,
+      "label": "Loading Duration",
+      "default": 850 
+    },
+    {
+      "type": "range",
+      "id": "loading_dots",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "label": "Loading Dots",
+      "default": 4
+    }
+  ]
+}
+{% endschema %}

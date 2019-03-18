@@ -1,17 +1,27 @@
 /*========== Account Details ==========*/
 
-.c-account__heading, .c-account__subheading {
-  margin-bottom: 5px;
-  @media(--mobile-max) {
-    text-align: center;
+.c-account__info {
+  @media(--desktop) {
+    align-items: flex-start;
+  }
+} 
+.c-account__heading, 
+.c-account__subheading, 
+.c-account__address {
+  text-align: center;
+  @media(--desktop) {
+    text-align: left;
   }
 }
+.c-account__subheading {
+  text-transform: lowercase;
+  color: $color-secondary;
+  margin-bottom: 10px;
+}
 .c-account__address {
-  font-size: 16px;
+  margin-bottom: 20px;
+  font-size: 18px;
   line-height: 1.5;
-  @media(--mobile-max) {
-    text-align: center;
-  }
 }
 .c-accountCart {
   @mixin flex row, space-between, center;
