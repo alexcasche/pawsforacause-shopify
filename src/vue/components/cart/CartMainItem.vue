@@ -5,7 +5,7 @@
     <a class="c-cartMainItem__link" :href="item.url">
       <img class="c-cartMainItem__image lazyload" 
         :src="imageUrl(item.image, '.jpg', '50x50')"
-        :data-src="imageUrl(item.image, '.jpg', '120x120')"
+        :data-src="imageUrl(item.image, '.jpg', '200x200')"
         :alt="imageAlt(item)"
       />
     </a>

@@ -4,7 +4,7 @@
   >
     <img class="c-cartUpsellItem__image lazyload"
         :src="imageUrl(item.featured_image, '.jpg', '50x50')"
-        :data-src="imageUrl(item.featured_image, '.jpg', '120x120')" 
+        :data-src="imageUrl(item.featured_image, '.jpg', '200x200')" 
         :alt="imageAlt(item)"
       />
      <ProductPrices 
