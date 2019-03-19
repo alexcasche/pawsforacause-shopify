@@ -17,7 +17,7 @@ select {
   border-radius: $border-radius-input;
   color: $color-black;
   font-family: $font-body;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   transition: border-color .15s ease-in-out;
   &:focus {

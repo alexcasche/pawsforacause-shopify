@@ -14,6 +14,10 @@
   @mixin transition-slide;
   @mixin flex column, flex-start, stretch;
 }
+.c-cart__loading {
+  min-height: 144px;
+  border-top: 1px solid $hr-gray-light;
+}
 
 .c-cartHeader {
   position: relative;
@@ -359,4 +363,35 @@
   padding: 10px 20px;
   font-size: 16px;
   font-weight: 700;
+}
+
+
+.c-cartAccount {
+  width: 100%;
+  padding: 0;
+  user-select: none;
+  @media(--mobile-max) {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .c-cartHeader {
+    position: relative;
+    width: 100%;
+    padding: 30px;
+  }
+  .c-cartHeader__close {
+    display: none;
+  }
+  .c-cartUpsell {
+    background-color: #fafafa;
+    border-top: 1px solid $hr-gray-light;
+  }
+  .c-cartUpsellAdd__select {
+    margin-bottom: 12px;
+  }
+  .c-cartUpsellAdd__button {
+    padding: 12px 28px;
+    font-size: 17px;
+  }
 }

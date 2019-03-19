@@ -50,16 +50,10 @@ export default {
   },
   methods: {
     ...mapMutations('cart', ['setAdd']),
-    ...mapActions('cart', ['addCart']),
     addClick() {
-      const { variants, id } = this.item
-      const variantKeys = Object.keys(variants)
-      if(variantKeys.length > 1) {
-        this.setAdd(id)
-      } else {
-        this.addCart({ id: variantKeys[0], quantity: 1 })
-      }
-    },
+      const { id } = this.item
+      this.setAdd(id)
+    }
   }
 }
 </script>

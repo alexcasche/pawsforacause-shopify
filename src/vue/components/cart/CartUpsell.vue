@@ -1,7 +1,10 @@
 <template>
   <div class="c-cartUpsell">
-    <span class='c-cartUpsell__message'
+    <span v-if="shoppingCart.count" class='c-cartUpsell__message'
       v-html="upsellText"
+    />
+    <span v-else class='c-cartUpsell__message'
+      v-html="settings.upsell_text_empty"
     />
     <div class="c-cartUpsell__items o-lost">
       <CartUpsellItem 
@@ -28,7 +31,7 @@ export default {
     CartUpsellItem
   },
   computed: {
-    ...mapGetters('cart', ['collection', 'cartProductIds', 'upsellText'])
+    ...mapGetters('cart', ['shoppingCart', 'collection', 'cartProductIds', 'upsellText', 'settings'])
   },
   mounted() {
     this.upsellCollection = filterUpsell(this.collection, this.cartProductIds, 12)

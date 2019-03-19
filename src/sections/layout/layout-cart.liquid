@@ -1,7 +1,7 @@
 {% assign settings_json = section.settings | json | escape %}
 {% assign collection_json = collections[section.settings.upsell_collection].products | json | escape %}
 
-<vue-cart settings_json='{{ settings_json }}' collection_json='{{ collection_json }}'></vue-cart>
+<vue-cart settings_json="{{ settings_json }}" collection_json="{{ collection_json }}"></vue-cart>
 
 {% schema %}
 {
@@ -58,10 +58,15 @@
     },
     {
       "type": "text",
-      "id": "upsell_free_text",
+      "id": "upsell_text_free",
       "label": "Upsell Fre Text",
-      "default": "Hooray! Your order ships free.",
-      "info": "Appears when free shipping reached."
+      "default": "Hooray! Your order ships free."
+    },
+    {
+      "type": "text",
+      "id": "upsell_text_empty",
+      "label": "Upsell Text Empty",
+      "default": "Trending Products"
     },
     {
       "type": "collection",

@@ -14,7 +14,8 @@ export default {
     commit("toggleFetching");
     await dispatch(action);
     commit("toggleFetching");
-    if(!hideCart) commit("openCart");
+    const cartAccount = document.getElementById("cartAccount");
+    if(!cartAccount && !hideCart) commit("openCart");
   },
   addCart: async ({ commit, dispatch, state }, payload) => {
     commit("setError", false)

@@ -32,10 +32,7 @@ import { mapGetters, mapMutations } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters('cart', ['shoppingCart', 'settings', 'errorMessage']),
-    subtotal() {
-      return `${this.settings.currency.symbol}${this.shoppingCart.total}`
-    }
+    ...mapGetters('cart', ['shoppingCart', 'settings', 'subtotal', 'errorMessage']),
   },
   methods: {
     ...mapMutations('cart', ['closeCart']),

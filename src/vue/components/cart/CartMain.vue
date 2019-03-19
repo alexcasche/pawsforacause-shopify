@@ -35,7 +35,7 @@ export default {
     CartMainItem
   },
   computed: {
-    ...mapGetters('cart', ['shoppingCart', 'settings'])
+    ...mapGetters('cart', ['shoppingCart', 'settings', 'isLoading'])
   }
 }
 </script>

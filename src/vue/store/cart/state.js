@@ -1,7 +1,7 @@
 export default {
   isOpen: false,
   isFetching: false,
-  isLoading: false,
+  isLoading: true,
   showAdd: false,
   shoppingCart: false,
   errorMessage: false,

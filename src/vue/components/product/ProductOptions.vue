@@ -1,5 +1,5 @@
 <template>
-  <div v-if="options"
+  <div v-if="showOptions"
     :class="`${class_name}__options`"
   >
     <div 
@@ -65,6 +65,9 @@ export default {
         }
       })
       return variant
+    },
+    showOptions() {
+      return this.options[0] = "Default Title" ? false : true
     }
   },
   watch: {

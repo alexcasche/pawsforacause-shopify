@@ -1,6 +1,7 @@
 export default {
   isOpen: state => state.isOpen,
   isFetching: state => state.isFetching,
+  isLoading: state => state.isLoading,
   showAdd: state => state.showAdd,
   shoppingCart: state => state.shoppingCart,
   cartProductIds: (state, getters) => {
@@ -16,6 +17,12 @@ export default {
     return items[variantId]
   },
   cartTotal: state => state.shoppingCart.total,
+  subtotal: state => {
+    const { currency } = state.settings
+    if(currency) {
+      return `${currency.symbol}${state.shoppingCart.total}`
+    }
+  },
   errorMessage: state => state.errorMessage,
   settings: state => state.settings,
   collection: state => state.collection,
@@ -27,12 +34,12 @@ export default {
     }
   },
   upsellText: (state, getters) => {
-    const { upsell_text, upsell_free_text, currency } = state.settings
+    const { upsell_text, upsell_text_free, currency } = state.settings
     const untilFreeShipping = getters.untilFreeShipping
     if(untilFreeShipping > 0) {
       return upsell_text.replace("{{ untilFreeShipping }}", `<span>${currency.symbol}${untilFreeShipping}</span>`)
     } else {
-      return upsell_free_text
+      return upsell_text_free
     }
   }
 };

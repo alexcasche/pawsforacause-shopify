@@ -41,10 +41,10 @@ export default {
       required: true
     }
   },
+  data() {
+    return { activeQuantity: false }
+  },
   computed: {
-    activeQuantity() {
-      return this.availableQuantity > 0 ? 1 : '--'
-    },
     availableQuantity() {
       const cartVariant = this.$store.getters['cart/cartVariant'](this.active_variant.id)
       const quantityInCart = cartVariant ? cartVariant.quantity : 0
@@ -55,7 +55,6 @@ export default {
       }
       return available > 10 ? 10 : available
     },
-    
   },
   watch: {
     activeQuantity: {
@@ -76,6 +75,9 @@ export default {
         })
       }
     }
+  },
+  mounted() {
+    this.activeQuantity = this.availableQuantity > 0 ? 1 : '--'
   }
 }
 </script>

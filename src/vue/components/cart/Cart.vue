@@ -9,7 +9,10 @@
     <transition name="cart-slide">
       <div v-if="isOpen" class="c-cart__drawer">
         <CartHeader />
-        <CartMain />
+        <CartMain v-if="!cartLoading"/>
+        <div v-else class="c-cart__loading c-loadingDots">
+          <span/><span/><span/><span/>
+        </div>
         <CartUpsell />
       </div>
     </transition>
@@ -32,10 +35,6 @@ export default {
     collection_json: {
       type: String,
       default: "{}"
-    },
-    shipping_threshold: {
-      type: String,
-      default: ""
     }
   },
   components: {
@@ -45,7 +44,7 @@ export default {
   },
   computed: {
     ...mapState({ modalOpen: state => state.modal.contentId }),
-    ...mapGetters('cart', ['isOpen', 'isLoading', 'shoppingCart']),
+    ...mapGetters('cart', ['isOpen', 'shoppingCart', 'isLoading']),
   },
   methods: {
     ...mapMutations('cart', ['closeCart', 'openCart', 'setSettings', 'setCollection', 'toggleLoading']),
@@ -72,7 +71,6 @@ export default {
       clearCart: this.clearCart,
       updateCart: this.updateCart
     }
-    this.toggleLoading()
     await this.initCart()
     const parsedSettings = await JSON.parse(this.settings_json)
     const parsedCollection = await JSON.parse(this.collection_json)
