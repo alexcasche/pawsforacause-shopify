@@ -1,9 +1,9 @@
 <section class="c-search o-strip u-noSelect">
   <div class="c-search__container o-container--large">
     {% if search.types[0] == 'product' %}
-      <h2 class="c-search__text" aria-label="Seach Results">
+      <h3 class="c-search__text" aria-label="Seach Results">
         {{ search.results_count }} {{ section.settings.product_results }} '{{ search.terms }}'
-      </h2>
+      </h3>
       {% if search.results_count > 0 %}
         {% include 'collection-grid' with collection: search, type: "search" %}
       {% endif %}

@@ -5,4 +5,7 @@
   text-align: center;
   color: $color-black-dark;
   font-family: $font-body;
+  @media(--mobile-max) {
+    font-size: 20px;
+  }
 }

@@ -3,19 +3,13 @@
 .c-page {
   padding: 40px 0 60px;
   h1, h2, h3, h4, h5, h6 {
-    margin-top: 40px;
-    @media(--mobile) {
-      text-align: left;
-    }
-  }
-  h1 {
-    margin-top: 0;
+    text-align: left;
   }
   p {
     text-align: left !important;
-    font-size: 18px;
+    font-size: 16px;
     @media(--tablet) {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
   a {
@@ -35,4 +29,13 @@
   ol {
     list-style-type: decimal;
   }
+}
+
+.c-page__title {
+  @media(--mobile-max) {
+    text-align: center !important;
+  }
+}
+.c-page__group {
+  margin-bottom: 40px;
 }

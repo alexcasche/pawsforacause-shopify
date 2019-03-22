@@ -1,13 +1,11 @@
 {% assign image_size = "1024x1024" %}
 {% assign share_img = "logo.svg" | asset_url %}
 {% assign share_text = "Help save rescue dogs in need!" %}
+{% assign share_url = canonical_url %}
 
 {% case template %}
   {% when "page" %}
-    {% include "helper-src-from-text" with page.content %}
-    {% assign share_img = img_src %}
-    {% assign share_text = page.title %}
-    {% assign share_subject = shop.name | append: " - " | append: share_text | escape %}
+    {% assign share_url = shop.secure_url %}
   {% when "article" %}
     {% if article.image %}
       {% assign share_img = article.image.src | img_url: image_size %}
@@ -16,49 +14,46 @@
       {% assign share_img = img_src %}
     {% endif %}
     {% assign share_text = article.title %}
-    {% assign share_subject = shop.name | append: " - " | append: share_text | escape %}
   {% when "blog" %}
     {% assign share_img = blog.articles[0].image.src | img_url: image_size %}
     {% assign share_text = blog.title %}
-    {% assign share_subject = shop.name | append: " - " | append: share_text | escape %}
   {% when "collection" %}
     {% assign share_img = collection.image | img_url: image_size %}
     {% assign share_text = collection.title %}
-    {% assign share_subject = shop.name | append: " - " | append: share_text | escape %}
   {% when "product" %}
     {% assign share_img = product.featured_image | img_url: image_size %}
     {% assign share_text = product.metafields.social.text | escape %}
     {% unless share_text %}
       {% assign share_text = product.title | escape %}
     {% endunless %}
-    {% assign share_subject = shop.name | append: " - " | append: share_text | escape %}
 {% endcase %}
+{% assign share_subject = shop.name | append: " - " | append: share_text | escape %}
 
 <ul class="c-share o-flexRow">
   {% if settings.share_facebook %}
     <li class="c-share__item c-share__facebook">
-      <a class="c-share__link c-share__link--facebook o-flexColumn" data-url="{{ canonical_url }}">
+      <a class="c-share__link c-share__link--facebook o-flexColumn" data-url="{{ share_url }}">
         <i class="c-share__icon c-share__icon--facebook {{ settings.icon_facebook }}"></i>
       </a>
     </li>
   {% endif %}
   {% if settings.share_twitter %}
     <li li class="c-share__item">
-      <a class="c-share__link c-share__link--twitter o-flexColumn" data-text="{{ share_text }}" data-url="{{ canonical_url }}">
+      <a class="c-share__link c-share__link--twitter o-flexColumn" data-text="{{ share_text }}" data-url="{{ share_url }}">
         <i class="c-share__icon c-share__icon--twitter {{ settings.icon_twitter }}"></i>
       </a>
     </li>
   {% endif %}
   {% if settings.share_pinterest %}
     <li class="c-share__item c-share__pinterest">
-      <a class="c-share__link c-share__link--pinterest o-flexColumn" data-text="{{ share_text }}" data-url="{{ canonical_url }}" data-image="{{ share_img }}">
+      <a class="c-share__link c-share__link--pinterest o-flexColumn" data-text="{{ share_text }}" data-url="{{ share_url }}" data-image="{{ share_img }}">
         <i class="c-share__icon c-share__icon--pinterest {{ settings.icon_pinterest }}"></i>
       </a>
     </li>
   {% endif %}
   {% if settings.share_email %}
     <li class="c-share__item c-share__email">
-      <a class="c-share__link c-share__link--email o-flexColumn" data-subject="{{ share_subject }}" data-text="{{ share_text }}" data-url="{{ canonical_url }}">
+      <a class="c-share__link c-share__link--email o-flexColumn" data-subject="{{ share_subject }}" data-text="{{ share_text }}" data-url="{{ share_url }}">
         <i class="c-share__icon c-share__icon--email {{ settings.icon_email }}"></i>
       </a>
     </li>

@@ -1,18 +1,20 @@
 /*========== Subheader ==========*/
 
 .c-subheader {
-  height: 44px;
-  background-color: $bg-gray-light;
+  height: 52px;
+  background-color: white;
+  border-top: 1px solid $hr-gray-light;
+  border-bottom: 1px solid $hr-gray-light;
   box-shadow: $box-shadow-header;
 }
 .c-subheader__container {
   @mixin flex row, space-between, center;
   height: 100%;
 }
-.c-subheader__label {
-  color: $color-black-dark;
-  font-size: 15px;
-
+.c-subheader__label, .c-subheader__selectLabel {
+  color: $color-black-light;
+  font-size: 16px;
+  font-weight: 600;
 }
 .c-subheader__labelIcon {
   position: relative;
@@ -53,6 +55,4 @@
   position: absolute;
   right: 15px;
   pointer-events: none;
-  color: $color-black-dark;
-  font-size: 15px;
 }

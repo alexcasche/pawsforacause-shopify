@@ -1,13 +1,13 @@
 <section class="c-page">
   <div class="c-page__container o-container--small">
     {% if section.settings.show_title %}
-      <h1 class="c-page__title">
+      <h2 class="c-page__title">
       {% if section.settings.override_title == blank %}
         {{ page.title }}
       {% else %}
         {{ section.settings.override_title }}
       {% endif %}
-      </h1>
+      </h2>
     {% endif %}
     <div class="c-page__content">
       {{ page.content }}

@@ -129,6 +129,7 @@
   height: 50px;
   background-color: white;
   box-shadow: $box-shadow-header;
+  z-index: 1;
 }
 .c-headerNav__container {
   height: 100%;
@@ -162,7 +163,7 @@
   @media(--desktop) {
     margin-left: 30px;
   }
-  &:hover {
+  &:hover, &:focus {
     .c-headerNav__drop {
       display: block;
     }
