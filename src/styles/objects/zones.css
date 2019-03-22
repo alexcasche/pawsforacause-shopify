@@ -21,6 +21,9 @@
   position: relative;
   z-index: $z-index-page;
   background-color: $bg-gray-light;
+  &.search-visible {
+    top: 52px;
+  }
 }
 
 #footer {
@@ -30,8 +33,16 @@
 }
 
 #sidemenu {
+  position: fixed;
+  top: 90px;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: $z-index-sidemenu;
   user-select: none;
+  &.search-visible {
+    top: 142px;
+  }
 }
 
 #cart {

@@ -2,15 +2,12 @@
 
 .c-formSearch {
   @mixin flex row, flex-start, center;
-  padding: 0 30px;
-  height: 60px;
-  background-color: $bg-gray-light;
-  border-bottom: 1px solid $hr-gray-light;
+  height: 100%;
   box-sizing: content-box;
 }
 .c-formSearch__icon {
   position: relative;
-  top: 1px;
+  top: 2px;
   width: 18px;
   fill: $color-blue;
 }
@@ -18,9 +15,9 @@
   padding: 0 0 0 15px;
   flex-grow: 1;
   background-color: transparent;
-  color: $color-blue;
-  line-height: 60px;
-  font-size: 17px;
+  color: $color-black;
+  height: 50px;
+  font-size: 20px;
   font-weight: 500;
   border: none;
   outline: none;

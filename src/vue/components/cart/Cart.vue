@@ -3,7 +3,7 @@
     <transition name="overlay-fade">
       <span v-if="isOpen"  
         class="c-overlay" 
-        @click="closeCart"
+        @click="toggleCart"
       />
     </transition>
     <transition name="cart-slide">
@@ -47,7 +47,7 @@ export default {
     ...mapGetters('cart', ['isOpen', 'shoppingCart', 'isLoading']),
   },
   methods: {
-    ...mapMutations('cart', ['closeCart', 'openCart', 'setSettings', 'setCollection', 'toggleLoading']),
+    ...mapMutations('cart', ['toggleCart', 'setSettings', 'setCollection', 'toggleLoading']),
     ...mapActions('cart', ['initCart', 'addCart', 'changeCart', 'clearCart', 'updateCart', 'setProducts']),
   },
   watch: {
@@ -65,7 +65,7 @@ export default {
   },
   async mounted() {
     const actions = {
-      openCart: this.openCart,
+      toggleCart: this.toggleCart,
       addCart: this.addCart,
       changeCart: this.changeCart,
       clearCart: this.clearCart,

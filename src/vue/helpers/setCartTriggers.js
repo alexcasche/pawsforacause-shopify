@@ -1,6 +1,6 @@
 export const setCartTriggers = (actions) => {
-  const { openCart, addCart, changeCart, clearCart, updateCart } = actions;
-  setOpenTriggers(openCart);
+  const { toggleCart, addCart, changeCart, clearCart, updateCart } = actions;
+  setToggleTriggers(toggleCart);
   setAddTriggers(addCart);
   setChangeTriggers(changeCart);
   setClearTriggers(clearCart);
@@ -8,9 +8,9 @@ export const setCartTriggers = (actions) => {
 }
 
 /*********  Open Cart  *********/
-const setOpenTriggers = openCart => {
-  const openTriggers = document.querySelectorAll(".trigger-cart-open");
-  openTriggers.forEach(trigger => trigger.addEventListener("click", openCart))
+const setToggleTriggers = toggleCart => {
+  const toggleTriggers = document.querySelectorAll(".trigger-cart");
+  toggleTriggers.forEach(trigger => trigger.addEventListener("click", toggleCart))
 }
 
 

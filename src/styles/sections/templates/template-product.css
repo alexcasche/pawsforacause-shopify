@@ -32,6 +32,12 @@
     }
   }  
 }
+.c-productBuy__images {
+  margin-bottom: 50px;
+  @media(--tablet) {
+    margin-bottom: 0;
+  }    
+}
 .c-productDetails__container {
   flex-wrap: wrap;
 }

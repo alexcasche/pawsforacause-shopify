@@ -8,21 +8,17 @@ function toggleNavAccount(event) {
 const navTriggers = document.querySelectorAll(".trigger-nav-account");
 navTriggers.forEach(trigger => trigger.addEventListener('click', toggleNavAccount));
 
-function openSearch(event) {
+function toggleSearch(event) {
   event.stopPropagation()
   const searchHeader = document.getElementById("headerSearch");
-  searchHeader.classList.remove('u-hidden');
+  const sidemenu = document.getElementById("sidemenu");
+  const page = document.getElementById("page");
+  sidemenu.classList.toggle("search-visible");
+  page.classList.toggle("search-visible");
+  searchHeader.classList.toggle('u-hidden');
 }
-const openSearchTriggers = document.querySelectorAll(".trigger-search-open");
-openSearchTriggers.forEach(trigger => trigger.addEventListener('click', openSearch));
-
-function closeSearch(event) {
-  event.stopPropagation()
-  const searchHeader = document.getElementById("headerSearch");
-  searchHeader.classList.add('u-hidden');
-}
-const closeSearchTriggers = document.querySelectorAll(".trigger-search-close");
-closeSearchTriggers.forEach(trigger => trigger.addEventListener('click', closeSearch));
+const searchTriggers = document.querySelectorAll(".trigger-search");
+searchTriggers.forEach(trigger => trigger.addEventListener('click', toggleSearch));
 
 
 window.addEventListener("click", () => {
@@ -38,10 +34,10 @@ window.addEventListener("resize", () => {
 window.addEventListener("scroll", () => {
   const doc = document.documentElement;
   const offsetTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-  const headerNav = document.getElementById("headerNav");
+  const header = document.getElementById("header");
   if(offsetTop >= 80) {
-    headerNav.classList.add("is-fixed");
+    header.classList.add("is-fixed");
   } else {
-    headerNav.classList.remove("is-fixed")
+    header.classList.remove("is-fixed")
   }
 });

@@ -10,6 +10,11 @@ export default {
     state.errorMessage = false
     return state
   },
+  toggleCart(state) {
+    if(state.isOpen === true) state.errorMessage = false
+    state.isOpen = !state.isOpen
+    return state
+  },
   toggleFetching(state) {
     state.isFetching = !state.isFetching
     return state

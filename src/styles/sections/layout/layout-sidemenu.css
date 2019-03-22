@@ -1,11 +1,6 @@
 /*========== Sidemenu ==========*/
 
 .c-sidemenu {
-  position: fixed;
-  top: 90px;
-  right: 0;
-  bottom: 0;
-  left: 0;
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100vw;
@@ -35,7 +30,9 @@
   }
 }
 .c-sidemenu__item {
-  border-top: 1px solid $hr-gray-light;
+  &:not(:first-child) {
+    border-top: 1px solid $hr-gray-light;
+  }
 }
 .c-sidemenu__link {
   display: block;
