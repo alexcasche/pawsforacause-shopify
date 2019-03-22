@@ -24,3 +24,8 @@
     color: $color-blue;
   }
 }
+.c-collectionItem--soldOut {
+  .c-collectionItem__images {
+    opacity: .5;
+  }
+}

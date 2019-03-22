@@ -141,7 +141,7 @@
 }
 
 .c-cartMainItem__basePrice, .c-cartMainItem__salePrice {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
 }
 .c-cartMainItem__basePrice {
@@ -154,7 +154,7 @@
 .c-cartMainItem__comparePrice {
   color: $color-gray;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   text-decoration: line-through;
 }
 
@@ -238,14 +238,14 @@
 .c-cartUpsellItem__prices {
   margin-bottom: 8px;
 }
-.c-cartUpsellItem__comparePrice {
-  margin-bottom: 2px;
-  font-size: 14px;
-}
 .c-cartUpsellItem__basePrice, 
 .c-cartUpsellItem__salePrice {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
+}
+.c-cartUpsellItem__comparePrice {
+  margin-bottom: 2px;
+  font-size: 16px;
 }
 .c-cartUpsellItem__add {
   padding: 5px 18px;

@@ -11,7 +11,7 @@
   font-weight: 600;
 }
 .c-productPrices__basePrice {
-  color: $color-gray-dark;
+  color: $color-black-light;
 }
 .c-productPrices__salePrice {
   color: $color-red-dark;

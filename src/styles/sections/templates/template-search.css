@@ -1,0 +1,7 @@
+/*========== Search ==========*/
+
+.c-search__text {
+  font-family: $font-body;
+  color: $color-black-dark;
+  text-align: center;
+}

@@ -1,4 +1,8 @@
-<a class="c-collectionItem o-flexColumn trigger-product-buy" 
+{% assign sold_out = false %}
+{% if product.available == false %}
+  {% assign sold_out = true %}
+{% endif %}
+<a class="c-collectionItem {% if sold_out %}c-collectionItem--soldOut {% endif %}o-flexColumn trigger-product-buy" 
   data-product-handle="{{ product.handle }}"
   href="{{ product.url }}"
 >

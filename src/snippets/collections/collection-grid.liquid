@@ -1,10 +1,21 @@
 <div class="c-collectionGrid o-lost">
-  {% paginate collection.products by 48 %}
-    {% for product in collection.products %}
-      <div class="c-collectionGrid__item o-lost-item">
-        {% include 'collection-item' with product %}
-      </div>
-    {% endfor %}
-    {% include 'part-paginate' with paginate %}
-  {% endpaginate %}
+  {% if type == "search" %}
+    {% paginate collection.results by 48 %}
+      {% for item in search.results %}
+        <div class="c-collectionGrid__item o-lost-item">
+          {% include 'collection-item' with product: item %}
+        </div>
+      {% endfor %}
+      {% include 'part-paginate' with paginate %}
+    {% endpaginate %}
+  {% else %}
+    {% paginate collection.products by 48 %}
+      {% for item in collection.products %}
+        <div class="c-collectionGrid__item o-lost-item">
+          {% include 'collection-item' with product: item %}
+        </div>
+      {% endfor %}
+      {% include 'part-paginate' with paginate %}
+    {% endpaginate %}
+  {% endif %}
 </div>
