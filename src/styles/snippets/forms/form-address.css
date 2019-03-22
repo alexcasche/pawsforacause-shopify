@@ -3,32 +3,30 @@
 .c-formAddress {
   width: 750px;
   max-width: 100%;
-  .c-formAddress__heading {
-    margin-bottom: 20px;
+  @media(--tablet) {
+    max-width: calc(100vw - 160px);
   }
-  .c-formAddress__button {
-    width: 100%;
-  }
+}
+.c-formAddress__heading {
+  text-align: left;
+  margin-bottom: 20px;
 }
 .c-formAddress__group {
   @mixin flexColumn;
+  margin: 20px 0;
   @media(--tablet) {
     align-items: flex-start;
   }
 }
 .c-formAddress__subheading {
-  margin-bottom: 5px;
-  @media(--mobile-max) {
-    text-align: center;
-  }
+  text-transform: capitalize;
+  color: $color-blue-dark;
+  margin-bottom: 10px;
+  text-align: left;
 }
 .c-formAddress__text {
   font-size: 16px;
   line-height: 1.5;
-  margin-bottom: 30px;
-  @media(--mobile-max) {
-    text-align: center;
-  }
 }
 .c-formAddress__delete {
   @mixin flex row, center, center;
@@ -41,7 +39,7 @@
 .c-formAddress__deleteButton {
   color: #ccc;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 15px;
   text-transform: capitalize;
   padding: 10px 0;
   &:hover {

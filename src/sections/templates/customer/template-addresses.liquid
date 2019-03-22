@@ -88,9 +88,9 @@
     </div>
   </div>
   <vue-modal prerender="{{ true }}">
-    {% include 'form-address-add' %}
-    {% include 'form-address-edit' %}
-    {% include 'form-address-delete' %}
+    {% include 'form-address-add' with settings: section.settings %}
+    {% include 'form-address-edit' with settings: section.settings %}
+    {% include 'form-address-delete' with settings: section.settings %}
   </vue-modal>
 </section>
 
@@ -134,8 +134,122 @@
 		},
     {
       "type": "header",
-      "content": "Add Address Form"
-    }
+      "content": "Address Forms"
+    },
+    {
+      "type": "text",
+			"id": "form_add_header",
+			"label": "Add Address Header",
+      "default": "Add Address"
+		},
+    {
+      "type": "text",
+			"id": "form_edit_header",
+			"label": "Edit Address Header",
+      "default": "Edit Address"
+		},
+    {
+      "type": "text",
+			"id": "form_delete_header",
+			"label": "Delete Address Header",
+      "default": "Are you sure you want to delete this address?"
+		},
+    {
+      "type": "text",
+			"id": "form_first_name",
+			"label": "First Name Placeholder",
+      "default": "First Name"
+		},
+    {
+      "type": "text",
+			"id": "form_last_name",
+			"label": "Last Name Placeholder",
+      "default": "Last Name"
+		},
+    {
+      "type": "text",
+			"id": "form_company",
+			"label": "Company Placeholder",
+      "default": "Company"
+		},
+    {
+      "type": "text",
+			"id": "form_address1",
+			"label": "Address Line 1 Placeholder",
+      "default": "Address Line 1"
+		},
+    {
+      "type": "text",
+			"id": "form_address2",
+			"label": "Address Line 2 Placeholder",
+      "default": "Address Line 2"
+		},
+    {
+      "type": "text",
+			"id": "form_city",
+			"label": "City Placeholder",
+      "default": "City"
+		},
+    {
+      "type": "text",
+			"id": "form_country",
+			"label": "Country Placeholder",
+      "default": "Country"
+		},
+    {
+      "type": "text",
+			"id": "form_province",
+			"label": "Province Placeholder",
+      "default": "Province"
+		},
+    {
+      "type": "text",
+			"id": "form_zip",
+			"label": "Zip Code Placeholder",
+      "default": "Zip Code"
+		},
+    {
+      "type": "text",
+			"id": "form_phone",
+			"label": "Phone Placeholder",
+      "default": "Phone"
+		},
+    {
+      "type": "text",
+			"id": "form_default",
+			"label": "Default Checkbox Label",
+      "default": "Set as default address"
+		},
+    {
+      "type": "text",
+			"id": "form_save",
+			"label": "Save Text",
+      "default": "Save"
+		},
+    {
+      "type": "text",
+			"id": "form_confirm",
+			"label": "Confirm Text",
+      "default": "Confirm"
+		},
+    {
+      "type": "text",
+			"id": "form_cancel",
+			"label": "Cancel Text",
+      "default": "Cancel"
+		},
+    {
+      "type": "text",
+			"id": "form_delete",
+			"label": "Delete Text",
+      "default": "Delete Address"
+		},
+    {
+      "type": "text",
+			"id": "form_updating",
+			"label": "Form Updating Text",
+      "default": "Updating Your Account"
+		}
   ]
 }
 

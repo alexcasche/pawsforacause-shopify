@@ -6,11 +6,19 @@
   </div>
   <div class="c-collectionCarousel__track c-carousel__track">
     {% for item in collection.products %}
-      {% unless item.handle == product.handle %}
+      {% if hide_product and item.handle != product.handle %}
         <div class="c-collectionCarousel__slide c-carousel__slide o-flexColumn">
           {% include 'collection-item' with product: item %}  
         </div>
-      {% endunless %}
+      {% elsif hide_sold_out and item.available == false %}
+        <div class="c-collectionCarousel__slide c-carousel__slide o-flexColumn">
+          {% include 'collection-item' with product: item %}  
+        </div>
+      {% else %}
+        <div class="c-collectionCarousel__slide c-carousel__slide o-flexColumn">
+          {% include 'collection-item' with product: item %}  
+        </div>
+      {% endif %}
     {% endfor %}
   </div>
 </div>

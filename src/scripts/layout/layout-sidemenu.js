@@ -3,6 +3,7 @@
 function toggleSidemenu() {
   document.body.classList.toggle("sidemenu-open");
   document.getElementById("sidemenu").classList.toggle("is-open");
+  document.body.classList.toggle("u-noScroll");
   const menuButtons = document.querySelectorAll(".trigger-sidemenu");
   menuButtons.forEach(button => button.classList.toggle("u-hidden"));
   const secondaryMenus = document.querySelectorAll(".c-sidemenu__secondary");

@@ -18,47 +18,15 @@
     transform: translateX(0);
   }
 }
-.c-sidemenu__search {
-  @mixin flex row, flex-start, center;
-  padding: 0 30px;
-  height: 60px;
-  background-color: $bg-gray-light;
-  border-bottom: 1px solid $hr-gray-light;
-  box-sizing: content-box;
-}
-.c-sidemenu__searchIcon {
-  position: relative;
-  top: 1px;
-  width: 18px;
-  fill: $color-blue;
-}
-.c-sidemenu__searchInput {
-  padding: 0 0 0 15px;
-  flex-grow: 1;
-  background-color: transparent;
-  color: $color-blue;
-  line-height: 60px;
-  font-size: 17px;
-  font-weight: 500;
-  border: none;
-  outline: none;
-  box-shadow: none !important;
-  &::placeholder {
-    color: $color-gray;
-  }
-}
 .c-sidemenu__list {
   position: absolute;
+  top: 0;
   left: 0;
   width: 100vw;
   min-height: 100%;
   background-color: $bg-gray;
 }
-.c-sidemenu__primary {
-  top: 60px;
-}
 .c-sidemenu__secondary {
-  top: 0;
   z-index: 1;
   @mixin transition-slide;
   transform: translateX(-100%);
@@ -73,13 +41,14 @@
   display: block;
   position: relative;
   padding: 0 30px;
-  color: $color-blue-dark;
+  color: $color-black;
   line-height: 60px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   text-transform: capitalize;
   &:hover {
     cursor: pointer;
+    color: $color-blue;
   }
 }
 .c-sidemenu__linkIcon {
@@ -89,7 +58,8 @@
   @mixin flex row, center, center;
   height: 60px;
   width: 12px;
-  fill: $color-blue-dark;
+  fill: currentColor;
+  pointer-events: none;
   svg {
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
@@ -110,7 +80,7 @@
   background-color: $color-blue;
   text-align: center;
   color: white;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
 }
 .c-sidemenu__account {
@@ -121,8 +91,8 @@
 }
 .c-sidemenu__accountLink {
   display: inline-block;
-  margin-right: 30px;
-  font-size: 16px;
+  margin: 0 15px;
+  font-size: 18px;
   line-height: 40px;
-  color: $color-blue-dark
+  color: $color-blue-dark;
 }

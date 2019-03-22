@@ -2,7 +2,7 @@
 
 .c-addresses__addresses {
   margin-bottom: 60px;
-  @media(--tablet) {
+  @media(--desktop) {
     margin-bottom: 0;
   }
 }

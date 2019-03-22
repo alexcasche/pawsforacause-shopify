@@ -209,6 +209,7 @@
   text-align: center;
   font-family: $font-heading;
   font-size: 18px;
+  line-height: 22px;
   font-weight: 600;
   color: $color-black-light;
   span {
@@ -283,15 +284,16 @@
   color: #bbb;
 }
 .c-cartUpsellAdd__title {
-  display: block;
-  margin-bottom: 30px;
-  padding: 0 40px;
+  padding: 0 28px;
   text-align: center;
-  font-size: 15px;
-  color: $color-black-dark;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 600;
+  color: $color-black-light;
 }
 .c-cartUpsellAdd__main {
   align-items: flex-start;
+  margin-top: 30px;
 }
 .c-cartUpsellAdd__imageBox {
   width: calc(50% - 10px);

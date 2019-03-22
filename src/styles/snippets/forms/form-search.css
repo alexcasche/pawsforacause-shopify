@@ -1,0 +1,31 @@
+/*========== Form Search ==========*/
+
+.c-formSearch {
+  @mixin flex row, flex-start, center;
+  padding: 0 30px;
+  height: 60px;
+  background-color: $bg-gray-light;
+  border-bottom: 1px solid $hr-gray-light;
+  box-sizing: content-box;
+}
+.c-formSearch__icon {
+  position: relative;
+  top: 1px;
+  width: 18px;
+  fill: $color-blue;
+}
+.c-formSearch__input {
+  padding: 0 0 0 15px;
+  flex-grow: 1;
+  background-color: transparent;
+  color: $color-blue;
+  line-height: 60px;
+  font-size: 17px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+  &::placeholder {
+    color: $color-gray;
+  }
+}

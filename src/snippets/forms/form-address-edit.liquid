@@ -2,43 +2,43 @@
 {% for address in customer.addresses %}
   <div class="c-formAddress u-hidden" id="editAddress_{{ address.id }}">
     <h2 class="c-formAddress__heading">
-      Edit Addresss
+      {{ settings.form_edit_header }}
     </h2>
     {% form 'customer_address', address %}
       {{ form.errors | default_errors }}
       <div class="c-form__fieldset">
-        <input class="c-form__field" required pattern=".*\S+.*" title="First Name (required)" type="text" name="address[first_name]" value="{{ form.first_name }}" placeholder="First Name*" autocapitalize="words">
-        <input class="c-form__field" required pattern=".*\S+.*" title="Last Name (required)" type="text" name="address[last_name]" value="{{ form.last_name }}" placeholder="Last Name*" autocapitalize="words">
+        <input class="c-form__field" required pattern=".*\S+.*" title="{{ settings.form_first_name }} (required)" type="text" name="address[first_name]" value="{{ form.first_name }}" placeholder="{{ settings.form_first_name }}*" autocapitalize="words">
+        <input class="c-form__field" required pattern=".*\S+.*" title="{{ settings.form_last_name }} (required)" type="text" name="address[last_name]" value="{{ form.last_name }}" placeholder="{{ settings.form_last_name }}*" autocapitalize="words">
       </div>
-      <input class="c-form__field" type="text" name="address[company]" value="{{ form.company }}" placeholder="Company" autocapitalize="words">
-      <input class="c-form__field" required pattern=".*\S+.*" title="Address Line 1 (required)" type="text" name="address[address1]" value="{{ form.address1 }}" placeholder="Address Line 1*" autocapitalize="words" />
-      <input class="c-form__field" title="Address Line 2" type="text" name="address[address2]" value="{{ form.address2 }}" placeholder="Address Line 2" autocapitalize="words" />
+      <input class="c-form__field" type="text" name="address[company]" value="{{ form.company }}" placeholder="{{ settings.form_company }}" autocapitalize="words">
+      <input class="c-form__field" required pattern=".*\S+.*" title="Address Line 1 (required)" type="text" name="address[address1]" value="{{ form.address1 }}" placeholder="{{ settings.form_address1 }}*" autocapitalize="words" />
+      <input class="c-form__field" title="Address Line 2" type="text" name="address[address2]" value="{{ form.address2 }}" placeholder="{{ settings.form_address2 }}" autocapitalize="words" />
       <div class="c-form__fieldset">
-        <input class="c-form__field" required pattern=".*\S+.*" title="City (required)" type="text" name="address[city]" value="{{ form.city }}" placeholder="City*" autocapitalize="words" />
+        <input class="c-form__field" required pattern=".*\S+.*" title="{{ settings.form_city }} (required)" type="text" name="address[city]" value="{{ form.city }}" placeholder="{{ settings.form_city }}*" autocapitalize="words" />
         <div class="c-form__field c-form__select">
-          <select class="c-form__selectInner data-countries" title="Country" name="address[country]" data-default="{{ form.country }}"></select>
+          <select class="c-form__selectInner data-countries" title="{{ settings.form_country }}" name="address[country]" data-default="United States">{{ country_option_tags }}</select>
         </div>
       </div>
       <div class="c-form__fieldset">
         <div class="c-form__field c-form__select">
-          <select class="c-form__selectInner data-provinces" title="City" name="address[province]" data-default="{{ form.province }}"></select>
+          <select class="c-form__selectInner data-provinces" title="{{ settings.form_province }}" name="address[province]" data-default="{{ form.province }}"></select>
         </div>
-        <input class="c-form__field" required pattern="[0-9]{5}" title="5 Digit Zip Code (required)" type="text" name="address[zip]" value="{{ form.zip }}" placeholder="Zip Code*" />
+        <input class="c-form__field" required pattern="[0-9]{5}" title="{{ settings.form_zip }} (required)" type="text" name="address[zip]" value="{{ form.zip }}" placeholder="{{ settings.form_zip }}*" />
       </div>
-      <input class="c-form__field" pattern="^(1\s?)?((\([0-9]{3}\))|[0-9]{3})[\s\-]?[\0-9]{3}[\s\-]?[0-9]{4}" title="US Phone Number" type="tel" name="address[phone]" value="{{ form.phone }}" placeholder="Phone" />
+      <input class="c-form__field" pattern="^(1\s?)?((\([0-9]{3}\))|[0-9]{3})[\s\-]?[\0-9]{3}[\s\-]?[0-9]{4}" title="{{ settings.form_phone }}" type="tel" name="address[phone]" value="{{ form.phone }}" placeholder="{{ settings.form_phone }}" />
       <div class="c-form__field c-form__checkbox">
         {{ form.set_as_default_checkbox }}
-        <label class="c-form__label">Set as default address</label>
+        <label class="c-form__label">{{ settings.form_default }}</label>
       </div>
       <div class="c-form__buttons">
-        <button class="c-form__button c-button-large c-button--submit" type="submit">Save</button>
-        <button class="c-form__button c-button-large c-button--cancel trigger-modal" type="button">Cancel</button>
+        <button class="c-form__button c-button-large c-button--submit trigger-loading" data-heading="{{ settings.form_updating }}" type="submit">{{ settings.form_save }}</button>
+        <button class="c-form__button c-button-large c-button--cancel trigger-modal" type="button">{{ settings.form_cancel }}</button>
       </div>
       {% if address != customer.default_address %}
         <div class="c-formAddress__delete">
           <button class="c-formAddress__deleteButton trigger-modal" type="button" data-modal-content-id="deleteAddress_{{ address.id }}">
             <i class="c-formAddress__deleteIcon far fa-trash-alt"></i>
-            Delete Address
+            {{ settings.form_delete }}
           </button>
         </div>
       {% endif %}

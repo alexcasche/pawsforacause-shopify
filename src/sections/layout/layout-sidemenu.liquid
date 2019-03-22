@@ -1,10 +1,4 @@
 <nav id="sidemenu" class="c-sidemenu" role="navigation" aria-label="Main Navigation">
-  <form class="c-sidemenu__search" action="search" autocomplete="off" aria-role="form" arial-label="Search">
-    <span class="c-sidemenu__searchIcon">
-      {% include 'icon-search' %}
-    </span>
-    <input class="c-sidemenu__searchInput" type="text" placeholder="{{ section.settings.search_text }}" name="q" />
-  </form>
   <ul class="c-sidemenu__list c-sidemenu__primary">
     {% for link in linklists[section.settings.main_nav].links %}
       <li class="c-sidemenu__item">
@@ -46,9 +40,10 @@
     {% endif %}
     <li class="c-sidemenu__account">
        {% for nav in linklists[section.settings.account_nav].links %}
-          {% if customer and nav.title == 'User' %}
+          {% if customer and nav.title == "User" %}
             {% assign account_nav = nav %}
-          {% else %}
+          {% endif %}
+          {% if customer == blank and nav.title == "Guest" %}
             {% assign account_nav = nav %}
           {% endif %}
         {% endfor %}
@@ -68,12 +63,6 @@
     {
       "type": "header",
       "content": "Sidemenu"
-    },
-    {
-      "type": "text",
-      "id": "search_text",
-      "label": "Search Placeholder",
-      "default": "Search..."
     },
     {
       "type": "link_list",

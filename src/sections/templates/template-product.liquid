@@ -63,7 +63,7 @@
           {% endif %}
         {% endfor %}
         <div class="c-productRelated__collection">
-          {% include "collection-carousel" with product, collection: collections[related_handle], randomize: true, limit: section.settings.collection_count %}
+          {% include "collection-carousel" with product, collection: collections[related_handle], randomize: true, limit: section.settings.collection_count, hide_product: true, hide_sold_out: true %}
         </div>
       </div>
     </div>

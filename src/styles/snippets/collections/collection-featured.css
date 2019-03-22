@@ -1,0 +1,16 @@
+/*========== Collection Featured ==========*/
+
+.c-collectionFeatured {
+  .c-loadingDots {
+    display: none;
+    min-height: 200px;
+  }
+}
+.c-collectionFeatured.is-loading {
+  .c-collectionGrid__item {
+    display: none;
+  }
+  .c-loadingDots {
+    display: flex;
+  }
+}

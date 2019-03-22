@@ -47,11 +47,12 @@
           <button class="c-headerNav__burger" aria-label="Toggle Menu">
             {% include 'icon-burger' %}
           </button>
-          <ul class="c-headerNav__drop" id="nav-account">
+          <ul class="c-headerNav__drop" id="navAccount">
             {% for nav in linklists[section.settings.main_account].links %}
-              {% if customer and nav.title == 'User' %}
+              {% if customer and nav.title == "User" %}
                 {% assign account_nav = nav %}
-              {% else %}
+              {% endif %}
+              {% if customer == blank and nav.title == "Guest" %}
                 {% assign account_nav = nav %}
               {% endif %}
             {% endfor %}
@@ -106,8 +107,11 @@
   </div>
 </header>
 {% if section.settings.search_show %}
-  <header id="headerSearch" class="c-headerSearch u-hidden" aria-label="Search">
-    {% include "form-search" with placeholder: section.settings.search_placeholder %}
+  <header id="headerSearch" class="c-headerSearch u-hidden">
+    <button class="c-headerSearch__close trigger-search-close">
+      {% include "icon-close" %}
+    </button>
+    {% include "form-search" with settings: section.settings %}
   </header>
 {% endif %}
 

@@ -270,3 +270,11 @@
   width: 16px;
   height: 16px;
 }
+
+.c-headerSearch {
+  height: 60px;
+}
+
+.c-headerSearch__container {
+  position: relative;
+}

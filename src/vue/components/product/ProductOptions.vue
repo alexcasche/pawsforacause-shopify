@@ -67,7 +67,7 @@ export default {
       return variant
     },
     showOptions() {
-      return this.options[0] = "Default Title" ? false : true
+      return this.options[0] === "Default Title" ? false : true
     }
   },
   watch: {
