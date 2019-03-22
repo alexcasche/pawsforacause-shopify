@@ -23,6 +23,7 @@
   background-color: $bg-gray-light;
   &.search-visible {
     top: 52px;
+    margin-bottom: 52px;
   }
 }
 

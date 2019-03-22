@@ -1,7 +1,8 @@
 /*========== Search ==========*/
 
 .c-search__text {
-  font-family: $font-body;
-  color: $color-black-dark;
+  margin-bottom: 30px;
   text-align: center;
+  color: $color-black-dark;
+  font-family: $font-body;
 }

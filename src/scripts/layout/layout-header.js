@@ -16,6 +16,12 @@ function toggleSearch(event) {
   sidemenu.classList.toggle("search-visible");
   page.classList.toggle("search-visible");
   searchHeader.classList.toggle('u-hidden');
+  const searchInput = searchHeader.querySelector(".c-formSearch__input")
+  if(!searchHeader.classList.contains('u-hidden')) {
+    searchInput.focus()
+  } else {
+    searchInput.blur()
+  }
 }
 const searchTriggers = document.querySelectorAll(".trigger-search");
 searchTriggers.forEach(trigger => trigger.addEventListener('click', toggleSearch));
