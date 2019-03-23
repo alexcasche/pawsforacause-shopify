@@ -25,5 +25,4 @@ if(subheader) {
       subheaderLabel.textContent = option.textContent;
     }
   })
-
 }

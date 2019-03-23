@@ -1,8 +1,15 @@
 <section class="c-search o-strip u-noSelect">
   <div class="c-search__container o-container--large">
     {% if search.types[0] == 'product' %}
+      {% if search.results_count == 0 %}
+        {% assign search_text = section.settings.product_empty %}
+      {% elsif search.results_count == 1 %}
+        {% assign search_text = section.settings.product_single %}
+      {% else %}
+        {% assign search_text = section.settings.product_empty %}
+      {% endif %}
       <h3 class="c-search__text" aria-label="Seach Results">
-        {{ search.results_count }} {{ section.settings.product_results }} '{{ search.terms }}'
+        {{ search.results_count }} {{ search_text }} '{{ search.terms }}'
       </h3>
       {% if search.results_count > 0 %}
         {% include 'collection-grid' with collection: search, type: "search" %}
@@ -17,12 +24,26 @@
 	"settings": [
     {
       "type": "header",
-      "content": "Product"
+      "content": "Search"
     },
     {
       "type": "text",
-			"id": "product_results",
-			"label": "Product Results Text",
+			"id": "product_empty",
+			"label": "Product No Results",
+      "default": "products found for",
+      "info": "Between Result Count & Terms"
+		},
+    {
+      "type": "text",
+			"id": "product_single",
+			"label": "Product Single Result",
+      "default": "product found for",
+      "info": "Between Result Count & Terms"
+		},
+    {
+      "type": "text",
+			"id": "product_multiple",
+			"label": "Product Mulitple Results",
       "default": "products found for",
       "info": "Between Result Count & Terms"
 		}

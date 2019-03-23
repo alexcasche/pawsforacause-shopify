@@ -33,7 +33,9 @@
                   {% endif %}
                   {{ address.city}}, {% if address.province_code %}{{ address.province_code }}, {% endif %} {{ address.zip }}<br />
                   {% if address.phone != '' and address.phone != nil %}
-                    {{ address.phone }}
+                    <a class="c-addresses__addressLink c-link" href="tel:{{ address.phone }}">
+                      {{ address.phone }}
+                    </a>
                   {% endif %}
                 </div>
               {% endif %}
@@ -69,7 +71,9 @@
                       {% endif %}
                       {{ address.city}}, {% if address.province_code %}{{ address.province_code }}, {% endif %} {{ address.zip }}<br />
                       {% if address.phone != '' and address.phone != nil %}
-                        {{ address.phone }}
+                        <a class="c-addresses__addressLink c-link" href="tel:{{ address.phone }}">
+                          {{ address.phone }}
+                        </a>
                       {% endif %}
                     </div>
                   </div>

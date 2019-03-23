@@ -1,0 +1,14 @@
+{% case page.handle %}
+  {% when 'who-we-are' %}
+    {% section 'page-who-we-are' %}
+  {% when 'how-we-give-back' %}
+    {% section 'page-how-we-give-back' %}
+  {% when 'sponsor-a-rescue' %}
+    {% section 'page-sponsor-a-rescue' %}
+  {% when 'partner-with-us' %}
+    {% section 'page-partner-with-us' %}
+  {% when 'returns-and-exchanges' %}
+    {% section 'page-returns-and-exchanges' %}
+  {% when 'contact-us' %}
+    {% section 'page-contact-us' %}
+{% endcase %}

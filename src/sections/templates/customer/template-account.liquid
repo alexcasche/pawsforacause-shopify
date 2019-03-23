@@ -2,9 +2,9 @@
   <div class="c-account__top o-strip u-bgGray">
     <div class="c-account__container o-container o-flexFlip">
       <div class="c-account__info o-flexItem-40 o-flexColumn">
-        <h1 class="c-account__heading u-truncate">
+        <h2 class="c-account__heading u-truncate">
           {{ section.settings.main_heading }}
-        </h1>
+        </h2>
         <h5 class="c-account__subheading u-truncate">
           {{ customer.email }}
         </h5>
@@ -17,7 +17,9 @@
             {% endif %}
             {{ customer.default_address.city}}, {% if customer.default_address.province_code %}{{ customer.default_address.province_code }}, {% endif %} {{ customer.default_address.zip }}<br />
             {% if customer.default_address.phone != '' and customer.default_address.phone != nil %}
-            {{ customer.default_address.phone }}
+              <a class="c-account__addressLink c-link" href="tel:{{ customer.default_address.phone }}">
+                {{ customer.default_address.phone }}
+              </a>
             {% endif %}
           {% else %}
             {{ section.settings.main_no_address }}

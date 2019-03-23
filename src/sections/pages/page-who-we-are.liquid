@@ -1,0 +1,24 @@
+{% include "block-hero" with hero_large: section.settings.hero_large, hero_small: section.settings.hero_small %}
+
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_large",
+      "label": "Hero Image Large"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_small",
+      "label": "Hero Image Small"
+    }
+  ]
+}
+{% endschema %}

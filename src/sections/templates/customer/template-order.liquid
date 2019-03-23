@@ -97,7 +97,9 @@
                       {% endif %}
                       {{ order.billing_address.city}}, {% if order.billing_address.province_code %}{{ order.billing_address.province_code }}, {% endif %} {{ order.billing_address.zip }}<br />
                       {% if order.billing_address.phone != '' and order.billing_address.phone != nil %}
-                        {{ order.billing_address.phone }}
+                        <a class="c-order__addressLink c-link" href="tel:{{ order.billing_address.phone }}">
+                          {{ order.billing_address.phone }}
+                        </a>
                       {% endif %}
                     </div>
                   </div>
@@ -116,7 +118,9 @@
                       {% endif %}
                         {{ order.shipping_address.city}}, {% if order.shipping_address.province_code %}{{ order.shipping_address.province_code }}, {% endif %} {{ order.shipping_address.zip }}<br />
                         {% if order.shipping_address.phone != '' and order.shipping_address.phone != nil %}
-                          {{ order.shipping_address.phone }}
+                          <a class="c-order__addressLink c-link" href="tel:{{ order.shipping_address.phone }}">
+                            {{ order.shipping_address.phone }}
+                          </a>
                         {% endif %}
                     </div>
                   </div>

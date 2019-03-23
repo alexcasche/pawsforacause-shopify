@@ -2,6 +2,10 @@
 
 .o-strip {
   position: relative;
-  padding-top: 50px;
-  padding-bottom: 80px;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  @media(--tablet) {
+    padding-top: 50px;
+    padding-bottom: 80px;
+  }
 }
