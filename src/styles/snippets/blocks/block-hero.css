@@ -1,0 +1,9 @@
+/*========== Hero ==========*/
+
+.c-hero {
+  width: 100%;
+}
+.c-hero__image {
+  width: 100%;
+  display: block;
+}

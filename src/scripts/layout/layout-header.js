@@ -12,13 +12,9 @@ function toggleSearch(event) {
   event.stopPropagation()
   const searchHeader = document.getElementById("headerSearch");
   const sidemenu = document.getElementById("sidemenu");
-  const subheader = document.getElementById("subheader");
   const page = document.getElementById("page");
   sidemenu.classList.toggle("search-visible");
   page.classList.toggle("search-visible");
-  if(subheader) {
-    subheader.classList.toggle("search-visible");
-  }
   searchHeader.classList.toggle('u-hidden');
   const searchInput = searchHeader.querySelector(".c-formSearch__input")
   if(!searchHeader.classList.contains('u-hidden')) {

@@ -1,6 +1,7 @@
 /******* Subheader *******/
 
 const subheader = document.getElementById("subheader");
+const hero = document.getElementById("hero");
 
 if(subheader) {
   function subheaderChange(event) {
@@ -25,4 +26,7 @@ if(subheader) {
       subheaderLabel.textContent = option.textContent;
     }
   })
+
+  if(hero) hero.after(subheader)
+  subheader.classList.remove("u-hidden")
 }

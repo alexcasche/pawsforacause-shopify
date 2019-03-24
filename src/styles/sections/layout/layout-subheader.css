@@ -3,8 +3,6 @@
 .c-subheader {
   height: 52px;
   background-color: white;
-  border-top: 1px solid $hr-gray-light;
-  border-bottom: 1px solid $hr-gray-light;
   box-shadow: $box-shadow-header;
 }
 .c-subheader__container {
@@ -30,14 +28,15 @@
 .c-subheader__select {
   @mixin flexRow;
   position: relative;
+  height: 100%;
   width: auto;
   &:after {
     position: absolute;
-    top: 3px;
+    top: 19px;
     right: 0;
     color: $color-blue;
     font-family: "Font Awesome 5 Free";
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 900;
     content: "\f107";
     pointer-events: none;
@@ -56,6 +55,6 @@
 }
 .c-subheader__selectLabel {
   position: absolute;
-  right: 15px;
+  right: 16px;
   pointer-events: none;
 }

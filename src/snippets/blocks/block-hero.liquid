@@ -1,7 +1,12 @@
-<div class="c-hero">
-  <img class="c-hero__image lazyload" 
+<div id="hero" class="c-hero">
+  <img class="c-hero__image lazyload u-showTablet" 
     src="{{ hero_large | img_url: 'x300' }}"
     data-src="{{ hero_large.src | img_url: 'master' }}" 
     alt="{{ hero_large.alt }}" 
+  />
+  <img class="c-hero__image lazyload u-hideTablet" 
+    src="{{ hero_small | img_url: 'x150' }}"
+    data-src="{{ hero_small.src | img_url: 'master' }}" 
+    alt="{{ hero_small.alt }}" 
   />
 </div>
