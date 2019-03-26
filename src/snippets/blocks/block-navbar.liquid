@@ -1,0 +1,31 @@
+{% for nav in linklists.page-navigation.links %}
+  {% if nav_title == nav.title %}
+    {% assign nav_menu = nav %}
+  {% endif %}
+{% endfor %}
+
+<div id="navbar" class="c-navbar">
+  <div class="c-navbar__container o-container--large">
+    <span class="c-navbar__label">
+      {% if nav_handle == 'account' %}
+        <i class="c-navbar__labelIcon {{ nav_icon }}"></i>{{ customer.first_name }}
+      {% else %}
+        {{ nav_title }}
+      {% endif %}
+    </span>
+    <span class="c-navbar__select">
+      <select id="navbar-select" class="c-navbar__selectInner">
+        {% for link in nav_menu.links %}
+          {% if link.url == "/account/orders/" and template.name == "order" %}
+            <option value="{{ order.customer_url }}" selected="selected">{{ link.title }} {{ order.name }}</option>
+          {% else %}
+            <option value="{{ link.url }}">{{ link.title }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      <span id="navbar-select-label" class="c-navbar__selectLabel"></span>
+    </span>
+  </div>
+</div>
+
+<script src="{{ 'block-navbar.js' | asset_url }}" defer="defer"></script>

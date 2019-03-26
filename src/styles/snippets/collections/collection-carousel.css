@@ -1,19 +1,5 @@
 /*========== Collection Carousel ==========*/
 
-.c-collectionCarousel {
-  .c-loadingDots {
-    display: none;
-    min-height: 200px;
-  }
-}
-.c-collectionCarousel.is-loading {
-  .c-collectionCarousel__track {
-    display: none;
-  }
-  .c-loadingDots {
-    display: flex;
-  }
-}
 .c-collectionCarousel__slide {
   width: 100%;
   padding: 10px;

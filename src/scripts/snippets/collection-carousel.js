@@ -56,11 +56,12 @@ collectionCarousels.forEach(collectionCarousel => {
       collectionTrack.appendChild(collectionFragment)
     }
   }
-  const carouselInterval = setInterval(() => {
-    const { carousel } = window.theme
-    if(carousel) {
-      carousel('.c-collectionCarousel', options)
-      clearInterval(carouselInterval);
-    }
-  }, 100);
 })
+
+const carouselInterval = setInterval(() => {
+  const { carousel } = window.theme
+  if(carousel) {
+    carousel('.c-collectionCarousel', options)
+    clearInterval(carouselInterval);
+  }
+}, 100);

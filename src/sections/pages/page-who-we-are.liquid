@@ -1,8 +1,39 @@
-{% include "block-hero" with hero_large: section.settings.hero_large, hero_small: section.settings.hero_small %}
-<div class="c-page__strip o-strip">
-  <h3>We beleive every dog deserves to be happy & healthy</h3>
+{% assign settings = section.settings %}
+{% include "block-hero" with hero_large: settings.hero_large, hero_small: settings.hero_small %}
+{% include "block-navbar" with nav_title: settings.nav_title %}
+<div id="who-we-are" class="c-whoWeAre">
+  <div class="c-mission o-strip u-bgGray">
+    <div class="c-mission__container o-container">
+      <div class="c-mission__narrow u-textNarrow">
+        <h5 class="c-mission__preheading">{{ settings.motto_preheading }}</h5>
+        {{ settings.motto_heading }}
+        <p class="c-mission__text">
+        {{ settings.motto_text }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="c-why o-strip">
+    <div class="c-why__container o-container--large">
+      {% assign carousel_html = '' %}
+      {% for block in section.blocks %}
+        {% if block.type == "why_carousel" %}
+          {% capture block_html %}
+            {% unless forloop.first %},{% endunless %}
+            <div class="c-why__item o-flexColumn">
+              <span class="c-why__itemCount o-flexColumn">{{ forloop.index }}</span>
+              <h3 class="c-why__itemHeading">{{ block.settings.heading }}</h3>
+              <p class="c-why__itemText">{{ block.settings.text }}</p>
+            </div>
+          {% endcapture %}
+          {% assign carousel_html = carousel_html | append: block_html %}
+        {% endif %}
+      {% endfor %}
+      {% assign carousel_items = carousel_html | split: "," %}
+      {% include 'block-carousel-grid', with items: carousel_items %}
+    </div>
+  </div>
 </div>
-
 
 {% schema %}
 {
@@ -21,6 +52,57 @@
       "type": "image_picker",
       "id": "hero_small",
       "label": "Hero Image Small"
+    },
+    {
+      "type": "header",
+      "content": "Page Navigation"
+    },
+    {
+      "type": "text",
+      "id": "nav_title",
+      "label": "Navigation Title",
+      "info": "Must Match Page Navigation Level 1",
+      "default": "Our Mission"
+    },
+    {
+      "type": "header",
+      "content": "Motto Section"
+    },
+    {
+      "type": "text",
+      "id": "motto_preheading",
+      "label": "Motto Preheading",
+      "default": "Our Motto"
+    },
+    {
+      "type": "html",
+      "id": "motto_heading",
+      "label": "Motto Heading",
+      "default": "<h1 class='c-mission__heading'>Every Dog Deserves To Be <span class='u-colorPrimary'>Happy</span> & <span class='u-colorPrimary'>Healthy</span></h1>"
+    },
+    {
+      "type": "text",
+      "id": "motto_text",
+      "label": "Motto Text",
+      "default": "We love dogs.  Big dogs, small dogs, short dogs, tall dogs - we love them all. And we want all of them to be living their best life.  Sadly, millions of innocent shelter dogs never get the love and support they need.  Here’s why:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "why_carousel",
+      "name": "Why Carousel",
+      "settings": [
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "Why Heading"
+        },
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Why Text"
+        }
+      ]
     }
   ]
 }

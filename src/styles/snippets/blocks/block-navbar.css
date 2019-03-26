@@ -1,23 +1,29 @@
-/*========== Subheader ==========*/
+/*========== Navbar ==========*/
 
-.c-subheader {
+.c-navbar {
+  position: relative;
+  z-index: 1;
   height: 52px;
   background-color: white;
   box-shadow: $box-shadow-header;
+  user-select: none;    
 }
-.c-subheader__container {
+.c-navbar__container {
   @mixin flex row, space-between, center;
   height: 100%;
   @media(--mobile-max) {
     padding: 0 15px;
   }
 }
-.c-subheader__label, .c-subheader__selectLabel {
+.c-navbar__label, .c-navbar__selectLabel {
   color: $color-black-light;
   font-size: 16px;
   font-weight: 600;
+  @media(--desktop) {
+    font-size: 17px;
+  }
 }
-.c-subheader__labelIcon {
+.c-navbar__labelIcon {
   position: relative;
   top: 1px;
   margin-right: 5px;
@@ -25,7 +31,7 @@
   color: $color-blue-dark;
  
 }
-.c-subheader__select {
+.c-navbar__select {
   @mixin flexRow;
   position: relative;
   height: 100%;
@@ -42,7 +48,7 @@
     pointer-events: none;
   }
 }
-.c-subheader__selectInner {
+.c-navbar__selectInner {
   height: 100%;
   padding-right: 15px;
   background-color: transparent;
@@ -53,7 +59,7 @@
   line-height: initial;
   opacity: 0;
 }
-.c-subheader__selectLabel {
+.c-navbar__selectLabel {
   position: absolute;
   right: 16px;
   pointer-events: none;

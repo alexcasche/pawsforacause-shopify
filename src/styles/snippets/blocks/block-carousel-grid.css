@@ -1,0 +1,5 @@
+/*========== Carousel Grid ==========*/
+
+.c-carouselGrid__track {
+  @mixin flex row, center, flex-start;
+}

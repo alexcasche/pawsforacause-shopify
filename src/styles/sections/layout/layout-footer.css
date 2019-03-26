@@ -47,6 +47,9 @@
   font-weight: 600;
   margin-bottom: 8px;
   text-transform: uppercase;
+  @media(--tablet) {
+    text-align: left;
+  }
 }
 .c-footerMain__link {
   color: #ddd;

@@ -2,16 +2,32 @@
 
 .c-carousel {
   position: relative;
+  user-select: none;
   .tns-inner {
     overflow: hidden;
+  }
+  .c-loadingDots {
+    display: none;
+    min-height: 200px;
   }
 }
 .c-carousel.is-loading {
   .c-carousel__slide:not(:first-child) {
     display: none;
   }
+  .c-carousel__track {
+    opacity: 0;
+  }
+  .c-carousel__controls,
+  .c-carousel__bubbles {
+    display: none;
+  }
+  .c-loadingDots {
+    display: flex;
+  }
 }
 .c-carousel__slide {
+  padding: 0 20px;
   touch-action: none;
   &:hover {
     cursor: pointer;

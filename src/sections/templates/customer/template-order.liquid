@@ -6,6 +6,7 @@
 {% endfor %}
 
 <section id="order" class="c-order{% if order.cancelled %} c-order--cancelled{% endif %}">
+  {% include "block-navbar" with nav_title: "Account" %}
   <div class="c-order__top o-strip u-bgGray">
     <div class="c-order__container o-container">
       <div class="c-order__intro">
