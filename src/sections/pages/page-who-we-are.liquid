@@ -11,18 +11,20 @@
       </div>
     </div>
   </div>
-  <div class="c-problems o-strip">
-    <div class="c-problems__container o-container--large">
-      <h2 class="c-problems__heading">{{ settings.problems_heading }}</h2>
+  <div class="c-problem o-strip">
+    <div class="c-problem__container o-container--large">
+      <h2 class="c-problem__heading">{{ settings.problem_heading }}</h2>
       {% assign problem_html = '' %}
+      {% assign problem_loop = 0 %}
       {% for block in section.blocks %}
         {% if block.type == "problem" %}
+          {% assign problem_loop = problem_loop | plus: 1 %}
           {% capture block_html %}
-            {% unless forloop.first %},{% endunless %}
-            <div class="c-problems__item o-flexColumn">
-              <span class="c-problems__itemCount o-flexColumn">{{ forloop.index }}</span>
-              <h4 class="c-problems__itemHeading">{{ block.settings.heading }}</h4>
-              <p class="c-problems__itemText">{{ block.settings.text }}</p>
+            {% unless problem_loop == 1 %},{% endunless %}
+            <div class="c-problem__item o-flexColumn">
+              <span class="c-problem__itemCount o-flexColumn">{{ forloop.index }}</span>
+              <h4 class="c-problem__itemHeading">{{ block.settings.heading }}</h4>
+              <p class="c-problem__itemText">{{ block.settings.text }}</p>
             </div>
           {% endcapture %}
           {% assign problem_html = problem_html | append: block_html %}
@@ -65,6 +67,37 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="c-support o-strip">
+    <div class="c-support__container o-container">
+      <div class="c-support__narrow u-textNarrow">
+        <h1 class="c-support__heading">{{ settings.support_heading }}</h1>
+        <p class="c-support__text">{{ settings.support_text }}</p>
+      </div>
+    </div>
+    <div class="c-support__container o-container--large">
+      <hr class="c-support__break" />
+      {% assign support_html = '' %}
+      {% assign support_loop = 0 %}
+      {% for block in section.blocks %}
+        {% if block.type == "support" %}
+          {% assign support_loop = support_loop | plus: 1 %}
+          {% capture block_html %}
+            {% unless support_loop == 1 %},{% endunless %}
+            <a class="c-support__item o-flexColumn" href="{{ block.settings.url }}" draggable="false">
+              <h4 class="c-support__itemHeading">{{ block.settings.heading }}</h4>
+              <p class="c-support__itemText">{{ block.settings.text }}</p>
+              <span class="c-support__itemButton o-flexColumn">
+                <i class="c-support__itemArrow fas fa-chevron-right"></i>
+              </span>
+            </a>
+          {% endcapture %}
+          {% assign support_html = support_html | append: block_html %}
+        {% endif %}
+      {% endfor %}
+      {% assign support_items = support_html | split: "," %}
+      {% include 'block-carousel-grid', with items: support_items %}
+    <div>
   </div>
 </div>
 
@@ -194,6 +227,22 @@
       "id": "story_bio",
       "label": "Story Bio",
       "default": "Founders of Paws For A Cause"
+    },
+    {
+      "type": "header",
+      "content": "Support Section"
+    },
+    {
+      "type": "text",
+      "id": "support_heading",
+      "label": "Support Heading",
+      "default": "We Need Your Support"
+    },
+    {
+      "type": "text",
+      "id": "support_text",
+      "label": "Support Text",
+      "default": "Saving rescue dogs is no small task. We need the support of dog lovers everywhere to grow the cause. Want to make a difference? Here are three ways you can help rescue dogs right now!"
     }
   ],
   "blocks": [
@@ -210,6 +259,27 @@
           "id": "text",
           "type": "text",
           "label": "Problem Text"
+        }
+      ]
+    },
+    {
+      "type": "support",
+      "name": "Support",
+      "settings": [
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "Support Heading"
+        },
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Support Text"
+        },
+        {
+          "id": "url",
+          "type": "url",
+          "label": "Support Url"
         }
       ]
     }

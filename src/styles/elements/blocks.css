@@ -7,8 +7,8 @@ div {
 hr {
   width: 100%;
   height: 1px;
-  margin: 40px auto;
+  margin: 60px auto;
   border: none;
-  background-color: $color-gray;
+  background-color: $hr-gray;
   opacity: .5;
 }

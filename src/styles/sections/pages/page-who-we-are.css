@@ -1,17 +1,17 @@
 /*========== Who We Are ==========*/
 
 .c-whoWeAre {
-  .c-problems__heading {
+  .c-problem__heading {
     margin-bottom: 40px;
     @media(--tablet) {
       margin-bottom: 50px;
     }
   }
-  .c-problems__item {
+  .c-problem__item {
     max-width: 300px;
     margin: 0 auto;
   }
-  .c-problems__itemCount {
+  .c-problem__itemCount {
     width: 32px;
     height: 32px;
     margin-bottom: 15px;
@@ -22,10 +22,10 @@
     font-size: 22px;
     font-weight: 700;
   }
-  .c-problems__itemHeading {
+  .c-problem__itemHeading {
     font-size: 18px;
   }
-  .c-problems__itemText {
+  .c-problem__itemText {
     font-size: 18px;
   }
   .c-mission {
@@ -87,5 +87,35 @@
     color: $color-blue;
     font-size: 22px;
     font-weight: 600;
+  }
+  .c-support__item {
+    max-width: 300px;
+    margin: 0 auto;
+    &:hover, &:focus {
+      .c-support__itemButton {
+        background-color: $color-blue-darker;
+      }
+    }
+  }
+  .c-support__itemHeading {
+    color: $color-blue;
+    text-transform: capitalize;
+  }
+  .c-support__itemText {
+    font-size: 18px;
+  }
+  .c-support__itemButton {
+    width: 28px;
+    height: 28px;
+    margin: -10px 0 20px;
+    background-color: $color-secondary;
+    border-radius: 50%;
+    transition: background-color .15s ease-in-out;
+  }
+  .c-support__itemArrow {
+    position: relative;
+    left: 1px;
+    color: white;
+    font-size: 15px;
   }
 }
