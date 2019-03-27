@@ -4,6 +4,7 @@ const options = {
   mouseDrag: true,
   speed: 350,
   items: 1,
+  gutter: 20,
   slideBy: 'page',
   center: true,
   controls: false,

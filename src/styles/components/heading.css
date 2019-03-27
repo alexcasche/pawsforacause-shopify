@@ -1,0 +1,15 @@
+/*========== Heading ==========*/
+
+.c-preheading {
+  display: block;
+  color: $color-black-dark;
+  font-family: $font-body;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 0;
+  text-transform: capitalize;
+  @media(--tablet) {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+}

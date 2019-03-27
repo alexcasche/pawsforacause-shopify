@@ -31,7 +31,7 @@ h4, h5, h6 {
 
 h1 {
   font-size: 28px;
-  margin: 0 0 12px;
+  margin: 0 0 20px;
   @media(--tablet) {
     font-size: 32px;
     margin: 0 0 18px;
@@ -40,7 +40,10 @@ h1 {
 
 h2 {
   font-size: 28px;
-  margin: 0 0 12px;
+  margin: 0 0 18px;
+  @media(--tablet) {
+    margin: 0 0 16px;
+  }
 }
 
 h3 {
@@ -77,9 +80,9 @@ p {
   margin: 0 0 20px;
   line-height: 1.5;
   color: $color-black;
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
   @media (--tablet) {
-    font-size: 20px;
+    font-size: 22px;
   }
 }

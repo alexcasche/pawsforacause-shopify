@@ -12,6 +12,9 @@
 .u-colorDanger {
   color: $color-danger;
 }
+.u-colorWhite {
+  color: $color-silver-light;
+}
 
 .u-bgWhite {
   background-color: white;

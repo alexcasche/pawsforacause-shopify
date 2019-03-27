@@ -1,21 +1,91 @@
 /*========== Who We Are ==========*/
 
 .c-whoWeAre {
-  .c-why__itemCount {
-    width: 40px;
-    height: 40px;
+  .c-problems__heading {
+    margin-bottom: 40px;
+    @media(--tablet) {
+      margin-bottom: 50px;
+    }
+  }
+  .c-problems__item {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .c-problems__itemCount {
+    width: 32px;
+    height: 32px;
     margin-bottom: 15px;
-    border: 4px solid $color-blue;
     border-radius: 50%;
-    color: $color-blue;
+    background-color: $color-blue;
+    color: white;
     font-family: $font-body;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
   }
-  .c-why__itemHeading {
-    font-size: 22px;
-  }
-  .c-why__itemText {
+  .c-problems__itemHeading {
     font-size: 18px;
+  }
+  .c-problems__itemText {
+    font-size: 18px;
+  }
+  .c-mission {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $color-overlay-blue;
+    }
+  }
+  .c-mission__preheading,
+  .c-mission__heading {
+    color: #f7f7f7;
+  }
+  .c-mission__text {
+    color: #eee;
+  }
+  .c-story__flex {
+    align-items: center;
+    margin-top: 40px;
+  }
+  .c-story__image {
+    width: 450px;
+    margin-bottom: 40px;
+    @mixin full-width-xs;
+    @media(--mobile) {
+      border-radius: 5px;
+    }
+    @media(--desktop) {
+      margin-bottom: 0;
+    }
+    
+  }
+  .c-story__details {
+    @media(--tablet) {
+      padding-left: 40px;
+    }
+  }
+  .c-story__quote,
+  .c-story__author,
+  .c-story__bio {
+    display: block;
+    text-align: center;
+    @media(--tablet) {
+      text-align: left;
+    }
+  }
+  .c-story__quoteBreak {
+    display: block;
+    height: 20px;
+  }
+  .c-story__author {
+    color: $color-blue;
+    font-size: 22px;
+    font-weight: 600;
   }
 }

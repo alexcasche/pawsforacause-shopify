@@ -13,7 +13,7 @@
 .c-prefooter__title {
   margin-bottom: 30px;
   text-align: center;
-  color: white;
+  color: $color-silver-light;
   @media(--mobile-max) {
     font-size: 22px;
   }

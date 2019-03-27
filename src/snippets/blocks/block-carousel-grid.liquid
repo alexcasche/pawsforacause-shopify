@@ -2,7 +2,7 @@
   {% include 'part-loading-dots' with count: 4 %}
   <div class="c-carouselGrid__track c-carousel__track">
     {% for item in items %}
-      <div class="c-carouselGrid c-carousel__slide">
+      <div class="c-carouselGrid__slide c-carousel__slide">
         {{ item }}
       </div>
     {% endfor %}

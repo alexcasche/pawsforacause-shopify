@@ -16,7 +16,7 @@
   }
 }
 .c-navbar__label, .c-navbar__selectLabel {
-  color: $color-black-light;
+  color: $color-black-dark;
   font-size: 16px;
   font-weight: 600;
   @media(--desktop) {

@@ -2,35 +2,68 @@
 {% include "block-hero" with hero_large: settings.hero_large, hero_small: settings.hero_small %}
 {% include "block-navbar" with nav_title: settings.nav_title %}
 <div id="who-we-are" class="c-whoWeAre">
-  <div class="c-mission o-strip u-bgGray">
-    <div class="c-mission__container o-container">
-      <div class="c-mission__narrow u-textNarrow">
-        <h5 class="c-mission__preheading">{{ settings.motto_preheading }}</h5>
-        {{ settings.motto_heading }}
-        <p class="c-mission__text">
-        {{ settings.motto_text }}
-        </p>
+  <div class="c-motto o-strip u-bgGray">
+    <div class="c-motto__container o-container">
+      <div class="c-motto__narrow u-textNarrow">
+        <span class="c-motto__preheading c-preheading">{{ settings.motto_preheading }}</span>
+        <h1 class="c-motto__heading">{{ settings.motto_heading }}</h1>
+        <p class="c-motto__text">{{ settings.motto_text }}</p>
       </div>
     </div>
   </div>
-  <div class="c-why o-strip">
-    <div class="c-why__container o-container--large">
-      {% assign carousel_html = '' %}
+  <div class="c-problems o-strip">
+    <div class="c-problems__container o-container--large">
+      <h2 class="c-problems__heading">{{ settings.problems_heading }}</h2>
+      {% assign problem_html = '' %}
       {% for block in section.blocks %}
-        {% if block.type == "why_carousel" %}
+        {% if block.type == "problem" %}
           {% capture block_html %}
             {% unless forloop.first %},{% endunless %}
-            <div class="c-why__item o-flexColumn">
-              <span class="c-why__itemCount o-flexColumn">{{ forloop.index }}</span>
-              <h3 class="c-why__itemHeading">{{ block.settings.heading }}</h3>
-              <p class="c-why__itemText">{{ block.settings.text }}</p>
+            <div class="c-problems__item o-flexColumn">
+              <span class="c-problems__itemCount o-flexColumn">{{ forloop.index }}</span>
+              <h4 class="c-problems__itemHeading">{{ block.settings.heading }}</h4>
+              <p class="c-problems__itemText">{{ block.settings.text }}</p>
             </div>
           {% endcapture %}
-          {% assign carousel_html = carousel_html | append: block_html %}
+          {% assign problem_html = problem_html | append: block_html %}
         {% endif %}
       {% endfor %}
-      {% assign carousel_items = carousel_html | split: "," %}
-      {% include 'block-carousel-grid', with items: carousel_items %}
+      {% assign problem_items = problem_html | split: "," %}
+      {% include 'block-carousel-grid', with items: problem_items %}
+    </div>
+  </div>
+  <div class="c-mission o-strip" style="background-image:url({{ 'background-paw-hand.jpg' | asset_url }});">
+    <div class="c-mission__container o-container">
+      <div class="c-mission__narrow u-textNarrow">
+        <span class="c-mission__preheading c-preheading">{{ settings.mission_preheading }}</span>
+        <h1 class="c-mission__heading">{{ settings.mission_heading }}</h1>
+        <p class="c-mission__text">{{ settings.mission_text }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="c-story o-strip u-bgGray">
+    <div class="c-story__container o-container">
+      <div class="c-story__narrow u-textNarrow">
+        <span class="c-story__preheading c-preheading">{{ settings.story_preheading }}</span>
+        <h1 class="c-story__heading">{{ settings.story_heading }}</h1>
+      </div>
+      <div class="c-story__flex o-flexFlip">
+        <img class="c-story__image lazyload u-hideTablet"
+          src="{{ settings.story_image_small.src | img_url: 'x300' }}"
+          data-src="{{ settings.story_image_small.src | img_url: 'master' }}" 
+          alt="{{ settings.story_image_small.alt }}" 
+        />
+         <img class="c-story__image lazyload u-showTablet"
+          src="{{ settings.story_image_large.src | img_url: 'x300' }}"
+          data-src="{{ settings.story_image_large.src | img_url: 'master' }}" 
+          alt="{{ settings.story_image_large.alt }}" 
+        />
+        <div class="c-story__details">
+          <p class="c-story__quote">"{{ settings.story_quote }}"</p>
+          <span class="c-story__author">{{ settings.story_author }}</span>
+          <span class="c-story__bio">{{ settings.story_bio }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -62,7 +95,7 @@
       "id": "nav_title",
       "label": "Navigation Title",
       "info": "Must Match Page Navigation Level 1",
-      "default": "Our Mission"
+      "default": "About Us"
     },
     {
       "type": "header",
@@ -78,29 +111,105 @@
       "type": "html",
       "id": "motto_heading",
       "label": "Motto Heading",
-      "default": "<h1 class='c-mission__heading'>Every Dog Deserves To Be <span class='u-colorPrimary'>Happy</span> & <span class='u-colorPrimary'>Healthy</span></h1>"
+      "default": "Every Dog Deserves To Be <span class='u-colorPrimary'>Happy</span> & <span class='u-colorPrimary'>Healthy</span>"
     },
     {
       "type": "text",
       "id": "motto_text",
       "label": "Motto Text",
-      "default": "We love dogs.  Big dogs, small dogs, short dogs, tall dogs - we love them all. And we want all of them to be living their best life.  Sadly, millions of innocent shelter dogs never get the love and support they need.  Here’s why:"
+      "default": "We love dogs.  Big dogs, small dogs, short dogs, tall dogs - we love them all. And we want all of them to be living their best life.  Sadly, millions of innocent shelter dogs never get the love and support they need."
+    },
+    {
+      "type": "header",
+      "content": "Problems Section"
+    },
+    {
+      "type": "text",
+      "id": "problems_heading",
+      "label": "Problems Heading",
+      "default": "The Problems"
+    },
+    {
+      "type": "header",
+      "content": "Mission Section"
+    },
+    {
+      "type": "text",
+      "id": "mission_preheading",
+      "label": "Mission Preheading",
+      "default": "Our Mission"
+    },
+    {
+      "type": "text",
+      "id": "mission_heading",
+      "label": "Mission Heading",
+      "default": "Help Every Dog Live Their Best Life"
+    },
+    {
+      "type": "text",
+      "id": "mission_text",
+      "label": "Mission Text",
+      "default": "We’re committed to using all our profits to fund responsible dog shelters, promote the adoption of rescue dogs, and raise awareness for the causes and solutions to dog homelessness and suffering."
+    },
+    {
+      "type": "header",
+      "content": "Story Section"
+    },
+    {
+      "type": "text",
+      "id": "story_preheading",
+      "label": "Story Preheading",
+      "default": "Our Story"
+    },
+    {
+      "type": "text",
+      "id": "story_heading",
+      "label": "Story Heading",
+      "default": "It All Started With A Dog & His Human"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_image_large",
+      "label": "Story Image Large"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_image_small",
+      "label": "Story Image Small"
+    },
+    {
+      "type": "html",
+      "id": "story_quote",
+      "label": "Story Quote",
+      "default": "The moment Mulligan entered my life, everything changed.  Bad days became goods days, and good days became great days.  No matter where I’m going or what I’m doing, he’s always right there by my side.<span class='c-story__quoteBreak'></span>But this is what dogs do.  They support us when we need them.  And we owe it to them to return the favor."
+    },
+    {
+      "type": "text",
+      "id": "story_author",
+      "label": "Story Author",
+      "default": "Alex & Mulligan"
+    },
+    {
+      "type": "text",
+      "id": "story_bio",
+      "label": "Story Bio",
+      "default": "Founders of Paws For A Cause"
     }
   ],
   "blocks": [
     {
-      "type": "why_carousel",
-      "name": "Why Carousel",
+      "type": "problem",
+      "name": "Problem",
       "settings": [
         {
           "id": "heading",
           "type": "text",
-          "label": "Why Heading"
+          "label": "Problem Heading"
         },
         {
           "id": "text",
           "type": "text",
-          "label": "Why Text"
+          "label": "Problem Text"
         }
       ]
     }

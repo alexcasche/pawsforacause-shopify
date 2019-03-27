@@ -1,5 +1,17 @@
 /*========== Carousel Grid ==========*/
 
 .c-carouselGrid__track {
-  @mixin flex row, center, flex-start;
+  @mixin flex row, space-between, flex-start;
+}
+
+.c-carouselGrid__slide {
+  @media(--tablet) {
+    padding: 0 15px;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:first-child {
+      padding-left: 0;
+    }
+  }
 }

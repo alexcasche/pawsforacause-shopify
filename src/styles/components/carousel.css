@@ -27,7 +27,6 @@
   }
 }
 .c-carousel__slide {
-  padding: 0 20px;
   touch-action: none;
   &:hover {
     cursor: pointer;
