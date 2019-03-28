@@ -1,0 +1,116 @@
+{% assign settings = section.settings %}
+{% include "block-hero" with hero_large: settings.hero_large, hero_small: settings.hero_small %}
+{% include "block-navbar" with nav_title: settings.nav_title %}
+<div id="contact-us" class="c-contactUs">
+  <div class="c-help o-strip u-bgGray">
+    <div class="c-help__container o-container">
+      <div class="c-help__narrow u-textNarrow">
+        <h1 class="c-help__heading">{{ settings.help_heading }}</h1>
+        <p class="c-help__text">{{ settings.help_text }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="c-reach o-strip">
+    <div class="c-reach__container o-container">
+      <h2 class="c-reach__heading">{{ settings.reach_heading }}</h2>
+    </div>
+  </div>
+  <div class="c-assistance o-strip" style="background-image:url({{ 'background-paw-hand.jpg' | asset_url }});">
+    <div class="c-assistance__container o-container">
+      <div class="c-assistance__narrow u-textNarrow">
+        <h1 class="c-assistance__heading">{{ settings.assistance_heading }}</h1>
+        <p class="c-assistance__text">{{ settings.assistance_text }}</p>
+        <a class="c-assistance__button c-button" target="_blank" href="{{ settings.assistance_url }}">
+          {{ settings.assistance_button }}
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_large",
+      "label": "Hero Image Large"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_small",
+      "label": "Hero Image Small"
+    },
+    {
+      "type": "header",
+      "content": "Page Navigation"
+    },
+    {
+      "type": "text",
+      "id": "nav_title",
+      "label": "Navigation Title",
+      "info": "Must Match Page Navigation Level 1",
+      "default": "Customer Service"
+    },
+    {
+      "type": "header",
+      "content": "Help Section"
+    },
+    {
+      "type": "text",
+      "id": "help_heading",
+      "label": "Help Heading",
+      "default": "How Can We Help You Today?"
+    },
+    {
+      "type": "text",
+      "id": "help_text",
+      "label": "Help Text",
+      "default": "Got a question, or just want to chat?  Awesome.  We love connecting with other dog people.  Give us a bark and we’ll get back to you soon."
+    },
+    {
+      "type": "header",
+      "content": "Reach Section"
+    },
+    {
+      "type": "text",
+      "id": "reach_heading",
+      "label": "Reach Heading",
+      "default": "How To Reach Us"
+    },
+    {
+      "type": "header",
+      "content": "Assistance Section"
+    },
+    {
+      "type": "text",
+      "id": "assistance_heading",
+      "label": "Assistance Heading",
+      "default": "Looking For An Assistance Dog?"
+    },
+    {
+      "type": "text",
+      "id": "assistance_text",
+      "label": "Assistance Text",
+      "default": "Check out our friends at Paws With A Cause, who enhance the independence and quality of life for people with disabilities nationally through custom-trained Assistance Dogs."
+    },
+    {
+      "type": "text",
+      "id": "assistance_button",
+      "label": "Assistance Button",
+      "default": "Paws With A Cause"
+    },
+    {
+      "type": "url",
+      "id": "assistance_url",
+      "label": "Assistance Url"
+    }
+  ]
+}
+{% endschema %}

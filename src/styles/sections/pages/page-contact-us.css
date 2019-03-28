@@ -1,0 +1,31 @@
+/*========== How We Give Back ==========*/
+
+.c-contactUs {
+  .c-assistance {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $color-overlay-blue;
+    }
+  }
+  .c-assistance__heading {
+    color: #f7f7f7;
+  }
+  .c-assistance__text {
+    color: #eee;
+  }
+  .c-assistance__button {
+    background-color: $color-blue-dark;
+    border: 2px solid #f7f7f7;
+    color: #f7f7f7;
+    font-size: 18px;
+    @mixin transition-bg-darken $color-blue-dark;
+  }
+}
