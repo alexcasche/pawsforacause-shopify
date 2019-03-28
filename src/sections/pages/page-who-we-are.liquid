@@ -2,36 +2,36 @@
 {% include "block-hero" with hero_large: settings.hero_large, hero_small: settings.hero_small %}
 {% include "block-navbar" with nav_title: settings.nav_title %}
 <div id="who-we-are" class="c-whoWeAre">
-  <div class="c-motto o-strip u-bgGray">
-    <div class="c-motto__container o-container">
-      <div class="c-motto__narrow u-textNarrow">
-        <span class="c-motto__preheading c-preheading">{{ settings.motto_preheading }}</span>
-        <h1 class="c-motto__heading">{{ settings.motto_heading }}</h1>
-        <p class="c-motto__text">{{ settings.motto_text }}</p>
+  <div class="c-mantra o-strip u-bgGray">
+    <div class="c-mantra__container o-container">
+      <div class="c-mantra__narrow u-textNarrow">
+        <span class="c-mantra__preheading c-preheading">{{ settings.mantra_preheading }}</span>
+        <h1 class="c-mantra__heading">{{ settings.mantra_heading }}</h1>
+        <p class="c-mantra__text">{{ settings.mantra_text }}</p>
       </div>
     </div>
   </div>
-  <div class="c-problem o-strip">
-    <div class="c-problem__container o-container--large">
-      <h2 class="c-problem__heading">{{ settings.problem_heading }}</h2>
-      {% assign problem_html = '' %}
-      {% assign problem_loop = 0 %}
+  <div class="c-problems o-strip">
+    <div class="c-problems__container o-container">
+      <h2 class="c-problems__heading">{{ settings.problems_heading }}</h2>
+      {% assign problems_html = '' %}
+      {% assign problems_loop = 0 %}
       {% for block in section.blocks %}
         {% if block.type == "problem" %}
-          {% assign problem_loop = problem_loop | plus: 1 %}
+          {% assign problems_loop = problems_loop | plus: 1 %}
           {% capture block_html %}
-            {% unless problem_loop == 1 %},{% endunless %}
-            <div class="c-problem__item o-flexColumn">
-              <span class="c-problem__itemCount o-flexColumn">{{ forloop.index }}</span>
-              <h4 class="c-problem__itemHeading">{{ block.settings.heading }}</h4>
-              <p class="c-problem__itemText">{{ block.settings.text }}</p>
+            {% unless problems_loop == 1 %},{% endunless %}
+            <div class="c-problems__item o-flexColumn">
+              <span class="c-problems__itemCount o-flexColumn">{{ forloop.index }}</span>
+              <h4 class="c-problems__itemHeading">{{ block.settings.heading }}</h4>
+              <p class="c-problems__itemText">{{ block.settings.text }}</p>
             </div>
           {% endcapture %}
-          {% assign problem_html = problem_html | append: block_html %}
+          {% assign problems_html = problems_html | append: block_html %}
         {% endif %}
       {% endfor %}
-      {% assign problem_items = problem_html | split: "," %}
-      {% include 'block-carousel-grid', with items: problem_items %}
+      {% assign problems_items = problems_html | split: "," %}
+      {% include 'block-carousel-grid', with items: problems_items %}
     </div>
   </div>
   <div class="c-mission o-strip" style="background-image:url({{ 'background-paw-hand.jpg' | asset_url }});">
@@ -75,7 +75,7 @@
         <p class="c-support__text">{{ settings.support_text }}</p>
       </div>
     </div>
-    <div class="c-support__container o-container--large">
+    <div class="c-support__container o-container">
       <hr class="c-support__break" />
       {% assign support_html = '' %}
       {% assign support_loop = 0 %}
@@ -97,7 +97,7 @@
       {% endfor %}
       {% assign support_items = support_html | split: "," %}
       {% include 'block-carousel-grid', with items: support_items %}
-    <div>
+    </div>
   </div>
 </div>
 
@@ -132,25 +132,25 @@
     },
     {
       "type": "header",
-      "content": "Motto Section"
+      "content": "Mantra Section"
     },
     {
       "type": "text",
-      "id": "motto_preheading",
-      "label": "Motto Preheading",
-      "default": "Our Motto"
+      "id": "mantra_preheading",
+      "label": "Mantra Preheading",
+      "default": "Our Mantra"
     },
     {
       "type": "html",
-      "id": "motto_heading",
-      "label": "Motto Heading",
+      "id": "mantra_heading",
+      "label": "Mantra Heading",
       "default": "Every Dog Deserves To Be <span class='u-colorPrimary'>Happy</span> & <span class='u-colorPrimary'>Healthy</span>"
     },
     {
       "type": "text",
-      "id": "motto_text",
-      "label": "Motto Text",
-      "default": "We love dogs.  Big dogs, small dogs, short dogs, tall dogs - we love them all. And we want all of them to be living their best life.  Sadly, millions of innocent shelter dogs never get the love and support they need."
+      "id": "mantra_text",
+      "label": "Mantra Text",
+      "default": "From the pups we spoil at home, to the rescues waiting in shelters, we want every dog living their best life. Sadly millions of dogs never get that oportunity. We founded Paws For A Cause to change that."
     },
     {
       "type": "header",

@@ -1,6 +1,6 @@
 <template>
   <div class="c-cartHeader">
-    <button class="c-cartHeader__close" @click="closeCart">
+    <button class="c-cartHeader__close" @click.stop="closeCart">
       <i class="c-cartHeader__closeIcon fa fa-times" aria-hidden="true"></i>
     </button>
     <h2 class="c-cartHeader__heading u-textCenter">

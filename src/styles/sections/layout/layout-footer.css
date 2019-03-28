@@ -26,8 +26,6 @@
     margin-bottom: 40px;
   }
   @media (--desktop) {
-    align-items: flex-start;
-    text-align: left;
     width: calc(20% - 20px);
     margin-bottom: 20px;
   }
@@ -37,9 +35,6 @@
   @media(--mobile) {
     margin-bottom: 30px;
   }
-  @media(--desktop) {
-    width: 100px
-  }
 }
 .c-footerMain__heading {
   color: $color-silver-light;
@@ -47,9 +42,6 @@
   font-weight: 600;
   margin-bottom: 8px;
   text-transform: uppercase;
-  @media(--tablet) {
-    text-align: left;
-  }
 }
 .c-footerMain__link {
   color: #ddd;

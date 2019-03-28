@@ -1,17 +1,17 @@
 /*========== Who We Are ==========*/
 
 .c-whoWeAre {
-  .c-problem__heading {
+  .c-problems__heading {
     margin-bottom: 40px;
     @media(--tablet) {
       margin-bottom: 50px;
     }
   }
-  .c-problem__item {
-    max-width: 300px;
+  .c-problems__item {
+    width: 300px;
     margin: 0 auto;
   }
-  .c-problem__itemCount {
+  .c-problems__itemCount {
     width: 32px;
     height: 32px;
     margin-bottom: 15px;
@@ -22,10 +22,10 @@
     font-size: 22px;
     font-weight: 700;
   }
-  .c-problem__itemHeading {
+  .c-problems__itemHeading {
     font-size: 18px;
   }
-  .c-problem__itemText {
+  .c-problems__itemText {
     font-size: 18px;
   }
   .c-mission {
@@ -89,7 +89,8 @@
     font-weight: 600;
   }
   .c-support__item {
-    max-width: 300px;
+    height: 100%;
+    width: 300px;
     margin: 0 auto;
     &:hover, &:focus {
       .c-support__itemButton {

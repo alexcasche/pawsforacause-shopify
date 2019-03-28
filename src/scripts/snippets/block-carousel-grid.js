@@ -10,7 +10,7 @@ const options = {
   controls: false,
   nav: true,
   responsive: {
-    768: {
+    1024: {
       disable: true
     }
   }

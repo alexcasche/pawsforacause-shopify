@@ -1,0 +1,57 @@
+/*========== How We Give Back ==========*/
+
+.c-howWeGiveBack {
+
+  .c-promise {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $color-overlay-blue;
+    }
+  }
+  .c-promise__preheading,
+  .c-promise__heading {
+    color: #f7f7f7;
+  }
+  .c-promise__text {
+    color: #eee;
+  }
+  .c-support__item {
+    height: 100%;
+    width: 300px;
+    margin: 0 auto;
+    &:hover, &:focus {
+      .c-support__itemButton {
+        background-color: $color-blue-darker;
+      }
+    }
+  }
+  .c-support__itemHeading {
+    color: $color-blue;
+    text-transform: capitalize;
+  }
+  .c-support__itemText {
+    font-size: 18px;
+  }
+  .c-support__itemButton {
+    width: 28px;
+    height: 28px;
+    margin: -10px 0 20px;
+    background-color: $color-secondary;
+    border-radius: 50%;
+    transition: background-color .15s ease-in-out;
+  }
+  .c-support__itemArrow {
+    position: relative;
+    left: 1px;
+    color: white;
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,209 @@
+{% assign settings = section.settings %}
+{% include "block-hero" with hero_large: settings.hero_large, hero_small: settings.hero_small %}
+{% include "block-navbar" with nav_title: settings.nav_title %}
+<div id="how-we-give-back" class="c-howWeGiveBack">
+  <div class="c-partner o-strip u-bgGray">
+    <div class="c-partner__container o-container">
+      <div class="c-partner__narrow u-textNarrow">
+        <span class="c-partner__preheading c-preheading">{{ settings.partner_preheading }}</span>
+        <h1 class="c-partner__heading">{{ settings.partner_heading }}</h1>
+        <p class="c-partner__text">{{ settings.partner_text }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="c-shelters o-strip">
+    <div class="c-shelters__container o-container">
+      <h2 class="c-shelters__heading">{{ settings.shelters_heading }}</h2>
+    </div>
+  </div>
+  <div class="c-promise o-strip" style="background-image:url({{ 'background-paw-hand.jpg' | asset_url }});">
+    <div class="c-promise__container o-container">
+      <div class="c-promise__narrow u-textNarrow">
+        <span class="c-promise__preheading c-preheading">{{ settings.promise_preheading }}</span>
+        <h1 class="c-promise__heading">{{ settings.promise_heading }}</h1>
+        <p class="c-promise__text">{{ settings.promise_text }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="c-impact o-strip u-bgGray">
+    <div class="c-impact__container o-container">
+      <div class="c-impact__narrow u-textNarrow">
+        <span class="c-impact__preheading c-preheading">{{ settings.impact_preheading }}</span>
+        <h1 class="c-impact__heading">{{ settings.impact_heading }}</h1>
+        <p class="c-impact__text">{{ settings.impact_text }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="c-support o-strip">
+    <div class="c-support__container o-container">
+      <div class="c-support__narrow u-textNarrow">
+        <h1 class="c-support__heading">{{ settings.support_heading }}</h1>
+        <p class="c-support__text">{{ settings.support_text }}</p>
+      </div>
+    </div>
+    <div class="c-support__container o-container">
+      <hr class="c-support__break" />
+      {% assign support_html = '' %}
+      {% assign support_loop = 0 %}
+      {% for block in section.blocks %}
+        {% if block.type == "support" %}
+          {% assign support_loop = support_loop | plus: 1 %}
+          {% capture block_html %}
+            {% unless support_loop == 1 %},{% endunless %}
+            <a class="c-support__item o-flexColumn" href="{{ block.settings.url }}" draggable="false">
+              <h4 class="c-support__itemHeading">{{ block.settings.heading }}</h4>
+              <p class="c-support__itemText">{{ block.settings.text }}</p>
+              <span class="c-support__itemButton o-flexColumn">
+                <i class="c-support__itemArrow fas fa-chevron-right"></i>
+              </span>
+            </a>
+          {% endcapture %}
+          {% assign support_html = support_html | append: block_html %}
+        {% endif %}
+      {% endfor %}
+      {% assign support_items = support_html | split: "," %}
+      {% include 'block-carousel-grid', with items: support_items %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_large",
+      "label": "Hero Image Large"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_small",
+      "label": "Hero Image Small"
+    },
+    {
+      "type": "header",
+      "content": "Page Navigation"
+    },
+    {
+      "type": "text",
+      "id": "nav_title",
+      "label": "Navigation Title",
+      "info": "Must Match Page Navigation Level 1",
+      "default": "About Us"
+    },
+    {
+      "type": "header",
+      "content": "Partner Section"
+    },
+    {
+      "type": "text",
+      "id": "partner_preheading",
+      "label": "Partner Preheading",
+      "default": "Our Partners"
+    },
+    {
+      "type": "html",
+      "id": "partner_heading",
+      "label": "Partner Heading",
+      "default": "They Love Their <span class='u-colorPrimary'>Dogs</span> Like <span class='u-colorPrimary'>Family</span>"
+    },
+    {
+      "type": "text",
+      "id": "partner_text",
+      "label": "Partner Text",
+      "default": "We only support organizations that love their dogs as much as we do ours.  Before we make any donations, we get to the know the people behind the rescue.  It’s our way of making sure we have the greatest impact."
+    },
+    {
+      "type": "header",
+      "content": "Shelters Section"
+    },
+    {
+      "type": "text",
+      "id": "shelters_heading",
+      "label": "Shelters Heading",
+      "default": "Shelters We Support"
+    },
+    {
+      "type": "header",
+      "content": "Promise Section"
+    },
+    {
+      "type": "text",
+      "id": "promise_preheading",
+      "label": "Promise Preheading",
+      "default": "Our Promise"
+    },
+    {
+      "type": "text",
+      "id": "promise_heading",
+      "label": "Promise Heading",
+      "default": "All Profits To Rescue Dogs"
+    },
+    {
+      "type": "text",
+      "id": "promise_text",
+      "label": "Promise Text",
+      "default": "We’re committed to donating all our profits to help rescue dogs in need.  From funding responsible shelters to promoting adoptions, we promise to always put dogs first.  We're not here to make a buck, we're here to save some lives."
+    },
+    {
+      "type": "header",
+      "content": "Impact Section"
+    },
+    {
+      "type": "text",
+      "id": "impact_preheading",
+      "label": "Impact Preheading",
+      "default": "Our Impact"
+    },
+    {
+      "type": "text",
+      "id": "impact_heading",
+      "label": "Impact Heading",
+      "default": "Every Purchase Makes A Difference"
+    },
+    {
+      "type": "header",
+      "content": "Support Section"
+    },
+    {
+      "type": "text",
+      "id": "support_heading",
+      "label": "Support Heading",
+      "default": "We Need Your Support"
+    },
+    {
+      "type": "text",
+      "id": "support_text",
+      "label": "Support Text",
+      "default": "Saving rescue dogs is no small task. We need the support of dog lovers everywhere to grow the cause. Want to make a difference? Here are three ways you can help rescue dogs right now!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "support",
+      "name": "Support",
+      "settings": [
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "Support Heading"
+        },
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Support Text"
+        },
+        {
+          "id": "url",
+          "type": "url",
+          "label": "Support Url"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -113,12 +113,12 @@
   background-color: #f94331;
   border-radius: 50%;
   color: #fff;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 700;
   right: 14px;
   bottom: 10px;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 .c-headerNav {
@@ -260,12 +260,12 @@
   background-color: #f94331;
   border-radius: 50%;
   color: #fff;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 700;
   right: 2px;
   bottom: 8px;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 .c-headerSearch {
