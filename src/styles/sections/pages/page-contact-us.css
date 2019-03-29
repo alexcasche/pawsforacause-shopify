@@ -1,6 +1,39 @@
 /*========== How We Give Back ==========*/
 
 .c-contactUs {
+  .c-reach__heading {
+    margin-bottom: 40px;
+    @media(--tablet) {
+      margin-bottom: 50px;
+    }
+  }
+  .c-reach__item {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .c-reach__itemIcon {
+    margin-bottom: 18px;
+    color: $color-blue;
+    &.fa-paper-plane {
+      font-size: 28px;
+    }
+    &.fa-facebook-messenger {
+      font-size: 32px;
+    }
+    &.fa-at {
+      font-size: 30px;
+    }
+  }
+  .c-reach__itemHeading {
+    font-size: 18px;
+  }
+  .c-reach__itemText {
+    font-size: 18px;
+  }
+  .c-reach__itemButton {
+    width: 150px;
+    margin-bottom: 30px;
+  }
   .c-assistance {
     position: relative;
     background-size: cover;

@@ -13,6 +13,27 @@
   <div class="c-reach o-strip">
     <div class="c-reach__container o-container">
       <h2 class="c-reach__heading">{{ settings.reach_heading }}</h2>
+      {% assign reach_html = '' %}
+      {% assign reach_loop = 0 %}
+      {% for block in section.blocks %}
+        {% if block.type == "reach" %}
+          {% assign reach_loop = reach_loop | plus: 1 %}
+          {% capture block_html %}
+            {% unless reach_loop == 1 %},{% endunless %}
+            <div class="c-reach__item o-flexColumn">
+              <i class="c-reach__itemIcon {{ block.settings.icon }}"></i>
+              <h4 class="c-reach__itemHeading">{{ block.settings.heading }}</h4>
+              <p class="c-reach__itemText">{{ block.settings.text }}</p>
+              <a class="c-reach__itemButton c-button-small c-button--submit" target="_blank" href="{{ block.settings.url }}">
+                {{ block.settings.button }}
+              </a>
+            </div>
+          {% endcapture %}
+          {% assign reach_html = reach_html | append: block_html %}
+        {% endif %}
+      {% endfor %}
+      {% assign reach_items = reach_html | split: "," %}
+      {% include 'block-carousel-grid', with items: reach_items %}
     </div>
   </div>
   <div class="c-assistance o-strip" style="background-image:url({{ 'background-paw-hand.jpg' | asset_url }});">
@@ -26,7 +47,16 @@
       </div>
     </div>
   </div>
-
+  <div class="c-instagram o-strip u-bgGray">
+    <div class="c-instagram__container o-container">
+      <div class="c-instagram__narrow u-textNarrow">
+        <h1 class="c-instagram__heading">{{ settings.instagram_heading }}</h1>
+      </div>
+      <div class="c-instagram__feed">
+        
+      </div>
+    </div>
+  </div>
 </div>
 
 {% schema %}
@@ -72,7 +102,7 @@
       "type": "text",
       "id": "help_text",
       "label": "Help Text",
-      "default": "Got a question, or just want to chat?  Awesome.  We love connecting with other dog people.  Give us a bark and we’ll get back to you soon."
+      "default": "Got a question, idea, or just want to chat?  Awesome.  We love connecting with other dog lovers.  Give us a bark and we’ll get back to you soon."
     },
     {
       "type": "header",
@@ -110,6 +140,50 @@
       "type": "url",
       "id": "assistance_url",
       "label": "Assistance Url"
+    },
+    {
+      "type": "header",
+      "content": "Instagram Section"
+    },
+    {
+      "type": "text",
+      "id": "instagram_heading",
+      "label": "Instagram Heading",
+      "default": "Follow Us On Instagram!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "reach",
+      "name": "Reach",
+      "settings": [
+        {
+          "id": "icon",
+          "type": "text",
+          "label": "Reach Icon",
+          "info": "Font Awesome Class"
+        },
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "Reach Heading"
+        },
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Reach Text"
+        },
+        {
+          "id": "button",
+          "type": "text",
+          "label": "Reach Button"
+        },
+        {
+          "id": "url",
+          "type": "url",
+          "label": "Reach Url"
+        }
+      ]
     }
   ]
 }

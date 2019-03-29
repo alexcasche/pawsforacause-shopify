@@ -22,7 +22,7 @@
           {% capture block_html %}
             {% unless problems_loop == 1 %},{% endunless %}
             <div class="c-problems__item o-flexColumn">
-              <span class="c-problems__itemCount o-flexColumn">{{ forloop.index }}</span>
+              <span class="c-problems__itemCount o-flexColumn">{{ problems_loop }}</span>
               <h4 class="c-problems__itemHeading">{{ block.settings.heading }}</h4>
               <p class="c-problems__itemText">{{ block.settings.text }}</p>
             </div>
