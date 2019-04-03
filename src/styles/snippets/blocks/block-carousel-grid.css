@@ -7,4 +7,25 @@
 
 .c-carouselGrid__slide {
   margin-bottom: 40px;
+  padding: 0 10px;
+}
+
+.c-carouselGrid__buttons {
+  width: 100%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.c-carouselGrid__button {
+  width: 40px;
+  height: 40px;
+  &:after {
+    font-size: 14px;
+  }
+  &:first-child:after {
+    margin-left: 0;
+  }
+  &:last-child:after {
+    margin-right: 0;
+  }
 }

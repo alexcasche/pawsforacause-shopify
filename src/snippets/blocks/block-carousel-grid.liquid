@@ -1,5 +1,9 @@
 <div class="c-carouselGrid c-carousel is-loading">
   {% include 'part-loading-dots' with count: 4 %}
+  <div class="c-carouselGrid__buttons c-carousel__buttons">
+    <span class="c-carouselGrid__button c-carousel__button"></span>
+    <span class="c-carouselGrid__button c-carousel__button"></span>
+  </div>
   <div class="c-carouselGrid__track c-carousel__track">
     {% for item in items %}
       <div class="c-carouselGrid__slide c-carousel__slide">

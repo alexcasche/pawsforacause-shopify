@@ -2,7 +2,7 @@
 
 .c-breadcrumbs {
   position: absolute;
-  top: 18px;
+  top: -34px;
   color: $color-gray-light;
   font-size: 14px;
   font-weight: 700;
