@@ -65,9 +65,42 @@
     span {
       color: $color-blue;
       font-weight: 600;
+      white-space: nowrap;
     }
     i {
       font-size: 14px;
+    }
+  }
+  .c-instragram__link {
+    display: block;
+    position: relative;
+  }
+  .c-instagram__image {
+    display: block;
+    transform-origin: center;
+    transition: transform .25s ease-in-out;
+    will-change: transform;
+  }
+  .c-instagram__hover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.5);
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+    i {
+      color: white;
+      font-size: 38px;
+    }
+  }
+  .c-instragram__link:hover, .c-instragram__link:focus {
+    .c-instagram__image {
+      transform: scale(1.15);
+    }
+    .c-instagram__hover {
+      opacity: 1;
     }
   }
 }

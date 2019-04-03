@@ -1,8 +1,7 @@
 <section class="c-product">
   <div class="c-productBuy o-strip u-bgGray">
     <div class="c-productBuy__container o-container o-flexFlip">
-      {% assign settings = section.settings %}
-      {% if settings.show_breadcrumbs %}
+      {% if section.settings.show_breadcrumbs %}
         {% include "part-breadcrumbs" %}
       {% endif %}
       <div class="c-productBuy__images o-flexItem-50 o-flexColumn u-showTablet">
@@ -13,7 +12,7 @@
       </div>
       <div class="c-productBuy__details o-flexItem-50 o-flexColumn">
         {% assign tagline = product.metafields.product.tagline %}
-        {% include "product-form" with product, tagline, settings %}
+        {% include "product-form" with product, tagline, settings: section.settings %}
       </div>
     </div>
   </div>

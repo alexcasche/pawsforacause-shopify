@@ -1,18 +1,17 @@
-{% assign settings = section.settings %}
-{% include "block-hero" with hero_large: settings.hero_large, hero_small: settings.hero_small %}
-{% include "block-navbar" with nav_title: settings.nav_title %}
+{% include "block-hero" with hero_large: section.settings.hero_large, hero_small: section.settings.hero_small %}
+{% include "block-navbar" with nav_title: section.settings.nav_title %}
 <div id="contact-us" class="c-contactUs">
   <div class="c-help o-strip u-bgGray">
     <div class="c-help__container o-container">
       <div class="c-help__narrow u-textNarrow">
-        <h1 class="c-help__heading">{{ settings.help_heading }}</h1>
-        <p class="c-help__text">{{ settings.help_text }}</p>
+        <h1 class="c-help__heading">{{ section.settings.help_heading }}</h1>
+        <p class="c-help__text">{{ section.settings.help_text }}</p>
       </div>
     </div>
   </div>
   <div class="c-reach o-strip">
     <div class="c-reach__container o-container">
-      <h2 class="c-reach__heading">{{ settings.reach_heading }}</h2>
+      <h2 class="c-reach__heading">{{ section.settings.reach_heading }}</h2>
       {% assign reach_html = '' %}
       {% assign reach_loop = 0 %}
       {% for block in section.blocks %}
@@ -39,10 +38,10 @@
   <div class="c-assistance o-strip" style="background-image:url({{ 'background-paw-hand.jpg' | asset_url }});">
     <div class="c-assistance__container o-container">
       <div class="c-assistance__narrow u-textNarrow">
-        <h1 class="c-assistance__heading">{{ settings.assistance_heading }}</h1>
-        <p class="c-assistance__text">{{ settings.assistance_text }}</p>
-        <a class="c-assistance__button c-button" target="_blank" href="{{ settings.assistance_url }}">
-          {{ settings.assistance_button }}
+        <h1 class="c-assistance__heading">{{ section.settings.assistance_heading }}</h1>
+        <p class="c-assistance__text">{{ section.settings.assistance_text }}</p>
+        <a class="c-assistance__button c-button" target="_blank" href="{{ section.settings.assistance_url }}">
+          {{ section.settings.assistance_button }}
         </a>
       </div>
     </div>
@@ -50,35 +49,38 @@
   <div class="c-instagram o-strip u-bgGray">
     <div class="c-instagram__container o-container">
       <div class="c-instagram__narrow u-textNarrow">
-        <h1 class="c-instagram__heading">{{ settings.instagram_heading }}</h1>
-        <p class="c-instagram__text">{{ settings.instagram_text }}</p>
+        <h1 class="c-instagram__heading">{{ section.settings.instagram_heading }}</h1>
+        <p class="c-instagram__text">{{ section.settings.instagram_text }}</p>
       </div>
-      <div class="c-instagram__feed">
-        {% assign instagram_html = '' %}
-        {% assign instagram_loop = 0 %}
-        {% for block in section.blocks %}
-          {% if block.type == "instagram" %}
-            {% assign instagram_loop = instagram_loop | plus: 1 %}
-            {% capture block_html %}
-              {% unless instagram_loop == 1 %},{% endunless %}
-              <a class="c-instragram__link" href="https://instagram.com/pawsforacause" target="_blank">
-                <img 
-                  class="c-instagram__image lazyload"
-                  src="{{ block.settings.image.src | img_url: 'x300' }}"
-                  data-src="{{ block.settings.image.src | img_url: 'master' }}" 
-                  alt="{{ shop.name }} Instagram"
-                />
-                <span class="c-instagram__hover o-flexColumn">
-                  <i class="fab fa-instagram"></i>
-                </span>
-              </a>
-            {% endcapture %}
-            {% assign instagram_html = instagram_html | append: block_html %}
-          {% endif %}
-        {% endfor %}
-        {% assign instagram_items = instagram_html | split: "," %}
-        {% include "block-gallery" with items: instagram_items %}
-      </div>
+    </div>
+    <div class="c-instagram__feed o-container--large o-flexColumn">
+      {% assign instagram_html = '' %}
+      {% assign instagram_loop = 0 %}
+      {% for block in section.blocks %}
+        {% if block.type == "instagram" %}
+          {% assign instagram_loop = instagram_loop | plus: 1 %}
+          {% capture block_html %}
+            {% unless instagram_loop == 1 %},{% endunless %}
+            <a class="c-instragram__link" href="{{ settings.account_instagram }}" target="_blank">
+              <img 
+                class="c-instagram__image lazyload"
+                src="{{ block.settings.image.src | img_url: 'x300' }}"
+                data-src="{{ block.settings.image.src | img_url: 'master' }}" 
+                alt="{{ shop.name }} Instagram"
+              />
+              <span class="c-instagram__hover o-flexColumn">
+                <i class="fab fa-instagram"></i>
+              </span>
+            </a>
+          {% endcapture %}
+          {% assign instagram_html = instagram_html | append: block_html %}
+        {% endif %}
+      {% endfor %}
+      {% assign instagram_items = instagram_html | split: "," %}
+      {% include "block-gallery" with items: instagram_items %}
+      <a class="c-instagram__button c-button c-button--primary" href="{{ settings.account_instagram }}" target="_blank">
+        {{ section.settings.instagram_button }}
+      </a>
     </div>
   </div>
 </div>
@@ -179,7 +181,7 @@
       "type": "html",
       "id": "instagram_text",
       "label": "Instagram Text",
-      "default": "Follow us on Instagram to keep up with the cause.  Tag us <span><i class='fas fa-at'></i>pawsforacause</span> to be featured, or shoot us a direct message to collaborate."
+      "default": "Follow us on Instagram for the inside scoop, tag us <span><i class='fas fa-at'></i>pawsforacause</span> for a chance to be featured, or shoot us a direct message to collaborate!"
     },
     {
       "type": "text",

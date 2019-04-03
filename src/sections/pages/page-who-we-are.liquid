@@ -1,19 +1,18 @@
-{% assign settings = section.settings %}
-{% include "block-hero" with hero_large: settings.hero_large, hero_small: settings.hero_small %}
-{% include "block-navbar" with nav_title: settings.nav_title %}
+{% include "block-hero" with hero_large: section.settings.hero_large, hero_small: section.settings.hero_small %}
+{% include "block-navbar" with nav_title: section.settings.nav_title %}
 <div id="who-we-are" class="c-whoWeAre">
   <div class="c-mantra o-strip u-bgGray">
     <div class="c-mantra__container o-container">
       <div class="c-mantra__narrow u-textNarrow">
-        <span class="c-mantra__preheading c-preheading">{{ settings.mantra_preheading }}</span>
-        <h1 class="c-mantra__heading">{{ settings.mantra_heading }}</h1>
-        <p class="c-mantra__text">{{ settings.mantra_text }}</p>
+        <span class="c-mantra__preheading c-preheading">{{ section.settings.mantra_preheading }}</span>
+        <h1 class="c-mantra__heading">{{ section.settings.mantra_heading }}</h1>
+        <p class="c-mantra__text">{{ section.settings.mantra_text }}</p>
       </div>
     </div>
   </div>
   <div class="c-problems o-strip">
     <div class="c-problems__container o-container">
-      <h2 class="c-problems__heading">{{ settings.problems_heading }}</h2>
+      <h2 class="c-problems__heading">{{ section.settings.problems_heading }}</h2>
       {% assign problems_html = '' %}
       {% assign problems_loop = 0 %}
       {% for block in section.blocks %}
@@ -37,33 +36,33 @@
   <div class="c-mission o-strip" style="background-image:url({{ 'background-paw-hand.jpg' | asset_url }});">
     <div class="c-mission__container o-container">
       <div class="c-mission__narrow u-textNarrow">
-        <span class="c-mission__preheading c-preheading">{{ settings.mission_preheading }}</span>
-        <h1 class="c-mission__heading">{{ settings.mission_heading }}</h1>
-        <p class="c-mission__text">{{ settings.mission_text }}</p>
+        <span class="c-mission__preheading c-preheading">{{ section.settings.mission_preheading }}</span>
+        <h1 class="c-mission__heading">{{ section.settings.mission_heading }}</h1>
+        <p class="c-mission__text">{{ section.settings.mission_text }}</p>
       </div>
     </div>
   </div>
   <div class="c-story o-strip u-bgGray">
     <div class="c-story__container o-container">
       <div class="c-story__narrow u-textNarrow">
-        <span class="c-story__preheading c-preheading">{{ settings.story_preheading }}</span>
-        <h1 class="c-story__heading">{{ settings.story_heading }}</h1>
+        <span class="c-story__preheading c-preheading">{{ section.settings.story_preheading }}</span>
+        <h1 class="c-story__heading">{{ section.settings.story_heading }}</h1>
       </div>
       <div class="c-story__flex o-flexFlip">
         <img class="c-story__image lazyload u-hideTablet"
-          src="{{ settings.story_image_small.src | img_url: 'x300' }}"
-          data-src="{{ settings.story_image_small.src | img_url: 'master' }}" 
-          alt="{{ settings.story_image_small.alt }}" 
+          src="{{ section.settings.story_image_small.src | img_url: 'x300' }}"
+          data-src="{{ section.settings.story_image_small.src | img_url: 'master' }}" 
+          alt="{{ section.settings.story_image_small.alt }}" 
         />
          <img class="c-story__image lazyload u-showTablet"
-          src="{{ settings.story_image_large.src | img_url: 'x300' }}"
-          data-src="{{ settings.story_image_large.src | img_url: 'master' }}" 
-          alt="{{ settings.story_image_large.alt }}" 
+          src="{{ section.settings.story_image_large.src | img_url: 'x300' }}"
+          data-src="{{ section.settings.story_image_large.src | img_url: 'master' }}" 
+          alt="{{ section.settings.story_image_large.alt }}" 
         />
         <div class="c-story__details">
-          <p class="c-story__quote">"{{ settings.story_quote }}"</p>
-          <span class="c-story__author">{{ settings.story_author }}</span>
-          <span class="c-story__bio">{{ settings.story_bio }}</span>
+          <p class="c-story__quote">"{{ section.settings.story_quote }}"</p>
+          <span class="c-story__author">{{ section.settings.story_author }}</span>
+          <span class="c-story__bio">{{ section.settings.story_bio }}</span>
         </div>
       </div>
     </div>
@@ -71,8 +70,8 @@
   <div class="c-support o-strip">
     <div class="c-support__container o-container">
       <div class="c-support__narrow u-textNarrow">
-        <h1 class="c-support__heading">{{ settings.support_heading }}</h1>
-        <p class="c-support__text">{{ settings.support_text }}</p>
+        <h1 class="c-support__heading">{{ section.settings.support_heading }}</h1>
+        <p class="c-support__text">{{ section.settings.support_text }}</p>
       </div>
     </div>
     <div class="c-support__container o-container">
