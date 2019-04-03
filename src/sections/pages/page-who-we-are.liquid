@@ -31,7 +31,7 @@
         {% endif %}
       {% endfor %}
       {% assign problems_items = problems_html | split: "," %}
-      {% include 'block-carousel-grid', with items: problems_items %}
+      {% include "block-carousel", with items: problems_items %}
     </div>
   </div>
   <div class="c-mission o-strip" style="background-image:url({{ 'background-paw-hand.jpg' | asset_url }});">
@@ -96,7 +96,7 @@
         {% endif %}
       {% endfor %}
       {% assign support_items = support_html | split: "," %}
-      {% include 'block-carousel-grid', with items: support_items %}
+      {% include "block-carousel", with items: support_items %}
     </div>
   </div>
 </div>

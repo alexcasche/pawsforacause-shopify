@@ -14,12 +14,12 @@
     <div class="c-headerMain__container o-container--large">
       <button class="c-headerMain__menu trigger-sidemenu" aria-label="Toggle Menu">
         <span class="c-headerMain__burger">
-          {% include 'icon-burger' %}
+          {% include "icon-burger" %}
         </span>
       </button>
       <button class="c-headerMain__menu trigger-sidemenu u-hidden" aria-label="Toggle Menu">
         <span class="c-headerMain__close">
-          {% include 'icon-close' %}
+          {% include "icon-close" %}
         </span>
       </button>
       <a class="c-headerMain__logo" href="/" title="Home">
@@ -32,7 +32,7 @@
           </button>
         {% endif %}
         <button class="c-headerMain__button c-headerMain__cart trigger-cart" aria-label="Toggle Cart">
-          {% include 'icon-cart' %}
+          {% include "icon-cart" %}
           <span class="c-headerMain__cartCount data-cart-count">
             {{ cart.item_count }}
           </span>
@@ -45,7 +45,7 @@
       <nav class="c-headerNav__nav" role="navigation" aria-label="Main Navigation">
         <div class="c-headerNav__account trigger-nav-account">
           <button class="c-headerNav__burger" aria-label="Toggle Menu">
-            {% include 'icon-burger' %}
+            {% include "icon-burger" %}
           </button>
           <ul class="c-headerNav__drop" id="navAccount">
             {% for nav in linklists[section.settings.main_account].links %}
@@ -96,7 +96,7 @@
             </button>
           {% endif %}
           <button class="c-headerNav__button c-headerNav__cart trigger-cart">
-            {% include 'icon-cart' %}
+            {% include "icon-cart" %}
             <span class="c-headerNav__cartCount data-cart-count">
               {{ cart.item_count }}
             </span>

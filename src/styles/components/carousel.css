@@ -26,7 +26,16 @@
     display: flex;
   }
 }
+.c-carousel__track {
+  @mixin flex row, space-around, stretch, wrap;
+  margin-bottom: -40px;
+}
 .c-carousel__slide {
+  margin-bottom: 40px;
+  padding: 0 10px;
+  @media(--desktop) {
+    padding: 0;
+  }
   touch-action: none;
   &:hover {
     cursor: pointer;
@@ -37,26 +46,21 @@
 }
 .c-carousel__buttons {
   @mixin flex row, space-between, center;
-  width: calc(100vw + 120px);
+  width: 100%;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  transform: translateY(-50%);
   &:focus {
     outline: none;
-  }
-  @media(--desktop) {
-    width: 100%;
-    left: 0;
-    transform: translateY(-50%);
   }
 }
 .c-carousel__button {
   @mixin flexColumn;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: white;
-  width: 100px;
-  height: 100px;
   box-shadow: $box-shadow-card;
   @mixin transition-opacity .75;
   &:hover {
@@ -65,33 +69,18 @@
   &:focus {
     outline: none;
   }
-  @media(--desktop) {
-    width: 40px;
-    height: 40px;
-  }
   &:after {
     color: $color-primary;
     font-family: "Font Awesome 5 Free";
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 900;
     pointer-events: none;
-    @media(--desktop) {
-      font-size: 14px;
-    }
   }
   &:first-child:after {
     content: "\f053";
-    margin-left: 46px;
-     @media(--desktop) {
-       margin-left: 0;
-     }
   }
   &:last-child:after {
     content: "\f054";
-    margin-right: 46px;
-     @media(--desktop) {
-       margin-right: 0;
-     }
   }
 }
 .c-carousel__bubbles {

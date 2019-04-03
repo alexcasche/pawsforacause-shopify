@@ -62,7 +62,7 @@
         {% endif %}
       {% endfor %}
       {% assign support_items = support_html | split: "," %}
-      {% include 'block-carousel-grid', with items: support_items %}
+      {% include "block-carousel", with items: support_items %}
     </div>
   </div>
 </div>

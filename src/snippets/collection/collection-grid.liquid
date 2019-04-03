@@ -3,19 +3,19 @@
     {% paginate collection.results by 48 %}
       {% for item in search.results %}
         <div class="c-collectionGrid__item o-lost-item">
-          {% include 'collection-item' with product: item %}
+          {% include "collection-item" with product: item %}
         </div>
       {% endfor %}
-      {% include 'part-paginate' with paginate %}
+      {% include "part-paginate" with paginate %}
     {% endpaginate %}
   {% else %}
     {% paginate collection.products by 48 %}
       {% for item in collection.products %}
         <div class="c-collectionGrid__item o-lost-item">
-          {% include 'collection-item' with product: item %}
+          {% include "collection-item" with product: item %}
         </div>
       {% endfor %}
-      {% include 'part-paginate' with paginate %}
+      {% include "part-paginate" with paginate %}
     {% endpaginate %}
   {% endif %}
 </div>

@@ -1,4 +1,4 @@
-/******* Carousel Grid *******/
+/******* Carousel *******/
 
 const options = {
   mouseDrag: true,
@@ -24,7 +24,7 @@ const options = {
 const carouselInterval = setInterval(() => {
   const { carousel } = window.theme
   if(carousel) {
-    carousel('.c-carouselGrid', options)
+    carousel('.c-carousel', options)
     clearInterval(carouselInterval);
   }
 }, 100);

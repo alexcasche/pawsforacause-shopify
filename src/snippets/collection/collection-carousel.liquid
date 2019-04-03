@@ -1,5 +1,5 @@
 <div class="c-collectionCarousel c-carousel is-loading" data-randomize="{{ randomize }}" data-limit="{{ limit }}">
-  {% include 'part-loading-dots' with count: 4 %}
+  {% include "part-loading-dots" with count: 4 %}
   <div class="c-collectionCarousel__buttons c-carousel__buttons">
     <span class="c-collectionCarousel__button c-carousel__button"></span>
     <span class="c-collectionCarousel__button c-carousel__button"></span>
@@ -8,15 +8,15 @@
     {% for item in collection.products %}
       {% if hide_product and item.handle != product.handle %}
         <div class="c-collectionCarousel__slide c-carousel__slide o-flexColumn">
-          {% include 'collection-item' with product: item %}  
+          {% include "collection-item" with product: item %}  
         </div>
       {% elsif hide_sold_out and item.available == false %}
         <div class="c-collectionCarousel__slide c-carousel__slide o-flexColumn">
-          {% include 'collection-item' with product: item %}  
+          {% include "collection-item" with product: item %}  
         </div>
       {% else %}
         <div class="c-collectionCarousel__slide c-carousel__slide o-flexColumn">
-          {% include 'collection-item' with product: item %}  
+          {% include "collection-item" with product: item %}  
         </div>
       {% endif %}
     {% endfor %}

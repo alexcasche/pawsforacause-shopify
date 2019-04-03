@@ -1,17 +1,17 @@
 <div class="c-collectionFeatured c-collectionGrid o-lost is-loading" data-randomize="{{ randomize }}" data-limit="{{ limit }}">
-  {% include 'part-loading-dots' with count: 4 %}
+  {% include "part-loading-dots" with count: 4 %}
   {% for item in collection.products %}
     {% if hide_product and item.handle != product.handle %}
       <div class="c-collectionGrid__item o-lost-item">
-        {% include 'collection-item' with product: item %}  
+        {% include "collection-item" with product: item %}  
       </div>
     {% elsif hide_sold_out and item.available == false %}
       <div class="c-collectionGrid__item o-lost-item">
-        {% include 'collection-item' with product: item %}  
+        {% include "collection-item" with product: item %}  
       </div>
     {% else %}
       <div class="c-collectionGrid__item o-lost-item">
-        {% include 'collection-item' with product: item %}  
+        {% include "collection-item" with product: item %}  
       </div>
     {% endif %}
   {% endfor %}

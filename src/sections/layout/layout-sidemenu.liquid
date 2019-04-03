@@ -10,14 +10,14 @@
           <span class="c-sidemenu__link trigger-sidemenu-secondary" aria-label="{{ link.title}} Dropdown" data-index="{{ forloop.index0 }}">
             {{ link.title }}
             <span class="c-sidemenu__linkIcon">
-              {% include 'icon-chevron' %}
+              {% include "icon-chevron" %}
             </span>
           </span>
           <ul class="c-sidemenu__list c-sidemenu__secondary">
             <li class="c-sidemenu__item">
               <a class="c-sidemenu__link c-sidemenu__back trigger-sidemenu-secondary" data-index="{{ forloop.index0 }}">
                 <span class="c-sidemenu__linkIcon c-sidemenu__backIcon">
-                  {% include 'icon-chevron' %}
+                  {% include "icon-chevron" %}
                 </span>
                 {{ section.settings.back_text }}
               </a>

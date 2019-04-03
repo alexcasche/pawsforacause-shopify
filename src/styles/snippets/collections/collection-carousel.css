@@ -4,3 +4,47 @@
   width: 100%;
   padding: 10px;
 }
+
+.c-collectionCarousel__buttons {
+  @mixin flex row, space-between, center;
+  width: calc(100vw + 120px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &:focus {
+    outline: none;
+  }
+  @media(--desktop) {
+    width: 100%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+
+.c-collectionCarousel__button {
+  width: 100px;
+  height: 100px;
+  @media(--desktop) {
+    width: 40px;
+    height: 40px;
+  }
+  &:after {
+    font-size: 18px;
+    @media(--desktop) {
+      font-size: 14px;
+    }
+  }
+  &:first-child:after {
+    margin-left: 46px;
+     @media(--desktop) {
+       margin-left: 0;
+     }
+  }
+  &:last-child:after {
+    margin-right: 46px;
+     @media(--desktop) {
+       margin-right: 0;
+    }
+  }
+}

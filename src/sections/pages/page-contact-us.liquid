@@ -33,7 +33,7 @@
         {% endif %}
       {% endfor %}
       {% assign reach_items = reach_html | split: "," %}
-      {% include 'block-carousel-grid', with items: reach_items %}
+      {% include "block-carousel", with items: reach_items %}
     </div>
   </div>
   <div class="c-assistance o-strip" style="background-image:url({{ 'background-paw-hand.jpg' | asset_url }});">
@@ -54,7 +54,30 @@
         <p class="c-instagram__text">{{ settings.instagram_text }}</p>
       </div>
       <div class="c-instagram__feed">
-        
+        {% assign instagram_html = '' %}
+        {% assign instagram_loop = 0 %}
+        {% for block in section.blocks %}
+          {% if block.type == "instagram" %}
+            {% assign instagram_loop = instagram_loop | plus: 1 %}
+            {% capture block_html %}
+              {% unless instagram_loop == 1 %},{% endunless %}
+              <a class="c-instragram__link" href="https://instagram.com/pawsforacause" target="_blank">
+                <img 
+                  class="c-instagram__image lazyload"
+                  src="{{ block.settings.image.src | img_url: 'x300' }}"
+                  data-src="{{ block.settings.image.src | img_url: 'master' }}" 
+                  alt="{{ shop.name }} Instagram"
+                />
+                <span class="c-instagram__hover o-flexColumn">
+                  <i class="fab fa-instagram"></i>
+                </span>
+              </a>
+            {% endcapture %}
+            {% assign instagram_html = instagram_html | append: block_html %}
+          {% endif %}
+        {% endfor %}
+        {% assign instagram_items = instagram_html | split: "," %}
+        {% include "block-gallery" with items: instagram_items %}
       </div>
     </div>
   </div>
@@ -157,6 +180,12 @@
       "id": "instagram_text",
       "label": "Instagram Text",
       "default": "Follow us on Instagram to keep up with the cause.  Tag us <span><i class='fas fa-at'></i>pawsforacause</span> to be featured, or shoot us a direct message to collaborate."
+    },
+    {
+      "type": "text",
+      "id": "instagram_button",
+      "label": "Instagram Button",
+      "default": "View More"
     }
   ],
   "blocks": [
@@ -189,6 +218,17 @@
           "id": "url",
           "type": "url",
           "label": "Reach Url"
+        }
+      ]
+    },
+    {
+      "type": "instagram",
+      "name": "Instagram",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Instagram Image"
         }
       ]
     }

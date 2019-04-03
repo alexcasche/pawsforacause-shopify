@@ -2,7 +2,9 @@
 <div class="c-productCarousel c-carousel is-loading{{ visible_class }}">
   <div class="c-productCarousel__track c-carousel__track">
     {% for image in product.images %}
-      <img class="c-productCarousel__slide c-carousel__slide" src="{{ image.src | img_url: image_size }}" alt="{{ image.alt | escape }}" />
+      <div class="c-productCarousel__slide c-carousel__slide">
+        <img class="c-productCarousel__image" src="{{ image.src | img_url: image_size }}" alt="{{ image.alt | escape }}" />
+      </div>
     {% endfor %}
   </div>
   {% if settings.show_carousel_nav %}

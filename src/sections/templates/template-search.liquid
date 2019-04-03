@@ -12,7 +12,7 @@
         {{ search.results_count }} {{ search_text }} '{{ search.terms }}'
       </h3>
       {% if search.results_count > 0 %}
-        {% include 'collection-grid' with collection: search, type: "search" %}
+        {% include "collection-grid" with collection: search, type: "search" %}
       {% endif %}
     {% endif %}
   </div>

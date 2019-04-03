@@ -14,7 +14,7 @@
       alt="{{ product.images[0].alt | escape}}" 
     />
   </div>
-  {% include 'product-status' with product %}
+  {% include "product-status" with product %}
   <h2 class="c-collectionItem__title">{{ product.title }}</h2>
-  {% include 'product-prices' with product %}
+  {% include "product-prices" with product %}
 </a>
