@@ -6,6 +6,9 @@
   color: $color-gray-light;
   font-size: 14px;
   font-weight: 700;
+  @media(--tablet) {
+    left: 40px;
+  }
 }
 .c-breadcrumbs__link {
   color: $color-gray-light;

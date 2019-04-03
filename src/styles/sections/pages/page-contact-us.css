@@ -61,4 +61,13 @@
     font-size: 18px;
     @mixin transition-bg-darken $color-blue-dark;
   }
+  .c-instagram__text {
+    span {
+      color: $color-blue;
+      font-weight: 600;
+    }
+    i {
+      font-size: 14px;
+    }
+  }
 }

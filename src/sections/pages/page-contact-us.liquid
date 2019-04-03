@@ -51,6 +51,7 @@
     <div class="c-instagram__container o-container">
       <div class="c-instagram__narrow u-textNarrow">
         <h1 class="c-instagram__heading">{{ settings.instagram_heading }}</h1>
+        <p class="c-instagram__text">{{ settings.instagram_text }}</p>
       </div>
       <div class="c-instagram__feed">
         
@@ -149,7 +150,13 @@
       "type": "text",
       "id": "instagram_heading",
       "label": "Instagram Heading",
-      "default": "Follow Us On Instagram!"
+      "default": "Want to join the community?"
+    },
+    {
+      "type": "html",
+      "id": "instagram_text",
+      "label": "Instagram Text",
+      "default": "Follow us on Instagram to keep up with the cause.  Tag us <span><i class='fas fa-at'></i>pawsforacause</span> to be featured, or shoot us a direct message to collaborate."
     }
   ],
   "blocks": [

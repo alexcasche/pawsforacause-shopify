@@ -8,6 +8,9 @@
 .c-carouselGrid__slide {
   margin-bottom: 40px;
   padding: 0 10px;
+  @media(--desktop) {
+    padding: 0;
+  }
 }
 
 .c-carouselGrid__buttons {

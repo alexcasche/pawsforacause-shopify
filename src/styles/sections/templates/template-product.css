@@ -35,6 +35,9 @@
 .c-productBuy__images {
   margin-bottom: 50px;
   @media(--tablet) {
+    margin-bottom: 40px;
+  }
+  @media(--desktop) {
     margin-bottom: 0;
   }    
 }
