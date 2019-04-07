@@ -37,6 +37,9 @@
           {% assign content_items = topic_contents | split: "::::" %}
           {% include "block-accordion" with triggers: trigger_items, contents: content_items, id: topic %}
         </div>
+        {% unless forloop.last %}
+          <hr class="u-textNarrow" />
+        {% endunless %}
       {% endfor %}
     </div>
   </div>

@@ -27,6 +27,7 @@
   border-radius: $border-radius-input;
   border: 2px solid $border-gray-light;
   overflow: hidden;
+  transition: background-color .15s ease-in-out;
   &:focus {
     outline: none;
   }
@@ -50,12 +51,9 @@
       font-weight: 900;
       pointer-events: none;
       content: "\f055";
-      transition: color .15s ease-in-out;
     }
     &:hover {
-      &:after {
-        color: $color-blue-light;
-      }
+      background-color: #f2f2f2;
     }
   }
   .c-accordion__contentInner {
@@ -63,7 +61,7 @@
     background-color: $bg-gray-light;
     border-top: 2px solid $border-gray-light;
     text-align: left;
-    color: $color-black;
+    color: $color-black-light;
     font-family: $font-body;
     font-size: 18px;
     line-height: 1.5;
@@ -75,11 +73,6 @@
 
 .c-accordion__item.active {
   & > .c-accordion__trigger {
-    &:hover {
-      &:after {
-        color: $color-red-light;
-      }
-    }
     &:after {
       content: "\f056";
     }
