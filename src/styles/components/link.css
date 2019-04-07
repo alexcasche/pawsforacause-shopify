@@ -5,3 +5,11 @@
   color: $color-blue;
   @mixin transition-color-darken $color-blue;
 }
+
+.c-link--grayBlue {
+  color: $color-gray-dark;
+  transition: color .15s ease-in-out;
+  &:hover {
+    color: $color-blue;
+  }
+}

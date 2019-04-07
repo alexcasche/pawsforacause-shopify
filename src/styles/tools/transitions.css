@@ -37,6 +37,14 @@
     color: color($color shade(20%));
   }
 }
+@define-mixin transition-color-lighten $color: color-$gray, $speed: 0.15s, $ease: ease-in-out {
+  color: $color;
+  @mixin transition color $speed, $ease;
+  &:hover {
+    color: color($color tint(20%));
+  }
+}
+
 
 @define-mixin transition-slide $speed: 0.35s,
   $ease: ease {
