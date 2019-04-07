@@ -1,0 +1,19 @@
+<div class="c-accordion is-loading" id="{{ id }}">
+  {% include "part-loading-dots" with count: 4 %}
+  <div class="c-accordion__items">
+    {% for trigger in triggers %}
+      <div class="c-accordion__item ac ac-target" tabindex="0">
+        <div class="c-accordion__trigger ac-q o-flexRow">
+          {{ trigger }}
+        </div>
+        <div class="c-accordion__content ac-a">
+          <div class="c-accordion__contentInner">
+            {{ contents[forloop.index0 ]}}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="{{ 'block-accordion.js' | asset_url }}" defer="defer"></script>

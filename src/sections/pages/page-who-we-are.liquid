@@ -19,7 +19,7 @@
         {% if block.type == "problem" %}
           {% assign problems_loop = problems_loop | plus: 1 %}
           {% capture block_html %}
-            {% unless problems_loop == 1 %},{% endunless %}
+            {% unless problems_loop == 1 %}::::{% endunless %}
             <div class="c-problems__item o-flexColumn">
               <span class="c-problems__itemCount o-flexColumn">{{ problems_loop }}</span>
               <h4 class="c-problems__itemHeading">{{ block.settings.heading }}</h4>
@@ -29,7 +29,7 @@
           {% assign problems_html = problems_html | append: block_html %}
         {% endif %}
       {% endfor %}
-      {% assign problems_items = problems_html | split: "," %}
+      {% assign problems_items = problems_html | split: "::::" %}
       {% include "block-carousel", with items: problems_items %}
     </div>
   </div>
@@ -82,7 +82,7 @@
         {% if block.type == "support" %}
           {% assign support_loop = support_loop | plus: 1 %}
           {% capture block_html %}
-            {% unless support_loop == 1 %},{% endunless %}
+            {% unless support_loop == 1 %}::::{% endunless %}
             <a class="c-support__item o-flexColumn" href="{{ block.settings.url }}" draggable="false">
               <h4 class="c-support__itemHeading">{{ block.settings.heading }}</h4>
               <p class="c-support__itemText">{{ block.settings.text }}</p>
@@ -94,7 +94,7 @@
           {% assign support_html = support_html | append: block_html %}
         {% endif %}
       {% endfor %}
-      {% assign support_items = support_html | split: "," %}
+      {% assign support_items = support_html | split: "::::" %}
       {% include "block-carousel", with items: support_items %}
     </div>
   </div>

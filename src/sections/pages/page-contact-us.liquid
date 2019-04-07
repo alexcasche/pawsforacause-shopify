@@ -18,7 +18,7 @@
         {% if block.type == "reach" %}
           {% assign reach_loop = reach_loop | plus: 1 %}
           {% capture block_html %}
-            {% unless reach_loop == 1 %},{% endunless %}
+            {% unless reach_loop == 1 %}::::{% endunless %}
             <div class="c-reach__item o-flexColumn">
               <i class="c-reach__itemIcon {{ block.settings.icon }}"></i>
               <h4 class="c-reach__itemHeading">{{ block.settings.heading }}</h4>
@@ -31,7 +31,7 @@
           {% assign reach_html = reach_html | append: block_html %}
         {% endif %}
       {% endfor %}
-      {% assign reach_items = reach_html | split: "," %}
+      {% assign reach_items = reach_html | split: "::::" %}
       {% include "block-carousel", with items: reach_items %}
     </div>
   </div>
@@ -60,7 +60,7 @@
         {% if block.type == "instagram" %}
           {% assign instagram_loop = instagram_loop | plus: 1 %}
           {% capture block_html %}
-            {% unless instagram_loop == 1 %},{% endunless %}
+            {% unless instagram_loop == 1 %}::::{% endunless %}
             <a class="c-instragram__link" href="{{ settings.account_instagram }}" target="_blank">
               <img 
                 class="c-instagram__image lazyload"
@@ -76,7 +76,7 @@
           {% assign instagram_html = instagram_html | append: block_html %}
         {% endif %}
       {% endfor %}
-      {% assign instagram_items = instagram_html | split: "," %}
+      {% assign instagram_items = instagram_html | split: "::::" %}
       {% include "block-gallery" with items: instagram_items %}
       <a class="c-instagram__button c-button c-button--primary" href="{{ settings.account_instagram }}" target="_blank">
         {{ section.settings.instagram_button }}

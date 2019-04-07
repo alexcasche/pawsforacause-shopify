@@ -1,0 +1,87 @@
+/*========== Accordion ==========*/
+
+.c-accordion {
+  position: relative;
+  user-select: none;
+  .c-loadingDots {
+    display: none;
+    min-height: 200px;
+  }
+}
+
+.c-accordion.is-loading {
+  .c-loadingDots {
+    display: flex;
+  }
+  .c-accordion__items {
+    display: none;
+  }
+}
+
+.c-accordion__items {
+  margin-bottom: 50px;
+}
+.c-accordion__item {
+  margin: 0 auto 20px;
+  background-color: $bg-gray;
+  border-radius: $border-radius-input;
+  border: 2px solid $border-gray-light;
+  overflow: hidden;
+  &:focus {
+    outline: none;
+  }
+  & > .c-accordion__trigger {
+    padding: 10px 40px 10px 20px;
+    text-align: left;
+    color: $color-gray;
+    font-family: $font-body;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.25;
+    @media(--tablet) {
+      font-size: 20px
+    }
+    &:after {
+      width: auto;
+      right: 20px;
+      color: #bbb;
+      font-family: "Font Awesome 5 Free";
+      font-size: 20px;
+      font-weight: 900;
+      pointer-events: none;
+      content: "\f055";
+      transition: color .15s ease-in-out;
+    }
+    &:hover {
+      &:after {
+        color: $color-blue-light;
+      }
+    }
+  }
+  .c-accordion__contentInner {
+    padding: 10px 20px 30px 20px;
+    background-color: $bg-gray-light;
+    border-top: 2px solid $border-gray-light;
+    text-align: left;
+    color: $color-black;
+    font-family: $font-body;
+    font-size: 18px;
+    line-height: 1.5;
+    @media(--tablet) {
+      font-size: 20px
+    }
+  }
+}
+
+.c-accordion__item.active {
+  & > .c-accordion__trigger {
+    &:hover {
+      &:after {
+        color: $color-red-light;
+      }
+    }
+    &:after {
+      content: "\f056";
+    }
+  }
+}

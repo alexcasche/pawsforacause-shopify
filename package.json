@@ -79,6 +79,7 @@
   },
   "dependencies": {
     "@shopify/theme-addresses": "^1.0.0",
+    "accordion-js": "^2.7.1",
     "axios": "^0.18.0",
     "document-register-element": "^1.13.1",
     "lazysizes": "^4.1.6",

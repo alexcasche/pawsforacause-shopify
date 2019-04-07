@@ -4,6 +4,9 @@
 /*========== Tools ==========*/
 @import "tools/index";
 
+/*========== Vendors ==========*/
+@import "vendors/index";
+
 /*========== Generic ==========*/
 @import "generic/index";
 
@@ -24,9 +27,6 @@
 
 /*========== Sections ==========*/
 @import "sections/index";
-
-/*========== Vendors ==========*/
-@import "vendors/index";
 
 /*========== Development ==========*/
 #preview-bar-iframe {

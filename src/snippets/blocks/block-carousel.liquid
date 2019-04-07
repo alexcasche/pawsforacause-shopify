@@ -1,19 +1,19 @@
-<div class="c-carousel c-carousel is-loading">
+<div class="c-carousel is-loading">
   {% include "part-loading-dots" with count: 4 %}
-  <div class="c-carousel__buttons c-carousel__buttons">
-    <span class="c-carousel__button c-carousel__button"></span>
-    <span class="c-carousel__button c-carousel__button"></span>
+  <div class="c-carousel__buttons">
+    <span class="c-carousel__button"></span>
+    <span class="c-carousel__button"></span>
   </div>
-  <div class="c-carousel__track c-carousel__track">
+  <div class="c-carousel__track">
     {% for item in items %}
-      <div class="c-carousel__slide c-carousel__slide">
+      <div class="c-carousel__slide">
         {{ item }}
       </div>
     {% endfor %}
   </div>
-  <div class="c-carousel__bubbles c-carousel__bubbles">
+  <div class="c-carousel__bubbles">
      {% for item in items %}
-      <span class="c-carousel__bubble c-carousel__bubble"></span>
+      <span class="c-carousel__bubble"></span>
     {% endfor %}
   </div>
 </div>

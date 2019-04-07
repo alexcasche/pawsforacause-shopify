@@ -48,7 +48,7 @@
         {% if block.type == "support" %}
           {% assign support_loop = support_loop | plus: 1 %}
           {% capture block_html %}
-            {% unless support_loop == 1 %},{% endunless %}
+            {% unless support_loop == 1 %}::::{% endunless %}
             <a class="c-support__item o-flexColumn" href="{{ block.settings.url }}" draggable="false">
               <h4 class="c-support__itemHeading">{{ block.settings.heading }}</h4>
               <p class="c-support__itemText">{{ block.settings.text }}</p>
@@ -60,7 +60,7 @@
           {% assign support_html = support_html | append: block_html %}
         {% endif %}
       {% endfor %}
-      {% assign support_items = support_html | split: "," %}
+      {% assign support_items = support_html | split: "::::" %}
       {% include "block-carousel", with items: support_items %}
     </div>
   </div>

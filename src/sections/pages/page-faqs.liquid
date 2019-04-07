@@ -1,0 +1,145 @@
+{% include "block-hero" with hero_large: section.settings.hero_large, hero_small: section.settings.hero_small %}
+{% include "block-navbar" with nav_title: section.settings.nav_title %}
+<div id="c-faqs" class="c-faqs">
+  <div class="c-question o-strip u-bgGray">
+    <div class="c-question__container o-container">
+      <div class="c-question__narrow u-textNarrow">
+        <h1 class="c-question__heading">{{ section.settings.question_heading }}</h1>
+        <p class="c-question__text">{{ section.settings.question_text }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="c-topics o-strip">
+    <div class="c-topics__container o-container">
+      {% assign topics = section.settings.faq_topics | split: "," %}
+      {% for topic in topics %}
+        <div class="c-topics__group u-textNarrow">
+          <h2 class="c-topics__heading">{{ topic }}</h2>
+          {% assign topic_loop = 0 %}
+          {% assign topic_triggers = "" %}
+          {% assign topic_contents = "" %}
+          {% for block in section.blocks %}
+            {% if block.type == "faq" and block.settings.group == topic %}
+              {% assign topic_loop = topic_loop | plus: 1 %}
+              {% capture topic_trigger %}
+                {% unless topic_loop == 1 %}::::{% endunless %}
+                {{ block.settings.trigger }}
+              {% endcapture %}
+              {% capture topic_content %}
+                {% unless topic_loop == 1 %}::::{% endunless %}
+                {{ block.settings.content }}
+              {% endcapture %}
+              {% assign topic_triggers = topic_triggers | append: topic_trigger %}
+              {% assign topic_contents = topic_contents | append: topic_content %}
+            {% endif %}
+          {% endfor %}
+          {% assign trigger_items = topic_triggers | split: "::::" %}
+          {% assign content_items = topic_contents | split: "::::" %}
+          {% include "block-accordion" with triggers: trigger_items, contents: content_items, id: topic %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_large",
+      "label": "Hero Image Large"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_small",
+      "label": "Hero Image Small"
+    },
+    {
+      "type": "header",
+      "content": "Page Navigation"
+    },
+    {
+      "type": "text",
+      "id": "nav_title",
+      "label": "Navigation Title",
+      "info": "Must Match Page Navigation Level 1",
+      "default": "Customer Service"
+    },
+    {
+      "type": "header",
+      "content": "Question Section"
+    },
+    {
+      "type": "text",
+      "id": "question_heading",
+      "label": "Question Heading",
+      "default": "Need Help Finding Something?"
+    },
+    {
+      "type": "html",
+      "id": "question_text",
+      "label": "Question Text",
+      "default": "Here are some common  questions other dog lovers are asking.  Still can’t find what you need?  Feel free to contact us at <a class='c-link' href='mailto:bark@pawsforacause.com' target='_blank'>bark@pawsforacause.com</a>."
+    },
+    {
+      "type": "header",
+      "content": "FAQ Section"
+    },
+    {
+      "type": "text",
+      "id": "faq_topics",
+      "label": "FAQ Topics",
+      "info": "Comma Separated List",
+      "default": "General,Orders,Products,Shelters"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Faq",
+      "settings": [
+        {
+          "type": "select",
+          "id": "group",
+          "label": "Group",
+          "default": "General",
+          "options": [
+            {
+              "value": "General",
+              "label": "General"
+            },
+             {
+              "value": "Orders",
+              "label": "Orders"
+            },
+             {
+              "value": "Products",
+              "label": "Products"
+            },
+            {
+              "value": "Shelters",
+              "label": "Shelters"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "trigger",
+          "label": "Trigger"
+        },
+        {
+          "type": "html",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
