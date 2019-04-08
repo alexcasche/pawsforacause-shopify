@@ -37,11 +37,16 @@
     padding: 0;
   }
   touch-action: none;
-  &:hover {
-    cursor: pointer;
-  }
   &:focus {
     outline: none;
+  }
+  @media(--tablet-max) {
+    &:hover {
+      cursor: grab;
+    }
+    &:active {
+      cursor: grabbing;
+    }
   }
 }
 .c-carousel__buttons {

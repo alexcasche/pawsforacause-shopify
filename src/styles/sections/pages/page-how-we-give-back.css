@@ -1,7 +1,28 @@
 /*========== How We Give Back ==========*/
 
 .c-howWeGiveBack {
-
+  .c-shelters__heading {
+    margin-bottom: 40px;
+    @media(--tablet) {
+      margin-bottom: 50px;
+    }
+  }
+  .c-shelters__item {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: $border-radius-card;
+    overflow: hidden;
+    border: 2px solid $border-gray-light;
+    transition: border-color .15s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      border-color: $color-blue-light;
+    }
+  }
+  .c-shelters__itemImage {
+    display: block;
+  }
   .c-promise {
     position: relative;
     background-size: cover;

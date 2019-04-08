@@ -13,6 +13,27 @@
   <div class="c-shelters o-strip">
     <div class="c-shelters__container o-container">
       <h2 class="c-shelters__heading">{{ section.settings.shelters_heading }}</h2>
+      {% assign shelter_html = '' %}
+      {% assign shelter_loop = 0 %}
+      {% for block in section.blocks %}
+        {% if block.type == "shelter" %}
+          {% assign shelter_loop = shelter_loop | plus: 1 %}
+          {% capture block_html %}
+            {% unless shelter_loop == 1 %}::::{% endunless %}
+            <a class="c-shelters__item o-flexColumn" href="{{ block.settings.url }}" draggable="false" target="_blank">
+              <img 
+                class="c-shelters__itemImage lazyload" 
+                src="{{ block.settings.image.src | img_url: 'x200' }}"
+                data-src="{{ block.settings.image.src | img_url: 'master' }}" 
+                alt="{{ block.settings.image.alt }}"
+              />
+            </a>
+          {% endcapture %}
+          {% assign shelter_html = shelter_html | append: block_html %}
+        {% endif %}
+      {% endfor %}
+      {% assign shelter_items = shelter_html | split: "::::" %}
+      {% include "block-carousel", with items: shelter_items %}
     </div>
   </div>
   <div class="c-promise o-strip" style="background-image:url({{ 'background-paw-hand.jpg' | asset_url }});">
@@ -182,6 +203,22 @@
     }
   ],
   "blocks": [
+    {
+      "type": "shelter",
+      "name": "Shelter",
+      "settings": [
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        },
+        {
+          "id": "url",
+          "type": "url",
+          "label": "URL"
+        }
+      ]
+    },
     {
       "type": "support",
       "name": "Support",
