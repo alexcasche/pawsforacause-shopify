@@ -1,0 +1,32 @@
+{% capture content %}
+  <div class="c-imageCard__content">
+    {% if content_heading %}
+      <h3 class="c-imageCard__heading">{{ content_heading }}</h3>
+    {% endif %}
+    {% if content_text %}
+      <div class="c-imageCard__text">{{ content_text }}</div>
+    {% endif %}
+    {% if content_html %} 
+      {{ content_html }}
+    {% endif %}
+  </div>
+{% endcapture %}
+
+<div class="c-imageCard{% if image_side == 'right'%} c-imageCard--right {% endif %} c-card o-flexColumn">
+  {% if image_side == "right" %}
+    {{ content }}
+  {% endif %}
+  <div class="c-imageCard__imageBox u-showDesktop"
+    style="background-image:url({{ image_large.src | img_url: 'master' }});"
+  >
+  </div>
+  <img 
+    class="c-imageCard__image lazyload u-hideDesktop" 
+    src="{{ image_small.src | img_url: 'x300' }}"
+    data-src="{{ image_small.src | img_url: 'master' }}" 
+    alt="{{ image_small.alt }}"
+  />
+  {% if image_side != "right" %}
+    {{ content }}
+  {% endif %}
+</div>

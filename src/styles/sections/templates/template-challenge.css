@@ -15,12 +15,11 @@
 }
 .shopify-challenge__error {
   width: 100%;
-  max-width: 350px;
   margin: 0 auto 20px;
-  padding: 15px;
+  padding: 15px 20px;
   background-color: $color-red-lightest;
   border: 1px solid $color-red;
   border-radius: 3px;
   color: $color-red-dark;
-  font-size: 14px;
+  font-size: 16px;
 }

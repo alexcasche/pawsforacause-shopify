@@ -1,6 +1,8 @@
+{% assign content = section.settings %}
+
 <div class="c-formCustomer">
   <h2 class="c-formCustomer__heading">
-    Welcome Aboard!
+    {{ content.register_heading }}
   </h2>
   <div class="c-formCustomer__form c-form">
     {% form 'create_customer' %}
@@ -8,18 +10,74 @@
         {{ form.errors | default_errors }}
       </div>
       <div class="c-formCustomer__body c-form__body">
-        <input class="c-form__field" type="text" name="customer[first_name]" placeholder="First Name" autocapitalize="words" autofocus required />
-        <input class="c-form__field" type="text" name="customer[last_name]" placeholder="Last Name" autocapitalize="words" required />
-        <input class="c-form__field" type="email" name="customer[email]" placeholder="Email Address" autocorrect="off" autocapitalize="off" required />
-        <input class="c-form__field" type="password" name="customer[password]" placeholder="Password" required />
-        <button class="c-form__button c-button-large c-button--submit u-fullWidth" type="submit">Register</button>
+        <input class="c-form__field" type="text" name="customer[first_name]" placeholder="{{ content.register_first_name_placeholder }}" autocapitalize="words" autofocus required />
+        <input class="c-form__field" type="text" name="customer[last_name]" placeholder="{{ content.register_last_name_placeholder }}" autocapitalize="words" required />
+        <input class="c-form__field" type="email" name="customer[email]" placeholder="{{ content.register_email_placeholder }}" autocorrect="off" autocapitalize="off" required />
+        <input class="c-form__field" type="password" name="customer[password]" placeholder="{{ content.register_password_placeholder }}" required />
+        <button class="c-form__button c-button-large c-button--submit u-fullWidth" type="submit">{{ content.register_button_text }}</button>
       </div>
       <div class="c-formCustomer__links">
         <span class="c-formCustomer__linkBlock u-textCenter">
-          Already a member? &nbsp;
-          <a class="c-formCustomer__link" href="/account/login">Sign in</a>
+          {{ content.register_login_text }} &nbsp;
+          <a class="c-formCustomer__link" href="/account/login">{{ content.register_login_link }}</a>
         </span>
       </div>
     {% endform %}
   </div>
 </div>
+
+{% schema %}
+{
+	"name": "Page",
+	"settings": [
+		{
+      "type": "text",
+			"id": "register_heading",
+			"label": "Register Heading",
+      "default": "Welcome Aboard!"
+		},
+    {
+      "type": "text",
+			"id": "register_first_name_placeholder",
+			"label": "Register First Name Placeholder",
+      "default": "First Name"
+		},
+    {
+      "type": "text",
+			"id": "register_last_name_placeholder",
+			"label": "Register Last Name Placeholder",
+      "default": "Last Name"
+		},
+    {
+      "type": "text",
+			"id": "register_email_placeholder",
+			"label": "Register Email Placeholder",
+      "default": "Email Address"
+		},
+    {
+      "type": "text",
+			"id": "register_password_placeholder",
+			"label": "Register Password Placeholder",
+      "default": "Password"
+		},
+    {
+      "type": "text",
+			"id": "register_button_text",
+			"label": "Register Button Text",
+      "default": "Register"
+		},
+    {
+      "type": "text",
+			"id": "register_login_text",
+			"label": "Register Login Text",
+      "default": "Already a member?"
+		},
+    {
+      "type": "text",
+			"id": "register_login_link",
+			"label": "Register Login Link",
+      "default": "Sign in"
+		}
+  ]
+}
+{% endschema %}

@@ -1,6 +1,8 @@
+{% assign content = section.settings %}
+
 <div class="c-formCustomer">
   <h2 class="c-formCustomer__heading">
-    Join The Cause!
+    {{ content.activate_heading }}
   </h2>
   <div class="c-formCustomer__form c-form">
     {% form 'reset_customer_password' %}
@@ -8,10 +10,42 @@
         {{ form.errors | default_errors }}
       </div>
       <div class="c-formCustomer__body c-form__body">
-        <input class="c-form__field" type="password" name="customer[password]" placeholder="Password" autofocus required>
-        <input class="c-form__field" type="password" name="customer[password_confirmation]" placeholder="Confirm Password" required>
-        <button class="c-form__button c-button-large c-button--submit u-fullWidth" type="submit">Submit</button>
+        <input class="c-form__field" type="password" name="customer[password]" placeholder="{{ content.activate_password_placeholder }}" autofocus required>
+        <input class="c-form__field" type="password" name="customer[password_confirmation]" placeholder="{{ content.activate_confirm_password_placeholder }}" required>
+        <button class="c-form__button c-button-large c-button--submit u-fullWidth" type="submit">{{ content.activate_button_text }}</button>
       </div>
     {% endform %}
   </div>
 </div>
+
+{% schema %}
+{
+	"name": "Page",
+	"settings": [
+		{
+      "type": "text",
+			"id": "activate_heading",
+			"label": "Activate Heading",
+      "default": "Join The Cause!"
+		},
+    {
+      "type": "text",
+			"id": "activate_password_placeholder",
+			"label": "Activate Password Placeholder",
+      "default": "Password"
+		},
+    {
+      "type": "text",
+			"id": "activate_confirm_password_placeholder",
+			"label": "Activate Confirm Password Placeholder",
+      "default": "Confirm Password"
+		},
+    {
+      "type": "text",
+			"id": "activate_button_text",
+			"label": "Activate Button Text",
+      "default": "Activate Account"
+		}
+  ]
+}
+{% endschema %}

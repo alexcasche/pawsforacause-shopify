@@ -1,12 +1,14 @@
+{% assign content = section.settings %}
+
 <header id="header" class="c-header" aria-label="Header">
   <div id="headerBar" class="c-headerBar">
     <div class="headerBar__container o-container--large">
-      {% if section.settings.bar_show_icon_left %}
-        <i class="c-headerBar__icon {{ section.settings.bar_icon_left }}"></i>
+      {% if content.bar_show_icon_left %}
+        <i class="c-headerBar__icon {{ content.bar_icon_left }}"></i>
       {% endif %}
-      {{ section.settings.bar_text }}
-      {% if section.settings.bar_show_icon_left %}
-        <i class="c-headerBar__icon {{ section.settings.bar_icon_right }}"></i>
+      {{ content.bar_text }}
+      {% if content.bar_show_icon_left %}
+        <i class="c-headerBar__icon {{ content.bar_icon_right }}"></i>
       {% endif %}
     </div>
   </div>
@@ -23,10 +25,10 @@
         </span>
       </button>
       <a class="c-headerMain__logo" href="/" title="Home">
-        <img class="c-headerMain__logoIcon" src="{{ section.settings.main_logo | asset_url }}"  alt="{{ shop.name }}" />
+        <img class="c-headerMain__logoIcon" src="{{ content.main_logo | asset_url }}"  alt="{{ shop.name }}" />
       </a>
       <div class="c-headerMain__buttons o-flexRow">
-        {% if section.settings.search_show %}
+        {% if content.search_show %}
           <button class="c-headerMain__button c-headerMain__search trigger-search">
             {% include "icon-search" %}
           </button>
@@ -48,7 +50,7 @@
             {% include "icon-burger" %}
           </button>
           <ul class="c-headerNav__drop" id="navAccount">
-            {% for nav in linklists[section.settings.main_account].links %}
+            {% for nav in linklists[content.main_account].links %}
               {% if customer and nav.title == "User" %}
                 {% assign account_nav = nav %}
               {% endif %}
@@ -66,7 +68,7 @@
           </ul>
         </div>
         <ul class="c-headerNav__list">
-          {% for nav in linklists[section.settings.main_nav].links %}
+          {% for nav in linklists[content.main_nav].links %}
             <li class="c-headerNav__item">
               {% if nav.links.size <= 0 %}
                 <a class="c-headerNav__link" href="{{ nav.url }}" title="{{ nav.title }}">
@@ -90,7 +92,7 @@
           {% endfor %}
         </ul>
         <div class="c-headerNav__buttons o-flexRow">
-          {% if section.settings.search_show %}
+          {% if content.search_show %}
             <button class="c-headerNav__button c-headerMain__search trigger-search">
               {% include "icon-search" %}
             </button>
@@ -105,10 +107,10 @@
       </nav>
     </div>
   </div>
-  {% if section.settings.search_show %}
+  {% if content.search_show %}
     <div id="headerSearch" class="c-headerSearch u-hidden">
       <div class="c-headerSearch__container o-container--large o-flexRow">
-        {% include "form-search" with settings: section.settings %}
+        {% include "form-search" with placeholder: content.search_placeholder %}
         <button class="c-headerSearch__close trigger-search">
           {% include "icon-close" %}
         </button>

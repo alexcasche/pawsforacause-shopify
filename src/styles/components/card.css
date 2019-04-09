@@ -1,16 +1,73 @@
 /*========== Card ==========*/
 
 .c-card {
-  background-color: #fff;
-  box-shadow: 0 1px 5px rgba(0,0,0,.05);
-  border: 1px solid #ebebeb;
-  border-radius: 3px;
+  background-color: white;
+  box-shadow: $box-shadow-card;
+  border: 1px solid $border-gray-light;
+  border-radius: $border-radius-card;
   padding: 30px 40px 40px;
+  overflow: hidden;
   @mixin full-width-xs;
   @media(--xs) {
     border-radius: 0;
     border-left: 0;
     border-right: 0;
     box-shadow: none;
+  }
+}
+
+.c-imageCard {
+  padding: 0;
+  align-items: stretch;
+  @media(--xs) {
+    background-color: transparent;
+    border: none;
+  }
+  @media(--mobile) {
+    margin-bottom: 50px;
+  }
+  @media(--desktop) {
+    flex-direction: row;
+  }
+}
+.c-imageCard__imageBox {
+  background-size: cover;
+  background-position: center;
+  width: 40%;
+}
+.c-imageCard__image {
+  width: 100%;
+  display: block;
+}
+.c-imageCard__content {
+  width: 100%;
+  padding: 20px 30px 50px;
+  @media(--mobile) {
+    padding: 30px 40px 50px;
+  }
+  @media(--desktop) {
+    width: 60%;
+    padding: 50px 50px 60px;
+  }
+}
+.c-imageCard__heading {
+  color: $color-blue;
+  font-size: 20px;
+  @media(--mobile) {
+    font-size: 22px;
+  }
+  @media(--desktop) {
+    text-align: left;
+  }
+}
+.c-imageCard__text {
+  line-height: 1.5;
+  text-align: center;
+  font-size: 17px;
+  @media(--mobile) {
+    font-size: 19px;
+  }
+  @media(--desktop) {
+    text-align: left;
   }
 }

@@ -13,15 +13,16 @@
     margin: 0 auto;
     border-radius: $border-radius-card;
     overflow: hidden;
-    border: 2px solid $border-gray-light;
-    transition: border-color .15s ease-in-out;
-    &:hover {
-      cursor: pointer;
-      border-color: $color-blue-light;
-    }
+    border: 1px solid $border-gray-light;
   }
   .c-shelters__itemImage {
     display: block;
+    transform-origin: center;
+    transition: transform .25s ease-in-out;
+    will-change: transform;
+    &:hover {
+      transform: scale(1.15);
+    }
   }
   .c-promise {
     position: relative;
@@ -43,6 +44,9 @@
   }
   .c-promise__text {
     color: #eee;
+  }
+  .c-impact__grid {
+    margin-top: 50px;
   }
   .c-support__item {
     height: 100%;

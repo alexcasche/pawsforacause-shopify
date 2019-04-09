@@ -1,11 +1,19 @@
+{% assign content = section.settings %}
+
 <div class="c-404">
-  <h1 class="c-404__heading u-textCenter">{{ section.settings.main_heading }}</h1>
+  <h1 class="c-404__heading u-textCenter">{{ content.main_heading }}</h1>
   <p class="c-404__text u-textCenter">
-    {{ section.settings.main_text }}
+    {{ content.main_text }}
   </p>
+   <div class="c-404__search">
+    {% include "form-search" with placeholder: content.main_search_placeholder %}
+  </div>
   <hr class="c-404__divider u-bgWhite" />
+  <h3 class="c-404__subheading">
+    {{ content.links_heading}}
+  </h3>
   <nav class="c-404__nav o-flexColumn" role="navigation" aria-label="404 Navigation">
-    {% for link in linklists[section.settings.links_navigation].links %}
+    {% for link in linklists[content.links_navigation].links %}
       <div class="c-404__navGroup">
         <h6 class="c-404__navHeading">
           {{ link.title }}
@@ -21,14 +29,6 @@
         </ul>
       </div>
     {% endfor %}
-    {% if section.settings.links_show_social %}
-      <div class="c-404__navGroup c-404__navGroup--social">
-        <h6 class="c-404__navHeading">
-          {{ section.settings.links_social_heading }}
-        </h6>
-        {% include "part-social" %}
-      </div>
-    {% endif %}
   </nav>
 </div>
 
@@ -53,25 +53,25 @@
       "default": "The page you're looking for was not found. Let's get you back on track!"
 		},
     {
+      "type": "text",
+			"id": "main_search_placeholder",
+			"label": "Main Search Placeholder",
+      "default": "Search our shop..."
+		},
+    {
       "type": "header",
       "content": "404 Links"
     },
     {
+      "type": "text",
+			"id": "links_heading",
+			"label": "Links Heading",
+      "default": "Quick Links"
+		},
+    {
       "type": "link_list",
 			"id": "links_navigation",
 			"label": "Links Navigation"
-		},
-    {
-      "type": "checkbox",
-			"id": "links_show_social",
-			"label": "Show Social Links",
-      "default": true
-		},
-    {
-      "type": "text",
-			"id": "links_social_heading",
-			"label": "Social Links Heading",
-      "default": "Community"
 		}
   ]
 }

@@ -67,7 +67,7 @@
     
   }
   .c-story__details {
-    @media(--tablet) {
+    @media(--desktop) {
       padding-left: 40px;
     }
   }
@@ -76,7 +76,7 @@
   .c-story__bio {
     display: block;
     text-align: center;
-    @media(--tablet) {
+    @media(--desktop) {
       text-align: left;
     }
   }

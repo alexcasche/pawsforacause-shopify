@@ -1,6 +1,8 @@
+{% assign content = section.settings %}
+
 <div class="c-formCustomer" id="customerLogin">
   <h2 class="c-formCustomer__heading">
-    Welcome Back!
+    {{ content.login_heading }}
   </h2>
   <div class="c-formCustomer__form c-form">
     {% form 'customer_login' %}
@@ -8,17 +10,17 @@
         {{ form.errors | default_errors }}
       </div>
       <div class="c-formCustomer__body c-form__body">
-        <input class="c-form__field" type="email" name="customer[email]" placeholder="Email Address" autocorrect="off" autocapitalize="off" autofocus required />
-        <input class="c-form__field" type="password" name="customer[password]" placeholder="Password" required />
-        <button class="c-form__button c-button-large c-button--submit u-fullWidth" type="submit">Sign In</button>
+        <input class="c-form__field" type="email" name="customer[email]" placeholder="{{ content.login_email_placeholder }}" autocorrect="off" autocapitalize="off" autofocus required />
+        <input class="c-form__field" type="password" name="customer[password]" placeholder="{{ content.login_password_placeholder }}" required />
+        <button class="c-form__button c-button-large c-button--submit u-fullWidth" type="submit">{{ content.login_button_text }}</button>
       </div>
       <div class="c-formCustomer__links">
         <span class="c-formCustomer__linkBlock">
-          Not a member? &nbsp;
-          <a class="c-formCustomer__link" href="/account/register">Register now</a>
+          {{ content.login_register_text }} &nbsp;
+          <a class="c-formCustomer__link" href="/account/register">{{ content.login_register_link }}</a>
         </span>
         <span class="c-formCustomer__linkBlock">
-          <a class="c-formCustomer__link trigger-recover-form" href="#recover">Forgot password?</a>
+          <a class="c-formCustomer__link trigger-recover-form" href="#recover">{{ content.login_forgot_link }}</a>
         </span>
       </div>
     {% endform %}
@@ -26,7 +28,7 @@
 </div>
 <div class="c-formCustomer u-hidden" id="customerRecover">
   <h2 class="c-formCustomer__heading">
-    Reset Password
+    {{ content.reset_heading }}
   </h2>
   <div class="c-formCustomer__form c-form">
     {% form 'recover_customer_password' %}
@@ -35,13 +37,95 @@
       </div>
       <div class="c-formCustomer__body c-form__body">
         <input class="c-form__field" type="email" value="" name="email" placeholder="Email Address" autocorrect="off" autocapitalize="off">
-        <button class="c-form__button c-button-large c-button--submit u-fullWidth" type="submit">Sign In</button>
+        <button class="c-form__button c-button-large c-button--submit u-fullWidth" type="submit">{{ content.reset_button_text }}</button>
       </div>
       <div class="c-formCustomer__links">
         <span class="c-formCustomer__linkBlock u-textCenter">
-          <a class="c-formCustomer__link trigger-login-form" href="#">Cancel</a>
+          <a class="c-formCustomer__link trigger-login-form" href="#">{{ content.reset_cancel_link }}</a>
         </span>
       </div>
     {% endform %}
   </div>
 </div>
+
+{% schema %}
+{
+	"name": "Page",
+	"settings": [
+    {
+      "type": "header",
+      "content": "Login Section"
+    },
+		{
+      "type": "text",
+			"id": "login_heading",
+			"label": "Login Heading",
+      "default": "Welcome Back!"
+		},
+    {
+      "type": "text",
+			"id": "login_email_placeholder",
+			"label": "Login Email Placeholder",
+      "default": "Email Address"
+		},
+    {
+      "type": "text",
+			"id": "login_password_placeholder",
+			"label": "Login Password Placeholder",
+      "default": "Password"
+		},
+    {
+      "type": "text",
+			"id": "login_button_text",
+			"label": "Login Button Text",
+      "default": "Sign In"
+		},
+    {
+      "type": "text",
+			"id": "login_register_text",
+			"label": "Login Register Text",
+      "default": "Not a member?"
+		},
+    {
+      "type": "text",
+			"id": "login_register_link",
+			"label": "Login Register Link",
+      "default": "Register now"
+		},
+    {
+      "type": "text",
+			"id": "login_forgot_link",
+			"label": "Login Forgot Link",
+      "default": "Forgot password?"
+		},
+    {
+      "type": "header",
+      "content": "Reset Section"
+    },
+		{
+      "type": "text",
+			"id": "reset_heading",
+			"label": "Reset Heading",
+      "default": "Reset Password"
+		},
+    {
+      "type": "text",
+			"id": "reset_email_placeholder",
+			"label": "Reset Email Placeholder",
+      "default": "Email Address"
+		},
+    {
+      "type": "text",
+			"id": "reset_button_text",
+			"label": "Reset Button Text",
+      "default": "Send Reset Link"
+		},
+    {
+      "type": "text",
+			"id": "reset_cancel_link",
+			"label": "Reset Cancel Link",
+      "default": "Cancel"
+		}
+  ]
+}
+{% endschema %}

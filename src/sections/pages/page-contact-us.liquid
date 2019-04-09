@@ -54,30 +54,25 @@
       </div>
     </div>
     <div class="c-instagram__feed o-container--large o-flexColumn">
-      {% assign instagram_html = '' %}
-      {% assign instagram_loop = 0 %}
-      {% for block in section.blocks %}
-        {% if block.type == "instagram" %}
-          {% assign instagram_loop = instagram_loop | plus: 1 %}
-          {% capture block_html %}
-            {% unless instagram_loop == 1 %}::::{% endunless %}
-            <a class="c-instragram__link" href="{{ settings.account_instagram }}" target="_blank">
-              <img 
-                class="c-instagram__image lazyload"
-                src="{{ block.settings.image.src | img_url: 'x300' }}"
-                data-src="{{ block.settings.image.src | img_url: 'master' }}" 
-                alt="{{ shop.name }} Instagram"
-              />
-              <span class="c-instagram__hover o-flexColumn">
-                <i class="fab fa-instagram"></i>
-              </span>
-            </a>
-          {% endcapture %}
-          {% assign instagram_html = instagram_html | append: block_html %}
-        {% endif %}
-      {% endfor %}
-      {% assign instagram_items = instagram_html | split: "::::" %}
-      {% include "block-gallery" with items: instagram_items %}
+      <div class="c-gallery">
+        {% for block in section.blocks %}
+          {% if block.type == "instagram" %}
+            <div class="c-gallery__item">
+              <a class="c-instragram__link" href="{{ settings.account_instagram }}" target="_blank">
+                <img 
+                  class="c-instagram__image lazyload"
+                  src="{{ block.settings.image.src | img_url: 'x300' }}"
+                  data-src="{{ block.settings.image.src | img_url: 'master' }}" 
+                  alt="{{ shop.name }} Instagram"
+                />
+                <span class="c-instagram__hover o-flexColumn">
+                  <i class="fab fa-instagram"></i>
+                </span>
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
       <a class="c-instagram__button c-button c-button--primary" href="{{ settings.account_instagram }}" target="_blank">
         {{ section.settings.instagram_button }}
       </a>

@@ -52,6 +52,16 @@
         <h1 class="c-impact__heading">{{ section.settings.impact_heading }}</h1>
         <p class="c-impact__text">{{ section.settings.impact_text }}</p>
       </div>
+      <div class="c-impact__grid o-flexColumn">
+         {% for block in section.blocks %}
+            {% if block.type == "impact" %}
+              {% assign bs = block.settings %}
+              <div class="c-impact__item">
+                {% include "block-image-card" with image_large: bs.image_large, image_small: bs.image_small, content_heading: bs.heading, content_text: bs.text %}
+              </div>
+            {% endif %}
+          {% endfor %}
+      </div>
     </div>
   </div>
   <div class="c-support o-strip">
@@ -186,6 +196,12 @@
       "default": "Every Purchase Makes A Difference"
     },
     {
+      "type": "text",
+      "id": "impact_text",
+      "label": "Impact Text",
+      "default": "When you shop on our website you are directly helping rescue dogs in need.  Here are some of the ways your support makes a difference."
+    },
+    {
       "type": "header",
       "content": "Support Section"
     },
@@ -210,12 +226,38 @@
         {
           "id": "image",
           "type": "image_picker",
-          "label": "Image"
+          "label": "Shelter Image"
         },
         {
           "id": "url",
           "type": "url",
-          "label": "URL"
+          "label": "Shelter URL"
+        }
+      ]
+    },
+    {
+      "type": "impact",
+      "name": "Impact",
+      "settings": [
+        {
+          "id": "image_large",
+          "type": "image_picker",
+          "label": "Impact Image Large"
+        },
+        {
+          "id": "image_small",
+          "type": "image_picker",
+          "label": "Impact Image Small"
+        },
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "Impact Heading"
+        },
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Impact Text"
         }
       ]
     },
