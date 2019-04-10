@@ -1,5 +1,69 @@
-<section class="c-collectionList__container o-strip u-noSelect">
-  <div class="c-collectionList__container o-container--large">
-    {% include "collection-grid" with collection: collections['all-products'] %}
+{% assign content = section.settings %}
+
+{% include "block-hero" with hero_large: content.hero_large, hero_small: content.hero_small %}
+{% include "collection-navbar" %}
+<section class="c-collection o-strip u-noSelect">
+  <div class="c-collection__container o-container--large">
+    {% include "collection-grid" with collection: collections['all'] %}
   </div>
 </section>
+
+{% schema %}
+{
+  "name": "Content",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_large",
+      "label": "Hero Image Large"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_small",
+      "label": "Hero Image Small"
+    },
+    {
+      "type": "header",
+      "content": "Controls"
+    },
+    {
+      "type": "text",
+      "id": "filter_label",
+      "label": "Filter Label",
+      "default": "Filter"
+    },
+    {
+      "type": "text",
+      "id": "sort_label",
+      "label": "Sort Label",
+      "default": "Sort:"
+    },
+    {
+      "type": "header",
+      "content": "Info"
+    },
+    {
+      "type": "text",
+      "id": "info_start_text",
+      "label": "Info Start Text",
+      "default": "Showing"
+    },
+    {
+      "type": "text",
+      "id": "info_middle_text",
+      "label": "Info Middle Text",
+      "default": "of"
+    },
+    {
+      "type": "text",
+      "id": "info_end_text",
+      "label": "Info End Text",
+      "default": "products"
+    }
+  ]
+}
+{% endschema %}

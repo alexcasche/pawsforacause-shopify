@@ -1,0 +1,5 @@
+{% layout none %}
+
+{% paginate search.results by 1000 %}
+  {{ search.results | json }}
+{% endpaginate %}

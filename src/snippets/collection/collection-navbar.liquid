@@ -1,0 +1,30 @@
+<div id="navbar" class="c-navbar">
+  <div class="c-navbar__container o-container--large">
+    <div class="c-navbar__side c-navbar__side--filter">
+      <span class="c-navbar__label c-navbar__label--filter">
+        {{ filter_label }}
+      </span>
+      <span class="c-navbar__select c-navbar__select--filter">
+        <select id="navbar-select-filter" class="c-navbar__selectInner">
+          {% for link in nav_menu.links %}
+            <option value="{{ link.url }}">{{ link.title }}</option>
+          {% endfor %}
+        </select>
+        <span id="navbar-select-filter-label" class="c-navbar__selectLabel"></span>
+      </span>
+    </div>
+    <div class="c-navbar__side c-navbar__side--sort">
+      <span class="c-navbar__label c-navbar__label--sort">
+        {{ sort_label }}
+      </span>
+      <span class="c-navbar__select c-navbar__select--sort">
+        {% comment %} <select id="navbar-select-sort" class="c-navbar__selectInner">
+          {% for link in nav_menu.links %}
+            <option value="{{ link.url }}">{{ link.title }}</option>
+          {% endfor %}
+        </select>
+        <span id="navbar-select-sort-label" class="c-navbar__selectLabel"></span> {% endcomment %}
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,17 +1,19 @@
-{% include "block-hero" with hero_large: section.settings.hero_large, hero_small: section.settings.hero_small %}
-{% include "block-navbar" with nav_title: section.settings.nav_title %}
+{% assign content = section.settings %}
+
+{% include "block-hero" with hero_large: content.hero_large, hero_small: content.hero_small %}
+{% include "block-navbar" with nav_title: content.nav_title %}
 <div id="contact-us" class="c-contactUs">
   <div class="c-help o-strip u-bgGray">
     <div class="c-help__container o-container">
       <div class="c-help__narrow u-textNarrow">
-        <h1 class="c-help__heading">{{ section.settings.help_heading }}</h1>
-        <p class="c-help__text">{{ section.settings.help_text }}</p>
+        <h1 class="c-help__heading">{{ content.help_heading }}</h1>
+        <p class="c-help__text">{{ content.help_text }}</p>
       </div>
     </div>
   </div>
   <div class="c-reach o-strip">
     <div class="c-reach__container o-container">
-      <h2 class="c-reach__heading">{{ section.settings.reach_heading }}</h2>
+      <h2 class="c-reach__heading">{{ content.reach_heading }}</h2>
       {% assign reach_html = '' %}
       {% assign reach_loop = 0 %}
       {% for block in section.blocks %}
@@ -38,10 +40,10 @@
   <div class="c-assistance o-strip" style="background-image:url({{ 'background-paw-hand.jpg' | asset_url }});">
     <div class="c-assistance__container o-container">
       <div class="c-assistance__narrow u-textNarrow">
-        <h1 class="c-assistance__heading">{{ section.settings.assistance_heading }}</h1>
-        <p class="c-assistance__text">{{ section.settings.assistance_text }}</p>
-        <a class="c-assistance__button c-button" target="_blank" href="{{ section.settings.assistance_url }}">
-          {{ section.settings.assistance_button }}
+        <h1 class="c-assistance__heading">{{ content.assistance_heading }}</h1>
+        <p class="c-assistance__text">{{ content.assistance_text }}</p>
+        <a class="c-assistance__button c-button" target="_blank" href="{{ content.assistance_url }}">
+          {{ content.assistance_button }}
         </a>
       </div>
     </div>
@@ -49,8 +51,8 @@
   <div class="c-instagram o-strip u-bgGray">
     <div class="c-instagram__container o-container">
       <div class="c-instagram__narrow u-textNarrow">
-        <h1 class="c-instagram__heading">{{ section.settings.instagram_heading }}</h1>
-        <p class="c-instagram__text">{{ section.settings.instagram_text }}</p>
+        <h1 class="c-instagram__heading">{{ content.instagram_heading }}</h1>
+        <p class="c-instagram__text">{{ content.instagram_text }}</p>
       </div>
     </div>
     <div class="c-instagram__feed o-container--large o-flexColumn">
@@ -74,7 +76,7 @@
         {% endfor %}
       </div>
       <a class="c-instagram__button c-button c-button--primary" href="{{ settings.account_instagram }}" target="_blank">
-        {{ section.settings.instagram_button }}
+        {{ content.instagram_button }}
       </a>
     </div>
   </div>
@@ -82,7 +84,7 @@
 
 {% schema %}
 {
-  "name": "Page",
+  "name": "Content",
   "settings": [
     {
       "type": "header",

@@ -1,10 +1,12 @@
+{% assign content = section.settings %}
+
 <section id="account" class="c-account u-hidden">
   {% include "block-navbar" with nav_title: "Account" %}
   <div class="c-account__top o-strip u-bgGray">
     <div class="c-account__container o-container o-flexFlip">
       <div class="c-account__info o-flexItem-40 o-flexColumn">
         <h2 class="c-account__heading u-truncate">
-          {{ section.settings.main_heading }}
+          {{ content.main_heading }}
         </h2>
         <h5 class="c-account__subheading u-truncate">
           {{ customer.email }}
@@ -23,11 +25,11 @@
               </a>
             {% endif %}
           {% else %}
-            {{ section.settings.main_no_address }}
+            {{ content.main_no_address }}
           {% endif %}
         </div>
         <a href="/account/addresses" class="c-account__button c-button-small c-button--secondary">
-          {{ section.settings.main_address_button }}
+          {{ content.main_address_button }}
         </a>
       </div>
       <div class="c-account__cart o-flexItem-60">
@@ -39,7 +41,7 @@
 
 {% schema %}
 {
-	"name": "Page",
+	"name": "Content",
 	"settings": [
     {
       "type": "header",

@@ -1,5 +1,31 @@
 /*========== Challenge Page ==========*/
 
+.shopify-challenge__container {
+  @mixin flex column, center, stretch;
+  width: 100%;
+  max-width: 450px !important;
+  margin: 80px auto 0 !important;
+  .g-recaptcha {
+    margin: 10px auto !important;
+  }
+  form {
+    background-color: white;
+    box-shadow: $box-shadow-card;
+    border: 1px solid $border-gray-light;
+    border-radius: $border-radius-card;
+    padding: 30px 40px 40px;
+    overflow: hidden;
+    @mixin full-width-xs;
+    @media(--xs) {
+      background-color: transparent;
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+      box-shadow: none;
+    }
+  }
+}
+
 .shopify-challenge__message {
   color: white;
   margin-bottom: 30px;
@@ -7,11 +33,16 @@
 .shopify-challenge__button {
   @mixin transition-bg-darken $color-submit;
   width: 100% !important;
-  max-width: 300px;
   margin-top: 20px !important;
   padding: 15px 0 !important;
+  border: none;
   border-radius: $border-radius-input !important;
+  color: white;
   line-height: 22px;
+  font-weight: 600;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .shopify-challenge__error {
   width: 100%;

@@ -1,17 +1,19 @@
-{% include "block-hero" with hero_large: section.settings.hero_large, hero_small: section.settings.hero_small %}
-{% include "block-navbar" with nav_title: section.settings.nav_title %}
+{% assign content = section.settings %}
+
+{% include "block-hero" with hero_large: content.hero_large, hero_small: content.hero_small %}
+{% include "block-navbar" with nav_title: content.nav_title %}
 <div id="c-faqs" class="c-faqs">
   <div class="c-question o-strip u-bgGray">
     <div class="c-question__container o-container">
       <div class="c-question__narrow u-textNarrow">
-        <h1 class="c-question__heading">{{ section.settings.question_heading }}</h1>
-        <p class="c-question__text">{{ section.settings.question_text }}</p>
+        <h1 class="c-question__heading">{{ content.question_heading }}</h1>
+        <p class="c-question__text">{{ content.question_text }}</p>
       </div>
     </div>
   </div>
   <div class="c-topics o-strip">
     <div class="c-topics__container o-container">
-      {% assign topics = section.settings.faq_topics | split: "," %}
+      {% assign topics = content.faq_topics | split: "," %}
       {% for topic in topics %}
         <div class="c-topics__group u-textNarrow">
           <h2 class="c-topics__heading">{{ topic }}</h2>
@@ -47,7 +49,7 @@
 
 {% schema %}
 {
-  "name": "Page",
+  "name": "Content",
   "settings": [
     {
       "type": "header",

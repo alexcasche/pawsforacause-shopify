@@ -1,3 +1,5 @@
+{% assign content = section.settings %}
+
 <section id="addresses" class="c-addresses">
   {% include "block-navbar" with nav_title: "Account" %}
   <div class="c-addresses__top o-strip u-bgGray">
@@ -5,14 +7,14 @@
       <div class="c-addresses__addresses o-flexItem-40">
         <div class="c-addresses__block c-addresses__primary o-flexColumn">
           <h2 class="c-addresses__heading">
-            {{ section.settings.main_primary_heading }}
+            {{ content.main_primary_heading }}
           </h2>
           {% if customer.addresses.size == 0 %}
             <div class="c-addresses__text">
-              {{ section.settings.main_no_address }}
+              {{ content.main_no_address }}
             </div>
             <button class="c-addresses__button c-button-small c-button--secondary trigger-modal" data-modal-content-id="addAddress">
-              {{ section.settings.main_add_button }}
+              {{ content.main_add_button }}
             </button>
           {% else %}
             <div class="c-addresses__group">
@@ -46,11 +48,11 @@
         <div class="c-addresses__block c-addresses__other o-flexColumn">
           {% if customer.addresses.size > 1 %}
             <h2 class="c-addresses__heading">
-              {{ section.settings.main_other_heading }}
+              {{ content.main_other_heading }}
             </h2>
             {% if customer.addresses.size == 1 %}
               <div class="c-addresses__text">
-                {{ section.settings.main_no_other }}
+                {{ content.main_no_other }}
               </div>
             {% else %}
               {% for address in customer.addresses %}
@@ -83,7 +85,7 @@
             {% endif %}
           {% endif %}
           <button class="c-addresses__button c-address__button--other c-button-small c-button--secondary trigger-modal" data-modal-content-id="addAddress">
-            {{ section.settings.main_add_button }}
+            {{ content.main_add_button }}
           </button>
         </div>
       </div>
@@ -93,15 +95,15 @@
     </div>
   </div>
   <vue-modal prerender="{{ true }}">
-    {% include "form-address-add" with settings: section.settings %}
-    {% include "form-address-edit" with settings: section.settings %}
-    {% include "form-address-delete" with settings: section.settings %}
+    {% include "form-address-add" with content: content %}
+    {% include "form-address-edit" with content: content %}
+    {% include "form-address-delete" with content: content %}
   </vue-modal>
 </section>
 
 {% schema %}
 {
-	"name": "Page",
+	"name": "Content",
 	"settings": [
     {
       "type": "header",

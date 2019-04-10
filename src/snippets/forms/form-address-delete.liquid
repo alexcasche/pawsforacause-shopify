@@ -1,7 +1,7 @@
 {% for address in customer.addresses %}
   <div class="c-formAddress u-hidden" id="deleteAddress_{{ address.id }}">
     <h3 class="c-formAddress__heading u-textTransformNone">
-      {{ settings.form_delete_header }}
+      {{ content.form_delete_header }}
     </h3>
     <div class="c-formAddress__group">
       <h4 class="c-formAddress__subheading">
@@ -24,8 +24,8 @@
     <form method="post" action="/account/addresses/{{ address.id }}">
       <input type="hidden" name="_method" value="delete"/>
       <div class="c-form__buttons">
-        <button class="c-form__button c-button-large c-button--edit trigger-loading" data-heading="{{ settings.form_updating }}" type="submit">{{ settings.form_delete }}<button>
-        <button class="c-form__button c-button-large c-button--cancel trigger-modal" type="button" data-modal-id="addressModal">{{ settings.form_cancel }}</button>
+        <button class="c-form__button c-button-large c-button--edit trigger-loading" data-heading="{{ content.form_updating }}" type="submit">{{ content.form_delete }}<button>
+        <button class="c-form__button c-button-large c-button--cancel trigger-modal" type="button" data-modal-id="addressModal">{{ content.form_cancel }}</button>
       </div>
     </form>
   </div>

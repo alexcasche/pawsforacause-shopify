@@ -1,18 +1,20 @@
-{% include "block-hero" with hero_large: section.settings.hero_large, hero_small: section.settings.hero_small %}
-{% include "block-navbar" with nav_title: section.settings.nav_title %}
+{% assign content = section.settings %}
+
+{% include "block-hero" with hero_large: content.hero_large, hero_small: content.hero_small %}
+{% include "block-navbar" with nav_title: content.nav_title %}
 <div id="how-we-give-back" class="c-howWeGiveBack">
   <div class="c-partner o-strip u-bgGray">
     <div class="c-partner__container o-container">
       <div class="c-partner__narrow u-textNarrow">
-        <span class="c-partner__preheading c-preheading">{{ section.settings.partner_preheading }}</span>
-        <h1 class="c-partner__heading">{{ section.settings.partner_heading }}</h1>
-        <p class="c-partner__text">{{ section.settings.partner_text }}</p>
+        <span class="c-partner__preheading c-preheading">{{ content.partner_preheading }}</span>
+        <h1 class="c-partner__heading">{{ content.partner_heading }}</h1>
+        <p class="c-partner__text">{{ content.partner_text }}</p>
       </div>
     </div>
   </div>
   <div class="c-shelters o-strip">
     <div class="c-shelters__container o-container">
-      <h2 class="c-shelters__heading">{{ section.settings.shelters_heading }}</h2>
+      <h2 class="c-shelters__heading">{{ content.shelters_heading }}</h2>
       {% assign shelter_html = '' %}
       {% assign shelter_loop = 0 %}
       {% for block in section.blocks %}
@@ -39,18 +41,18 @@
   <div class="c-promise o-strip" style="background-image:url({{ 'background-paw-hand.jpg' | asset_url }});">
     <div class="c-promise__container o-container">
       <div class="c-promise__narrow u-textNarrow">
-        <span class="c-promise__preheading c-preheading">{{ section.settings.promise_preheading }}</span>
-        <h1 class="c-promise__heading">{{ section.settings.promise_heading }}</h1>
-        <p class="c-promise__text">{{ section.settings.promise_text }}</p>
+        <span class="c-promise__preheading c-preheading">{{ content.promise_preheading }}</span>
+        <h1 class="c-promise__heading">{{ content.promise_heading }}</h1>
+        <p class="c-promise__text">{{ content.promise_text }}</p>
       </div>
     </div>
   </div>
   <div class="c-impact o-strip u-bgGray">
     <div class="c-impact__container o-container">
       <div class="c-impact__narrow u-textNarrow">
-        <span class="c-impact__preheading c-preheading">{{ section.settings.impact_preheading }}</span>
-        <h1 class="c-impact__heading">{{ section.settings.impact_heading }}</h1>
-        <p class="c-impact__text">{{ section.settings.impact_text }}</p>
+        <span class="c-impact__preheading c-preheading">{{ content.impact_preheading }}</span>
+        <h1 class="c-impact__heading">{{ content.impact_heading }}</h1>
+        <p class="c-impact__text">{{ content.impact_text }}</p>
       </div>
       <div class="c-impact__grid o-flexColumn">
          {% for block in section.blocks %}
@@ -67,8 +69,8 @@
   <div class="c-support o-strip">
     <div class="c-support__container o-container">
       <div class="c-support__narrow u-textNarrow">
-        <h1 class="c-support__heading">{{ section.settings.support_heading }}</h1>
-        <p class="c-support__text">{{ section.settings.support_text }}</p>
+        <h1 class="c-support__heading">{{ content.support_heading }}</h1>
+        <p class="c-support__text">{{ content.support_text }}</p>
       </div>
     </div>
     <div class="c-support__container o-container">
@@ -98,7 +100,7 @@
 </div>
 {% schema %}
 {
-  "name": "Page",
+  "name": "Content",
   "settings": [
     {
       "type": "header",
