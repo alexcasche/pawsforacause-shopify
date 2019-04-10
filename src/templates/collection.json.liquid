@@ -1,5 +1,5 @@
 {% layout none %}
 
 {% paginate collection.products by 1000 %}
-  {{ collection.products | json }}
+  <json-data>{{ collection.products | json }}</json-data>
 {% endpaginate %}

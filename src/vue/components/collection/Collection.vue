@@ -7,14 +7,18 @@ import axios from "axios";
 
 export default {
   props: {
-    collection: {
+    collection_handle: {
       type: String,
       default: "all-products"
     }
   },
   async mounted() {
-    const collectionJSON = await axios.get(`/collections/${this.collection}-json`)
-    console.log(collectionJSON)
+    axios.get(`/collections/${this.collection_handle}-json`)
+      .then(response => {
+        const { data } = response
+        const collectionJSON = data.split("<json-data>")[1].split("</json-data>")[0]
+        console.log(JSON.parse(collectionJSON))
+      })
   }
 }
 </script>
