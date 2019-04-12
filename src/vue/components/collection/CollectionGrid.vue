@@ -1,10 +1,11 @@
 <template>
   <div class="c-collectionGrid o-lost">
-    <CollectionItem 
+    <div class="c-collectionGrid__item o-lost-item"
       v-for="(item, index) in collection"
       :key="index"
-      :item="item"
-    />
+    >
+      <CollectionItem :item="item"/>
+    </div>
   </div>
 </template>
 

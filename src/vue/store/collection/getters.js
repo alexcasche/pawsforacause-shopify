@@ -4,6 +4,7 @@ export default {
   isFetching: state => state.isFetching,
   isLoading: state => state.isLoading,
   collection: state => state.collection,
+  settings: state => state.settings,
   featured: state => state.featured,
   newest: state => state.newest,
   popular: state => state.popular,

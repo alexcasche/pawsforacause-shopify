@@ -19,6 +19,10 @@ export default {
     collection_handle: {
       type: String,
       default: "all-products"
+    },
+    settings_json: {
+      type: String,
+      default: ""
     }
   },
   components: {
@@ -31,10 +35,12 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('collection', ['setCollection', 'setSortBy', 'setFilterBy', 'toggleLoading']),
+    ...mapMutations('collection', ['setSettings', 'setCollection', 'setSortBy', 'setFilterBy', 'toggleLoading']),
     ...mapActions('collection', ['setActiveCollection']),
   },
   async mounted() {
+    const parsedSettings = await JSON.parse(this.settings_json)
+    await await this.setSettings(parsedSettings)
     await this.setCollection(this.collection_handle)
     await this.setSortBy()
     await this.setFilterBy()
