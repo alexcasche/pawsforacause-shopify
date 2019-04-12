@@ -1,14 +1,22 @@
+import { sortCollection } from "@vue/utils"
+
 export default {
-  setFeatured(state, payload) {
-    state.featured = payload
-    return state
-  },
-  setNewest(state, payload) {
-    state.newest = payload
-    return state
-  },
-  setPopular(state, payload) {
-    state.popular = payload
-    return state
+  isFetching: state => state.isFetching,
+  isLoading: state => state.isLoading,
+  collection: state => state.collection,
+  featured: state => state.featured,
+  newest: state => state.newest,
+  popular: state => state.popular,
+  sortBy: state => state.sortBy,
+  filterBy: state => state.filterBy,
+  activeCollection: (state, getters) => {
+    const sortBy = getters.sortBy
+    let collection = []
+    sortBy === "newest"
+      ? collection = getters.newest
+      : sortBy === "popular"
+        ? collection = getters.popular
+        : collection = getters.featured
+    return collection
   }
 }

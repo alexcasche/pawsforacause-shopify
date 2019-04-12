@@ -1,4 +1,4 @@
-import { formatFloat } from '@vue/helpers'
+import { formatFloat } from '@vue/utils'
 
 export const formatProduct = shopifyProduct => {
   let productObj = { ...shopifyProduct }

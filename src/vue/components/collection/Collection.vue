@@ -1,9 +1,18 @@
 <template>
-  <div>HELLO WORLD</div>
+  <div id="contact-us" class="c-collection">
+    <div v-if="!isLoading">
+      <CollectionGrid :collection="collectionItems"/>
+    </div>
+    <div v-else class="c-collection__loading c-loadingDots">
+      <span/><span/><span/><span/>
+    </div>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
+import { mapGetters, mapMutations, mapActions } from "vuex"
+import CollectionGrid from "./CollectionGrid.vue"
 
 export default {
   props: {
@@ -12,13 +21,25 @@ export default {
       default: "all-products"
     }
   },
+  components: {
+    CollectionGrid
+  },
+  computed: {
+    ...mapGetters('collection', ['activeCollection', 'sortBy', 'filterBy', 'isLoading']),
+    collectionItems() {
+      return this.activeCollection;
+    }
+  },
+  methods: {
+    ...mapMutations('collection', ['setCollection', 'setSortBy', 'setFilterBy', 'toggleLoading']),
+    ...mapActions('collection', ['setActiveCollection']),
+  },
   async mounted() {
-    axios.get(`/collections/${this.collection_handle}-json`)
-      .then(response => {
-        const { data } = response
-        const collectionJSON = data.split("<json-data>")[1].split("</json-data>")[0]
-        console.log(JSON.parse(collectionJSON))
-      })
+    await this.setCollection(this.collection_handle)
+    await this.setSortBy()
+    await this.setFilterBy()
+    await this.setActiveCollection()
+    this.toggleLoading()
   }
 }
 </script>

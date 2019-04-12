@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { arraysEqual, formatOptions } from "@vue/helpers";
+import { arraysEqual, formatOptions } from "@vue/utils";
 
 export default {
   props: {

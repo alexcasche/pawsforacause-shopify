@@ -18,7 +18,7 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from "vuex";
-import { filterUpsell } from "@vue/helpers";
+import { filterUpsell } from "@vue/utils";
 import CartUpsellItem from "./CartUpsellItem.vue"
 
 export default {

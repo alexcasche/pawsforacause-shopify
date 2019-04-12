@@ -1,4 +1,4 @@
-import { arrayShuffle, filterKeys } from '@vue/helpers'
+import { arrayShuffle, filterKeys } from '@vue/utils'
 
 export const filterUpsell = (collection, cartProductIds, limit) => {
   if(collection) {

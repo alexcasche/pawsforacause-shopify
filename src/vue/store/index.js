@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import VuexPersist from 'vuex-persist';
 import cart from './cart';
+import collection from './collection';
 import modal from './modal';
 
 Vue.config.devtools = true
@@ -22,6 +23,7 @@ const vuexLocalStorage = new VuexPersist({
 export default new Vuex.Store({
   modules: {
     cart,
+    collection,
     modal
   },
   plugins: [vuexLocalStorage.plugin]

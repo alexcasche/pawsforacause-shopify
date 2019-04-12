@@ -21,7 +21,7 @@
 
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
-import { setCartData, setCartTriggers } from '@vue/helpers'
+import { setCartData, setCartTriggers } from '@vue/utils'
 import CartHeader from './CartHeader.vue'
 import CartMain from './CartMain.vue'
 import CartUpsell from './CartUpsell.vue'

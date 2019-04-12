@@ -1,6 +1,88 @@
-<section class="c-collection o-strip u-noSelect">
-  <div class="c-collection__container o-container--large">
-    {% include "collection-grid" with collection %}
-  </div>
-</section>
-<vue-collection collection_handle="{{ collection.handle }}"></vue-collection>
+{% for block in section.blocks %}
+  {% if block.type == collection.handle %}
+    {% assign settings_json = block.settings | json | escape %}
+  {% endif %}
+{% endfor %}
+
+<vue-collection collection_handle="{{ collection.handle }}" settings_json="{{ settings_json }}"></vue-collection>
+
+{% schema %}
+{
+  "name": "Content",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "collection_handle",
+      "label": "Collection Handle",
+      "info": "Must Match Collection",
+      "default": "all-products"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show Navigtaion",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filter_label",
+      "label": "Show Filter Label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "filter_label",
+      "label": "Filter Label",
+      "default": "Filter"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_fsort_label",
+      "label": "Show Sort Label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "sort_label",
+      "label": "Sort Label",
+      "default": "Sort:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "chandle",
+          "label": "Collection Navigation"
+        },
+        {
+          "type": "image_picker",
+          "id": "hero_large",
+          "label": "Hero Image Large"
+        },
+        {
+          "type": "image_picker",
+          "id": "hero_small",
+          "label": "Hero Image Small"
+        },
+        {
+          "type": "link_list",
+          "id": "navigation",
+          "label": "Collection Navigation"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

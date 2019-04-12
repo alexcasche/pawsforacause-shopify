@@ -1,4 +1,4 @@
-import { arrayUnique } from '@vue/helpers'
+import { arrayUnique } from '@vue/utils'
 
 export const formatOptions = product => {
   const { options, variants } = product

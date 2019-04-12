@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { formatProduct } from "@vue/helpers"
+import { formatProduct } from "@vue/utils"
 import ProductPrices from "./ProductPrices.vue"
 import ProductOptions from "./ProductOptions.vue"
 import ProductQuantity from "./ProductQuantity.vue"

@@ -1,9 +1,15 @@
 import axios from "axios";
 import qs from "qs";
-import { axiosHeaders, formatCart, formatFloat, formatItem, formatProduct } from "@vue/helpers";
+import { 
+  axiosHeaders, 
+  formatCart, 
+  formatFloat, 
+  formatItem, 
+  formatProduct 
+} from "@vue/utils";
 
 export default {
-  initCart: async ({ dispatch, commit }) => {
+  initCart: async ({ commit, dispatch }) => {
     const cart = await axios.get("/cart.js")
       .then(response => commit("setCart", formatCart(response.data)))
       .catch(error => console.log(error.message))
@@ -17,7 +23,7 @@ export default {
     const cartAccount = document.getElementById("cartAccount");
     if(!cartAccount && !hideCart) commit("openCart");
   },
-  addCart: async ({ commit, dispatch, state }, payload) => {
+  addCart: async ({ state, commit, dispatch }, payload) => {
     commit("setError", false)
     if(!Array.isArray(payload)) payload = [payload]
     for (let i = 0; i < payload.length; i++) { 
@@ -36,7 +42,7 @@ export default {
       dispatch("actionWrapper", { action, hideCart })
     }
   },
-  changeCart: async ({ dispatch, commit, state }, payload) => {
+  changeCart: async ({ state, commit, dispatch }, payload) => {
     commit("setError", false)
     const action = await axios.post("/cart/change.js", qs.stringify(payload), axiosHeaders)
       .then(response => commit("setCart", formatCart(response.data)))
@@ -50,14 +56,14 @@ export default {
       .catch(error => commit("setError", error.response.data.description))
     dispatch("actionWrapper", { action });
   },
-  updateCart: async ({ dispatch, commit, state }, payload) => {
+  updateCart: async ({ state, commit, dispatch }, payload) => {
     commit("setError", false)
     const action = await axios.post("/cart/update.js", qs.stringify(payload), axiosHeaders)
       .then(response => commit("setCart", formatCart(response.data)))
       .catch(error => commit("setError", error.response.data.description))
     dispatch("actionWrapper", { action })
   },
-  setProducts: async ({ dispatch, commit, state }) => {
+  setProducts: async ({ state, commit, dispatch }) => {
     const { items } = state.shoppingCart
     const itemKeys = Object.keys(items);
     for (let i = 0; i < itemKeys.length; i++) { 
