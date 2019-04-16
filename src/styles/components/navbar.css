@@ -57,10 +57,21 @@
   font-size: 16px;
   font-weight: 600;
   line-height: initial;
+  text-transform: capitalize;
   opacity: 0;
 }
 .c-navbar__selectLabel {
   position: absolute;
   right: 16px;
   pointer-events: none;
+  text-transform: capitalize;
+}
+.c-navbar__selectValue {
+  color: $color-blue;
+}
+
+.c-navbar--collection {
+  .c-navbar__selectInner {
+    /* padding-left: 50px; */
+  }
 }

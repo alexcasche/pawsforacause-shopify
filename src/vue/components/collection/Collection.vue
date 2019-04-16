@@ -1,10 +1,12 @@
 <template>
-  <div id="contact-us" class="c-collection">
-    <div v-if="!isLoading">
-      <CollectionGrid :collection="collectionItems"/>
-    </div>
-    <div v-else class="c-collection__loading c-loadingDots">
-      <span/><span/><span/><span/>
+  <div class="c-collection">
+    <div class="c-collection__container o-container--large">
+      <div v-if="isLoading" class="c-collection__loading c-loadingDots">
+        <span/><span/><span/><span/>
+      </div>
+      <div v-else class="c-collection__ready">
+        <CollectionGrid :collection="collectionItems"/>
+      </div>
     </div>
   </div>
 </template>
@@ -19,10 +21,6 @@ export default {
     collection_handle: {
       type: String,
       default: "all-products"
-    },
-    settings_json: {
-      type: String,
-      default: ""
     }
   },
   components: {
@@ -35,12 +33,10 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('collection', ['setSettings', 'setCollection', 'setSortBy', 'setFilterBy', 'toggleLoading']),
+    ...mapMutations('collection', ['setCollection', 'setSortBy', 'setFilterBy', 'toggleLoading']),
     ...mapActions('collection', ['setActiveCollection']),
   },
   async mounted() {
-    const parsedSettings = await JSON.parse(this.settings_json)
-    await await this.setSettings(parsedSettings)
     await this.setCollection(this.collection_handle)
     await this.setSortBy()
     await this.setFilterBy()

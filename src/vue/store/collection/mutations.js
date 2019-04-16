@@ -11,10 +11,6 @@ export default {
     state.collection = payload
     return state
   },
-  setSettings(state, payload) {
-    state.settings = payload
-    return state
-  },
   setFilterBy(state, payload) {
     const urlParams = new URLSearchParams(window.location.search);
     const sortParam = urlParams.get('filter')

@@ -1,26 +1,28 @@
 {% for block in section.blocks %}
-  {% if block.type == collection.handle %}
-    {% assign settings_json = block.settings | json | escape %}
+  {% assign content = block.settings %}
+  {% if content.collection_handle == collection.handle %}
+    {% assign hero_large = content.hero_large %}
+    {% assign hero_small = content.hero_small %}
+    {% assign nav_default = content.collection_handle %}
+    {% assign nav_tags = content.filter_tags | split: "," %}
   {% endif %}
 {% endfor %}
 
-<vue-collection collection_handle="{{ collection.handle }}" settings_json="{{ settings_json }}"></vue-collection>
+{% assign content = section.settings %}
+{% assign show_navigation = content.show_navigation %}
+{% assign filter_label = content.filter_label %}
+{% assign sort_label = content.sort_label %}
+
+{% include "block-hero" with hero_large: hero_large, hero_small: hero_small %}
+{% if content.show_navigation %}
+  {% include "block-navbar-collection" with nav_default: nav_default, nav_tags: nav_tags, filter_label: filter_label, sort_label: sort_label %}
+{% endif %}
+<vue-collection collection_handle="{{ collection.handle }}"></vue-collection>
 
 {% schema %}
 {
   "name": "Content",
   "settings": [
-    {
-      "type": "header",
-      "content": "Collection"
-    },
-    {
-      "type": "text",
-      "id": "collection_handle",
-      "label": "Collection Handle",
-      "info": "Must Match Collection",
-      "default": "all-products"
-    },
     {
       "type": "header",
       "content": "Navigation"
@@ -32,22 +34,10 @@
       "default": true
     },
     {
-      "type": "checkbox",
-      "id": "show_filter_label",
-      "label": "Show Filter Label",
-      "default": true
-    },
-    {
       "type": "text",
       "id": "filter_label",
       "label": "Filter Label",
       "default": "Filter"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_fsort_label",
-      "label": "Show Sort Label",
-      "default": true
     },
     {
       "type": "text",
@@ -63,8 +53,9 @@
       "settings": [
         {
           "type": "text",
-          "id": "chandle",
-          "label": "Collection Navigation"
+          "id": "collection_handle",
+          "label": "Collection Handle",
+          "info": "Must Match Collection"
         },
         {
           "type": "image_picker",
@@ -77,9 +68,10 @@
           "label": "Hero Image Small"
         },
         {
-          "type": "link_list",
-          "id": "navigation",
-          "label": "Collection Navigation"
+          "type": "text",
+          "id": "filter_tags",
+          "label": "Filter Tags",
+          "info": "Ex: for-dogs,for-people"
         }
       ]
     }
