@@ -11,12 +11,11 @@ export default {
   filterBy: state => state.filterBy,
   activeCollection: (state, getters) => {
     const sortBy = getters.sortBy
-    let collection = []
-    sortBy === "newest"
-      ? collection = getters.newest
-      : sortBy === "popular"
-        ? collection = getters.popular
-        : collection = getters.featured
-    return collection
+    const collection = sortBy === "new-arrivals"
+      ? getters.newest
+      : sortBy === "most-popular"
+        ? getters.popular
+        : getters.featured
+    return sortCollection(collection)
   }
 }

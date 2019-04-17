@@ -1,3 +1,5 @@
+import { formatCollection } from "@vue/utils";
+
 export default {
   toggleFetching(state) {
     state.isFetching = !state.isFetching
@@ -13,9 +15,9 @@ export default {
   },
   setFilterBy(state, payload) {
     const urlParams = new URLSearchParams(window.location.search);
-    const sortParam = urlParams.get('filter')
-    const sortBy = sortParam ? sortParam : state.collection
-    state.sortBy = sortBy
+    const filterParam = urlParams.get('filter')
+    const filterBy = filterParam ? filterParam : state.collection
+    state.filterBy = filterBy
     return state
   },
   setSortBy(state, payload) {
@@ -26,15 +28,15 @@ export default {
     return state
   },
   setFeatured(state, payload) {
-    state.featured = payload
+    state.featured = formatCollection(payload, true)
     return state
   },
   setNewest(state, payload) {
-    state.newest = payload
+    state.newest = formatCollection(payload, true)
     return state
   },
   setPopular(state, payload) {
-    state.popular = payload
+    state.popular = formatCollection(payload, true)
     return state
   }
 }

@@ -45,7 +45,6 @@ emailBtns.forEach(btn => btn.addEventListener('click', emailShare));
 
 function emailShare() {
   const { subject, url } = event.target.dataset
-  console.log(subject)
   const body = `\n\n--\n\n${url}`
   const formattedSubject = subject.toLowerCase()
     .split(' ')

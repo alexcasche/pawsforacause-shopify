@@ -1,9 +1,10 @@
 export default {
+  isFetching: false,
   isLoading: true,
   collection: false,
   filterBy: false,
   sortBy: false,
-  featured: [],
-  newest: [],
-  popular: []
+  featured: false,
+  newest: false,
+  popular: false
 };

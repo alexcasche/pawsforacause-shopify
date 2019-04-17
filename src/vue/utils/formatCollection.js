@@ -1,6 +1,6 @@
 import { formatFloat } from '@vue/utils'
 
-export const formatCollection = (collection) => {
+export const formatCollection = (collection, showSoldOut = false) => {
   if(collection) {
     let collectionObj = {}
     collection.forEach(item => {
@@ -20,7 +20,7 @@ export const formatCollection = (collection) => {
         itemObj.variants[variant.id].compare_at_price = variant.compare_at_price > 0 ? formatFloat(variant.compare_at_price) : false
         itemObj.variants[variant.id].price = variant.price > 0 ? formatFloat(variant.price) : false
       })
-      if(item.available) {
+      if(item.available || showSoldOut) {
         collectionObj[item.id] = itemObj
       }
     })

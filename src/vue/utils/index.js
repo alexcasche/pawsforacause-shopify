@@ -10,6 +10,7 @@ export { formatItem } from "./formatItem";
 export { formatOptions } from "./formatOptions";
 export { formatProduct } from "./formatProduct";
 export { formatCollection } from "./formatCollection";
+export { objectEmpty } from "./objectEmpty";
 export { setCartData } from "./setCartData";
 export { setCartTriggers } from "./setCartTriggers";
 export { sortCollection } from "./sortCollection";

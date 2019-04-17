@@ -69,6 +69,7 @@ export default {
     availableQuantity: {
       immediate: true,
       handler(val) {
+        this.activeQuantity = this.availableQuantity > 0 ? 1 : '--'
         this.$emit('quantityChange', { 
           activeQuantity: this.activeQuantity, 
           availableQuantity: val

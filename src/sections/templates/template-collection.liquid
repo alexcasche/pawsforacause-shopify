@@ -1,6 +1,10 @@
 {% for block in section.blocks %}
   {% assign content = block.settings %}
-  {% if content.collection_handle == collection.handle %}
+  {% assign collection_handle = collection.handle %}
+  {% if collection_handle == "all" %}
+    {% assign collection_handle = "all-products" %}
+  {% endif %}
+  {% if content.collection_handle == collection_handle %}
     {% assign hero_large = content.hero_large %}
     {% assign hero_small = content.hero_small %}
     {% assign nav_default = content.collection_handle %}
@@ -17,7 +21,7 @@
 {% if content.show_navigation %}
   {% include "block-navbar-collection" with nav_default: nav_default, nav_tags: nav_tags, filter_label: filter_label, sort_label: sort_label %}
 {% endif %}
-<vue-collection collection_handle="{{ collection.handle }}"></vue-collection>
+<vue-collection collection_handle="{{ collection_handle }}"></vue-collection>
 
 {% schema %}
 {

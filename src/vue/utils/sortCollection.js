@@ -1,15 +1,16 @@
 export const sortCollection = (collection, sortBy) => {
-  const available = collection.filter(product => product.available);
-  const soldOut = collection.filter(product => !product.available);
-
+  if(!collection) return false
+  let collectionArray = []
+  Object.keys(collection).forEach(key => collectionArray.push(collection[key]))
   switch(sortBy) {
-    case "":
-      this.addCart({ id, quantity: 1 })
+    case "price-ascending":
+      collectionArray = [ ...collectionArray.sort((a, b) => (parseFloat(a.price) > parseFloat(b.price)) ? 1 : -1)]
       break;
-    case "remove":
-      this.changeCart({ id, quantity: quantity - 1 })
-      break
-    case "clear":
-      this.changeCart({ id, quantity: 0 })
+    case "price-descending":
+    collectionArray = [ ...collectionArray.sort((a, b) => (parseFloat(a.price) < parseFloat(b.price)) ? 1 : -1)]
+      break;
   }
+  const inStock = collectionArray.filter(item => item.available);
+  const soldOut = collectionArray.filter(item => !item.available);
+  return [ ...inStock, ...soldOut ]
 }
