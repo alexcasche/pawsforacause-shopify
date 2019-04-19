@@ -1,30 +1,31 @@
-<div id="navbar" class="c-navbar">
+<div id="navbar" class="c-navbar c-navbar--collection">
   <div class="c-navbar__container o-container--large">
-    <div class="c-navbar__side c-navbar__side--filter">
-      <span class="c-navbar__label c-navbar__label--filter">
-        {{ filter_label }}
+    <span class="c-navbar__select">
+      <select id="navbar-filter" class="c-navbar__selectInner">
+        {% if nav_default %}
+          <option value="false">{{ nav_default | replace: "-", " " }}</option>
+        {% endif %}
+        {% for link in nav_tags %}
+          <option value="{{ link }}">{{ link | replace: "-", " " }}</option>
+        {% endfor %}
+      </select>
+      <span id="navbar-filter-label" class="c-navbar__selectLabel">
+        {{ nav_default | replace: "-", " " }}
       </span>
-      <span class="c-navbar__select c-navbar__select--filter">
-        <select id="navbar-select-filter" class="c-navbar__selectInner">
-          {% for link in nav_menu.links %}
-            <option value="{{ link.url }}">{{ link.title }}</option>
-          {% endfor %}
-        </select>
-        <span id="navbar-select-filter-label" class="c-navbar__selectLabel"></span>
+    </span>
+    <span class="c-navbar__select">
+      <select id="navbar-sort" class="c-navbar__selectInner">
+        <option value="false">Featured</option>
+        <option value="new-arrivals">New Arrivals</option>
+        <option value="most-popular">Most Popular</option>
+        <option value="price-ascending">Price: Low-High</option>
+        <option value="price-descending">Price: High-Low</option>
+      </select>
+      <span id="navbar-sort-label" class="c-navbar__selectLabel">
+        Featured
       </span>
-    </div>
-    <div class="c-navbar__side c-navbar__side--sort">
-      <span class="c-navbar__label c-navbar__label--sort">
-        {{ sort_label }}
-      </span>
-      <span class="c-navbar__select c-navbar__select--sort">
-        {% comment %} <select id="navbar-select-sort" class="c-navbar__selectInner">
-          {% for link in nav_menu.links %}
-            <option value="{{ link.url }}">{{ link.title }}</option>
-          {% endfor %}
-        </select>
-        <span id="navbar-select-sort-label" class="c-navbar__selectLabel"></span> {% endcomment %}
-      </span>
-    </div>
+    </span>
   </div>
 </div>
+
+<script src="{{ 'collection-navbar.js' | asset_url }}" defer="defer"></script>

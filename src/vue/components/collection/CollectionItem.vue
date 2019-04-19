@@ -39,7 +39,6 @@ export default {
   },
   updated() {
     this.$refs.itemImage.classList.add("lazyload")
-    console.log(this.$refs)
   }
 }
 </script>

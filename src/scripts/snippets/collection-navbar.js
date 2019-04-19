@@ -17,7 +17,7 @@ function selectInit(type) {
     const activeOption = options.find(option => option.value === param)
     const activeIndex = activeOption ? options.indexOf(activeOption) : 0
     select.selectedIndex = activeIndex
-    label.textContent = activeOption.value.replace("-", " ")
+    label.textContent = activeOption.textContent
   }
   select.addEventListener("change", function(event) {
     selectChange(event, type, select, label)

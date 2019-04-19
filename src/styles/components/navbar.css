@@ -50,7 +50,7 @@
 }
 .c-navbar__selectInner {
   height: 100%;
-  padding-right: 15px;
+  padding: 0 20px;
   background-color: transparent;
   border: none;
   color: $color-black;

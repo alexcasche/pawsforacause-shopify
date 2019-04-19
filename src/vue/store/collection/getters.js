@@ -1,4 +1,4 @@
-import { sortCollection } from "@vue/utils"
+import { sortCollection, filterCollection } from "@vue/utils"
 
 export default {
   isFetching: state => state.isFetching,
@@ -11,11 +11,14 @@ export default {
   filterBy: state => state.filterBy,
   activeCollection: (state, getters) => {
     const sortBy = getters.sortBy
+    const filterBy = getters.filterBy
     const collection = sortBy === "new-arrivals"
       ? getters.newest
       : sortBy === "most-popular"
         ? getters.popular
         : getters.featured
-    return sortCollection(collection)
+    return !collection
+      ? false
+      : filterCollection(sortCollection(collection, sortBy), filterBy)
   }
 }

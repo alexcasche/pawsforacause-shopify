@@ -16,7 +16,7 @@ export default {
   setFilterBy(state, payload) {
     const urlParams = new URLSearchParams(window.location.search);
     const filterParam = urlParams.get('filter')
-    const filterBy = filterParam ? filterParam : state.collection
+    const filterBy = filterParam ? filterParam : false
     state.filterBy = filterBy
     return state
   },

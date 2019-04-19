@@ -19,7 +19,7 @@
 
 {% include "block-hero" with hero_large: hero_large, hero_small: hero_small %}
 {% if content.show_navigation %}
-  {% include "block-navbar-collection" with nav_default: nav_default, nav_tags: nav_tags, filter_label: filter_label, sort_label: sort_label %}
+  {% include "collection-navbar" with nav_default: nav_default, nav_tags: nav_tags, filter_label: filter_label, sort_label: sort_label %}
 {% endif %}
 <vue-collection collection_handle="{{ collection_handle }}"></vue-collection>
 
